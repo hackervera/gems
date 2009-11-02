@@ -22,13 +22,36 @@ checked program was:
 
 --------------------
 
-have_header: checking for sqlite3.h... -------------------- no
+have_header: checking for sqlite3.h... -------------------- yes
 
 "gcc -E -I. -I/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/1.8/x86_64-linux -I.    -g -Os -fno-strict-aliasing     conftest.c -o conftest.i"
-conftest.c:1:21: error: sqlite3.h: No such file or directory
 checked program was:
 /* begin */
 1: #include <sqlite3.h>
+/* end */
+
+--------------------
+
+have_library: checking for sqlite3_open() in -lsqlite3... -------------------- yes
+
+"gcc -o conftest -I. -I/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/1.8/x86_64-linux -I.    -g -Os -fno-strict-aliasing    conftest.c  -L. -L/opt/ruby-enterprise-1.8.7-2009.10/lib -Wl,-R/opt/ruby-enterprise-1.8.7-2009.10/lib -L.  -rdynamic -Wl,-export-dynamic    -lrt  -lruby-static -lsqlite3 -lrt  -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function 't':
+conftest.c:3: error: 'sqlite3_open' undeclared (first use in this function)
+conftest.c:3: error: (Each undeclared identifier is reported only once
+conftest.c:3: error: for each function it appears in.)
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { void ((*volatile p)()); p = (void ((*)()))sqlite3_open; return 0; }
+/* end */
+
+"gcc -o conftest -I. -I/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/1.8/x86_64-linux -I.    -g -Os -fno-strict-aliasing    conftest.c  -L. -L/opt/ruby-enterprise-1.8.7-2009.10/lib -Wl,-R/opt/ruby-enterprise-1.8.7-2009.10/lib -L.  -rdynamic -Wl,-export-dynamic    -lrt  -lruby-static -lsqlite3 -lrt  -lrt -ldl -lcrypt -lm   -lc"
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { sqlite3_open(); return 0; }
 /* end */
 
 --------------------
