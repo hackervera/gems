@@ -1,0 +1,13 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: deep_merge!
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Recursively merges this mash with the passed in hash, merging each hash in the hierarchy.
+full_name: Mash#deep_update
+is_singleton: false
+name: deep_update
+params: (other_hash)
+visibility: public

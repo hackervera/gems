@@ -1,0 +1,31 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Mode may only be 'r', 'w', or 'w+'.
+- !ruby/struct:SM::Flow::P 
+  body: Options. Descriptions start with a list of the modes for which that option is legitimate.
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: ":root :"
+    body: (r, w, w+) Name of root collection to use, instead of DEFAULT_ROOT_COLLECTION.
+  - !ruby/struct:SM::Flow::LI 
+    label: ":metadata:"
+    body: (w, w+) A hash containing any data you want persisted as
+  - !ruby/struct:SM::Flow::VERB 
+    body: "        this file's metadata. See also metadata=\n"
+  - !ruby/struct:SM::Flow::LI 
+    label: ":chunk_size :"
+    body: (w) Sets chunk size for files opened for writing See also chunk_size= which may only be called before any data is written.
+  - !ruby/struct:SM::Flow::LI 
+    label: ":content_type :"
+    body: "(w) Default value is DEFAULT_CONTENT_TYPE. See also #content_type="
+  type: :NOTE
+full_name: GridFS::GridStore::new
+is_singleton: true
+name: new
+params: (db, name, mode='r', options={})
+visibility: public

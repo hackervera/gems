@@ -1,0 +1,19 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: A special &quot;undefined&quot; type to match Mongo's storage of UNKNOWN values. &quot;UNKNOWN&quot; comes from JavaScript.
+- !ruby/struct:SM::Flow::P 
+  body: "NOTE: this class does not attempt to provide ANY of the semantics an &quot;unknown&quot; object might need. It isn't nil, it isn't special in any way, and there isn't any singleton value."
+constants: []
+
+full_name: XGen::Mongo::Driver::Undefined
+includes: []
+
+instance_methods: []
+
+name: Undefined
+superclass: Object

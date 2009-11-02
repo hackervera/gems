@@ -1,0 +1,13 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: push
+- !ruby/object:RI::AliasName 
+  name: concat
+block_params: 
+comment: 
+full_name: MongoMapper::Associations::ManyDocumentsProxy#<<
+is_singleton: false
+name: "<<"
+params: (*docs)
+visibility: public

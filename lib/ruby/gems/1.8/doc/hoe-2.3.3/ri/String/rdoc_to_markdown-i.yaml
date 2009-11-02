@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Very basic munge from rdoc to markdown format.
+full_name: String#rdoc_to_markdown
+is_singleton: false
+name: rdoc_to_markdown
+params: ()
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: mainly for testing purposes
+full_name: OAuth::Server#create_consumer
+is_singleton: false
+name: create_consumer
+params: ()
+visibility: public

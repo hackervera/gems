@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>define_rcov_tasks (Hoe::RCov)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/hoe/rcov.rb, line 12</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">define_rcov_tasks</span>
+    <span class="ruby-keyword kw">begin</span> <span class="ruby-comment cmt"># take a whack at defining rcov tasks</span>
+      <span class="ruby-identifier">require</span> <span class="ruby-value str">'rcov/rcovtask'</span>
+
+      <span class="ruby-constant">Rcov</span><span class="ruby-operator">::</span><span class="ruby-constant">RcovTask</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">pattern</span> = <span class="ruby-constant">ENV</span>[<span class="ruby-value str">'PATTERN'</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">test_globs</span>
+
+        <span class="ruby-identifier">t</span>.<span class="ruby-identifier">test_files</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-identifier">pattern</span>]
+        <span class="ruby-identifier">t</span>.<span class="ruby-identifier">verbose</span> = <span class="ruby-keyword kw">true</span>
+        <span class="ruby-identifier">t</span>.<span class="ruby-identifier">rcov_opts</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot;--no-color&quot;</span>
+        <span class="ruby-identifier">t</span>.<span class="ruby-identifier">rcov_opts</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot;--save coverage.info&quot;</span>
+        <span class="ruby-identifier">t</span>.<span class="ruby-identifier">rcov_opts</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot;-x ^/&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-comment cmt"># this is for my emacs rcov overlay stuff on emacswiki.</span>
+      <span class="ruby-identifier">task</span> <span class="ruby-identifier">:rcov_overlay</span> <span class="ruby-keyword kw">do</span>
+        <span class="ruby-identifier">path</span> = <span class="ruby-constant">ENV</span>[<span class="ruby-value str">&quot;FILE&quot;</span>]
+        <span class="ruby-identifier">rcov</span>, <span class="ruby-identifier">eol</span> = <span class="ruby-constant">Marshal</span>.<span class="ruby-identifier">load</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-value str">&quot;coverage.info&quot;</span>)).<span class="ruby-identifier">last</span>[<span class="ruby-identifier">path</span>], <span class="ruby-value">1</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-identifier">rcov</span>[<span class="ruby-identifier">:lines</span>].<span class="ruby-identifier">zip</span>(<span class="ruby-identifier">rcov</span>[<span class="ruby-identifier">:coverage</span>]).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">line</span>, <span class="ruby-identifier">coverage</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">bol</span>, <span class="ruby-identifier">eol</span> = <span class="ruby-identifier">eol</span>, <span class="ruby-identifier">eol</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">line</span>.<span class="ruby-identifier">length</span>
+          [<span class="ruby-identifier">bol</span>, <span class="ruby-identifier">eol</span>, <span class="ruby-value str">&quot;#ffcccc&quot;</span>] <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">coverage</span>
+        }.<span class="ruby-identifier">compact</span>.<span class="ruby-identifier">inspect</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">LoadError</span>
+      <span class="ruby-comment cmt"># skip</span>
+      <span class="ruby-identifier">task</span> <span class="ruby-identifier">:clobber_rcov</span> <span class="ruby-comment cmt"># in case rcov didn't load</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

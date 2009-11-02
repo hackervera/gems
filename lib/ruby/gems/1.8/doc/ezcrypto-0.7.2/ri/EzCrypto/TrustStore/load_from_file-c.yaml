@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Create a trust store from a list of certificates in a pem file. These certificates should just be listed one after each other.
+full_name: EzCrypto::TrustStore::load_from_file
+is_singleton: true
+name: load_from_file
+params: (file)
+visibility: public

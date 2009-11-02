@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Validatable::Errors</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Validatable::Errors</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/validatable/errors_rb.html">
+                lib/validatable/errors.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000265">[]</a>&nbsp;&nbsp;
+      <a href="#M000268">full_messages</a>&nbsp;&nbsp;
+      <a href="#M000263">invalid?</a>&nbsp;&nbsp;
+      <a href="#M000264">on</a>&nbsp;&nbsp;
+      <a href="#M000267">raw</a>&nbsp;&nbsp;
+      <a href="#M000266">replace</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+        <span class="include-name">Enumerable</span>
+      </div>
+    </div>
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000265" class="method-detail">
+        <a name="M000265"></a>
+
+        <div class="method-heading">
+          <span class="method-name">[]</span><span class="method-args">(attribute)</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="Errors.html#M000264">on</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000268" class="method-detail">
+        <a name="M000268"></a>
+
+        <div class="method-heading">
+          <a href="Errors.src/M000268.html" target="Code" class="method-signature"
+            onclick="popupCode('Errors.src/M000268.html');return false;">
+          <span class="method-name"> full_messages &rarr; an_array_of_messages<br />
+</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns an array containing the full list of error messages.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000263" class="method-detail">
+        <a name="M000263"></a>
+
+        <div class="method-heading">
+          <a href="Errors.src/M000263.html" target="Code" class="method-signature"
+            onclick="popupCode('Errors.src/M000263.html');return false;">
+          <span class="method-name">invalid?</span><span class="method-args">(attribute)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns true if the specified <tt>attribute</tt> has errors associated with
+it.
+</p>
+<pre>
+  class Company &lt; ActiveRecord::Base
+    validates_presence_of :name, :address, :email
+    validates_length_of :name, :in =&gt; 5..30
+  end
+
+  company = Company.create(:address =&gt; '123 First St.')
+  company.errors.invalid?(:name)      # =&gt; true
+  company.errors.invalid?(:address)   # =&gt; false
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000264" class="method-detail">
+        <a name="M000264"></a>
+
+        <div class="method-heading">
+          <a href="Errors.src/M000264.html" target="Code" class="method-signature"
+            onclick="popupCode('Errors.src/M000264.html');return false;">
+          <span class="method-name"> on(attribute)<br />
+</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <ul>
+<li>Returns nil, if no errors are associated with the specified
+<tt>attribute</tt>.
+
+</li>
+<li>Returns the error message, if one error is associated with the specified
+<tt>attribute</tt>.
+
+</li>
+<li>Returns an array of error messages, if more than one error is associated
+with the specified <tt>attribute</tt>.
+
+</li>
+</ul>
+        </div>
+      </div>
+
+      <div id="method-M000267" class="method-detail">
+        <a name="M000267"></a>
+
+        <div class="method-heading">
+          <a href="Errors.src/M000267.html" target="Code" class="method-signature"
+            onclick="popupCode('Errors.src/M000267.html');return false;">
+          <span class="method-name"> raw(attribute)<br />
+</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <ul>
+<li>Returns an array of error messages associated with the specified
+<tt>attribute</tt>.
+
+</li>
+</ul>
+        </div>
+      </div>
+
+      <div id="method-M000266" class="method-detail">
+        <a name="M000266"></a>
+
+        <div class="method-heading">
+          <a href="Errors.src/M000266.html" target="Code" class="method-signature"
+            onclick="popupCode('Errors.src/M000266.html');return false;">
+          <span class="method-name"> replace(attribute)<br />
+</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <ul>
+<li>Replaces the errors value for the given <tt>attribute</tt>
+
+</li>
+</ul>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

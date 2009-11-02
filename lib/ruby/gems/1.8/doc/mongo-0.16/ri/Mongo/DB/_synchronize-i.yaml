@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Mongo::DB#_synchronize
+is_singleton: false
+name: _synchronize
+params: (&block)
+visibility: public

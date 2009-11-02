@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: XGen::Mongo::Driver::DB#send_to_db
+is_singleton: false
+name: send_to_db
+params: (message)
+visibility: public

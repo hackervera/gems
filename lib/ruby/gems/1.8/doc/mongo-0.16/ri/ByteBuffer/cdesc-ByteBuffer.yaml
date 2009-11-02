@@ -1,0 +1,64 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: order
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: A byte buffer.
+constants: []
+
+full_name: ByteBuffer
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: append!
+- !ruby/object:RI::MethodSummary 
+  name: clear
+- !ruby/object:RI::MethodSummary 
+  name: dump
+- !ruby/object:RI::MethodSummary 
+  name: get
+- !ruby/object:RI::MethodSummary 
+  name: get_double
+- !ruby/object:RI::MethodSummary 
+  name: get_int
+- !ruby/object:RI::MethodSummary 
+  name: get_long
+- !ruby/object:RI::MethodSummary 
+  name: length
+- !ruby/object:RI::MethodSummary 
+  name: more?
+- !ruby/object:RI::MethodSummary 
+  name: order=
+- !ruby/object:RI::MethodSummary 
+  name: position
+- !ruby/object:RI::MethodSummary 
+  name: position=
+- !ruby/object:RI::MethodSummary 
+  name: prepend!
+- !ruby/object:RI::MethodSummary 
+  name: put
+- !ruby/object:RI::MethodSummary 
+  name: put_array
+- !ruby/object:RI::MethodSummary 
+  name: put_double
+- !ruby/object:RI::MethodSummary 
+  name: put_int
+- !ruby/object:RI::MethodSummary 
+  name: put_long
+- !ruby/object:RI::MethodSummary 
+  name: rewind
+- !ruby/object:RI::MethodSummary 
+  name: size
+- !ruby/object:RI::MethodSummary 
+  name: to_a
+- !ruby/object:RI::MethodSummary 
+  name: to_s
+name: ByteBuffer
+superclass: Object

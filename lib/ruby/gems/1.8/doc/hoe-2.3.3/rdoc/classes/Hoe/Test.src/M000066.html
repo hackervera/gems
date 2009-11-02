@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>initialize_test (Hoe::Test)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/hoe/test.rb, line 52</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize_test</span>
+    <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">multiruby_skip</span> <span class="ruby-operator">||=</span> []
+    <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">testlib</span>        <span class="ruby-operator">||=</span> <span class="ruby-identifier">:testunit</span>
+    <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">rspec_dirs</span>     <span class="ruby-operator">||=</span> <span class="ruby-node">%w(spec lib)</span>
+    <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">rspec_options</span>  <span class="ruby-operator">||=</span> []
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

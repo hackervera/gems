@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Is this certificate valid at this point in time. Note this only checks if it is valid with respect to time. It is important to realize that it does not check with any CRL or OCSP services to see if the certificate was revoked.
+full_name: EzCrypto::Certificate#valid?
+is_singleton: false
+name: valid?
+params: (time=Time.now.utc)
+visibility: public

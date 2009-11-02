@@ -1,0 +1,35 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: options
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: password
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: username
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: Twitter::HTTPAuth
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: HTTParty
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: delete
+- !ruby/object:RI::MethodSummary 
+  name: get
+- !ruby/object:RI::MethodSummary 
+  name: post
+- !ruby/object:RI::MethodSummary 
+  name: put
+name: HTTPAuth
+superclass: Object

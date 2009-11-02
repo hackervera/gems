@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: XMLToRuby#doc_to_ruby
+is_singleton: false
+name: doc_to_ruby
+params: (element)
+visibility: protected

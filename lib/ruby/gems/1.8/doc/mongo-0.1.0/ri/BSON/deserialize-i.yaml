@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: BSON#deserialize
+is_singleton: false
+name: deserialize
+params: (buf=nil, parent=nil)
+visibility: public

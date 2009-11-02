@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Limits the number of results per page
+full_name: Twitter::Search#per_page
+is_singleton: false
+name: per_page
+params: (num)
+visibility: public

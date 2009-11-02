@@ -1,0 +1,78 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Mash allows you to create pseudo-objects that have method-like accessors for hash keys. This is useful for such implementations as an API-accessing library that wants to fake robust objects without the overhead of actually doing so. Think of it as OpenStruct with some additional goodies.
+- !ruby/struct:SM::Flow::P 
+  body: "A Mash will look at the methods you pass it and perform operations based on the following rules:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: "No punctuation: Returns the value of the hash for that key, or nil if none exists."
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: "Assignment (<tt>=</tt>): Sets the attribute of the given method name."
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: "Existence (<tt>?</tt>): Returns true or false depending on whether that key has been set."
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: "Bang (<tt>!</tt>): Forces the existence of this key, used for deep Mashes. Think of it as &quot;touch&quot; for mashes."
+  type: :BULLET
+- !ruby/struct:SM::Flow::H 
+  level: 2
+  text: Basic Example
+- !ruby/struct:SM::Flow::VERB 
+  body: "  mash = Mash.new\n  mash.name? # =&gt; false\n  mash.name = &quot;Bob&quot;\n  mash.name # =&gt; &quot;Bob&quot;\n  mash.name? # =&gt; true\n"
+- !ruby/struct:SM::Flow::H 
+  level: 2
+  text: Hash Conversion Example
+- !ruby/struct:SM::Flow::VERB 
+  body: "  hash = {:a =&gt; {:b =&gt; 23, :d =&gt; {:e =&gt; &quot;abc&quot;}}, :f =&gt; [{:g =&gt; 44, :h =&gt; 29}, 12]}\n  mash = Mash.new(hash)\n  mash.a.b # =&gt; 23\n  mash.a.d.e # =&gt; &quot;abc&quot;\n  mash.f.first.g # =&gt; 44\n  mash.f.last # =&gt; 12\n"
+- !ruby/struct:SM::Flow::H 
+  level: 2
+  text: Bang Example
+- !ruby/struct:SM::Flow::VERB 
+  body: "  mash = Mash.new\n  mash.author # =&gt; nil\n  mash.author! # =&gt; &lt;Mash&gt;\n\n  mash = Mash.new\n  mash.author!.name = &quot;Michael Bleigh&quot;\n  mash.author # =&gt; &lt;Mash name=&quot;Michael Bleigh&quot;&gt;\n"
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: VERSION
+  value: "'0.0.3'"
+full_name: Mash
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: "[]"
+- !ruby/object:RI::MethodSummary 
+  name: deep_merge
+- !ruby/object:RI::MethodSummary 
+  name: deep_merge!
+- !ruby/object:RI::MethodSummary 
+  name: deep_update
+- !ruby/object:RI::MethodSummary 
+  name: default
+- !ruby/object:RI::MethodSummary 
+  name: dup
+- !ruby/object:RI::MethodSummary 
+  name: initializing_reader
+- !ruby/object:RI::MethodSummary 
+  name: inspect
+- !ruby/object:RI::MethodSummary 
+  name: key?
+- !ruby/object:RI::MethodSummary 
+  name: merge!
+- !ruby/object:RI::MethodSummary 
+  name: to_hash
+- !ruby/object:RI::MethodSummary 
+  name: to_s
+- !ruby/object:RI::MethodSummary 
+  name: update
+name: Mash
+superclass: Hash

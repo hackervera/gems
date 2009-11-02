@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Only searches tweets since a given id. Recommended to use this when possible.
+full_name: Twitter::Search#since
+is_singleton: false
+name: since
+params: (since_id)
+visibility: public

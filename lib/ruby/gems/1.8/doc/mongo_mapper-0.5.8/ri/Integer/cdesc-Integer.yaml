@@ -1,0 +1,16 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: to_mongo
+comment: 
+constants: []
+
+full_name: Integer
+includes: []
+
+instance_methods: []
+
+name: Integer
+superclass: Object

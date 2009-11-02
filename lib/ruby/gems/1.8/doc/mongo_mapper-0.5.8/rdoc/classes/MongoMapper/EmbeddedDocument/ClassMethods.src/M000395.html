@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>inherited (MongoMapper::EmbeddedDocument::ClassMethods)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/mongo_mapper/embedded_document.rb, line 29</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">inherited</span>(<span class="ruby-identifier">subclass</span>)
+        <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">subclass</span>.<span class="ruby-identifier">embeddable?</span>
+          <span class="ruby-identifier">subclass</span>.<span class="ruby-identifier">set_collection_name</span>(<span class="ruby-identifier">collection_name</span>)
+        <span class="ruby-keyword kw">end</span>
+
+        (<span class="ruby-ivar">@subclasses</span> <span class="ruby-operator">||=</span> []) <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">subclass</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

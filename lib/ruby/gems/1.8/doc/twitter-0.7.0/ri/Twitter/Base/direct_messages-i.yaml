@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Options: since, since_id, page"
+full_name: Twitter::Base#direct_messages
+is_singleton: false
+name: direct_messages
+params: (query={})
+visibility: public

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: MongoMapper::Validations::ValidatesUniquenessOf#scope_conditions
+is_singleton: false
+name: scope_conditions
+params: (instance)
+visibility: public

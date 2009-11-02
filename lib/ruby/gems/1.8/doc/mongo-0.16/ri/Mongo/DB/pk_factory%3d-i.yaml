@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Mongo::DB#pk_factory=
+is_singleton: false
+name: pk_factory=
+params: (pk_factory)
+visibility: public

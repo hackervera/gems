@@ -1,0 +1,11 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: consumer_key
+block_params: 
+comment: 
+full_name: OAuth::RequestProxy::Base#oauth_consumer_key
+is_singleton: false
+name: oauth_consumer_key
+params: ()
+visibility: public

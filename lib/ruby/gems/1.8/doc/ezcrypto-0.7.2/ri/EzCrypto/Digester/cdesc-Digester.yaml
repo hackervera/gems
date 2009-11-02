@@ -1,0 +1,28 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: digest
+- !ruby/object:RI::MethodSummary 
+  name: digest64
+- !ruby/object:RI::MethodSummary 
+  name: generate_hexkey
+- !ruby/object:RI::MethodSummary 
+  name: generate_key
+- !ruby/object:RI::MethodSummary 
+  name: generate_key64
+- !ruby/object:RI::MethodSummary 
+  name: get_key
+- !ruby/object:RI::MethodSummary 
+  name: hexdigest
+comment: ""
+constants: []
+
+full_name: EzCrypto::Digester
+includes: []
+
+instance_methods: []
+
+name: Digester
+superclass: Object

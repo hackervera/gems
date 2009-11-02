@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Note: If using oauth with a web app, be sure to provide :oauth_callback. Options:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  :oauth_callback =&gt; String, url that twitter should redirect to\n"
+full_name: Twitter::OAuth#request_token
+is_singleton: false
+name: request_token
+params: (options={})
+visibility: public

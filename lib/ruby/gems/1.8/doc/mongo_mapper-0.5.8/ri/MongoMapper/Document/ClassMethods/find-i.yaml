@@ -1,0 +1,26 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "@overload find(:first, options)"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  @see Document.first\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@overload find(:last, options)"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  @see Document.last\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@overload find(:all, options)"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  @see Document.all\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@overload find(ids, options)"
+- !ruby/struct:SM::Flow::P 
+  body: "@raise DocumentNotFound raised when no ID or arguments are provided"
+full_name: MongoMapper::Document::ClassMethods#find
+is_singleton: false
+name: find
+params: (*args)
+visibility: public

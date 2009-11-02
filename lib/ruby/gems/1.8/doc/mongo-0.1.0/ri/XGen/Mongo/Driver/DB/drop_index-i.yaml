@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Drop index <tt>name</tt> from <tt>collection_name</tt>. Normally called from Collection#drop_index or Collection#drop_indexes.
+full_name: XGen::Mongo::Driver::DB#drop_index
+is_singleton: false
+name: drop_index
+params: (collection_name, name)
+visibility: public

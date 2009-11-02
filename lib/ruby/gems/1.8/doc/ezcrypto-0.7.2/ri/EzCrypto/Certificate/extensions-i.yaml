@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Returns the hash of extensions available in the certificate. These are not always present.
+full_name: EzCrypto::Certificate#extensions
+is_singleton: false
+name: extensions
+params: ()
+visibility: public

@@ -1,0 +1,77 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Optional: Array of incompatible versions for multiruby filtering. Used as a regex."
+  name: multiruby_skip
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Optional: RSpec dirs. [default: %w(spec lib)]"
+  name: rspec_dirs
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Optional: RSpec options. [default: []]"
+  name: rspec_options
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Optional: What test library to require [default: :testunit]"
+  name: testlib
+  rw: RW
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Test plugin for hoe.
+- !ruby/struct:SM::Flow::H 
+  level: 3
+  text: "Tasks Provided:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "audit:"
+    body: Run ZenTest against the package.
+  - !ruby/struct:SM::Flow::LI 
+    label: "default:"
+    body: Run the default task(s).
+  - !ruby/struct:SM::Flow::LI 
+    label: "multi:"
+    body: Run the test suite using multiruby.
+  - !ruby/struct:SM::Flow::LI 
+    label: "test:"
+    body: Run the test suite.
+  - !ruby/struct:SM::Flow::LI 
+    label: "test_deps:"
+    body: Show which test files fail when run alone.
+  type: :NOTE
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Configuration for the supported test frameworks for test task.
+  name: SUPPORTED_TEST_FRAMEWORKS
+  value: "{     :testunit => \"test/unit\",     :minitest => \"minitest/autorun\",   }"
+- !ruby/object:RI::Constant 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Used to add flags to test_unit (e.g., -n test_borked).
+  - !ruby/struct:SM::Flow::P 
+    body: eg FILTER=&quot;-n test_blah&quot;
+  name: FILTER
+  value: ENV['FILTER'] || ENV['TESTOPTS']
+full_name: Hoe::Test
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: define_test_tasks
+- !ruby/object:RI::MethodSummary 
+  name: initialize_test
+name: Test
+superclass: 

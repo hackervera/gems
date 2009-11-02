@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "One or more of the following must be present:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  name, email, url, location, description\n"
+full_name: Twitter::Base#update_profile
+is_singleton: false
+name: update_profile
+params: (body={})
+visibility: public

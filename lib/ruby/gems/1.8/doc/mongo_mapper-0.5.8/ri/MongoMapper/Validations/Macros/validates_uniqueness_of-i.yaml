@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: MongoMapper::Validations::Macros#validates_uniqueness_of
+is_singleton: false
+name: validates_uniqueness_of
+params: (*args)
+visibility: public

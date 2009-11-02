@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: construct an authorization url
+full_name: OAuth::RequestToken#build_authorize_url
+is_singleton: false
+name: build_authorize_url
+params: (base_url, params)
+visibility: protected

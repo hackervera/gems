@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Normalize a <tt>Hash</tt> of parameter values. Parameters are sorted by name, using lexicographical byte value ordering. If two or more parameters share the same name, they are sorted by their value. Parameters are concatenated in their sorted order into a single string. For each parameter, the name is separated from the corresponding value by an &quot;=&quot; character, even if the value is empty. Each name-value pair is separated by an &quot;&amp;&quot; character.
+- !ruby/struct:SM::Flow::P 
+  body: "See Also: {OAuth core spec version 1.0, section 9.1.1}[http://oauth.net/core/1.0#rfc.section.9.1.1]"
+full_name: OAuth::Helper#normalize
+is_singleton: false
+name: normalize
+params: (params)
+visibility: public

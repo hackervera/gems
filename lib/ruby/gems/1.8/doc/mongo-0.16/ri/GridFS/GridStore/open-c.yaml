@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: gs if block_given?
+comment: 
+full_name: GridFS::GridStore::open
+is_singleton: true
+name: open
+params: (db, name, mode, options={}) {|gs if block_given?| ...}
+visibility: public

@@ -1,0 +1,30 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: DIRTY_SUFFIXES
+  value: "['_changed?', '_change', '_will_change!', '_was']"
+full_name: MongoMapper::Dirty
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: changed
+- !ruby/object:RI::MethodSummary 
+  name: changed?
+- !ruby/object:RI::MethodSummary 
+  name: changes
+- !ruby/object:RI::MethodSummary 
+  name: method_missing
+- !ruby/object:RI::MethodSummary 
+  name: save
+- !ruby/object:RI::MethodSummary 
+  name: save!
+name: Dirty
+superclass: 

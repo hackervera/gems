@@ -1,0 +1,15 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: name
+- !ruby/object:RI::AliasName 
+  name: cn
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The common name. For SSL this means the domain name. For personal certificates it is the name.
+full_name: EzCrypto::Name#common_name
+is_singleton: false
+name: common_name
+params: ()
+visibility: public

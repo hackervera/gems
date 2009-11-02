@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: EzCrypto::Verifier</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">EzCrypto::Verifier</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/ezsig_rb.html">
+                lib/ezsig.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+The <a href="Verifier.html">Verifier</a> is used for verifying signatures.
+If you use the <a href="Verifier.html#M000040">decode</a> or <a
+href="Verifier.html#M000041">from_file</a> methods you can use either raw
+PEM encoded public keys or certificate.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000044">cert?</a>&nbsp;&nbsp;
+      <a href="#M000040">decode</a>&nbsp;&nbsp;
+      <a href="#M000046">digest</a>&nbsp;&nbsp;
+      <a href="#M000048">dsa?</a>&nbsp;&nbsp;
+      <a href="#M000041">from_file</a>&nbsp;&nbsp;
+      <a href="#M000042">from_pkyp</a>&nbsp;&nbsp;
+      <a href="#M000043">load_all_from_file</a>&nbsp;&nbsp;
+      <a href="#M000039">new</a>&nbsp;&nbsp;
+      <a href="#M000045">public_key</a>&nbsp;&nbsp;
+      <a href="#M000050">register_with_pkyp</a>&nbsp;&nbsp;
+      <a href="#M000047">rsa?</a>&nbsp;&nbsp;
+      <a href="#M000051">send_to_pkyp</a>&nbsp;&nbsp;
+      <a href="#M000049">verify</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000040" class="method-detail">
+        <a name="M000040"></a>
+
+        <div class="method-heading">
+          <a href="Verifier.src/M000040.html" target="Code" class="method-signature"
+            onclick="popupCode('Verifier.src/M000040.html');return false;">
+          <span class="method-name">decode</span><span class="method-args">(encoded)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Decodes a PEM encoded <a href="Certificate.html">Certificate</a> or Public
+<a href="Key.html">Key</a> and returns a <a
+href="Verifier.html">Verifier</a> object.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000041" class="method-detail">
+        <a name="M000041"></a>
+
+        <div class="method-heading">
+          <a href="Verifier.src/M000041.html" target="Code" class="method-signature"
+            onclick="popupCode('Verifier.src/M000041.html');return false;">
+          <span class="method-name">from_file</span><span class="method-args">(filename)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Decodes a PEM encoded <a href="Certificate.html">Certificate</a> or Public
+<a href="Key.html">Key</a> from a file and returns a <a
+href="Verifier.html">Verifier</a> object.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000042" class="method-detail">
+        <a name="M000042"></a>
+
+        <div class="method-heading">
+          <a href="Verifier.src/M000042.html" target="Code" class="method-signature"
+            onclick="popupCode('Verifier.src/M000042.html');return false;">
+          <span class="method-name">from_pkyp</span><span class="method-args">(digest)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Load a certificate or public key from PKYP based on it&#8216;s hex <a
+href="Verifier.html#M000046">digest</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000043" class="method-detail">
+        <a name="M000043"></a>
+
+        <div class="method-heading">
+          <a href="Verifier.src/M000043.html" target="Code" class="method-signature"
+            onclick="popupCode('Verifier.src/M000043.html');return false;">
+          <span class="method-name">load_all_from_file</span><span class="method-args">(filename)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Decodes all certificates or public keys in a file and returns an array.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000039" class="method-detail">
+        <a name="M000039"></a>
+
+        <div class="method-heading">
+          <a href="Verifier.src/M000039.html" target="Code" class="method-signature"
+            onclick="popupCode('Verifier.src/M000039.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(pub)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Initializes a <a href="Verifier.html">Verifier</a> using a OpenSSL public
+key object.
+</p>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000044" class="method-detail">
+        <a name="M000044"></a>
+
+        <div class="method-heading">
+          <a href="Verifier.src/M000044.html" target="Code" class="method-signature"
+            onclick="popupCode('Verifier.src/M000044.html');return false;">
+          <span class="method-name">cert?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Is the <a href="Verifier.html">Verifier</a> a <a
+href="Certificate.html">Certificate</a> or not.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000046" class="method-detail">
+        <a name="M000046"></a>
+
+        <div class="method-heading">
+          <a href="Verifier.src/M000046.html" target="Code" class="method-signature"
+            onclick="popupCode('Verifier.src/M000046.html');return false;">
+          <span class="method-name">digest</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the SHA1 hexdigest of the DER encoded public key. This can be used
+as a unique key identifier.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000048" class="method-detail">
+        <a name="M000048"></a>
+
+        <div class="method-heading">
+          <a href="Verifier.src/M000048.html" target="Code" class="method-signature"
+            onclick="popupCode('Verifier.src/M000048.html');return false;">
+          <span class="method-name">dsa?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Is this a DSA key?
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000045" class="method-detail">
+        <a name="M000045"></a>
+
+        <div class="method-heading">
+          <a href="Verifier.src/M000045.html" target="Code" class="method-signature"
+            onclick="popupCode('Verifier.src/M000045.html');return false;">
+          <span class="method-name">public_key</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the OpenSSL public key object. You would normally not need to use
+this.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000050" class="method-detail">
+        <a name="M000050"></a>
+
+        <div class="method-heading">
+          <a href="Verifier.src/M000050.html" target="Code" class="method-signature"
+            onclick="popupCode('Verifier.src/M000050.html');return false;">
+          <span class="method-name">register_with_pkyp</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Register the public key or certificate at PKYP
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000047" class="method-detail">
+        <a name="M000047"></a>
+
+        <div class="method-heading">
+          <a href="Verifier.src/M000047.html" target="Code" class="method-signature"
+            onclick="popupCode('Verifier.src/M000047.html');return false;">
+          <span class="method-name">rsa?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Is this a RSA key?
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000049" class="method-detail">
+        <a name="M000049"></a>
+
+        <div class="method-heading">
+          <a href="Verifier.src/M000049.html" target="Code" class="method-signature"
+            onclick="popupCode('Verifier.src/M000049.html');return false;">
+          <span class="method-name">verify</span><span class="method-args">(sig,data)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns true if the public key signed the given data.
+</p>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Protected Instance methods</h3>
+
+      <div id="method-M000051" class="method-detail">
+        <a name="M000051"></a>
+
+        <div class="method-heading">
+          <a href="Verifier.src/M000051.html" target="Code" class="method-signature"
+            onclick="popupCode('Verifier.src/M000051.html');return false;">
+          <span class="method-name">send_to_pkyp</span><span class="method-args">(pem)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

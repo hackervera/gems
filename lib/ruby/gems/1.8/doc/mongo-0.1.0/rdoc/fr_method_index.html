@@ -1,0 +1,201 @@
+
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!--
+
+    Methods
+
+  -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Methods</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="rdoc-style.css" type="text/css" />
+  <base target="docwin" />
+</head>
+<body>
+<div id="index">
+  <h1 class="section-bar">Methods</h1>
+  <div id="index-entries">
+    <a href="classes/XGen/Mongo/Driver/Collection.html#M000153"><< (XGen::Mongo::Driver::Collection)</a><br />
+    <a href="classes/XGen/Mongo/Driver/ObjectID.html#M000169">== (XGen::Mongo::Driver::ObjectID)</a><br />
+    <a href="classes/OrderedHash.html#M000042">[]= (OrderedHash)</a><br />
+    <a href="classes/XGen/Mongo/Driver/DB.html#M000125">admin (XGen::Mongo::Driver::DB)</a><br />
+    <a href="classes/XMLToRuby.html#M000004">array_to_ruby (XMLToRuby)</a><br />
+    <a href="classes/BSON.html#M000040">bson_type (BSON)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Collection.html#M000155">clear (XGen::Mongo::Driver::Collection)</a><br />
+    <a href="classes/ByteBuffer.html#M000054">clear (ByteBuffer)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Mongo.html#M000090">clone_database (XGen::Mongo::Driver::Mongo)</a><br />
+    <a href="classes/XGen/Mongo/Driver/DB.html#M000131">close (XGen::Mongo::Driver::DB)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Cursor.html#M000103">close (XGen::Mongo::Driver::Cursor)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Cursor.html#M000096">closed? (XGen::Mongo::Driver::Cursor)</a><br />
+    <a href="classes/XGen/Mongo/Driver/DB.html#M000126">collection (XGen::Mongo::Driver::DB)</a><br />
+    <a href="classes/XGen/Mongo/Driver/DB.html#M000122">collection_names (XGen::Mongo::Driver::DB)</a><br />
+    <a href="classes/XGen/Mongo/Driver/DB.html#M000123">collections_info (XGen::Mongo::Driver::DB)</a><br />
+    <a href="classes/XGen/Mongo/Driver/DB.html#M000121">connect_to_first_available_host (XGen::Mongo::Driver::DB)</a><br />
+    <a href="classes/XGen/Mongo/Driver/DB.html#M000132">connected? (XGen::Mongo::Driver::DB)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Query.html#M000087">contains_special_fields (XGen::Mongo::Driver::Query)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Mongo.html#M000091">copy_database (XGen::Mongo::Driver::Mongo)</a><br />
+    <a href="classes/XGen/Mongo/Driver/DB.html#M000140">count (XGen::Mongo::Driver::DB)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Collection.html#M000164">count (XGen::Mongo::Driver::Collection)</a><br />
+    <a href="classes/XGen/Mongo/Driver/DB.html#M000124">create_collection (XGen::Mongo::Driver::DB)</a><br />
+    <a href="classes/XGen/Mongo/Driver/DB.html#M000143">create_index (XGen::Mongo::Driver::DB)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Collection.html#M000159">create_index (XGen::Mongo::Driver::Collection)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Mongo.html#M000089">db (XGen::Mongo::Driver::Mongo)</a><br />
+    <a href="classes/XGen/Mongo/Driver/DB.html#M000148">db_command (XGen::Mongo::Driver::DB)</a><br />
+    <a href="classes/XMLToRuby.html#M000006">dbref_to_ruby (XMLToRuby)</a><br />
+    <a href="classes/BSON.html#M000013">deserialize (BSON)</a><br />
+    <a href="classes/BSON.html#M000020">deserialize_array_data (BSON)</a><br />
+    <a href="classes/BSON.html#M000025">deserialize_binary_data (BSON)</a><br />
+    <a href="classes/BSON.html#M000016">deserialize_boolean_data (BSON)</a><br />
+    <a href="classes/BSON.html#M000039">deserialize_cstr (BSON)</a><br />
+    <a href="classes/BSON.html#M000015">deserialize_date_data (BSON)</a><br />
+    <a href="classes/BSON.html#M000024">deserialize_dbref_data (BSON)</a><br />
+    <a href="classes/BSON.html#M000017">deserialize_number_data (BSON)</a><br />
+    <a href="classes/BSON.html#M000018">deserialize_number_int_data (BSON)</a><br />
+    <a href="classes/BSON.html#M000019">deserialize_object_data (BSON)</a><br />
+    <a href="classes/BSON.html#M000023">deserialize_oid_data (BSON)</a><br />
+    <a href="classes/BSON.html#M000021">deserialize_regex_data (BSON)</a><br />
+    <a href="classes/BSON.html#M000022">deserialize_string_data (BSON)</a><br />
+    <a href="classes/XMLToRuby.html#M000003">doc_to_ruby (XMLToRuby)</a><br />
+    <a href="classes/XGen/Mongo/Driver/DB.html#M000127">drop_collection (XGen::Mongo::Driver::DB)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Collection.html#M000160">drop_index (XGen::Mongo::Driver::Collection)</a><br />
+    <a href="classes/XGen/Mongo/Driver/DB.html#M000141">drop_index (XGen::Mongo::Driver::DB)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Collection.html#M000161">drop_indexes (XGen::Mongo::Driver::Collection)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Message.html#M000078">dump (XGen::Mongo::Driver::Message)</a><br />
+    <a href="classes/ByteBuffer.html#M000071">dump (ByteBuffer)</a><br />
+    <a href="classes/XGen/Mongo/Driver/MessageHeader.html#M000082">dump (XGen::Mongo::Driver::MessageHeader)</a><br />
+    <a href="classes/OrderedHash.html#M000043">each (OrderedHash)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Cursor.html#M000100">each (XGen::Mongo::Driver::Cursor)</a><br />
+    <a href="classes/XMLToRuby.html#M000002">element_to_ruby (XMLToRuby)</a><br />
+    <a href="classes/XGen/Mongo/Driver/ObjectID.html#M000168">eql? (XGen::Mongo::Driver::ObjectID)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Cursor.html#M000102">explain (XGen::Mongo::Driver::Cursor)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Query.html#M000086">fields (XGen::Mongo::Driver::Query)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Query.html#M000085">fields= (XGen::Mongo::Driver::Query)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Collection.html#M000151">find (XGen::Mongo::Driver::Collection)</a><br />
+    <a href="classes/XGen/Mongo/Driver/QueryMessage.html#M000093">first_key (XGen::Mongo::Driver::QueryMessage)</a><br />
+    <a href="classes/XGen/Mongo/Driver/ObjectID.html#M000166">from_string (XGen::Mongo::Driver::ObjectID)</a><br />
+    <a href="classes/XGen/Mongo/Driver/DB.html#M000146">full_coll_name (XGen::Mongo::Driver::DB)</a><br />
+    <a href="classes/XGen/Mongo/Driver/ObjectID.html#M000172">generate_id (XGen::Mongo::Driver::ObjectID)</a><br />
+    <a href="classes/ByteBuffer.html#M000064">get (ByteBuffer)</a><br />
+    <a href="classes/ByteBuffer.html#M000067">get_double (ByteBuffer)</a><br />
+    <a href="classes/ByteBuffer.html#M000065">get_int (ByteBuffer)</a><br />
+    <a href="classes/ByteBuffer.html#M000066">get_long (ByteBuffer)</a><br />
+    <a href="classes/BSON.html#M000014">hex_dump (BSON)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Cursor.html#M000097">hint (XGen::Mongo::Driver::Cursor)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Collection.html#M000150">hint (XGen::Mongo::Driver::Collection)</a><br />
+    <a href="classes/XGen/Mongo/Driver/ObjectID.html#M000173">index_for_time (XGen::Mongo::Driver::ObjectID)</a><br />
+    <a href="classes/XGen/Mongo/Driver/DB.html#M000142">index_information (XGen::Mongo::Driver::DB)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Collection.html#M000162">index_information (XGen::Mongo::Driver::Collection)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Collection.html#M000152">insert (XGen::Mongo::Driver::Collection)</a><br />
+    <a href="classes/XGen/Mongo/Driver/DB.html#M000144">insert_into_db (XGen::Mongo::Driver::DB)</a><br />
+    <a href="classes/OrderedHash.html#M000047">inspect (OrderedHash)</a><br />
+    <a href="classes/OrderedHash.html#M000041">keys (OrderedHash)</a><br />
+    <a href="classes/ByteBuffer.html#M000056">length (ByteBuffer)</a><br />
+    <a href="classes/XGen/Mongo/Driver/DB.html#M000129">master (XGen::Mongo::Driver::DB)</a><br />
+    <a href="classes/XGen/Mongo/Driver/DB.html#M000128">master? (XGen::Mongo::Driver::DB)</a><br />
+    <a href="classes/OrderedHash.html#M000045">merge (OrderedHash)</a><br />
+    <a href="classes/OrderedHash.html#M000046">merge! (OrderedHash)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Collection.html#M000158">modify (XGen::Mongo::Driver::Collection)</a><br />
+    <a href="classes/XGen/Mongo/Driver/DB.html#M000138">modify_in_db (XGen::Mongo::Driver::DB)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Cursor.html#M000098">more? (XGen::Mongo::Driver::Cursor)</a><br />
+    <a href="classes/ByteBuffer.html#M000068">more? (ByteBuffer)</a><br />
+    <a href="classes/XGen/Mongo/Driver/RegexpOfHolding.html#M000094">new (XGen::Mongo::Driver::RegexpOfHolding)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Query.html#M000083">new (XGen::Mongo::Driver::Query)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Collection.html#M000149">new (XGen::Mongo::Driver::Collection)</a><br />
+    <a href="classes/XGen/Mongo/Driver/MessageHeader.html#M000080">new (XGen::Mongo::Driver::MessageHeader)</a><br />
+    <a href="classes/XGen/Mongo/Driver/UpdateMessage.html#M000165">new (XGen::Mongo::Driver::UpdateMessage)</a><br />
+    <a href="classes/XGen/Mongo/Driver/ObjectID.html#M000167">new (XGen::Mongo::Driver::ObjectID)</a><br />
+    <a href="classes/XGen/Mongo/Driver/RemoveMessage.html#M000109">new (XGen::Mongo::Driver::RemoveMessage)</a><br />
+    <a href="classes/ByteBuffer.html#M000049">new (ByteBuffer)</a><br />
+    <a href="classes/XGen/Mongo/Driver/QueryMessage.html#M000092">new (XGen::Mongo::Driver::QueryMessage)</a><br />
+    <a href="classes/XGen/Mongo/Driver/DBRef.html#M000174">new (XGen::Mongo::Driver::DBRef)</a><br />
+    <a href="classes/BSON.html#M000010">new (BSON)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Cursor.html#M000095">new (XGen::Mongo::Driver::Cursor)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Message.html#M000072">new (XGen::Mongo::Driver::Message)</a><br />
+    <a href="classes/XGen/Mongo/Driver/DB.html#M000120">new (XGen::Mongo::Driver::DB)</a><br />
+    <a href="classes/XGen/Mongo/Driver/KillCursorsMessage.html#M000118">new (XGen::Mongo::Driver::KillCursorsMessage)</a><br />
+    <a href="classes/XGen/Mongo/Driver/GetMoreMessage.html#M000117">new (XGen::Mongo::Driver::GetMoreMessage)</a><br />
+    <a href="classes/XGen/Mongo/Driver/MsgMessage.html#M000116">new (XGen::Mongo::Driver::MsgMessage)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Admin.html#M000111">new (XGen::Mongo::Driver::Admin)</a><br />
+    <a href="classes/XGen/Mongo/Driver/InsertMessage.html#M000110">new (XGen::Mongo::Driver::InsertMessage)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Mongo.html#M000088">new (XGen::Mongo::Driver::Mongo)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Cursor.html#M000099">next_object (XGen::Mongo::Driver::Cursor)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Cursor.html#M000108">num_remaining (XGen::Mongo::Driver::Cursor)</a><br />
+    <a href="classes/XGen/Mongo/Driver/DB.html#M000147">ok? (XGen::Mongo::Driver::DB)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Collection.html#M000163">options (XGen::Mongo::Driver::Collection)</a><br />
+    <a href="classes/ByteBuffer.html#M000050">order= (ByteBuffer)</a><br />
+    <a href="classes/ByteBuffer.html#M000052">position (ByteBuffer)</a><br />
+    <a href="classes/ByteBuffer.html#M000053">position= (ByteBuffer)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Admin.html#M000114">profiling_info (XGen::Mongo::Driver::Admin)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Admin.html#M000112">profiling_level (XGen::Mongo::Driver::Admin)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Admin.html#M000113">profiling_level= (XGen::Mongo::Driver::Admin)</a><br />
+    <a href="classes/ByteBuffer.html#M000057">put (ByteBuffer)</a><br />
+    <a href="classes/ByteBuffer.html#M000058">put_array (ByteBuffer)</a><br />
+    <a href="classes/ByteBuffer.html#M000063">put_double (ByteBuffer)</a><br />
+    <a href="classes/ByteBuffer.html#M000062">put_double (ByteBuffer)</a><br />
+    <a href="classes/ByteBuffer.html#M000059">put_int (ByteBuffer)</a><br />
+    <a href="classes/ByteBuffer.html#M000060">put_int (ByteBuffer)</a><br />
+    <a href="classes/ByteBuffer.html#M000061">put_long (ByteBuffer)</a><br />
+    <a href="classes/XGen/Mongo/Driver/DB.html#M000134">query (XGen::Mongo::Driver::DB)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Cursor.html#M000104">read_all (XGen::Mongo::Driver::Cursor)</a><br />
+    <a href="classes/XGen/Mongo/Driver/MessageHeader.html#M000081">read_header (XGen::Mongo::Driver::MessageHeader)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Cursor.html#M000106">read_message_header (XGen::Mongo::Driver::Cursor)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Cursor.html#M000105">read_objects_off_wire (XGen::Mongo::Driver::Cursor)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Cursor.html#M000107">read_response_header (XGen::Mongo::Driver::Cursor)</a><br />
+    <a href="classes/XMLToRuby.html#M000005">regex_to_ruby (XMLToRuby)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Collection.html#M000154">remove (XGen::Mongo::Driver::Collection)</a><br />
+    <a href="classes/XGen/Mongo/Driver/DB.html#M000136">remove_from_db (XGen::Mongo::Driver::DB)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Collection.html#M000157">replace (XGen::Mongo::Driver::Collection)</a><br />
+    <a href="classes/XGen/Mongo/Driver/DB.html#M000137">replace_in_db (XGen::Mongo::Driver::DB)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Collection.html#M000156">repsert (XGen::Mongo::Driver::Collection)</a><br />
+    <a href="classes/XGen/Mongo/Driver/DB.html#M000139">repsert_in_db (XGen::Mongo::Driver::DB)</a><br />
+    <a href="classes/ByteBuffer.html#M000051">rewind (ByteBuffer)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Query.html#M000084">selector= (XGen::Mongo::Driver::Query)</a><br />
+    <a href="classes/XGen/Mongo/Driver/DB.html#M000133">send_message (XGen::Mongo::Driver::DB)</a><br />
+    <a href="classes/XGen/Mongo/Driver/DB.html#M000135">send_query_message (XGen::Mongo::Driver::DB)</a><br />
+    <a href="classes/XGen/Mongo/Driver/DB.html#M000145">send_to_db (XGen::Mongo::Driver::DB)</a><br />
+    <a href="classes/BSON.html#M000012">serialize (BSON)</a><br />
+    <a href="classes/BSON.html#M000035">serialize_array_element (BSON)</a><br />
+    <a href="classes/BSON.html#M000029">serialize_binary_element (BSON)</a><br />
+    <a href="classes/BSON.html#M000031">serialize_boolean_element (BSON)</a><br />
+    <a href="classes/BSON.html#M000009">serialize_cstr (BSON)</a><br />
+    <a href="classes/BSON.html#M000032">serialize_date_element (BSON)</a><br />
+    <a href="classes/BSON.html#M000028">serialize_dbref_element (BSON)</a><br />
+    <a href="classes/BSON.html#M000026">serialize_eoo_element (BSON)</a><br />
+    <a href="classes/BSON.html#M000027">serialize_null_element (BSON)</a><br />
+    <a href="classes/BSON.html#M000033">serialize_number_element (BSON)</a><br />
+    <a href="classes/BSON.html#M000034">serialize_object_element (BSON)</a><br />
+    <a href="classes/BSON.html#M000037">serialize_oid_element (BSON)</a><br />
+    <a href="classes/BSON.html#M000036">serialize_regex_element (BSON)</a><br />
+    <a href="classes/BSON.html#M000038">serialize_string_element (BSON)</a><br />
+    <a href="classes/BSON.html#M000030">serialize_undefined_element (BSON)</a><br />
+    <a href="classes/ByteBuffer.html#M000055">size (ByteBuffer)</a><br />
+    <a href="classes/XGen/Mongo/Driver/DB.html#M000119">strict? (XGen::Mongo::Driver::DB)</a><br />
+    <a href="classes/XGen/Mongo/Driver/DB.html#M000130">switch_to_master (XGen::Mongo::Driver::DB)</a><br />
+    <a href="classes/ByteBuffer.html#M000069">to_a (ByteBuffer)</a><br />
+    <a href="classes/BSON.html#M000011">to_a (BSON)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Message.html#M000077">to_a (XGen::Mongo::Driver::Message)</a><br />
+    <a href="classes/XGen/Mongo/Driver/ObjectID.html#M000170">to_a (XGen::Mongo::Driver::ObjectID)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Cursor.html#M000101">to_a (XGen::Mongo::Driver::Cursor)</a><br />
+    <a href="classes/String.html#M000048">to_mongo_binary (String)</a><br />
+    <a href="classes/XGen/Mongo/Driver/ObjectID.html#M000171">to_s (XGen::Mongo::Driver::ObjectID)</a><br />
+    <a href="classes/ByteBuffer.html#M000070">to_s (ByteBuffer)</a><br />
+    <a href="classes/XGen/Mongo/Driver/DBRef.html#M000175">to_s (XGen::Mongo::Driver::DBRef)</a><br />
+    <a href="classes/BSON.html#M000007">to_utf8 (BSON)</a><br />
+    <a href="classes/BSON.html#M000008">to_utf8 (BSON)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Message.html#M000079">update_message_length (XGen::Mongo::Driver::Message)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Admin.html#M000115">validate_collection (XGen::Mongo::Driver::Admin)</a><br />
+    <a href="classes/OrderedHash.html#M000044">values (OrderedHash)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Message.html#M000076">write_doc (XGen::Mongo::Driver::Message)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Message.html#M000073">write_int (XGen::Mongo::Driver::Message)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Message.html#M000074">write_long (XGen::Mongo::Driver::Message)</a><br />
+    <a href="classes/XGen/Mongo/Driver/Message.html#M000075">write_string (XGen::Mongo::Driver::Message)</a><br />
+    <a href="classes/XMLToRuby.html#M000001">xml_to_ruby (XMLToRuby)</a><br />
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: finder_options
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: name
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: options
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: type
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Options that should not be considered MongoDB query options/criteria
+  name: AssociationOptions
+  value: "[:as, :class_name, :dependent, :extend, :foreign_key, :polymorphic]"
+full_name: MongoMapper::Associations::Base
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: as
+- !ruby/object:RI::MethodSummary 
+  name: as?
+- !ruby/object:RI::MethodSummary 
+  name: belongs_to?
+- !ruby/object:RI::MethodSummary 
+  name: class_name
+- !ruby/object:RI::MethodSummary 
+  name: embeddable?
+- !ruby/object:RI::MethodSummary 
+  name: foreign_key
+- !ruby/object:RI::MethodSummary 
+  name: ivar
+- !ruby/object:RI::MethodSummary 
+  name: klass
+- !ruby/object:RI::MethodSummary 
+  name: many?
+- !ruby/object:RI::MethodSummary 
+  name: polymorphic?
+- !ruby/object:RI::MethodSummary 
+  name: proxy_class
+- !ruby/object:RI::MethodSummary 
+  name: type_key_name
+name: Base
+superclass: Object

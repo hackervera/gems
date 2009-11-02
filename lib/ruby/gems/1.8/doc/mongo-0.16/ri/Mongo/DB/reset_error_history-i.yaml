@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Reset the error history of this database
+- !ruby/struct:SM::Flow::P 
+  body: Calls to DB#previous_error will only return errors that have occurred since the most recent call to this method.
+full_name: Mongo::DB#reset_error_history
+is_singleton: false
+name: reset_error_history
+params: ()
+visibility: public

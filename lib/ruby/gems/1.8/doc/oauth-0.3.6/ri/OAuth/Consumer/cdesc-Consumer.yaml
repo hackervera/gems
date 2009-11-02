@@ -1,0 +1,97 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: http
+  rw: W
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: key
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: options
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: secret
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: site
+  rw: W
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: determine the certificate authority path to verify SSL certs
+  name: CA_FILES
+  value: "%w(/etc/ssl/certs/ca-certificates.crt /usr/share/curl/curl-ca-bundle.crt)"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: CA_FILE
+  value: ca_file
+- !ruby/object:RI::Constant 
+  comment: 
+  name: CA_FILE
+  value: nil unless defined?(CA_FILE)
+full_name: OAuth::Consumer
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: access_token_path
+- !ruby/object:RI::MethodSummary 
+  name: access_token_url
+- !ruby/object:RI::MethodSummary 
+  name: access_token_url?
+- !ruby/object:RI::MethodSummary 
+  name: authorize_path
+- !ruby/object:RI::MethodSummary 
+  name: authorize_url
+- !ruby/object:RI::MethodSummary 
+  name: authorize_url?
+- !ruby/object:RI::MethodSummary 
+  name: create_http
+- !ruby/object:RI::MethodSummary 
+  name: create_http_request
+- !ruby/object:RI::MethodSummary 
+  name: create_signed_request
+- !ruby/object:RI::MethodSummary 
+  name: get_access_token
+- !ruby/object:RI::MethodSummary 
+  name: get_request_token
+- !ruby/object:RI::MethodSummary 
+  name: http
+- !ruby/object:RI::MethodSummary 
+  name: http_method
+- !ruby/object:RI::MethodSummary 
+  name: marshal_dump
+- !ruby/object:RI::MethodSummary 
+  name: proxy
+- !ruby/object:RI::MethodSummary 
+  name: request
+- !ruby/object:RI::MethodSummary 
+  name: request_token_path
+- !ruby/object:RI::MethodSummary 
+  name: request_token_url
+- !ruby/object:RI::MethodSummary 
+  name: request_token_url?
+- !ruby/object:RI::MethodSummary 
+  name: scheme
+- !ruby/object:RI::MethodSummary 
+  name: sign!
+- !ruby/object:RI::MethodSummary 
+  name: signature_base_string
+- !ruby/object:RI::MethodSummary 
+  name: site
+- !ruby/object:RI::MethodSummary 
+  name: token_request
+- !ruby/object:RI::MethodSummary 
+  name: uri
+name: Consumer
+superclass: Object

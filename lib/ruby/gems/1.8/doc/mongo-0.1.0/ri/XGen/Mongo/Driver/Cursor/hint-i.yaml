@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Set hint fields to use and return <tt>self</tt>. hint_fields may be a single field name, array of field names, or a hash whose keys will become the hint field names. May be <tt>nil</tt>. If no hint fields are specified, the ones in the collection are used if they exist.
+full_name: XGen::Mongo::Driver::Cursor#hint
+is_singleton: false
+name: hint
+params: (hint_fields)
+visibility: public

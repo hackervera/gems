@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>list_add_member (Twitter::Base)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/twitter/base.rb, line 191</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">list_add_member</span>(<span class="ruby-identifier">list_owner_username</span>, <span class="ruby-identifier">slug</span>, <span class="ruby-identifier">new_id</span>)
+      <span class="ruby-identifier">perform_post</span>(<span class="ruby-node">&quot;/#{list_owner_username}/#{slug}/members.json&quot;</span>, <span class="ruby-identifier">:body</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-identifier">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">new_id</span>})
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

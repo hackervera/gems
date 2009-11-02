@@ -1,0 +1,876 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Twitter::Base</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Twitter::Base</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/twitter/base_rb.html">
+                lib/twitter/base.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000181">block</a>&nbsp;&nbsp;
+      <a href="#M000164">direct_message_create</a>&nbsp;&nbsp;
+      <a href="#M000165">direct_message_destroy</a>&nbsp;&nbsp;
+      <a href="#M000162">direct_messages</a>&nbsp;&nbsp;
+      <a href="#M000163">direct_messages_sent</a>&nbsp;&nbsp;
+      <a href="#M000180">disable_notifications</a>&nbsp;&nbsp;
+      <a href="#M000179">enable_notifications</a>&nbsp;&nbsp;
+      <a href="#M000177">favorite_create</a>&nbsp;&nbsp;
+      <a href="#M000178">favorite_destroy</a>&nbsp;&nbsp;
+      <a href="#M000176">favorites</a>&nbsp;&nbsp;
+      <a href="#M000170">follower_ids</a>&nbsp;&nbsp;
+      <a href="#M000160">followers</a>&nbsp;&nbsp;
+      <a href="#M000169">friend_ids</a>&nbsp;&nbsp;
+      <a href="#M000159">friends</a>&nbsp;&nbsp;
+      <a href="#M000153">friends_timeline</a>&nbsp;&nbsp;
+      <a href="#M000166">friendship_create</a>&nbsp;&nbsp;
+      <a href="#M000167">friendship_destroy</a>&nbsp;&nbsp;
+      <a href="#M000168">friendship_exists?</a>&nbsp;&nbsp;
+      <a href="#M000183">help</a>&nbsp;&nbsp;
+      <a href="#M000194">is_list_member?</a>&nbsp;&nbsp;
+      <a href="#M000188">list</a>&nbsp;&nbsp;
+      <a href="#M000192">list_add_member</a>&nbsp;&nbsp;
+      <a href="#M000184">list_create</a>&nbsp;&nbsp;
+      <a href="#M000186">list_delete</a>&nbsp;&nbsp;
+      <a href="#M000191">list_members</a>&nbsp;&nbsp;
+      <a href="#M000193">list_remove_member</a>&nbsp;&nbsp;
+      <a href="#M000196">list_subscribe</a>&nbsp;&nbsp;
+      <a href="#M000195">list_subscribers</a>&nbsp;&nbsp;
+      <a href="#M000189">list_timeline</a>&nbsp;&nbsp;
+      <a href="#M000197">list_unsubscribe</a>&nbsp;&nbsp;
+      <a href="#M000185">list_update</a>&nbsp;&nbsp;
+      <a href="#M000187">lists</a>&nbsp;&nbsp;
+      <a href="#M000190">memberships</a>&nbsp;&nbsp;
+      <a href="#M000152">new</a>&nbsp;&nbsp;
+      <a href="#M000174">rate_limit_status</a>&nbsp;&nbsp;
+      <a href="#M000157">replies</a>&nbsp;&nbsp;
+      <a href="#M000155">status</a>&nbsp;&nbsp;
+      <a href="#M000158">status_destroy</a>&nbsp;&nbsp;
+      <a href="#M000182">unblock</a>&nbsp;&nbsp;
+      <a href="#M000156">update</a>&nbsp;&nbsp;
+      <a href="#M000172">update_delivery_device</a>&nbsp;&nbsp;
+      <a href="#M000175">update_profile</a>&nbsp;&nbsp;
+      <a href="#M000173">update_profile_colors</a>&nbsp;&nbsp;
+      <a href="#M000161">user</a>&nbsp;&nbsp;
+      <a href="#M000154">user_timeline</a>&nbsp;&nbsp;
+      <a href="#M000171">verify_credentials</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">client</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000152" class="method-detail">
+        <a name="M000152"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000152.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000152.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(client)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000181" class="method-detail">
+        <a name="M000181"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000181.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000181.html');return false;">
+          <span class="method-name">block</span><span class="method-args">(id)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000164" class="method-detail">
+        <a name="M000164"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000164.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000164.html');return false;">
+          <span class="method-name">direct_message_create</span><span class="method-args">(user, text)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000165" class="method-detail">
+        <a name="M000165"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000165.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000165.html');return false;">
+          <span class="method-name">direct_message_destroy</span><span class="method-args">(id)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000162" class="method-detail">
+        <a name="M000162"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000162.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000162.html');return false;">
+          <span class="method-name">direct_messages</span><span class="method-args">(query={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Options: since, since_id, page
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000163" class="method-detail">
+        <a name="M000163"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000163.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000163.html');return false;">
+          <span class="method-name">direct_messages_sent</span><span class="method-args">(query={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Options: since, since_id, page
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000180" class="method-detail">
+        <a name="M000180"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000180.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000180.html');return false;">
+          <span class="method-name">disable_notifications</span><span class="method-args">(id)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000179" class="method-detail">
+        <a name="M000179"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000179.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000179.html');return false;">
+          <span class="method-name">enable_notifications</span><span class="method-args">(id)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000177" class="method-detail">
+        <a name="M000177"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000177.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000177.html');return false;">
+          <span class="method-name">favorite_create</span><span class="method-args">(id)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000178" class="method-detail">
+        <a name="M000178"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000178.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000178.html');return false;">
+          <span class="method-name">favorite_destroy</span><span class="method-args">(id)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000176" class="method-detail">
+        <a name="M000176"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000176.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000176.html');return false;">
+          <span class="method-name">favorites</span><span class="method-args">(query={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Options: id, page
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000170" class="method-detail">
+        <a name="M000170"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000170.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000170.html');return false;">
+          <span class="method-name">follower_ids</span><span class="method-args">(query={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Options: id, user_id, screen_name
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000160" class="method-detail">
+        <a name="M000160"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000160.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000160.html');return false;">
+          <span class="method-name">followers</span><span class="method-args">(query={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Options: id, user_id, screen_name, page
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000169" class="method-detail">
+        <a name="M000169"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000169.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000169.html');return false;">
+          <span class="method-name">friend_ids</span><span class="method-args">(query={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Options: id, user_id, screen_name
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000159" class="method-detail">
+        <a name="M000159"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000159.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000159.html');return false;">
+          <span class="method-name">friends</span><span class="method-args">(query={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Options: id, user_id, screen_name, page
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000153" class="method-detail">
+        <a name="M000153"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000153.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000153.html');return false;">
+          <span class="method-name">friends_timeline</span><span class="method-args">(query={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Options: since_id, max_id, count, page, since
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000166" class="method-detail">
+        <a name="M000166"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000166.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000166.html');return false;">
+          <span class="method-name">friendship_create</span><span class="method-args">(id, follow=false)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000167" class="method-detail">
+        <a name="M000167"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000167.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000167.html');return false;">
+          <span class="method-name">friendship_destroy</span><span class="method-args">(id)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000168" class="method-detail">
+        <a name="M000168"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000168.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000168.html');return false;">
+          <span class="method-name">friendship_exists?</span><span class="method-args">(a, b)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000183" class="method-detail">
+        <a name="M000183"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000183.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000183.html');return false;">
+          <span class="method-name">help</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000194" class="method-detail">
+        <a name="M000194"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000194.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000194.html');return false;">
+          <span class="method-name">is_list_member?</span><span class="method-args">(list_owner_username, slug, id)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000188" class="method-detail">
+        <a name="M000188"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000188.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000188.html');return false;">
+          <span class="method-name">list</span><span class="method-args">(list_owner_username, slug)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000192" class="method-detail">
+        <a name="M000192"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000192.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000192.html');return false;">
+          <span class="method-name">list_add_member</span><span class="method-args">(list_owner_username, slug, new_id)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000184" class="method-detail">
+        <a name="M000184"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000184.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000184.html');return false;">
+          <span class="method-name">list_create</span><span class="method-args">(list_owner_username, options)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000186" class="method-detail">
+        <a name="M000186"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000186.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000186.html');return false;">
+          <span class="method-name">list_delete</span><span class="method-args">(list_owner_username, slug)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000191" class="method-detail">
+        <a name="M000191"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000191.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000191.html');return false;">
+          <span class="method-name">list_members</span><span class="method-args">(list_owner_username, slug)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000193" class="method-detail">
+        <a name="M000193"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000193.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000193.html');return false;">
+          <span class="method-name">list_remove_member</span><span class="method-args">(list_owner_username, slug, id)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000196" class="method-detail">
+        <a name="M000196"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000196.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000196.html');return false;">
+          <span class="method-name">list_subscribe</span><span class="method-args">(list_owner_username, slug)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000195" class="method-detail">
+        <a name="M000195"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000195.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000195.html');return false;">
+          <span class="method-name">list_subscribers</span><span class="method-args">(list_owner_username, slug)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000189" class="method-detail">
+        <a name="M000189"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000189.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000189.html');return false;">
+          <span class="method-name">list_timeline</span><span class="method-args">(list_owner_username, slug)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000197" class="method-detail">
+        <a name="M000197"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000197.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000197.html');return false;">
+          <span class="method-name">list_unsubscribe</span><span class="method-args">(list_owner_username, slug)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000185" class="method-detail">
+        <a name="M000185"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000185.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000185.html');return false;">
+          <span class="method-name">list_update</span><span class="method-args">(list_owner_username, slug, options)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000187" class="method-detail">
+        <a name="M000187"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000187.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000187.html');return false;">
+          <span class="method-name">lists</span><span class="method-args">(list_owner_username=nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000190" class="method-detail">
+        <a name="M000190"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000190.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000190.html');return false;">
+          <span class="method-name">memberships</span><span class="method-args">(list_owner_username)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000174" class="method-detail">
+        <a name="M000174"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000174.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000174.html');return false;">
+          <span class="method-name">rate_limit_status</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000157" class="method-detail">
+        <a name="M000157"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000157.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000157.html');return false;">
+          <span class="method-name">replies</span><span class="method-args">(query={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Options: since_id, max_id, since, page
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000155" class="method-detail">
+        <a name="M000155"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000155.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000155.html');return false;">
+          <span class="method-name">status</span><span class="method-args">(id)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000158" class="method-detail">
+        <a name="M000158"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000158.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000158.html');return false;">
+          <span class="method-name">status_destroy</span><span class="method-args">(id)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000182" class="method-detail">
+        <a name="M000182"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000182.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000182.html');return false;">
+          <span class="method-name">unblock</span><span class="method-args">(id)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000156" class="method-detail">
+        <a name="M000156"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000156.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000156.html');return false;">
+          <span class="method-name">update</span><span class="method-args">(status, query={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Options: in_reply_to_status_id
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000172" class="method-detail">
+        <a name="M000172"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000172.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000172.html');return false;">
+          <span class="method-name">update_delivery_device</span><span class="method-args">(device)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Device must be sms, im or none
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000175" class="method-detail">
+        <a name="M000175"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000175.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000175.html');return false;">
+          <span class="method-name">update_profile</span><span class="method-args">(body={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+One or more of the following must be present:
+</p>
+<pre>
+  name, email, url, location, description
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000173" class="method-detail">
+        <a name="M000173"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000173.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000173.html');return false;">
+          <span class="method-name">update_profile_colors</span><span class="method-args">(colors={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+One or more of the following must be present:
+</p>
+<pre>
+  profile_background_color, profile_text_color, profile_link_color,
+  profile_sidebar_fill_color, profile_sidebar_border_color
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000161" class="method-detail">
+        <a name="M000161"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000161.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000161.html');return false;">
+          <span class="method-name">user</span><span class="method-args">(id, query={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000154" class="method-detail">
+        <a name="M000154"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000154.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000154.html');return false;">
+          <span class="method-name">user_timeline</span><span class="method-args">(query={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Options: id, user_id, screen_name, since_id, max_id, page, since
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000171" class="method-detail">
+        <a name="M000171"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000171.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000171.html');return false;">
+          <span class="method-name">verify_credentials</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Iterates over each document found by the provided IDs and calls their <tt>destroy</tt> method. This has the advantage of processing your document's <tt>destroy</tt> call-backs.
+- !ruby/struct:SM::Flow::P 
+  body: "@overload destroy(id)"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  Destroy a single document by ID\n  @param id the ID of the document to destroy\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@overload destroy(ids)"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  Destroy many documents by their IDs\n  @param [Array] the IDs of each document you wish to destroy\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@example Destroying a single document"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  Person.destroy(&quot;34&quot;)\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@example Destroying multiple documents"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  Person.destroy(&quot;34&quot;, &quot;45&quot;, ..., &quot;54&quot;)\n\n  # OR...\n\n  Person.destroy([&quot;34&quot;, &quot;45&quot;, ..., &quot;54&quot;])\n"
+full_name: MongoMapper::Document::ClassMethods#destroy
+is_singleton: false
+name: destroy
+params: (*ids)
+visibility: public

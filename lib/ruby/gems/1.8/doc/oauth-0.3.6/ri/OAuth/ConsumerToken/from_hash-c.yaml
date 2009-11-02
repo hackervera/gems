@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: OAuth::ConsumerToken::from_hash
+is_singleton: true
+name: from_hash
+params: (consumer, hash)
+visibility: public

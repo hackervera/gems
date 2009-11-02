@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (OAuth::Signature::Base)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/oauth/signature/base.rb, line 22</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">request</span>, <span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">OAuth</span><span class="ruby-operator">::</span><span class="ruby-constant">RequestProxy</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>)
+      <span class="ruby-ivar">@request</span> = <span class="ruby-identifier">request</span>
+      <span class="ruby-ivar">@options</span> = <span class="ruby-identifier">options</span>
+
+      <span class="ruby-comment cmt">## consumer secret was determined beforehand</span>
+
+      <span class="ruby-ivar">@consumer_secret</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:consumer</span>].<span class="ruby-identifier">secret</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:consumer</span>]
+
+      <span class="ruby-comment cmt"># presence of :consumer_secret option will override any Consumer that's provided</span>
+      <span class="ruby-ivar">@consumer_secret</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:consumer_secret</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:consumer_secret</span>]
+
+      <span class="ruby-comment cmt">## token secret was determined beforehand</span>
+
+      <span class="ruby-ivar">@token_secret</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:token</span>].<span class="ruby-identifier">secret</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:token</span>]
+
+      <span class="ruby-comment cmt"># presence of :token_secret option will override any Token that's provided</span>
+      <span class="ruby-ivar">@token_secret</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:token_secret</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:token_secret</span>]
+
+
+      <span class="ruby-comment cmt"># override secrets based on the values returned from the block (if any)</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block_given?</span>
+        <span class="ruby-comment cmt"># consumer secret and token secret need to be looked up based on pieces of the request</span>
+        <span class="ruby-identifier">secrets</span> = <span class="ruby-keyword kw">yield</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">arity</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">request</span> <span class="ruby-operator">:</span> [<span class="ruby-identifier">token</span>, <span class="ruby-identifier">consumer_key</span>, <span class="ruby-identifier">nonce</span>, <span class="ruby-identifier">request</span>.<span class="ruby-identifier">timestamp</span>]
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">secrets</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">secrets</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">2</span>
+          <span class="ruby-ivar">@token_secret</span> = <span class="ruby-identifier">secrets</span>[<span class="ruby-value">0</span>]
+          <span class="ruby-ivar">@consumer_secret</span> = <span class="ruby-identifier">secrets</span>[<span class="ruby-value">1</span>]
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

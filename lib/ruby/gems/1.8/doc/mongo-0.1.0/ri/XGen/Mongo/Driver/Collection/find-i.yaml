@@ -1,0 +1,29 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Return records that match a <tt>selector</tt> hash. See Mongo docs for details.
+- !ruby/struct:SM::Flow::P 
+  body: "Options:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: ":fields :"
+    body: Array of collection field names; only those will be returned (plus _id if defined)
+  - !ruby/struct:SM::Flow::LI 
+    label: ":offset :"
+    body: Start at this record when returning records
+  - !ruby/struct:SM::Flow::LI 
+    label: ":limit :"
+    body: Maximum number of records to return
+  - !ruby/struct:SM::Flow::LI 
+    label: ":sort :"
+    body: Either hash of field names as keys and 1/-1 as values; 1 == ascending, -1 == descending, or array of field names (all assumed to be sorted in ascending order).
+  type: :NOTE
+full_name: XGen::Mongo::Driver::Collection#find
+is_singleton: false
+name: find
+params: (selector={}, options={})
+visibility: public

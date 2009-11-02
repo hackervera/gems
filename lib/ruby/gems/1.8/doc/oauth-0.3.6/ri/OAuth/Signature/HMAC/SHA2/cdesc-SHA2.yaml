@@ -1,0 +1,15 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: OAuth::Signature::HMAC::SHA2
+includes: []
+
+instance_methods: []
+
+name: SHA2
+superclass: Base

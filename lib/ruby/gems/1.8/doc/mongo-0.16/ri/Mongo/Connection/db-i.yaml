@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Return the Mongo::DB named <tt>db_name</tt>. The slave_ok and auto_reconnect options passed in via #new may be overridden here. See DB#new for other options you can pass in."
+full_name: Mongo::Connection#db
+is_singleton: false
+name: db
+params: (db_name, options={})
+visibility: public

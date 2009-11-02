@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Return a collection. If <tt>strict</tt> is false, will return existing or new collection. If <tt>strict</tt> is true, will raise an error if collection <tt>name</tt> does not already exists.
+full_name: XGen::Mongo::Driver::DB#collection
+is_singleton: false
+name: collection
+params: (name)
+visibility: public

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: BSON::to_utf8
+is_singleton: true
+name: to_utf8
+params: (str)
+visibility: public

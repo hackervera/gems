@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Make a signed request using given http_method to the path
+- !ruby/struct:SM::Flow::VERB 
+  body: "  @token.request(:get,  '/people')\n  @token.request(:post, '/people', @person.to_xml, { 'Content-Type' =&gt; 'application/xml' })\n"
+full_name: OAuth::ConsumerToken#request
+is_singleton: false
+name: request
+params: (http_method, path, *arguments)
+visibility: public

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>oauth! (Net::HTTPRequest)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/oauth/client/net_http.rb, line 24</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">oauth!</span>(<span class="ruby-identifier">http</span>, <span class="ruby-identifier">consumer</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">token</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">options</span> = {})
+    <span class="ruby-identifier">options</span> = { <span class="ruby-identifier">:request_uri</span>      =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">oauth_full_request_uri</span>(<span class="ruby-identifier">http</span>),
+                <span class="ruby-identifier">:consumer</span>         =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">consumer</span>,
+                <span class="ruby-identifier">:token</span>            =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">token</span>,
+                <span class="ruby-identifier">:scheme</span>           =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'header'</span>,
+                <span class="ruby-identifier">:signature_method</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">nil</span>,
+                <span class="ruby-identifier">:nonce</span>            =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">nil</span>,
+                <span class="ruby-identifier">:timestamp</span>        =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">nil</span> }.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">options</span>)
+
+    <span class="ruby-ivar">@oauth_helper</span> = <span class="ruby-constant">OAuth</span><span class="ruby-operator">::</span><span class="ruby-constant">Client</span><span class="ruby-operator">::</span><span class="ruby-constant">Helper</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">options</span>)
+    <span class="ruby-ivar">@oauth_helper</span>.<span class="ruby-identifier">amend_user_agent_header</span>(<span class="ruby-keyword kw">self</span>)
+    <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">send</span>(<span class="ruby-node">&quot;set_oauth_#{options[:scheme]}&quot;</span>)
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Load a certificate or public key from PKYP based on it's hex digest
+full_name: EzCrypto::Verifier::from_pkyp
+is_singleton: true
+name: from_pkyp
+params: (digest)
+visibility: public

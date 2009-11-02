@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: byte
+comment: 
+full_name: GridFS::GridStore#each_byte
+is_singleton: false
+name: each_byte
+params: () {|byte| ...}
+visibility: public

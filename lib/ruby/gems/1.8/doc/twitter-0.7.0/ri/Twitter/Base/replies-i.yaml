@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Options: since_id, max_id, since, page"
+full_name: Twitter::Base#replies
+is_singleton: false
+name: replies
+params: (query={})
+visibility: public

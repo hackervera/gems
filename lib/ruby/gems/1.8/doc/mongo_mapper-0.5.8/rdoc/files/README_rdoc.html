@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README.rdoc</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>README.rdoc</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>README.rdoc
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Mon Nov 02 09:12:35 -0500 2009</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h1>MongoMapper</h1>
+<p>
+Awesome gem for modeling your domain and storing it in mongo.
+</p>
+<p>
+Releases are tagged on github and released on gemcutter. Master is pushed
+to whenever I add a patch or a new feature, but I do not release a new gem
+version each time I push.
+</p>
+<h2>Note on Patches/Pull Requests</h2>
+<ul>
+<li>Fork the project.
+
+</li>
+<li>Make your feature addition or bug fix.
+
+</li>
+<li>Add tests for it. This is important so I don&#8216;t break it in a future
+version unintentionally.
+
+</li>
+<li>Commit, do not mess with rakefile, version, or history. (if you want to
+have your own version, that is fine but bump version in a commit by itself
+in another branch so I can ignore when I pull)
+
+</li>
+<li>Send me a pull request. Bonus points for topic branches.
+
+</li>
+</ul>
+<h2>Install</h2>
+<p>
+MongoMapper is only released on gemcutter. To install, you can setup
+gemcutter as your default gem source.
+</p>
+<pre>
+ $ gem install gemcutter
+ $ gem tumble
+</pre>
+<p>
+Then you can install MM:
+</p>
+<pre>
+ $ gem install mongo_mapper
+</pre>
+<p>
+You can also just declare the source:
+</p>
+<pre>
+ $ gem install mongo_mapper -s http://gemcutter.org
+</pre>
+<h2>Dependencies</h2>
+<ul>
+<li>ActiveSupport (typically the latest version)
+
+</li>
+<li>Mongo Ruby Driver (mongo)
+
+</li>
+<li>My fork of the validatable gem (jnunemaker-validatable)
+
+</li>
+</ul>
+<h2>Documentation</h2>
+<p>
+Documentation is lacking right now because if you can&#8216;t look through
+the code right now and feel comfortable, this is probably too young for you
+to use. Wait til it stabilizes a bit more.
+</p>
+<p>
+<a
+href="http://rdoc.info/projects/jnunemaker/mongomapper">rdoc.info/projects/jnunemaker/mongomapper</a>
+<a
+href="http://groups.google.com/group/mongomapper">groups.google.com/group/mongomapper</a>
+</p>
+<h2>More Info</h2>
+<p>
+You can learn more about mongo here: <a
+href="http://www.mongodb.org">www.mongodb.org</a>/
+</p>
+<p>
+You can learn more about the mongo ruby driver here: <a
+href="http://github.com/mongodb/mongo-ruby-driver/tree/master">github.com/mongodb/mongo-ruby-driver/tree/master</a>
+</p>
+<h2>Copyright</h2>
+<p>
+Copyright (c) 2009 John Nunemaker. See LICENSE for details.
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

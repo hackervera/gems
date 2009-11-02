@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Twitter::OAuth#authorize_from_access
+is_singleton: false
+name: authorize_from_access
+params: (atoken, asecret)
+visibility: public

@@ -1,0 +1,24 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: This module handles all standard key management features.
+constants: []
+
+full_name: ActiveCrypto::KeyHolder
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: enter_password
+- !ruby/object:RI::MethodSummary 
+  name: session_key
+- !ruby/object:RI::MethodSummary 
+  name: set_encoded_key
+- !ruby/object:RI::MethodSummary 
+  name: set_session_key
+name: KeyHolder
+superclass: 

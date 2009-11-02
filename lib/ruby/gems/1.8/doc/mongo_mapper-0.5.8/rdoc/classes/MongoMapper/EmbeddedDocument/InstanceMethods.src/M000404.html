@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (MongoMapper::EmbeddedDocument::InstanceMethods)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/mongo_mapper/embedded_document.rb, line 168</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">attrs</span>={})
+        <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">attrs</span>.<span class="ruby-identifier">nil?</span>
+          <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">associations</span>.<span class="ruby-identifier">each_pair</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span>, <span class="ruby-identifier">association</span><span class="ruby-operator">|</span>
+            <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">collection</span> = <span class="ruby-identifier">attrs</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">name</span>)
+              <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">association</span>.<span class="ruby-identifier">many?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">association</span>.<span class="ruby-identifier">klass</span>.<span class="ruby-identifier">embeddable?</span>
+                <span class="ruby-identifier">root_document</span> = <span class="ruby-identifier">attrs</span>[<span class="ruby-identifier">:_root_document</span>] <span class="ruby-operator">||</span> <span class="ruby-keyword kw">self</span>
+                <span class="ruby-identifier">collection</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">doc</span><span class="ruby-operator">|</span>
+                  <span class="ruby-identifier">doc</span>[<span class="ruby-identifier">:_root_document</span>] = <span class="ruby-identifier">root_document</span>
+                <span class="ruby-keyword kw">end</span>
+              <span class="ruby-keyword kw">end</span>
+              <span class="ruby-identifier">send</span>(<span class="ruby-node">&quot;#{association.name}=&quot;</span>, <span class="ruby-identifier">collection</span>)
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">attributes</span> = <span class="ruby-identifier">attrs</span>
+          
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:_type=</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-keyword kw">self</span>[<span class="ruby-value str">'_type'</span>].<span class="ruby-identifier">blank?</span>
+            <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">_type</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">embeddable?</span> 
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">read_attribute</span>(<span class="ruby-identifier">:_id</span>).<span class="ruby-identifier">blank?</span>
+            <span class="ruby-identifier">write_attribute</span> <span class="ruby-identifier">:_id</span>, <span class="ruby-constant">Mongo</span><span class="ruby-operator">::</span><span class="ruby-constant">ObjectID</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">to_s</span>
+            <span class="ruby-ivar">@new_document</span> = <span class="ruby-keyword kw">true</span>
+          <span class="ruby-keyword kw">else</span>
+            <span class="ruby-ivar">@new_document</span> = <span class="ruby-keyword kw">false</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: GridFS::GridStore#ungetc
+is_singleton: false
+name: ungetc
+params: (byte)
+visibility: public

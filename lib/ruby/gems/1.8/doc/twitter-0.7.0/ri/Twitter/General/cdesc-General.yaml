@@ -1,0 +1,15 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: Twitter::General
+includes: []
+
+instance_methods: []
+
+name: General
+superclass: TwitterError

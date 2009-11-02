@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>serialize (BSON)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/mongo/util/bson.rb, line 73</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">serialize</span>(<span class="ruby-identifier">obj</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-value str">&quot;Document is null&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">obj</span>
+
+    <span class="ruby-ivar">@buf</span>.<span class="ruby-identifier">rewind</span>
+    <span class="ruby-comment cmt"># put in a placeholder for the total size</span>
+    <span class="ruby-ivar">@buf</span>.<span class="ruby-identifier">put_int</span>(<span class="ruby-value">0</span>)
+
+    <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">type</span> = <span class="ruby-identifier">bson_type</span>(<span class="ruby-identifier">v</span>, <span class="ruby-identifier">k</span>)
+      <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">type</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">STRING</span>, <span class="ruby-constant">CODE</span>, <span class="ruby-constant">SYMBOL</span>
+        <span class="ruby-identifier">serialize_string_element</span>(<span class="ruby-ivar">@buf</span>, <span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span>, <span class="ruby-identifier">type</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">NUMBER</span>, <span class="ruby-constant">NUMBER_INT</span>
+        <span class="ruby-identifier">serialize_number_element</span>(<span class="ruby-ivar">@buf</span>, <span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span>, <span class="ruby-identifier">type</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">OBJECT</span>
+        <span class="ruby-identifier">serialize_object_element</span>(<span class="ruby-ivar">@buf</span>, <span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">OID</span>
+        <span class="ruby-identifier">serialize_oid_element</span>(<span class="ruby-ivar">@buf</span>, <span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">ARRAY</span>
+        <span class="ruby-identifier">serialize_array_element</span>(<span class="ruby-ivar">@buf</span>, <span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">REGEX</span>
+        <span class="ruby-identifier">serialize_regex_element</span>(<span class="ruby-ivar">@buf</span>, <span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">BOOLEAN</span>
+        <span class="ruby-identifier">serialize_boolean_element</span>(<span class="ruby-ivar">@buf</span>, <span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">DATE</span>
+        <span class="ruby-identifier">serialize_date_element</span>(<span class="ruby-ivar">@buf</span>, <span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">NULL</span>
+        <span class="ruby-identifier">serialize_null_element</span>(<span class="ruby-ivar">@buf</span>, <span class="ruby-identifier">k</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">REF</span>
+        <span class="ruby-identifier">serialize_dbref_element</span>(<span class="ruby-ivar">@buf</span>, <span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">BINARY</span>
+        <span class="ruby-identifier">serialize_binary_element</span>(<span class="ruby-ivar">@buf</span>, <span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">UNDEFINED</span>
+        <span class="ruby-identifier">serialize_undefined_element</span>(<span class="ruby-ivar">@buf</span>, <span class="ruby-identifier">k</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">CODE_W_SCOPE</span>
+        <span class="ruby-comment cmt"># TODO</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;unimplemented type #{type}&quot;</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;unhandled type #{type}&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+    }
+    <span class="ruby-identifier">serialize_eoo_element</span>(<span class="ruby-ivar">@buf</span>)
+    <span class="ruby-ivar">@buf</span>.<span class="ruby-identifier">put_int</span>(<span class="ruby-ivar">@buf</span>.<span class="ruby-identifier">size</span>, <span class="ruby-value">0</span>)
+    <span class="ruby-keyword kw">self</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

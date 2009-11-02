@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Set the block-size for IO-operations (default: 512 bytes)"
+full_name: EzCrypto::Key::block_size=
+is_singleton: true
+name: block_size=
+params: (size)
+visibility: public

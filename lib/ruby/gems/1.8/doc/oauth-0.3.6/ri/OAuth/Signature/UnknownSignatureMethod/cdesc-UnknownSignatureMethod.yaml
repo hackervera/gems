@@ -1,0 +1,15 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: OAuth::Signature::UnknownSignatureMethod
+includes: []
+
+instance_methods: []
+
+name: UnknownSignatureMethod
+superclass: Exception

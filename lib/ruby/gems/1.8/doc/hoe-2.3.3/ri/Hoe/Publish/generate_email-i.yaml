@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Hoe::Publish#generate_email
+is_singleton: false
+name: generate_email
+params: (full = nil)
+visibility: public

@@ -1,0 +1,132 @@
+
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!--
+
+    Methods
+
+  -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Methods</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="rdoc-style.css" type="text/css" />
+  <base target="docwin" />
+</head>
+<body>
+<div id="index">
+  <h1 class="section-bar">Methods</h1>
+  <div id="index-entries">
+    <a href="classes/EzCrypto/Name.html#M000037">[] (EzCrypto::Name)</a><br />
+    <a href="classes/EzCrypto/TrustStore.html#M000016">add (EzCrypto::TrustStore)</a><br />
+    <a href="classes/EzCrypto/Key.html#M000083">block_size (EzCrypto::Key)</a><br />
+    <a href="classes/EzCrypto/Key.html#M000082">block_size= (EzCrypto::Key)</a><br />
+    <a href="classes/EzCrypto/Name.html#M000022">c (EzCrypto::Name)</a><br />
+    <a href="classes/EzCrypto/Key.html#M000090">calculate_key_size (EzCrypto::Key)</a><br />
+    <a href="classes/EzCrypto/Certificate.html#M000059">cert (EzCrypto::Certificate)</a><br />
+    <a href="classes/EzCrypto/Verifier.html#M000044">cert? (EzCrypto::Verifier)</a><br />
+    <a href="classes/EzCrypto/Certificate.html#M000053">cert? (EzCrypto::Certificate)</a><br />
+    <a href="classes/EzCrypto/Certificate.html#M000055">cert_digest (EzCrypto::Certificate)</a><br />
+    <a href="classes/EzCrypto/Name.html#M000036">cn (EzCrypto::Name)</a><br />
+    <a href="classes/EzCrypto/Name.html#M000034">common_name (EzCrypto::Name)</a><br />
+    <a href="classes/EzCrypto/Name.html#M000021">country (EzCrypto::Name)</a><br />
+    <a href="classes/EzCrypto/Signer.html#M000067">decode (EzCrypto::Signer)</a><br />
+    <a href="classes/EzCrypto/Verifier.html#M000040">decode (EzCrypto::Verifier)</a><br />
+    <a href="classes/EzCrypto/Key.html#M000087">decode (EzCrypto::Key)</a><br />
+    <a href="classes/EzCrypto/Key.html#M000095">decrypt (EzCrypto::Key)</a><br />
+    <a href="classes/EzCrypto/Key.html#M000096">decrypt64 (EzCrypto::Key)</a><br />
+    <a href="classes/EzCrypto/Key.html#M000106">decrypt_file (EzCrypto::Key)</a><br />
+    <a href="classes/EzCrypto/Key.html#M000089">decrypt_with_password (EzCrypto::Key)</a><br />
+    <a href="classes/EzCrypto/Key.html#M000102">decrypter (EzCrypto::Key)</a><br />
+    <a href="classes/EzCrypto/TrustStore.html#M000013">default_trusted (EzCrypto::TrustStore)</a><br />
+    <a href="classes/EzCrypto/Digester.html#M000079">digest (EzCrypto::Digester)</a><br />
+    <a href="classes/EzCrypto/Verifier.html#M000046">digest (EzCrypto::Verifier)</a><br />
+    <a href="classes/EzCrypto/Digester.html#M000081">digest64 (EzCrypto::Digester)</a><br />
+    <a href="classes/EzCrypto/Verifier.html#M000048">dsa? (EzCrypto::Verifier)</a><br />
+    <a href="classes/EzCrypto/Signer.html#M000074">dsa? (EzCrypto::Signer)</a><br />
+    <a href="classes/EzCrypto/Name.html#M000020">email (EzCrypto::Name)</a><br />
+    <a href="classes/EzCrypto/Key.html#M000091">encode (EzCrypto::Key)</a><br />
+    <a href="classes/EzCrypto/Key.html#M000093">encrypt (EzCrypto::Key)</a><br />
+    <a href="classes/ActiveCrypto/ClassMethods.html#M000009">encrypt (ActiveCrypto::ClassMethods)</a><br />
+    <a href="classes/EzCrypto/Key.html#M000094">encrypt64 (EzCrypto::Key)</a><br />
+    <a href="classes/EzCrypto/Key.html#M000105">encrypt_file (EzCrypto::Key)</a><br />
+    <a href="classes/EzCrypto/Key.html#M000088">encrypt_with_password (EzCrypto::Key)</a><br />
+    <a href="classes/ActiveCrypto/Encrypted/ClassAccessors.html#M000011">encrypted_attributes (ActiveCrypto::Encrypted::ClassAccessors)</a><br />
+    <a href="classes/ActiveCrypto/Encrypted/ClassAccessors.html#M000012">encrypted_attributes= (ActiveCrypto::Encrypted::ClassAccessors)</a><br />
+    <a href="classes/EzCrypto/Key.html#M000101">encrypter (EzCrypto::Key)</a><br />
+    <a href="classes/ActiveCrypto/KeyHolder.html#M000005">enter_password (ActiveCrypto::KeyHolder)</a><br />
+    <a href="classes/EzCrypto/Certificate.html#M000063">extensions (EzCrypto::Certificate)</a><br />
+    <a href="classes/EzCrypto/Signer.html#M000068">from_file (EzCrypto::Signer)</a><br />
+    <a href="classes/EzCrypto/Verifier.html#M000041">from_file (EzCrypto::Verifier)</a><br />
+    <a href="classes/EzCrypto/Verifier.html#M000042">from_pkyp (EzCrypto::Verifier)</a><br />
+    <a href="classes/EzCrypto/Key.html#M000085">generate (EzCrypto::Key)</a><br />
+    <a href="classes/EzCrypto/Signer.html#M000066">generate (EzCrypto::Signer)</a><br />
+    <a href="classes/EzCrypto/Digester.html#M000078">generate_hexkey (EzCrypto::Digester)</a><br />
+    <a href="classes/EzCrypto/Digester.html#M000076">generate_key (EzCrypto::Digester)</a><br />
+    <a href="classes/EzCrypto/Digester.html#M000077">generate_key64 (EzCrypto::Digester)</a><br />
+    <a href="classes/EzCrypto/Digester.html#M000075">get_key (EzCrypto::Digester)</a><br />
+    <a href="classes/EzCrypto/Digester.html#M000080">hexdigest (EzCrypto::Digester)</a><br />
+    <a href="classes/EzCrypto/Certificate.html#M000057">issuer (EzCrypto::Certificate)</a><br />
+    <a href="classes/ActiveCrypto/ClassMethods.html#M000010">keyholder (ActiveCrypto::ClassMethods)</a><br />
+    <a href="classes/EzCrypto/Name.html#M000027">l (EzCrypto::Name)</a><br />
+    <a href="classes/EzCrypto/Key.html#M000099">load (EzCrypto::Key)</a><br />
+    <a href="classes/EzCrypto/Verifier.html#M000043">load_all_from_file (EzCrypto::Verifier)</a><br />
+    <a href="classes/EzCrypto/TrustStore.html#M000014">load_from_file (EzCrypto::TrustStore)</a><br />
+    <a href="classes/EzCrypto/Name.html#M000026">locality (EzCrypto::Name)</a><br />
+    <a href="classes/EzCrypto/Key.html#M000097">marshal_dump (EzCrypto::Key)</a><br />
+    <a href="classes/EzCrypto/Key.html#M000098">marshal_load (EzCrypto::Key)</a><br />
+    <a href="classes/EzCrypto/Name.html#M000038">method_missing (EzCrypto::Name)</a><br />
+    <a href="classes/EzCrypto/Certificate.html#M000064">method_missing (EzCrypto::Certificate)</a><br />
+    <a href="classes/EzCrypto/Name.html#M000035">name (EzCrypto::Name)</a><br />
+    <a href="classes/EzCrypto/Certificate.html#M000052">new (EzCrypto::Certificate)</a><br />
+    <a href="classes/EzCrypto/Name.html#M000018">new (EzCrypto::Name)</a><br />
+    <a href="classes/EzCrypto/Verifier.html#M000039">new (EzCrypto::Verifier)</a><br />
+    <a href="classes/EzCrypto/TrustStore.html#M000015">new (EzCrypto::TrustStore)</a><br />
+    <a href="classes/EzCrypto/Key.html#M000084">new (EzCrypto::Key)</a><br />
+    <a href="classes/EzCrypto/Signer.html#M000065">new (EzCrypto::Signer)</a><br />
+    <a href="classes/EzCrypto/Certificate.html#M000061">not_after (EzCrypto::Certificate)</a><br />
+    <a href="classes/EzCrypto/Certificate.html#M000060">not_before (EzCrypto::Certificate)</a><br />
+    <a href="classes/EzCrypto/Name.html#M000032">o (EzCrypto::Name)</a><br />
+    <a href="classes/EzCrypto/Key.html#M000103">on_decrypter (EzCrypto::Key)</a><br />
+    <a href="classes/EzCrypto/Key.html#M000104">on_encrypter (EzCrypto::Key)</a><br />
+    <a href="classes/EzCrypto/Name.html#M000033">organisation (EzCrypto::Name)</a><br />
+    <a href="classes/EzCrypto/Name.html#M000030">organisational_unit (EzCrypto::Name)</a><br />
+    <a href="classes/EzCrypto/Name.html#M000031">organization (EzCrypto::Name)</a><br />
+    <a href="classes/EzCrypto/Name.html#M000028">organizational_unit (EzCrypto::Name)</a><br />
+    <a href="classes/EzCrypto/Name.html#M000029">ou (EzCrypto::Name)</a><br />
+    <a href="classes/EzCrypto/Signer.html#M000071">private_key (EzCrypto::Signer)</a><br />
+    <a href="classes/EzCrypto/Name.html#M000025">province (EzCrypto::Name)</a><br />
+    <a href="classes/EzCrypto/Verifier.html#M000045">public_key (EzCrypto::Verifier)</a><br />
+    <a href="classes/EzCrypto/Signer.html#M000069">public_key (EzCrypto::Signer)</a><br />
+    <a href="classes/EzCrypto/Certificate.html#M000054">register_with_pkyp (EzCrypto::Certificate)</a><br />
+    <a href="classes/EzCrypto/Verifier.html#M000050">register_with_pkyp (EzCrypto::Verifier)</a><br />
+    <a href="classes/EzCrypto/Signer.html#M000073">rsa? (EzCrypto::Signer)</a><br />
+    <a href="classes/EzCrypto/Verifier.html#M000047">rsa? (EzCrypto::Verifier)</a><br />
+    <a href="classes/ActiveCrypto/AssociationKeyHolder.html#M000001">save_session_key (ActiveCrypto::AssociationKeyHolder)</a><br />
+    <a href="classes/EzCrypto/Verifier.html#M000051">send_to_pkyp (EzCrypto::Verifier)</a><br />
+    <a href="classes/EzCrypto/Certificate.html#M000058">serial (EzCrypto::Certificate)</a><br />
+    <a href="classes/ActiveCrypto/KeyHolder.html#M000008">session_key (ActiveCrypto::KeyHolder)</a><br />
+    <a href="classes/ActiveCrypto/AssociationKeyHolder.html#M000003">session_key (ActiveCrypto::AssociationKeyHolder)</a><br />
+    <a href="classes/ActiveCrypto/AssociationKeyHolder.html#M000004">session_key_id (ActiveCrypto::AssociationKeyHolder)</a><br />
+    <a href="classes/ActiveCrypto/KeyHolder.html#M000006">set_encoded_key (ActiveCrypto::KeyHolder)</a><br />
+    <a href="classes/ActiveCrypto/KeyHolder.html#M000007">set_session_key (ActiveCrypto::KeyHolder)</a><br />
+    <a href="classes/ActiveCrypto/AssociationKeyHolder.html#M000002">set_session_key (ActiveCrypto::AssociationKeyHolder)</a><br />
+    <a href="classes/EzCrypto/Signer.html#M000072">sign (EzCrypto::Signer)</a><br />
+    <a href="classes/EzCrypto/Name.html#M000024">st (EzCrypto::Name)</a><br />
+    <a href="classes/EzCrypto/Name.html#M000023">state (EzCrypto::Name)</a><br />
+    <a href="classes/EzCrypto/Key.html#M000100">store (EzCrypto::Key)</a><br />
+    <a href="classes/EzCrypto/Certificate.html#M000056">subject (EzCrypto::Certificate)</a><br />
+    <a href="classes/EzCrypto/Key.html#M000092">to_s (EzCrypto::Key)</a><br />
+    <a href="classes/EzCrypto/Name.html#M000019">to_s (EzCrypto::Name)</a><br />
+    <a href="classes/EzCrypto/Certificate.html#M000062">valid? (EzCrypto::Certificate)</a><br />
+    <a href="classes/EzCrypto/Signer.html#M000070">verifier (EzCrypto::Signer)</a><br />
+    <a href="classes/EzCrypto/Verifier.html#M000049">verify (EzCrypto::Verifier)</a><br />
+    <a href="classes/EzCrypto/TrustStore.html#M000017">verify (EzCrypto::TrustStore)</a><br />
+    <a href="classes/EzCrypto/Key.html#M000086">with_password (EzCrypto::Key)</a><br />
+  </div>
+</div>
+</body>
+</html>

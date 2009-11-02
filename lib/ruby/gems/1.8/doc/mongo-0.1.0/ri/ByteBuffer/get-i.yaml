@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "If <tt>size</tt> == nil, returns one byte. Else returns array of bytes of length # <tt>size</tt>."
+full_name: ByteBuffer#get
+is_singleton: false
+name: get
+params: (len=nil)
+visibility: public

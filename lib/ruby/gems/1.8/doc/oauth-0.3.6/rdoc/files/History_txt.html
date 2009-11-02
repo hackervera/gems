@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: History.txt</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>History.txt</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>History.txt
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Mon Nov 02 09:04:07 -0500 2009</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h2>0.3.6 2009-09-14</h2>
+<ul>
+<li>Added -B CLI option to use the :body authentication scheme (Seth)
+
+</li>
+<li>Respect `&#8212;method` in `authorize` CLI command (Seth)
+
+</li>
+<li>Support POST and PUT with raw bodies (Yu-Shan Fung et al)
+
+</li>
+<li>Test clean-up (Xavier Shay, Hannes Tydén)
+
+</li>
+<li>Added :ca_file consumer option to allow consumer specific certificate
+override. (Pelle)
+
+</li>
+</ul>
+<h2>0.3.5 2009-06-03</h2>
+<ul>
+<li>`query` CLI command to access protected resources (Seth)
+
+</li>
+<li>Added -H, -Q CLI options for specifying the authentication scheme (Seth)
+
+</li>
+<li>Added -O CLI option for specifying a file containing options (Seth)
+
+</li>
+<li>Support streamable body contents for large request bodies (Seth Cousins)
+
+</li>
+<li>Support for OAuth 1.0a (Seth)
+
+</li>
+<li>Added proxy support to <a
+href="../classes/OAuth/Consumer.html">OAuth::Consumer</a> (Marshall Huss)
+
+</li>
+<li>Added &#8212;scope CLI option for Google&#8216;s &#8216;scope&#8217;
+parameter (Seth)
+
+</li>
+</ul>
+<h2>0.3.4 2009-05-06</h2>
+<ul>
+<li><a href="../classes/OAuth/Client/Helper.html">OAuth::Client::Helper</a>
+uses OAuth::VERSION (chadisfaction)
+
+</li>
+<li>Fix <a
+href="../classes/OAuth/RequestProxy/ActionControllerRequest.html">OAuth::RequestProxy::ActionControllerRequest</a>&#8216;s
+handling of params (Tristan Groléat)
+
+</li>
+</ul>
+<h2>0.3.3 2009-05-04</h2>
+<ul>
+<li>Corrected OAuth XMPP namespace (Seth)
+
+</li>
+<li>Improved error handling for invalid Authorization headers (Matt Sanford)
+
+</li>
+<li>Fixed signatures for non-ASCII under $KCODE other than &#8216;u&#8217;
+(Matt Sanford)
+
+</li>
+<li>Fixed edge cases in ActionControllerRequestProxy where params were being
+incorrectly signed (Marcos Wright Kuhns)
+
+</li>
+<li>Support for arguments in OAuth::Consumer#get_access_token (Matt Sanford)
+
+</li>
+<li>Add gem version to user-agent header (Matt Sanford)
+
+</li>
+<li>Handle input from aggressive form encoding libraries (Matt Wood)
+
+</li>
+</ul>
+<h2>0.3.2 2009-03-23</h2>
+<ul>
+<li>2xx statuses should be treated as success (Anders Conbere)
+
+</li>
+<li>Support applications using the MethodOverride Rack middleware (László
+Bácsi)
+
+</li>
+<li>`authorize` command for `oauth` CLI (Seth)
+
+</li>
+<li>Initial support for Problem Reporting extension (Seth)
+
+</li>
+<li>Verify SSL certificates if CA certificates are available (Seth)
+
+</li>
+<li>Fixed <a href="../classes/ActionController.html">ActionController</a>
+parameter escaping behavior (Thiago Arrais, László Bácsi, Brett Gibson,
+et al)
+
+</li>
+<li>Fixed signature calculation when both options and a block were provided to
+OAuth::Signature::Base#initialize (Seth)
+
+</li>
+<li>Added help to the &#8216;oauth&#8217; CLI (Seth)
+
+</li>
+<li>Fixed a problem when attempting to normalize MockRequest URIs (Seth)
+
+</li>
+</ul>
+<h2>0.3.1 2009-1-26</h2>
+<ul>
+<li>Fixed a problem with relative and absolute token request paths. (Michael
+Wood)
+
+</li>
+</ul>
+<h2>0.3.0 2009-1-25</h2>
+<ul>
+<li>Support ActionController::Request from Edge Rails (László Bácsi)
+
+</li>
+<li>Correctly handle multi-valued parameters (Seth)
+
+</li>
+<li>Added normalized_parameters to <a
+href="../classes/OAuth/RequestProxy/Base.html">OAuth::RequestProxy::Base</a>
+(Pelle)
+
+</li>
+<li>OAuth::Signature.sign and friends now yield the RequestProxy instead of the
+token when the passed block&#8216;s arity is 1. (Seth)
+
+</li>
+<li>Token requests are made to the configured URL rather than generating a
+potentially incorrect one. (Kellan Elliott-McCrea)
+
+</li>
+<li>Command-line app for generating signatures. (Seth)
+
+</li>
+<li>Improved test-cases and compatibility for encoding issues. (Pelle)
+
+</li>
+</ul>
+<h2>0.2.7 2008-9-10 The lets fix the last release release</h2>
+<ul>
+<li>Fixed plain text signatures (Andrew Arrow)
+
+</li>
+<li>Fixed RSA requests using OAuthTokens. (Philip Lipu Tsai)
+
+</li>
+</ul>
+<h2>0.2.6 2008-9-9 The lets RSA release</h2>
+<ul>
+<li>Improved support for Ruby 1.8.7 (Bill Kocik)
+
+</li>
+<li>Fixed RSA verification to support RSA providers now using Ruby and RSA
+
+</li>
+<li>Improved RSA testing
+
+</li>
+<li>Omit token when signing with RSA
+
+</li>
+<li>Added support for &#8216;private_key_file&#8217; option for RSA signatures
+(Chris Mear)
+
+</li>
+<li>Fixed several edge cases where params were being incorrectly signed (Scott
+Hill)
+
+</li>
+<li>Fixed RSA signing (choonkeat)
+
+</li>
+</ul>
+<h2>0.2.2 2008-2-22 Lets actually support SSL release</h2>
+<ul>
+<li>Use HTTPS when required.
+
+</li>
+</ul>
+<h2>0.2 2008-1-19 All together now release</h2>
+<p>
+This is a big release, where we have merged the efforts of various parties
+into one common library. This means there are definitely some API changes
+you should be aware of. They should be minimal but please have a look at
+the unit tests.
+</p>
+<h2>0.1.2 2007-12-1</h2>
+<ul>
+<li>Fixed checks for missing OAuth params to improve performance
+
+</li>
+<li>Includes Pat&#8216;s fix for getting the realm out.
+
+</li>
+</ul>
+<h2>0.1.1 2007-11-26</h2>
+<ul>
+<li>First release as a GEM
+
+</li>
+<li>Moved all non-Rails functionality from the Rails plugin: <a
+href="http://code.google.com/p/oauth-plugin">code.google.com/p/oauth-plugin</a>/
+
+</li>
+</ul>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

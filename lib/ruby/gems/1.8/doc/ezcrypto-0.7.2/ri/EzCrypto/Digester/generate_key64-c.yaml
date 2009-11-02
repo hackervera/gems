@@ -1,0 +1,11 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: []
+
+full_name: EzCrypto::Digester::generate_key64
+is_singleton: true
+name: generate_key64
+params: (size=32)
+visibility: public

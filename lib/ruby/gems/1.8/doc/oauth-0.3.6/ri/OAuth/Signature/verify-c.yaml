@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Verify the signature of <tt>request</tt>
+full_name: OAuth::Signature::verify
+is_singleton: true
+name: verify
+params: (request, options = {}, &block)
+visibility: public

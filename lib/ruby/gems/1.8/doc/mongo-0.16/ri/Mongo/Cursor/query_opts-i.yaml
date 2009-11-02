@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Returns an integer indicating which query options have been selected. See http://www.mongodb.org/display/DOCS/Mongo+Wire+Protocol#MongoWireProtocol-Mongo::Constants::OPQUERY
+full_name: Mongo::Cursor#query_opts
+is_singleton: false
+name: query_opts
+params: ()
+visibility: public

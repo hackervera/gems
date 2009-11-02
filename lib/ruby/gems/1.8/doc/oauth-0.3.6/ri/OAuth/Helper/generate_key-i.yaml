@@ -1,0 +1,13 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: generate_nonce
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Generate a random key of up to <tt>size</tt> bytes. The value returned is Base64 encoded with non-word characters removed.
+full_name: OAuth::Helper#generate_key
+is_singleton: false
+name: generate_key
+params: (size=32)
+visibility: public

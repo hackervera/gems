@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>define_package_tasks (Hoe::Package)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/hoe/package.rb, line 39</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">define_package_tasks</span>
+    <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">PackageTask</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">spec</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">pkg</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">pkg</span>.<span class="ruby-identifier">need_tar</span> = <span class="ruby-ivar">@need_tar</span>
+      <span class="ruby-identifier">pkg</span>.<span class="ruby-identifier">need_zip</span> = <span class="ruby-ivar">@need_zip</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-identifier">desc</span> <span class="ruby-value str">'Install the package as a gem.'</span>
+    <span class="ruby-identifier">task</span> <span class="ruby-identifier">:install_gem</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-identifier">:clean</span>, <span class="ruby-identifier">:package</span>, <span class="ruby-identifier">:check_extra_deps</span>] <span class="ruby-keyword kw">do</span>
+      <span class="ruby-identifier">install_gem</span> <span class="ruby-constant">Dir</span>[<span class="ruby-value str">'pkg/*.gem'</span>].<span class="ruby-identifier">first</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-identifier">desc</span> <span class="ruby-value str">'Package and upload the release.'</span>
+    <span class="ruby-identifier">task</span> <span class="ruby-identifier">:release</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-identifier">:prerelease</span>, <span class="ruby-identifier">:release_to</span>, <span class="ruby-identifier">:postrelease</span>]
+
+    <span class="ruby-comment cmt"># no doco, invisible hook</span>
+    <span class="ruby-identifier">task</span> <span class="ruby-identifier">:prerelease</span> <span class="ruby-keyword kw">do</span>
+      <span class="ruby-identifier">abort</span> <span class="ruby-value str">&quot;Fix your version before you release&quot;</span> <span class="ruby-keyword kw">if</span>
+        <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">version</span>.<span class="ruby-identifier">version</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/borked/</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-comment cmt"># no doco, invisible hook</span>
+    <span class="ruby-identifier">task</span> <span class="ruby-identifier">:release_to</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:release_to_rubyforge</span>
+
+    <span class="ruby-comment cmt"># no doco, invisible hook</span>
+    <span class="ruby-identifier">task</span> <span class="ruby-identifier">:postrelease</span>
+
+    <span class="ruby-identifier">desc</span> <span class="ruby-value str">&quot;Sanity checks for release&quot;</span>
+    <span class="ruby-identifier">task</span> <span class="ruby-identifier">:release_sanity</span> <span class="ruby-keyword kw">do</span>
+      <span class="ruby-identifier">v</span> = <span class="ruby-constant">ENV</span>[<span class="ruby-value str">&quot;VERSION&quot;</span>] <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">abort</span> <span class="ruby-value str">&quot;Must supply VERSION=x.y.z&quot;</span>
+      <span class="ruby-identifier">abort</span> <span class="ruby-node">&quot;Versions don't match #{v} vs #{version}&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">v</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">version</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-identifier">desc</span> <span class="ruby-value str">'Release to rubyforge.'</span>
+    <span class="ruby-identifier">task</span> <span class="ruby-identifier">:release_to_rubyforge</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-identifier">:clean</span>, <span class="ruby-identifier">:package</span>, <span class="ruby-identifier">:release_sanity</span>] <span class="ruby-keyword kw">do</span>
+      <span class="ruby-identifier">rf</span> = <span class="ruby-constant">RubyForge</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">configure</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;Logging in&quot;</span>
+      <span class="ruby-identifier">rf</span>.<span class="ruby-identifier">login</span>
+
+      <span class="ruby-identifier">c</span> = <span class="ruby-identifier">rf</span>.<span class="ruby-identifier">userconfig</span>
+      <span class="ruby-identifier">c</span>[<span class="ruby-value str">&quot;release_notes&quot;</span>]   = <span class="ruby-identifier">description</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">description</span>
+      <span class="ruby-identifier">c</span>[<span class="ruby-value str">&quot;release_changes&quot;</span>] = <span class="ruby-identifier">changes</span>     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">changes</span>
+      <span class="ruby-identifier">c</span>[<span class="ruby-value str">&quot;preformatted&quot;</span>]    = <span class="ruby-keyword kw">true</span>
+
+      <span class="ruby-identifier">pkg</span>   = <span class="ruby-node">&quot;pkg/#{name}-#{version}&quot;</span>
+      <span class="ruby-identifier">files</span> = [(<span class="ruby-ivar">@need_tar</span> <span class="ruby-operator">?</span> <span class="ruby-node">&quot;#{pkg}.tgz&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">nil</span>),
+               (<span class="ruby-ivar">@need_zip</span> <span class="ruby-operator">?</span> <span class="ruby-node">&quot;#{pkg}.zip&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">nil</span>),
+               <span class="ruby-constant">Dir</span>[<span class="ruby-node">&quot;#{pkg}*.gem&quot;</span>]].<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">compact</span>
+
+      <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Releasing #{name} v. #{version}&quot;</span>
+      <span class="ruby-identifier">rf</span>.<span class="ruby-identifier">add_release</span> <span class="ruby-identifier">rubyforge_name</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">version</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">files</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

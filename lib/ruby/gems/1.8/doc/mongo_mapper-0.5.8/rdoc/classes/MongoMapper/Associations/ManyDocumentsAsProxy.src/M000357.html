@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>apply_scope (MongoMapper::Associations::ManyDocumentsAsProxy)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/mongo_mapper/associations/many_documents_as_proxy.rb, line 9</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">apply_scope</span>(<span class="ruby-identifier">doc</span>)
+          <span class="ruby-identifier">ensure_owner_saved</span>
+          <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">send</span>(<span class="ruby-node">&quot;#{as_type_name}=&quot;</span>, <span class="ruby-ivar">@owner</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span>)
+          <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">send</span>(<span class="ruby-node">&quot;#{as_id_name}=&quot;</span>, <span class="ruby-ivar">@owner</span>.<span class="ruby-identifier">id</span>)
+          <span class="ruby-identifier">doc</span>
+        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

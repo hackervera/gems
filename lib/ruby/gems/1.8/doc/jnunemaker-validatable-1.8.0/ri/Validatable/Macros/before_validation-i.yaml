@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Is called before valid? or valid_for_*?
+- !ruby/struct:SM::Flow::VERB 
+  body: "  class Person\n    include Validatable\n    before_validation do\n      self.name = &quot;default name&quot;\n    end\n\n    attr_accessor :name\n  end\n"
+full_name: Validatable::Macros#before_validation
+is_singleton: false
+name: before_validation
+params: " before_validation(&block)\n"
+visibility: public

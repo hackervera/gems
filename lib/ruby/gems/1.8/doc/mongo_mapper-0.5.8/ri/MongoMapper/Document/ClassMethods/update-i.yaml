@@ -1,0 +1,26 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "@overload update(id, attributes)"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  Update a single document\n  @param id the ID of the document you wish to update\n  @param [Hash] attributes the key to update on the document with a new\n    value\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@overload update(ids_and_attributes)"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  Update multiple documents\n  @param [Hash] ids_and_attributes each key is the ID of some document\n    you wish to update. The value each key points toward are those\n    applied to the target document\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@example Updating single document"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  Person.update(1, {:foo =&gt; 'bar'})\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@example Updating multiple documents at once:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  Person.update({'1' =&gt; {:foo =&gt; 'bar'}, '2' =&gt; {:baz =&gt; 'wick'}})\n"
+full_name: MongoMapper::Document::ClassMethods#update
+is_singleton: false
+name: update
+params: (*args)
+visibility: public

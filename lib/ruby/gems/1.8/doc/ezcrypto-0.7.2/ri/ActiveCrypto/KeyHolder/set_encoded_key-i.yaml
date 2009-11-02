@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Decodes the Base64 encoded key and uses it as it's session key
+full_name: ActiveCrypto::KeyHolder#set_encoded_key
+is_singleton: false
+name: set_encoded_key
+params: (enc)
+visibility: public

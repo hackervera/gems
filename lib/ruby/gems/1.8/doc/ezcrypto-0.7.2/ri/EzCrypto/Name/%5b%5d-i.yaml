@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Lookup fields in the certificate.
+full_name: EzCrypto::Name#[]
+is_singleton: false
+name: "[]"
+params: (attr_key)
+visibility: public

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: OAuth::Client::Helper#timestamp
+is_singleton: false
+name: timestamp
+params: ()
+visibility: public

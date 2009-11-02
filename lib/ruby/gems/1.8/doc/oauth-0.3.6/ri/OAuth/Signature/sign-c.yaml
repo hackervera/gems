@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Sign a <tt>request</tt>
+full_name: OAuth::Signature::sign
+is_singleton: true
+name: sign
+params: (request, options = {}, &block)
+visibility: public

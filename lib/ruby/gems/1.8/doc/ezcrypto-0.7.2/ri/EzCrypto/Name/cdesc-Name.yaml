@@ -1,0 +1,57 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: A handy ruby wrapper around OpenSSL's Name object. This was created to make it really easy to extract information out of the certificate.
+constants: []
+
+full_name: EzCrypto::Name
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: "[]"
+- !ruby/object:RI::MethodSummary 
+  name: c
+- !ruby/object:RI::MethodSummary 
+  name: cn
+- !ruby/object:RI::MethodSummary 
+  name: common_name
+- !ruby/object:RI::MethodSummary 
+  name: country
+- !ruby/object:RI::MethodSummary 
+  name: email
+- !ruby/object:RI::MethodSummary 
+  name: l
+- !ruby/object:RI::MethodSummary 
+  name: locality
+- !ruby/object:RI::MethodSummary 
+  name: method_missing
+- !ruby/object:RI::MethodSummary 
+  name: name
+- !ruby/object:RI::MethodSummary 
+  name: o
+- !ruby/object:RI::MethodSummary 
+  name: organisation
+- !ruby/object:RI::MethodSummary 
+  name: organisational_unit
+- !ruby/object:RI::MethodSummary 
+  name: organization
+- !ruby/object:RI::MethodSummary 
+  name: organizational_unit
+- !ruby/object:RI::MethodSummary 
+  name: ou
+- !ruby/object:RI::MethodSummary 
+  name: province
+- !ruby/object:RI::MethodSummary 
+  name: st
+- !ruby/object:RI::MethodSummary 
+  name: state
+- !ruby/object:RI::MethodSummary 
+  name: to_s
+name: Name
+superclass: Object

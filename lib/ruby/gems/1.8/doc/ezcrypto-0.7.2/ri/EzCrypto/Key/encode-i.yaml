@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: returns the Base64 encoded key.
+full_name: EzCrypto::Key#encode
+is_singleton: false
+name: encode
+params: ()
+visibility: public

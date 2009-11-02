@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Validate a named collection by raising an exception if there is a problem or returning <tt>true</tt> if all is well.
+full_name: XGen::Mongo::Driver::Admin#validate_collection
+is_singleton: false
+name: validate_collection
+params: (name)
+visibility: public

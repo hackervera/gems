@@ -1,0 +1,25 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: included
+comment: 
+constants: []
+
+full_name: MongoMapper::EmbeddedDocument
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: InstanceMethods
+- !ruby/object:RI::IncludedModule 
+  name: Associations::InstanceMethods
+- !ruby/object:RI::IncludedModule 
+  name: RailsCompatibility::EmbeddedDocument
+- !ruby/object:RI::IncludedModule 
+  name: Validatable
+- !ruby/object:RI::IncludedModule 
+  name: Serialization
+instance_methods: []
+
+name: EmbeddedDocument
+superclass: 

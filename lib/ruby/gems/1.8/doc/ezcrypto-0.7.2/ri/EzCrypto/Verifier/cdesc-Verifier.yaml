@@ -1,0 +1,41 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: decode
+- !ruby/object:RI::MethodSummary 
+  name: from_file
+- !ruby/object:RI::MethodSummary 
+  name: from_pkyp
+- !ruby/object:RI::MethodSummary 
+  name: load_all_from_file
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The Verifier is used for verifying signatures. If you use the decode or from_file methods you can use either raw PEM encoded public keys or certificate.
+constants: []
+
+full_name: EzCrypto::Verifier
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: cert?
+- !ruby/object:RI::MethodSummary 
+  name: digest
+- !ruby/object:RI::MethodSummary 
+  name: dsa?
+- !ruby/object:RI::MethodSummary 
+  name: public_key
+- !ruby/object:RI::MethodSummary 
+  name: register_with_pkyp
+- !ruby/object:RI::MethodSummary 
+  name: rsa?
+- !ruby/object:RI::MethodSummary 
+  name: send_to_pkyp
+- !ruby/object:RI::MethodSummary 
+  name: verify
+name: Verifier
+superclass: Object

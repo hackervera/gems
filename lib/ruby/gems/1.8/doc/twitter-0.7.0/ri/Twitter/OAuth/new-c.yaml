@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Options
+- !ruby/struct:SM::Flow::VERB 
+  body: "  :sign_in =&gt; true to just sign in with twitter instead of doing oauth authorization\n              (http://apiwiki.twitter.com/Sign-in-with-Twitter)\n"
+full_name: Twitter::OAuth::new
+is_singleton: true
+name: new
+params: (ctoken, csecret, options={})
+visibility: public

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: ActionController::TestRequest#apply_oauth!
+is_singleton: false
+name: apply_oauth!
+params: ()
+visibility: public

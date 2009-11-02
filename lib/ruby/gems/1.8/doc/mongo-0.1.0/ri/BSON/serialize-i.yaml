@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: BSON#serialize
+is_singleton: false
+name: serialize
+params: (obj)
+visibility: public

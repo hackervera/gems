@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: GridFS::Chunk#to_mongo_object
+is_singleton: false
+name: to_mongo_object
+params: ()
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: This gives us access to the tasks already defined in rake.
+full_name: Rake::TaskManager#all_tasks
+is_singleton: false
+name: all_tasks
+params: ()
+visibility: public

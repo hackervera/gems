@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: GridFS::GridStore::readlines
+is_singleton: true
+name: readlines
+params: (db, name, separator=$/)
+visibility: public

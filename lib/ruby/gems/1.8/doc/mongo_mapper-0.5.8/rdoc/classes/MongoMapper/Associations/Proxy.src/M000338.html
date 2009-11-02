@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>flatten_deeper (MongoMapper::Associations::Proxy)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/mongo_mapper/associations/proxy.rb, line 68</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">flatten_deeper</span>(<span class="ruby-identifier">array</span>)
+          <span class="ruby-identifier">array</span>.<span class="ruby-identifier">collect</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">element</span><span class="ruby-operator">|</span>
+            (<span class="ruby-identifier">element</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:flatten</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">element</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)) <span class="ruby-operator">?</span> <span class="ruby-identifier">element</span>.<span class="ruby-identifier">flatten</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">element</span>
+          <span class="ruby-keyword kw">end</span>.<span class="ruby-identifier">flatten</span>
+        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

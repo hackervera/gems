@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Rename collection <tt>from</tt> to <tt>to</tt>. Meant to be called by Collection#rename.
+full_name: Mongo::DB#rename_collection
+is_singleton: false
+name: rename_collection
+params: (from, to)
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Returns an array of collection names in this database.
+full_name: Mongo::DB#collection_names
+is_singleton: false
+name: collection_names
+params: ()
+visibility: public

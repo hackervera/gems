@@ -1,0 +1,11 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: offset
+block_params: 
+comment: 
+full_name: MongoMapper::Pagination::PaginationProxy#skip
+is_singleton: false
+name: skip
+params: ()
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Return the number of records that match <tt>selector</tt>. If <tt>selector</tt> is <tt>nil</tt> or an empty hash, returns the count of all records.
+full_name: XGen::Mongo::Driver::Collection#count
+is_singleton: false
+name: count
+params: (selector={})
+visibility: public

@@ -1,0 +1,18 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Converts the <tt>String</tt>, <tt>Symbol</tt>, or <tt>Integer</tt> to the corresponding sort value in MongoDB.
+- !ruby/struct:SM::Flow::P 
+  body: "Valid conversions (case-insensitive):"
+- !ruby/struct:SM::Flow::P 
+  body: <tt>ascending, asc, :ascending, :asc, 1</tt> =&gt; <tt>1</tt> <tt>descending, desc, :descending, :desc, -1</tt> =&gt; <tt>-1</tt>
+- !ruby/struct:SM::Flow::P 
+  body: If the value is invalid then an error will be raised.
+full_name: Mongo::Conversions#sort_value
+is_singleton: false
+name: sort_value
+params: (value)
+visibility: public

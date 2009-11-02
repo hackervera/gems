@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>load_plugin_tasks (Hoe)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/hoe.rb, line 478</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">load_plugin_tasks</span>
+    <span class="ruby-identifier">bad</span> = []
+
+    <span class="ruby-identifier">$plugin_max</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">plugins</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">size</span> }.<span class="ruby-identifier">max</span>
+
+    <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">plugins</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">plugin</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">warn</span> <span class="ruby-identifier">plugin</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">$DEBUG</span>
+
+      <span class="ruby-identifier">old_tasks</span> = <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>.<span class="ruby-identifier">tasks</span>.<span class="ruby-identifier">dup</span>
+
+      <span class="ruby-keyword kw">begin</span>
+        <span class="ruby-identifier">send</span> <span class="ruby-node">&quot;define_#{plugin}_tasks&quot;</span>
+      <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">NoMethodError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+        <span class="ruby-identifier">warn</span> <span class="ruby-node">&quot;warning: couldn't activate the #{plugin} plugin, skipping&quot;</span>
+        <span class="ruby-identifier">bad</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">plugin</span>
+        <span class="ruby-keyword kw">next</span>
+      <span class="ruby-keyword kw">end</span>
+
+      (<span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>.<span class="ruby-identifier">tasks</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">old_tasks</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">task</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">task</span>.<span class="ruby-identifier">plugin</span> = <span class="ruby-identifier">plugin</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-ivar">@@plugins</span> <span class="ruby-operator">-=</span> <span class="ruby-identifier">bad</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

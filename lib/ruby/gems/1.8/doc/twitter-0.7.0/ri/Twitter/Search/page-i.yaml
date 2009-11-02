@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Which page of results to fetch
+full_name: Twitter::Search#page
+is_singleton: false
+name: page
+params: (num)
+visibility: public

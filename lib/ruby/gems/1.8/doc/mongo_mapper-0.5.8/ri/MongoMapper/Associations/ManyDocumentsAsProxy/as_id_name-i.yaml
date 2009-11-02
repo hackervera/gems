@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: MongoMapper::Associations::ManyDocumentsAsProxy#as_id_name
+is_singleton: false
+name: as_id_name
+params: ()
+visibility: protected

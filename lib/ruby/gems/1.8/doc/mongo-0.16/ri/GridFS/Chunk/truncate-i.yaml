@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Erase all data after current position.
+full_name: GridFS::Chunk#truncate
+is_singleton: false
+name: truncate
+params: ()
+visibility: public

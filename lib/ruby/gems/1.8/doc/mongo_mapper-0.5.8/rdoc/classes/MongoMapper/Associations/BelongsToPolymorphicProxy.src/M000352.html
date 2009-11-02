@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>replace (MongoMapper::Associations::BelongsToPolymorphicProxy)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/mongo_mapper/associations/belongs_to_polymorphic_proxy.rb, line 4</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">doc</span>)
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">doc</span>
+          <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">save</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">new?</span>
+          <span class="ruby-identifier">id</span>, <span class="ruby-identifier">type</span> = <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">id</span>, <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span>
+        <span class="ruby-keyword kw">end</span>
+        
+        <span class="ruby-ivar">@owner</span>.<span class="ruby-identifier">send</span>(<span class="ruby-node">&quot;#{@association.foreign_key}=&quot;</span>, <span class="ruby-identifier">id</span>)
+        <span class="ruby-ivar">@owner</span>.<span class="ruby-identifier">send</span>(<span class="ruby-node">&quot;#{@association.type_key_name}=&quot;</span>, <span class="ruby-identifier">type</span>)
+        <span class="ruby-identifier">reset</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

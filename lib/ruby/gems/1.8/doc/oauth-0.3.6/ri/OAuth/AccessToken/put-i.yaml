@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Make a regular PUT request using AccessToken
+- !ruby/struct:SM::Flow::VERB 
+  body: "  @response = @token.put('/people/123')\n  @response = @token.put('/people/123', { :name =&gt; 'Bob', :email =&gt; 'bob@mailinator.com' })\n  @response = @token.put('/people/123', { :name =&gt; 'Bob', :email =&gt; 'bob@mailinator.com' }, { 'Accept' =&gt; 'application/xml' })\n  @response = @token.put('/people/123', nil, { 'Accept' =&gt; 'application/xml' })\n  @response = @token.put('/people/123', @person.to_xml, { 'Accept' =&gt; 'application/xml', 'Content-Type' =&gt; 'application/xml' })\n"
+full_name: OAuth::AccessToken#put
+is_singleton: false
+name: put
+params: (path, body = '', headers = {})
+visibility: public

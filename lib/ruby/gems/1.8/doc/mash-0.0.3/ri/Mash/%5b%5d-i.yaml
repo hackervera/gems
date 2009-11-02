@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Retrieves an attribute set in the Mash. Will convert any key passed in to a string before retrieving.
+full_name: Mash#[]
+is_singleton: false
+name: "[]"
+params: (key)
+visibility: public

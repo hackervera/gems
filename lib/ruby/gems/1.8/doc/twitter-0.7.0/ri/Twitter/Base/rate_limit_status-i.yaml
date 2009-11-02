@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Twitter::Base#rate_limit_status
+is_singleton: false
+name: rate_limit_status
+params: ()
+visibility: public

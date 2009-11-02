@@ -1,0 +1,28 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Creates support in this class for holding a key. Adds the following methods:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: enter_password(password,salt=&quot;onetwothree&quot;)
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: set_session_key(key)
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: session_key
+  type: :BULLET
+- !ruby/struct:SM::Flow::P 
+  body: "Use it as follows:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  class User &lt; ActiveRecord::Base\n        has_many :documents\n        keyholder\n  end\n"
+full_name: ActiveCrypto::ClassMethods#keyholder
+is_singleton: false
+name: keyholder
+params: ()
+visibility: public

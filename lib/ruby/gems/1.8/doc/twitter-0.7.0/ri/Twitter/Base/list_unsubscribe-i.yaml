@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Twitter::Base#list_unsubscribe
+is_singleton: false
+name: list_unsubscribe
+params: (list_owner_username, slug)
+visibility: public

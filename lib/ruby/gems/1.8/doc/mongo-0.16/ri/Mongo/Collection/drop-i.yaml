@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Drop the entire collection. USE WITH CAUTION.
+full_name: Mongo::Collection#drop
+is_singleton: false
+name: drop
+params: ()
+visibility: public

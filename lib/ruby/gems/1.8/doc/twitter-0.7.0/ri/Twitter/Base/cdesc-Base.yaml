@@ -1,0 +1,108 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: client
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: Twitter::Base
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: block
+- !ruby/object:RI::MethodSummary 
+  name: direct_message_create
+- !ruby/object:RI::MethodSummary 
+  name: direct_message_destroy
+- !ruby/object:RI::MethodSummary 
+  name: direct_messages
+- !ruby/object:RI::MethodSummary 
+  name: direct_messages_sent
+- !ruby/object:RI::MethodSummary 
+  name: disable_notifications
+- !ruby/object:RI::MethodSummary 
+  name: enable_notifications
+- !ruby/object:RI::MethodSummary 
+  name: favorite_create
+- !ruby/object:RI::MethodSummary 
+  name: favorite_destroy
+- !ruby/object:RI::MethodSummary 
+  name: favorites
+- !ruby/object:RI::MethodSummary 
+  name: follower_ids
+- !ruby/object:RI::MethodSummary 
+  name: followers
+- !ruby/object:RI::MethodSummary 
+  name: friend_ids
+- !ruby/object:RI::MethodSummary 
+  name: friends
+- !ruby/object:RI::MethodSummary 
+  name: friends_timeline
+- !ruby/object:RI::MethodSummary 
+  name: friendship_create
+- !ruby/object:RI::MethodSummary 
+  name: friendship_destroy
+- !ruby/object:RI::MethodSummary 
+  name: friendship_exists?
+- !ruby/object:RI::MethodSummary 
+  name: help
+- !ruby/object:RI::MethodSummary 
+  name: is_list_member?
+- !ruby/object:RI::MethodSummary 
+  name: list
+- !ruby/object:RI::MethodSummary 
+  name: list_add_member
+- !ruby/object:RI::MethodSummary 
+  name: list_create
+- !ruby/object:RI::MethodSummary 
+  name: list_delete
+- !ruby/object:RI::MethodSummary 
+  name: list_members
+- !ruby/object:RI::MethodSummary 
+  name: list_remove_member
+- !ruby/object:RI::MethodSummary 
+  name: list_subscribe
+- !ruby/object:RI::MethodSummary 
+  name: list_subscribers
+- !ruby/object:RI::MethodSummary 
+  name: list_timeline
+- !ruby/object:RI::MethodSummary 
+  name: list_unsubscribe
+- !ruby/object:RI::MethodSummary 
+  name: list_update
+- !ruby/object:RI::MethodSummary 
+  name: lists
+- !ruby/object:RI::MethodSummary 
+  name: memberships
+- !ruby/object:RI::MethodSummary 
+  name: rate_limit_status
+- !ruby/object:RI::MethodSummary 
+  name: replies
+- !ruby/object:RI::MethodSummary 
+  name: status
+- !ruby/object:RI::MethodSummary 
+  name: status_destroy
+- !ruby/object:RI::MethodSummary 
+  name: unblock
+- !ruby/object:RI::MethodSummary 
+  name: update
+- !ruby/object:RI::MethodSummary 
+  name: update_delivery_device
+- !ruby/object:RI::MethodSummary 
+  name: update_profile
+- !ruby/object:RI::MethodSummary 
+  name: update_profile_colors
+- !ruby/object:RI::MethodSummary 
+  name: user
+- !ruby/object:RI::MethodSummary 
+  name: user_timeline
+- !ruby/object:RI::MethodSummary 
+  name: verify_credentials
+name: Base
+superclass: Object

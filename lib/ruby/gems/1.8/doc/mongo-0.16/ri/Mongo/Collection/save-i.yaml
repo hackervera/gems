@@ -1,0 +1,30 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Save a document in this collection.
+- !ruby/struct:SM::Flow::P 
+  body: If <tt>to_save</tt> already has an '_id' then an update (upsert) operation is performed and any existing document with that _id is overwritten. Otherwise an insert operation is performed. Returns the _id of the saved document.
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: ":to_save :"
+    body: the document (a hash) to be saved
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: "Options:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: ":safe :"
+    body: if true, check that the save succeeded. OperationFailure
+  type: :NOTE
+- !ruby/struct:SM::Flow::VERB 
+  body: "  will be raised on an error. Checking for safety requires an extra\n  round-trip to the database\n"
+full_name: Mongo::Collection#save
+is_singleton: false
+name: save
+params: (to_save, options={})
+visibility: public

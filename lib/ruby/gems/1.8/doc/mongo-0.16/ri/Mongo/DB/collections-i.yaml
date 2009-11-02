@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Retruns an array of Collection instances, one for each collection in this database.
+full_name: Mongo::DB#collections
+is_singleton: false
+name: collections
+params: ()
+visibility: public

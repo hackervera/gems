@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>define_test_tasks (Hoe::Test)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/hoe/test.rb, line 62</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">define_test_tasks</span>
+    <span class="ruby-identifier">default_tasks</span> = []
+
+    <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span> <span class="ruby-value str">&quot;test&quot;</span> <span class="ruby-keyword kw">then</span>
+      <span class="ruby-identifier">desc</span> <span class="ruby-value str">'Run the test suite. Use FILTER or TESTOPTS to add flags/args.'</span>
+      <span class="ruby-identifier">task</span> <span class="ruby-identifier">:test</span> <span class="ruby-keyword kw">do</span>
+        <span class="ruby-identifier">ruby</span> <span class="ruby-identifier">make_test_cmd</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">desc</span> <span class="ruby-value str">'Run the test suite using multiruby.'</span>
+      <span class="ruby-identifier">task</span> <span class="ruby-identifier">:multi</span> <span class="ruby-keyword kw">do</span>
+        <span class="ruby-identifier">ruby</span> <span class="ruby-identifier">make_test_cmd</span>(<span class="ruby-identifier">:multi</span>)
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">desc</span> <span class="ruby-value str">'Show which test files fail when run alone.'</span>
+      <span class="ruby-identifier">task</span> <span class="ruby-identifier">:test_deps</span> <span class="ruby-keyword kw">do</span>
+        <span class="ruby-identifier">tests</span> = <span class="ruby-constant">Dir</span>[<span class="ruby-value str">&quot;test/**/test_*.rb&quot;</span>]  <span class="ruby-operator">+</span>  <span class="ruby-constant">Dir</span>[<span class="ruby-value str">&quot;test/**/*_test.rb&quot;</span>]
+
+        <span class="ruby-identifier">paths</span> = [<span class="ruby-value str">'bin'</span>, <span class="ruby-value str">'lib'</span>, <span class="ruby-value str">'test'</span>].<span class="ruby-identifier">join</span>(<span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">PATH_SEPARATOR</span>)
+        <span class="ruby-identifier">null_dev</span> = <span class="ruby-constant">Hoe</span><span class="ruby-operator">::</span><span class="ruby-constant">WINDOZE</span> <span class="ruby-value">? </span><span class="ruby-value str">'&gt; NUL 2&gt;&amp;1'</span> <span class="ruby-operator">:</span> <span class="ruby-value str">'&amp;&gt; /dev/null'</span>
+
+        <span class="ruby-identifier">tests</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">test</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">not</span> <span class="ruby-identifier">system</span> <span class="ruby-node">&quot;ruby -I#{paths} #{test} #{null_dev}&quot;</span> <span class="ruby-keyword kw">then</span>
+            <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Dependency Issues: #{test}&quot;</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">default_tasks</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">:test</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span> <span class="ruby-value str">&quot;spec&quot;</span> <span class="ruby-keyword kw">then</span>
+      <span class="ruby-keyword kw">begin</span>
+        <span class="ruby-identifier">require</span> <span class="ruby-value str">'spec/rake/spectask'</span>
+
+        <span class="ruby-identifier">desc</span> <span class="ruby-value str">&quot;Run all specifications&quot;</span>
+        <span class="ruby-constant">Spec</span><span class="ruby-operator">::</span><span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">SpecTask</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">:spec</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">t</span>.<span class="ruby-identifier">libs</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">rspec_dirs</span>
+          <span class="ruby-identifier">t</span>.<span class="ruby-identifier">spec_opts</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">rspec_options</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">LoadError</span>
+        <span class="ruby-comment cmt"># do nothing</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">default_tasks</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">:spec</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-identifier">desc</span> <span class="ruby-value str">'Run the default task(s).'</span>
+    <span class="ruby-identifier">task</span> <span class="ruby-identifier">:default</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">default_tasks</span>
+
+    <span class="ruby-identifier">desc</span> <span class="ruby-value str">'Run ZenTest against the package.'</span>
+    <span class="ruby-identifier">task</span> <span class="ruby-identifier">:audit</span> <span class="ruby-keyword kw">do</span>
+      <span class="ruby-identifier">libs</span> = <span class="ruby-node">%w(lib test ext)</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">PATH_SEPARATOR</span>)
+      <span class="ruby-identifier">sh</span> <span class="ruby-node">&quot;zentest -I=#{libs} #{spec.files.grep(/^(lib|test)/).join(' ')}&quot;</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

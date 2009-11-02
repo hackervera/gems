@@ -1,0 +1,22 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Create a new consumer instance by passing it a configuration hash:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  @consumer = OAuth::Consumer.new(key, secret, {\n    :site               =&gt; &quot;http://term.ie&quot;,\n    :scheme             =&gt; :header,\n    :http_method        =&gt; :post,\n    :request_token_path =&gt; &quot;/oauth/example/request_token.php&quot;,\n    :access_token_path  =&gt; &quot;/oauth/example/access_token.php&quot;,\n    :authorize_path     =&gt; &quot;/oauth/example/authorize.php&quot;\n   })\n"
+- !ruby/struct:SM::Flow::P 
+  body: Start the process by requesting a token
+- !ruby/struct:SM::Flow::VERB 
+  body: "  @request_token = @consumer.get_request_token\n  session[:request_token] = @request_token\n  redirect_to @request_token.authorize_url\n"
+- !ruby/struct:SM::Flow::P 
+  body: When user returns create an access_token
+- !ruby/struct:SM::Flow::VERB 
+  body: "  @access_token = @request_token.get_access_token\n  @photos=@access_token.get('/photos.xml')\n"
+full_name: OAuth::Consumer::new
+is_singleton: true
+name: new
+params: (consumer_key, consumer_secret, options = {})
+visibility: public

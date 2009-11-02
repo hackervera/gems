@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: Returns an array of error messages associated with the specified <tt>attribute</tt>.
+  type: :BULLET
+full_name: Validatable::Errors#raw
+is_singleton: false
+name: raw
+params: " raw(attribute)\n"
+visibility: public

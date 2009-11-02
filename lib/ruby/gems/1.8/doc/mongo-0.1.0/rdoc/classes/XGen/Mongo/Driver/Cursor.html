@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: XGen::Mongo::Driver::Cursor</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">XGen::Mongo::Driver::Cursor</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../../files/lib/mongo/cursor_rb.html">
+                lib/mongo/cursor.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+A cursor over query results. Returned objects are hashes.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000103">close</a>&nbsp;&nbsp;
+      <a href="#M000096">closed?</a>&nbsp;&nbsp;
+      <a href="#M000100">each</a>&nbsp;&nbsp;
+      <a href="#M000102">explain</a>&nbsp;&nbsp;
+      <a href="#M000097">hint</a>&nbsp;&nbsp;
+      <a href="#M000098">more?</a>&nbsp;&nbsp;
+      <a href="#M000095">new</a>&nbsp;&nbsp;
+      <a href="#M000099">next_object</a>&nbsp;&nbsp;
+      <a href="#M000108">num_remaining</a>&nbsp;&nbsp;
+      <a href="#M000104">read_all</a>&nbsp;&nbsp;
+      <a href="#M000106">read_message_header</a>&nbsp;&nbsp;
+      <a href="#M000105">read_objects_off_wire</a>&nbsp;&nbsp;
+      <a href="#M000107">read_response_header</a>&nbsp;&nbsp;
+      <a href="#M000101">to_a</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+        <span class="include-name">Enumerable</span>
+      </div>
+    </div>
+
+    <div id="section">
+
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">RESPONSE_HEADER_SIZE</td>
+          <td>=</td>
+          <td class="context-item-value">20</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">collection</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">db</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">query</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000095" class="method-detail">
+        <a name="M000095"></a>
+
+        <div class="method-heading">
+          <a href="Cursor.src/M000095.html" target="Code" class="method-signature"
+            onclick="popupCode('Cursor.src/M000095.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(db, collection, query)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000103" class="method-detail">
+        <a name="M000103"></a>
+
+        <div class="method-heading">
+          <a href="Cursor.src/M000103.html" target="Code" class="method-signature"
+            onclick="popupCode('Cursor.src/M000103.html');return false;">
+          <span class="method-name">close</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Close the cursor.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000096" class="method-detail">
+        <a name="M000096"></a>
+
+        <div class="method-heading">
+          <a href="Cursor.src/M000096.html" target="Code" class="method-signature"
+            onclick="popupCode('Cursor.src/M000096.html');return false;">
+          <span class="method-name">closed?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000100" class="method-detail">
+        <a name="M000100"></a>
+
+        <div class="method-heading">
+          <a href="Cursor.src/M000100.html" target="Code" class="method-signature"
+            onclick="popupCode('Cursor.src/M000100.html');return false;">
+          <span class="method-name">each</span><span class="method-args">() {|row| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Iterate over <a href="Cursor.html#M000100">each</a> object, yielding it to
+the given block. At most @num_to_return records are returned (or all of
+them, if @num_to_return is 0).
+</p>
+<p>
+If <a href="Cursor.html#M000101">to_a</a> has already been called then this
+method uses the array that we store internally. In that case, <a
+href="Cursor.html#M000100">each</a> can be called multiple times because it
+re-uses that array.
+</p>
+<p>
+You can call <a href="Cursor.html#M000100">each</a> after calling <a
+href="Cursor.html#M000101">to_a</a> (multiple times even, because it will
+use the internally-stored array), but you can&#8216;t call <a
+href="Cursor.html#M000101">to_a</a> after calling <a
+href="Cursor.html#M000100">each</a> unless you also called it before
+calling <a href="Cursor.html#M000100">each</a>. If you try to do that, an
+error will be raised.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000102" class="method-detail">
+        <a name="M000102"></a>
+
+        <div class="method-heading">
+          <a href="Cursor.src/M000102.html" target="Code" class="method-signature"
+            onclick="popupCode('Cursor.src/M000102.html');return false;">
+          <span class="method-name">explain</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns an <a href="Cursor.html#M000102">explain</a> plan record.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000097" class="method-detail">
+        <a name="M000097"></a>
+
+        <div class="method-heading">
+          <a href="Cursor.src/M000097.html" target="Code" class="method-signature"
+            onclick="popupCode('Cursor.src/M000097.html');return false;">
+          <span class="method-name">hint</span><span class="method-args">(hint_fields)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Set <a href="Cursor.html#M000097">hint</a> fields to use and return
+<tt>self</tt>. hint_fields may be a single field name, array of field
+names, or a hash whose keys will become the <a
+href="Cursor.html#M000097">hint</a> field names. May be <tt>nil</tt>. If no
+<a href="Cursor.html#M000097">hint</a> fields are specified, the ones in
+the collection are used if they exist.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000098" class="method-detail">
+        <a name="M000098"></a>
+
+        <div class="method-heading">
+          <a href="Cursor.src/M000098.html" target="Code" class="method-signature"
+            onclick="popupCode('Cursor.src/M000098.html');return false;">
+          <span class="method-name">more?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Return <tt>true</tt> if there are more records to retrieve. We do not check
+@num_to_return; <a href="Cursor.html#M000100">each</a> is responsible for
+doing that.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000099" class="method-detail">
+        <a name="M000099"></a>
+
+        <div class="method-heading">
+          <a href="Cursor.src/M000099.html" target="Code" class="method-signature"
+            onclick="popupCode('Cursor.src/M000099.html');return false;">
+          <span class="method-name">next_object</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Return the next object. Raises an error if necessary.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000101" class="method-detail">
+        <a name="M000101"></a>
+
+        <div class="method-heading">
+          <a href="Cursor.src/M000101.html" target="Code" class="method-signature"
+            onclick="popupCode('Cursor.src/M000101.html');return false;">
+          <span class="method-name">to_a</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Return all of the rows (up to the <tt>num_to_return</tt> value specified in
+<a href="Cursor.html#M000095">new</a>) as an array. Calling this multiple
+times will work fine; it always returns the same array.
+</p>
+<p>
+Don&#8216;t use this if you&#8216;re expecting large amounts of data, of
+course. All of the returned rows are kept in an array stored in this object
+so it can be reused.
+</p>
+<p>
+You can call <a href="Cursor.html#M000100">each</a> after calling <a
+href="Cursor.html#M000101">to_a</a> (multiple times even, because it will
+use the internally-stored array), but you can&#8216;t call <a
+href="Cursor.html#M000101">to_a</a> after calling <a
+href="Cursor.html#M000100">each</a> unless you also called it before
+calling <a href="Cursor.html#M000100">each</a>. If you try to do that, an
+error will be raised.
+</p>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Protected Instance methods</h3>
+
+      <div id="method-M000108" class="method-detail">
+        <a name="M000108"></a>
+
+        <div class="method-heading">
+          <a href="Cursor.src/M000108.html" target="Code" class="method-signature"
+            onclick="popupCode('Cursor.src/M000108.html');return false;">
+          <span class="method-name">num_remaining</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000104" class="method-detail">
+        <a name="M000104"></a>
+
+        <div class="method-heading">
+          <a href="Cursor.src/M000104.html" target="Code" class="method-signature"
+            onclick="popupCode('Cursor.src/M000104.html');return false;">
+          <span class="method-name">read_all</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000106" class="method-detail">
+        <a name="M000106"></a>
+
+        <div class="method-heading">
+          <a href="Cursor.src/M000106.html" target="Code" class="method-signature"
+            onclick="popupCode('Cursor.src/M000106.html');return false;">
+          <span class="method-name">read_message_header</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000105" class="method-detail">
+        <a name="M000105"></a>
+
+        <div class="method-heading">
+          <a href="Cursor.src/M000105.html" target="Code" class="method-signature"
+            onclick="popupCode('Cursor.src/M000105.html');return false;">
+          <span class="method-name">read_objects_off_wire</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000107" class="method-detail">
+        <a name="M000107"></a>
+
+        <div class="method-heading">
+          <a href="Cursor.src/M000107.html" target="Code" class="method-signature"
+            onclick="popupCode('Cursor.src/M000107.html');return false;">
+          <span class="method-name">read_response_header</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: XGen::Mongo::Driver::Query#contains_special_fields
+is_singleton: false
+name: contains_special_fields
+params: ()
+visibility: public

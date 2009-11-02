@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Simple shortcut for Rake.application.all_tasks
+full_name: Rake::all_tasks
+is_singleton: true
+name: all_tasks
+params: ()
+visibility: public

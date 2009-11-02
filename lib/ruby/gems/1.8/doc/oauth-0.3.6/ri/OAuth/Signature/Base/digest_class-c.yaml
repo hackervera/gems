@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: OAuth::Signature::Base::digest_class
+is_singleton: true
+name: digest_class
+params: (digest_class = nil)
+visibility: public

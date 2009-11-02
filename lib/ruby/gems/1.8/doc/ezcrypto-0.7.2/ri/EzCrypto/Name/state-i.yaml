@@ -1,0 +1,15 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: st
+- !ruby/object:RI::AliasName 
+  name: province
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The state or province code
+full_name: EzCrypto::Name#state
+is_singleton: false
+name: state
+params: ()
+visibility: public

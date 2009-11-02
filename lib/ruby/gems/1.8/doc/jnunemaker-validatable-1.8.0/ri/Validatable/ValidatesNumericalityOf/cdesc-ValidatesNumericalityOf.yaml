@@ -1,0 +1,15 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: Validatable::ValidatesNumericalityOf
+includes: []
+
+instance_methods: []
+
+name: ValidatesNumericalityOf
+superclass: ValidationBase

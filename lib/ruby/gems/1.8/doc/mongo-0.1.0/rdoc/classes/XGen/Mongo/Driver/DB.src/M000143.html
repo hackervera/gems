@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>create_index (XGen::Mongo::Driver::DB)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/mongo/db.rb, line 318</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create_index</span>(<span class="ruby-identifier">collection_name</span>, <span class="ruby-identifier">index_name</span>, <span class="ruby-identifier">fields</span>)
+          <span class="ruby-identifier">sel</span> = {<span class="ruby-identifier">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">index_name</span>, <span class="ruby-identifier">:ns</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">full_coll_name</span>(<span class="ruby-identifier">collection_name</span>)}
+          <span class="ruby-identifier">field_h</span> = {}
+          <span class="ruby-identifier">fields</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">field_h</span>[<span class="ruby-identifier">f</span>] = <span class="ruby-value">1</span> }
+          <span class="ruby-identifier">sel</span>[<span class="ruby-identifier">:key</span>] = <span class="ruby-identifier">field_h</span>
+          <span class="ruby-ivar">@semaphore</span>.<span class="ruby-identifier">synchronize</span> {
+            <span class="ruby-identifier">send_to_db</span>(<span class="ruby-constant">InsertMessage</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@name</span>, <span class="ruby-constant">SYSTEM_INDEX_COLLECTION</span>, <span class="ruby-identifier">sel</span>))
+          }
+        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

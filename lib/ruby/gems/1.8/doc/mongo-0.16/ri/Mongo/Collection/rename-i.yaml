@@ -1,0 +1,20 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Rename this collection.
+- !ruby/struct:SM::Flow::P 
+  body: If operating in auth mode, client must be authorized as an admin to perform this operation. Raises <tt>InvalidName</tt> if <tt>new_name</tt> is an invalid collection name.
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: ":new_name :"
+    body: new name for this collection
+  type: :NOTE
+full_name: Mongo::Collection#rename
+is_singleton: false
+name: rename
+params: (new_name)
+visibility: public

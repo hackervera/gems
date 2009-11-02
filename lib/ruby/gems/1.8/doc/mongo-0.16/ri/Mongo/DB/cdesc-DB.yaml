@@ -1,0 +1,165 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Host to which we are currently connected.
+  name: host
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The logger instance if :logger is passed to initialize
+  name: logger
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The name of the database.
+  name: name
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: An array of [host, port] pairs.
+  name: nodes
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: A primary key factory object (or <tt>nil</tt>). See the README.doc file or DB#new for details.
+  name: pk_factory
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Port to which we are currently connected.
+  name: port
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The database's socket. For internal (and Cursor) use only.
+  name: socket
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Strict mode enforces collection existence checks. When <tt>true</tt>, asking for a collection that does not exist or trying to create a collection that already exists raises an error.
+  - !ruby/struct:SM::Flow::P 
+    body: Strict mode is off (<tt>false</tt>) by default. Its value can be changed at any time.
+  name: strict
+  rw: W
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: A Mongo database.
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SYSTEM_NAMESPACE_COLLECTION
+  value: "\"system.namespaces\""
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SYSTEM_INDEX_COLLECTION
+  value: "\"system.indexes\""
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SYSTEM_PROFILE_COLLECTION
+  value: "\"system.profile\""
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SYSTEM_USER_COLLECTION
+  value: "\"system.users\""
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SYSTEM_COMMAND_COLLECTION
+  value: "\"$cmd\""
+full_name: Mongo::DB
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: "[]"
+- !ruby/object:RI::MethodSummary 
+  name: _synchronize
+- !ruby/object:RI::MethodSummary 
+  name: admin
+- !ruby/object:RI::MethodSummary 
+  name: authenticate
+- !ruby/object:RI::MethodSummary 
+  name: auto_reconnect?
+- !ruby/object:RI::MethodSummary 
+  name: close
+- !ruby/object:RI::MethodSummary 
+  name: collection
+- !ruby/object:RI::MethodSummary 
+  name: collection_names
+- !ruby/object:RI::MethodSummary 
+  name: collections
+- !ruby/object:RI::MethodSummary 
+  name: collections_info
+- !ruby/object:RI::MethodSummary 
+  name: connect_to_master
+- !ruby/object:RI::MethodSummary 
+  name: connected?
+- !ruby/object:RI::MethodSummary 
+  name: create_collection
+- !ruby/object:RI::MethodSummary 
+  name: create_index
+- !ruby/object:RI::MethodSummary 
+  name: db_command
+- !ruby/object:RI::MethodSummary 
+  name: dereference
+- !ruby/object:RI::MethodSummary 
+  name: drop_collection
+- !ruby/object:RI::MethodSummary 
+  name: drop_index
+- !ruby/object:RI::MethodSummary 
+  name: error
+- !ruby/object:RI::MethodSummary 
+  name: error?
+- !ruby/object:RI::MethodSummary 
+  name: eval
+- !ruby/object:RI::MethodSummary 
+  name: full_collection_name
+- !ruby/object:RI::MethodSummary 
+  name: index_information
+- !ruby/object:RI::MethodSummary 
+  name: last_status
+- !ruby/object:RI::MethodSummary 
+  name: logout
+- !ruby/object:RI::MethodSummary 
+  name: master
+- !ruby/object:RI::MethodSummary 
+  name: master?
+- !ruby/object:RI::MethodSummary 
+  name: ok?
+- !ruby/object:RI::MethodSummary 
+  name: pk_factory=
+- !ruby/object:RI::MethodSummary 
+  name: previous_error
+- !ruby/object:RI::MethodSummary 
+  name: query
+- !ruby/object:RI::MethodSummary 
+  name: receive_full
+- !ruby/object:RI::MethodSummary 
+  name: receive_message_with_operation
+- !ruby/object:RI::MethodSummary 
+  name: rename_collection
+- !ruby/object:RI::MethodSummary 
+  name: reset_error_history
+- !ruby/object:RI::MethodSummary 
+  name: send_message_with_operation
+- !ruby/object:RI::MethodSummary 
+  name: send_message_with_operation_without_synchronize
+- !ruby/object:RI::MethodSummary 
+  name: send_to_db
+- !ruby/object:RI::MethodSummary 
+  name: slave_ok?
+- !ruby/object:RI::MethodSummary 
+  name: strict?
+name: DB
+superclass: Object

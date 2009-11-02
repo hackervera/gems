@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>define_signing_tasks (Hoe::Signing)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/hoe/signing.rb, line 46</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">define_signing_tasks</span>
+    <span class="ruby-identifier">signing_key</span> = <span class="ruby-keyword kw">nil</span>
+    <span class="ruby-identifier">cert_chain</span> = []
+
+    <span class="ruby-identifier">with_config</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">config</span>, <span class="ruby-identifier">path</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword kw">break</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">config</span>[<span class="ruby-value str">'signing_key_file'</span>] <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">config</span>[<span class="ruby-value str">'signing_cert_file'</span>]
+      <span class="ruby-identifier">key_file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span> <span class="ruby-identifier">config</span>[<span class="ruby-value str">'signing_key_file'</span>].<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">signing_key</span> = <span class="ruby-identifier">key_file</span> <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span> <span class="ruby-identifier">key_file</span>
+
+      <span class="ruby-identifier">cert_file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span> <span class="ruby-identifier">config</span>[<span class="ruby-value str">'signing_cert_file'</span>].<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">cert_chain</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">cert_file</span> <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span> <span class="ruby-identifier">cert_file</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">signing_key</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">cert_chain</span> <span class="ruby-keyword kw">then</span>
+      <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">signing_key</span> = <span class="ruby-identifier">signing_key</span>
+      <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">cert_chain</span> = <span class="ruby-identifier">cert_chain</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-identifier">desc</span> <span class="ruby-value str">'Generate a key for signing your gems.'</span>
+    <span class="ruby-identifier">task</span> <span class="ruby-identifier">:generate_key</span> <span class="ruby-keyword kw">do</span>
+      <span class="ruby-identifier">email</span> = <span class="ruby-constant">Array</span>(<span class="ruby-identifier">spec</span>.<span class="ruby-identifier">email</span>)
+      <span class="ruby-identifier">abort</span> <span class="ruby-value str">&quot;No email in your gemspec&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">email</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">email</span>.<span class="ruby-identifier">empty?</span>
+
+      <span class="ruby-identifier">key_file</span> = <span class="ruby-identifier">with_config</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">config</span>, <span class="ruby-identifier">_</span><span class="ruby-operator">|</span> <span class="ruby-identifier">config</span>[<span class="ruby-value str">'signing_key_file'</span>] }
+      <span class="ruby-identifier">cert_file</span> = <span class="ruby-identifier">with_config</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">config</span>, <span class="ruby-identifier">_</span><span class="ruby-operator">|</span> <span class="ruby-identifier">config</span>[<span class="ruby-value str">'signing_cert_file'</span>] }
+
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">key_file</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">cert_file</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword kw">then</span>
+        <span class="ruby-constant">ENV</span>[<span class="ruby-value str">'SHOW_EDITOR'</span>] <span class="ruby-operator">||=</span> <span class="ruby-value str">'no'</span>
+        <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>[<span class="ruby-value str">'config_hoe'</span>].<span class="ruby-identifier">invoke</span>
+
+        <span class="ruby-identifier">key_file</span> = <span class="ruby-identifier">with_config</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">config</span>, <span class="ruby-identifier">_</span><span class="ruby-operator">|</span> <span class="ruby-identifier">config</span>[<span class="ruby-value str">'signing_key_file'</span>] }
+        <span class="ruby-identifier">cert_file</span> = <span class="ruby-identifier">with_config</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">config</span>, <span class="ruby-identifier">_</span><span class="ruby-operator">|</span> <span class="ruby-identifier">config</span>[<span class="ruby-value str">'signing_cert_file'</span>] }
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">key_file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span> <span class="ruby-identifier">key_file</span>
+      <span class="ruby-identifier">cert_file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span> <span class="ruby-identifier">cert_file</span>
+
+      <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span> <span class="ruby-identifier">key_file</span> <span class="ruby-keyword kw">then</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;Generating certificate&quot;</span>
+
+        <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span> <span class="ruby-identifier">key_file</span> <span class="ruby-keyword kw">then</span>
+          <span class="ruby-identifier">abort</span> <span class="ruby-node">&quot;Have #{key_file} but no #{cert_file}, aborting as a precaution&quot;</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">warn</span> <span class="ruby-node">&quot;NOTICE: using #{email.first} for certificate&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">email</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+
+        <span class="ruby-identifier">sh</span> <span class="ruby-node">&quot;gem cert --build #{email.first}&quot;</span>
+        <span class="ruby-identifier">mv</span> <span class="ruby-value str">&quot;gem-private_key.pem&quot;</span>, <span class="ruby-identifier">key_file</span>, <span class="ruby-identifier">:verbose</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>
+        <span class="ruby-identifier">mv</span> <span class="ruby-value str">&quot;gem-public_cert.pem&quot;</span>, <span class="ruby-identifier">cert_file</span>, <span class="ruby-identifier">:verbose</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>
+
+        <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;Installed key and certificate.&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">rf</span> = <span class="ruby-constant">RubyForge</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">configure</span>
+      <span class="ruby-identifier">rf</span>.<span class="ruby-identifier">login</span>
+
+      <span class="ruby-identifier">cert_package</span> = <span class="ruby-node">&quot;#{rubyforge_name}-certificates&quot;</span>
+
+      <span class="ruby-keyword kw">begin</span>
+        <span class="ruby-identifier">rf</span>.<span class="ruby-identifier">lookup</span> <span class="ruby-value str">'package'</span>, <span class="ruby-identifier">cert_package</span>
+      <span class="ruby-keyword kw">rescue</span>
+        <span class="ruby-identifier">rf</span>.<span class="ruby-identifier">create_package</span> <span class="ruby-identifier">rubyforge_name</span>, <span class="ruby-identifier">cert_package</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">rf</span>.<span class="ruby-identifier">lookup</span>(<span class="ruby-value str">'release'</span>, <span class="ruby-identifier">cert_package</span>)[<span class="ruby-value str">'certificates'</span>] <span class="ruby-keyword kw">then</span>
+        <span class="ruby-identifier">rf</span>.<span class="ruby-identifier">add_release</span> <span class="ruby-identifier">rubyforge_name</span>, <span class="ruby-identifier">cert_package</span>, <span class="ruby-value str">'certificates'</span>, <span class="ruby-identifier">cert_file</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Uploaded certificates to release \&quot;certificates\&quot; in package #{cert_package}&quot;</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-value str">'&quot;certificates&quot; release exists, adding file anyway (will not overwrite)'</span>
+        <span class="ruby-identifier">rf</span>.<span class="ruby-identifier">add_file</span> <span class="ruby-identifier">rubyforge_name</span>, <span class="ruby-identifier">cert_package</span>, <span class="ruby-value str">'certificates'</span>, <span class="ruby-identifier">cert_file</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

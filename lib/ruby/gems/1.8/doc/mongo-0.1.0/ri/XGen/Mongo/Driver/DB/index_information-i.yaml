@@ -1,0 +1,24 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Return an array of hashes, one for each index on <tt>collection_name</tt>. Normally called by Collection#index_information. Each hash contains:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: ":name :"
+    body: Index name
+  - !ruby/struct:SM::Flow::LI 
+    label: ":keys :"
+    body: Hash whose keys are the names of the fields that make up the key and values are integers.
+  - !ruby/struct:SM::Flow::LI 
+    label: ":ns :"
+    body: Namespace; same as <tt>collection_name</tt>.
+  type: :NOTE
+full_name: XGen::Mongo::Driver::DB#index_information
+is_singleton: false
+name: index_information
+params: (collection_name)
+visibility: public

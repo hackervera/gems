@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Twitter::Base#direct_message_destroy
+is_singleton: false
+name: direct_message_destroy
+params: (id)
+visibility: public

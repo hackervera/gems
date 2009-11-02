@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>validate_only (Validatable)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/validatable/validatable_instance_methods.rb, line 59</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">validate_only</span>(<span class="ruby-identifier">key</span>)
+    <span class="ruby-identifier">validation_name</span>, <span class="ruby-identifier">attribute_name</span> = <span class="ruby-identifier">key</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">&quot;/&quot;</span>)
+    <span class="ruby-identifier">validation_name</span> = <span class="ruby-identifier">validation_name</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">&quot;_&quot;</span>).<span class="ruby-identifier">collect</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">word</span><span class="ruby-operator">|</span> <span class="ruby-identifier">word</span>.<span class="ruby-identifier">capitalize</span>}.<span class="ruby-identifier">join</span>
+    <span class="ruby-identifier">validation_key</span> = <span class="ruby-node">&quot;#{self.class.name}/Validatable::Validates#{validation_name}/#{attribute_name}&quot;</span>
+    <span class="ruby-identifier">validation</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">all_validations</span>.<span class="ruby-identifier">find</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">validation</span><span class="ruby-operator">|</span> <span class="ruby-identifier">validation</span>.<span class="ruby-identifier">key</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">validation_key</span> }
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;validation with key #{validation_key} could not be found&quot;</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">validation</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">clear</span>
+    <span class="ruby-identifier">run_validation</span>(<span class="ruby-identifier">validation</span>)
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

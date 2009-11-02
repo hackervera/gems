@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>calculate_key_size (EzCrypto::Key)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/ezcrypto.rb, line 123</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">calculate_key_size</span>(<span class="ruby-identifier">algorithm</span>)
+      <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">algorithm</span>.<span class="ruby-identifier">nil?</span>
+        <span class="ruby-identifier">algorithm</span><span class="ruby-operator">=~</span><span class="ruby-regexp re">/^([[:alnum:]]+)(-(\d+))?/</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">$3</span>
+          <span class="ruby-identifier">size</span>=(<span class="ruby-identifier">$3</span>.<span class="ruby-identifier">to_i</span>)<span class="ruby-operator">/</span><span class="ruby-value">8</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">$1</span>
+            <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;bf&quot;</span>
+              <span class="ruby-identifier">size</span> = <span class="ruby-value">16</span>
+            <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;blowfish&quot;</span>
+              <span class="ruby-identifier">size</span> = <span class="ruby-value">16</span>
+            <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;des&quot;</span>
+              <span class="ruby-identifier">size</span> = <span class="ruby-value">8</span>
+            <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;des3&quot;</span>
+              <span class="ruby-identifier">size</span> = <span class="ruby-value">24</span>
+            <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;aes128&quot;</span>
+              <span class="ruby-identifier">size</span> = <span class="ruby-value">16</span>
+            <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;aes192&quot;</span>
+              <span class="ruby-identifier">size</span> = <span class="ruby-value">24</span>
+            <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;aes256&quot;</span>
+              <span class="ruby-identifier">size</span> = <span class="ruby-value">32</span>
+            <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;rc2&quot;</span>
+              <span class="ruby-identifier">size</span> = <span class="ruby-value">16</span>
+            <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;rc4&quot;</span>
+              <span class="ruby-identifier">size</span> = <span class="ruby-value">16</span>
+            <span class="ruby-keyword kw">else</span>
+              <span class="ruby-identifier">size</span> = <span class="ruby-value">16</span>
+            <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">size</span>.<span class="ruby-identifier">nil?</span>
+        <span class="ruby-identifier">size</span> = <span class="ruby-value">16</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">size</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

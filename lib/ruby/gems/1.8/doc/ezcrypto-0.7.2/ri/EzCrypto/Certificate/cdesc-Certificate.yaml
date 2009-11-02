@@ -1,0 +1,41 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Certificate provides functionality to make it easy to extract information from a Certificate. This also provides all the same functionality as a Verifier.
+constants: []
+
+full_name: EzCrypto::Certificate
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: cert
+- !ruby/object:RI::MethodSummary 
+  name: cert?
+- !ruby/object:RI::MethodSummary 
+  name: cert_digest
+- !ruby/object:RI::MethodSummary 
+  name: extensions
+- !ruby/object:RI::MethodSummary 
+  name: issuer
+- !ruby/object:RI::MethodSummary 
+  name: method_missing
+- !ruby/object:RI::MethodSummary 
+  name: not_after
+- !ruby/object:RI::MethodSummary 
+  name: not_before
+- !ruby/object:RI::MethodSummary 
+  name: register_with_pkyp
+- !ruby/object:RI::MethodSummary 
+  name: serial
+- !ruby/object:RI::MethodSummary 
+  name: subject
+- !ruby/object:RI::MethodSummary 
+  name: valid?
+name: Certificate
+superclass: Verifier

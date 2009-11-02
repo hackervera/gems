@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: <tt>data</tt> is an array of bytes. If nil, a new id will be generated.
+full_name: Mongo::ObjectID::new
+is_singleton: true
+name: new
+params: (data=nil)
+visibility: public

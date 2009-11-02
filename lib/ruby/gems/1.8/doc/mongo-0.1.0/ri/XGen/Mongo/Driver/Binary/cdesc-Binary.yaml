@@ -1,0 +1,17 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: An array of binary bytes. The only reason this exists is so that the BSON encoder will know to output the Mongo BINARY type.
+constants: []
+
+full_name: XGen::Mongo::Driver::Binary
+includes: []
+
+instance_methods: []
+
+name: Binary
+superclass: String

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Decode a PEM encoded Private Key and return a signer. Takes an optional password
+full_name: EzCrypto::Signer::decode
+is_singleton: true
+name: decode
+params: (encoded,password=nil)
+visibility: public

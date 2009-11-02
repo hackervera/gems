@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Remove the records that match <tt>selector</tt>.
+full_name: XGen::Mongo::Driver::Collection#remove
+is_singleton: false
+name: remove
+params: (selector={})
+visibility: public

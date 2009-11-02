@@ -1,0 +1,44 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: association
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: owner
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: MongoMapper::Associations::Proxy
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: find_target
+- !ruby/object:RI::MethodSummary 
+  name: flatten_deeper
+- !ruby/object:RI::MethodSummary 
+  name: inspect
+- !ruby/object:RI::MethodSummary 
+  name: load_target
+- !ruby/object:RI::MethodSummary 
+  name: method_missing
+- !ruby/object:RI::MethodSummary 
+  name: nil?
+- !ruby/object:RI::MethodSummary 
+  name: reload_target
+- !ruby/object:RI::MethodSummary 
+  name: replace
+- !ruby/object:RI::MethodSummary 
+  name: reset
+- !ruby/object:RI::MethodSummary 
+  name: respond_to?
+- !ruby/object:RI::MethodSummary 
+  name: send
+name: Proxy
+superclass: BasicObject

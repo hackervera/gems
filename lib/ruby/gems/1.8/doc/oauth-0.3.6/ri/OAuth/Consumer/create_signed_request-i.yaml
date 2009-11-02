@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Creates and signs an http request. It's recommended to use the Token classes to set this up correctly
+full_name: OAuth::Consumer#create_signed_request
+is_singleton: false
+name: create_signed_request
+params: (http_method, path, token = nil, request_options = {}, *arguments)
+visibility: public

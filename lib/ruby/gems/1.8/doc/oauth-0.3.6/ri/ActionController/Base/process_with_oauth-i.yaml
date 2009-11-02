@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: ActionController::Base#process_with_oauth
+is_singleton: false
+name: process_with_oauth
+params: (request, response=nil)
+visibility: public

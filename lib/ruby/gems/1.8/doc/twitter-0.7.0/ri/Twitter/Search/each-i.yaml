@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: r
+comment: 
+full_name: Twitter::Search#each
+is_singleton: false
+name: each
+params: () {|r| ...}
+visibility: public

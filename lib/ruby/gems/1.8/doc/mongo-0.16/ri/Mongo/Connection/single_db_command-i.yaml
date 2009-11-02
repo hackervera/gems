@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Send cmd (a hash, possibly ordered) to the admin database and return the answer. Raises an error unless the return is &quot;ok&quot; (DB#ok? returns <tt>true</tt>).
+full_name: Mongo::Connection#single_db_command
+is_singleton: false
+name: single_db_command
+params: (db_name, cmd)
+visibility: protected

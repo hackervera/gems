@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>create_http_request (OAuth::Consumer)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/oauth/consumer.rb, line 296</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create_http_request</span>(<span class="ruby-identifier">http_method</span>, <span class="ruby-identifier">path</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">arguments</span>)
+      <span class="ruby-identifier">http_method</span> = <span class="ruby-identifier">http_method</span>.<span class="ruby-identifier">to_sym</span>
+
+      <span class="ruby-keyword kw">if</span> [<span class="ruby-identifier">:post</span>, <span class="ruby-identifier">:put</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">http_method</span>)
+        <span class="ruby-identifier">data</span> = <span class="ruby-identifier">arguments</span>.<span class="ruby-identifier">shift</span>
+        <span class="ruby-identifier">data</span>.<span class="ruby-identifier">reject!</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>,<span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">nil?</span> } <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">headers</span> = <span class="ruby-identifier">arguments</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">arguments</span>.<span class="ruby-identifier">shift</span> <span class="ruby-operator">:</span> {}
+
+      <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">http_method</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:post</span>
+        <span class="ruby-identifier">request</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span><span class="ruby-operator">::</span><span class="ruby-constant">Post</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">path</span>,<span class="ruby-identifier">headers</span>)
+        <span class="ruby-identifier">request</span>[<span class="ruby-value str">&quot;Content-Length&quot;</span>] = <span class="ruby-value">0</span> <span class="ruby-comment cmt"># Default to 0</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:put</span>
+        <span class="ruby-identifier">request</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span><span class="ruby-operator">::</span><span class="ruby-constant">Put</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">path</span>,<span class="ruby-identifier">headers</span>)
+        <span class="ruby-identifier">request</span>[<span class="ruby-value str">&quot;Content-Length&quot;</span>] = <span class="ruby-value">0</span> <span class="ruby-comment cmt"># Default to 0</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:get</span>
+        <span class="ruby-identifier">request</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span><span class="ruby-operator">::</span><span class="ruby-constant">Get</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">path</span>,<span class="ruby-identifier">headers</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:delete</span>
+        <span class="ruby-identifier">request</span> =  <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span><span class="ruby-operator">::</span><span class="ruby-constant">Delete</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">path</span>,<span class="ruby-identifier">headers</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:head</span>
+        <span class="ruby-identifier">request</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span><span class="ruby-operator">::</span><span class="ruby-constant">Head</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">path</span>,<span class="ruby-identifier">headers</span>)
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;Don't know how to handle http_method: :#{http_method.to_s}&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
+        <span class="ruby-identifier">request</span>.<span class="ruby-identifier">set_form_data</span>(<span class="ruby-identifier">data</span>)
+      <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">data</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:read</span>)
+          <span class="ruby-identifier">request</span>.<span class="ruby-identifier">body_stream</span> = <span class="ruby-identifier">data</span>
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:length</span>)
+            <span class="ruby-identifier">request</span>[<span class="ruby-value str">&quot;Content-Length&quot;</span>] = <span class="ruby-identifier">data</span>.<span class="ruby-identifier">length</span>
+          <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:stat</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">stat</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:size</span>)
+            <span class="ruby-identifier">request</span>[<span class="ruby-value str">&quot;Content-Length&quot;</span>] = <span class="ruby-identifier">data</span>.<span class="ruby-identifier">stat</span>.<span class="ruby-identifier">size</span>
+          <span class="ruby-keyword kw">else</span>
+            <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">&quot;Don't know how to send a body_stream that doesn't respond to .length or .stat.size&quot;</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-identifier">request</span>.<span class="ruby-identifier">body</span> = <span class="ruby-identifier">data</span>.<span class="ruby-identifier">to_s</span>
+          <span class="ruby-identifier">request</span>[<span class="ruby-value str">&quot;Content-Length&quot;</span>] = <span class="ruby-identifier">request</span>.<span class="ruby-identifier">body</span>.<span class="ruby-identifier">length</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">request</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: ":exclude =&gt; 'hashtags' to exclude hashtags :date =&gt; yyyy-mm-dd for specific date"
+full_name: Twitter::Trends::weekly
+is_singleton: true
+name: weekly
+params: (options={})
+visibility: public

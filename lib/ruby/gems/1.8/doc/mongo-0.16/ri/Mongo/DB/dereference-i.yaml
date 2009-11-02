@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Dereference a DBRef, getting the document it points to.
+full_name: Mongo::DB#dereference
+is_singleton: false
+name: dereference
+params: (dbref)
+visibility: public

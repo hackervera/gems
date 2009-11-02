@@ -1,0 +1,33 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: "<<"
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Insert a document(s) into this collection.
+- !ruby/struct:SM::Flow::P 
+  body: "&quot;&lt;&lt;&quot; is aliased to this method. Returns the _id of the inserted document or a list of _ids of the inserted documents. The object(s) may have been modified by the database's PK factory, if it has one."
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: ":doc_or_docs :"
+    body: a document (as a hash) or Array of documents to be
+  type: :NOTE
+- !ruby/struct:SM::Flow::VERB 
+  body: "  inserted\n"
+- !ruby/struct:SM::Flow::P 
+  body: "Options:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: ":safe :"
+    body: if true, check that the insert succeeded. OperationFailure
+  type: :NOTE
+- !ruby/struct:SM::Flow::VERB 
+  body: "  will be raised on an error. Checking for safety requires an extra\n  round-trip to the database\n"
+full_name: Mongo::Collection#insert
+is_singleton: false
+name: insert
+params: (doc_or_docs, options={})
+visibility: public

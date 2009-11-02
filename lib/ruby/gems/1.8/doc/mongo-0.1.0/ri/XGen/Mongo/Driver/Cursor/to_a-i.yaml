@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Return all of the rows (up to the <tt>num_to_return</tt> value specified in #new) as an array. Calling this multiple times will work fine; it always returns the same array."
+- !ruby/struct:SM::Flow::P 
+  body: Don't use this if you're expecting large amounts of data, of course. All of the returned rows are kept in an array stored in this object so it can be reused.
+- !ruby/struct:SM::Flow::P 
+  body: "You can call #each after calling #to_a (multiple times even, because it will use the internally-stored array), but you can't call #to_a after calling #each unless you also called it before calling #each. If you try to do that, an error will be raised."
+full_name: XGen::Mongo::Driver::Cursor#to_a
+is_singleton: false
+name: to_a
+params: ()
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Hooks into rake and allows us to clear out a task by name or regexp. Use this if you want to completely override a task instead of extend it.
+full_name: Rake::clear_tasks
+is_singleton: true
+name: clear_tasks
+params: (*tasks)
+visibility: public

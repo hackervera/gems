@@ -1,0 +1,51 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: chunk_number
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: data
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: object_id
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: A chunk stores a portion of GridStore data.
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: DEFAULT_CHUNK_SIZE
+  value: 1024 * 256
+full_name: GridFS::Chunk
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: eof?
+- !ruby/object:RI::MethodSummary 
+  name: getc
+- !ruby/object:RI::MethodSummary 
+  name: length
+- !ruby/object:RI::MethodSummary 
+  name: pos
+- !ruby/object:RI::MethodSummary 
+  name: pos=
+- !ruby/object:RI::MethodSummary 
+  name: putc
+- !ruby/object:RI::MethodSummary 
+  name: save
+- !ruby/object:RI::MethodSummary 
+  name: size
+- !ruby/object:RI::MethodSummary 
+  name: to_mongo_object
+- !ruby/object:RI::MethodSummary 
+  name: truncate
+name: Chunk
+superclass: Object

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Used by a Cursor to lazily send the query to the database.
+full_name: XGen::Mongo::Driver::DB#send_query_message
+is_singleton: false
+name: send_query_message
+params: (query_message)
+visibility: public

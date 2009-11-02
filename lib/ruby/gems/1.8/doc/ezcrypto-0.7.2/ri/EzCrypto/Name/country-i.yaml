@@ -1,0 +1,13 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: c
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The 2 letter country code of the name
+full_name: EzCrypto::Name#country
+is_singleton: false
+name: country
+params: ()
+visibility: public

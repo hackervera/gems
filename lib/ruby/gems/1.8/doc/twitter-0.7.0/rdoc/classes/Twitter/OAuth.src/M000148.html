@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>authorize_from_request (Twitter::OAuth)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/twitter/oauth.rb, line 37</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">authorize_from_request</span>(<span class="ruby-identifier">rtoken</span>, <span class="ruby-identifier">rsecret</span>, <span class="ruby-identifier">verifier_or_pin</span>)
+      <span class="ruby-identifier">request_token</span> = <span class="ruby-operator">::</span><span class="ruby-constant">OAuth</span><span class="ruby-operator">::</span><span class="ruby-constant">RequestToken</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">consumer</span>, <span class="ruby-identifier">rtoken</span>, <span class="ruby-identifier">rsecret</span>)
+      <span class="ruby-identifier">access_token</span> = <span class="ruby-identifier">request_token</span>.<span class="ruby-identifier">get_access_token</span>(<span class="ruby-identifier">:oauth_verifier</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">verifier_or_pin</span>)
+      <span class="ruby-ivar">@atoken</span>, <span class="ruby-ivar">@asecret</span> = <span class="ruby-identifier">access_token</span>.<span class="ruby-identifier">token</span>, <span class="ruby-identifier">access_token</span>.<span class="ruby-identifier">secret</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

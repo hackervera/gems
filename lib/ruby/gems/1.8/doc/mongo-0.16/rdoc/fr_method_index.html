@@ -1,0 +1,273 @@
+
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!--
+
+    Methods
+
+  -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Methods</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="rdoc-style.css" type="text/css" />
+  <base target="docwin" />
+</head>
+<body>
+<div id="index">
+  <h1 class="section-bar">Methods</h1>
+  <div id="index-entries">
+    <a href="classes/GridFS/GridStore.html#M000234"><< (GridFS::GridStore)</a><br />
+    <a href="classes/Mongo/Collection.html#M000171"><< (Mongo::Collection)</a><br />
+    <a href="classes/Mongo/ServerVersion.html#M000091"><=> (Mongo::ServerVersion)</a><br />
+    <a href="classes/Mongo/ObjectID.html#M000190">== (Mongo::ObjectID)</a><br />
+    <a href="classes/OrderedHash.html#M000047">== (OrderedHash)</a><br />
+    <a href="classes/Mongo/DB.html#M000127">[] (Mongo::DB)</a><br />
+    <a href="classes/OrderedHash.html#M000048">[] (OrderedHash)</a><br />
+    <a href="classes/Mongo/Collection.html#M000165">[] (Mongo::Collection)</a><br />
+    <a href="classes/OrderedHash.html#M000051">[]= (OrderedHash)</a><br />
+    <a href="classes/Mongo/DB.html#M000152">_synchronize (Mongo::DB)</a><br />
+    <a href="classes/Mongo/DB.html#M000125">admin (Mongo::DB)</a><br />
+    <a href="classes/ByteBuffer.html#M000068">append! (ByteBuffer)</a><br />
+    <a href="classes/Mongo/Conversions.html#M000083">array_as_sort_parameters (Mongo::Conversions)</a><br />
+    <a href="classes/XMLToRuby.html#M000005">array_to_ruby (XMLToRuby)</a><br />
+    <a href="classes/Mongo/DB.html#M000119">authenticate (Mongo::DB)</a><br />
+    <a href="classes/Mongo/DB.html#M000115">auto_reconnect? (Mongo::DB)</a><br />
+    <a href="classes/BSON.html#M000046">bson_type (BSON)</a><br />
+    <a href="classes/GridFS/GridStore.html#M000219">chunk_collection (GridFS::GridStore)</a><br />
+    <a href="classes/GridFS/GridStore.html#M000220">chunk_size= (GridFS::GridStore)</a><br />
+    <a href="classes/OrderedHash.html#M000059">clear (OrderedHash)</a><br />
+    <a href="classes/Mongo/Collection.html#M000173">clear (Mongo::Collection)</a><br />
+    <a href="classes/ByteBuffer.html#M000065">clear (ByteBuffer)</a><br />
+    <a href="classes/Mongo/Cursor.html#M000103">close (Mongo::Cursor)</a><br />
+    <a href="classes/GridFS/GridStore.html#M000242">close (GridFS::GridStore)</a><br />
+    <a href="classes/Mongo/DB.html#M000136">close (Mongo::DB)</a><br />
+    <a href="classes/Mongo/Cursor.html#M000104">closed? (Mongo::Cursor)</a><br />
+    <a href="classes/GridFS/GridStore.html#M000243">closed? (GridFS::GridStore)</a><br />
+    <a href="classes/GridFS/GridStore.html#M000218">collection (GridFS::GridStore)</a><br />
+    <a href="classes/Mongo/DB.html#M000126">collection (Mongo::DB)</a><br />
+    <a href="classes/Mongo/DB.html#M000121">collection_names (Mongo::DB)</a><br />
+    <a href="classes/Mongo/DB.html#M000122">collections (Mongo::DB)</a><br />
+    <a href="classes/Mongo/DB.html#M000123">collections_info (Mongo::DB)</a><br />
+    <a href="classes/Mongo/DB.html#M000118">connect_to_master (Mongo::DB)</a><br />
+    <a href="classes/Mongo/DB.html#M000137">connected? (Mongo::DB)</a><br />
+    <a href="classes/Mongo/Cursor.html#M000096">count (Mongo::Cursor)</a><br />
+    <a href="classes/Mongo/Collection.html#M000183">count (Mongo::Collection)</a><br />
+    <a href="classes/Mongo/DB.html#M000124">create_collection (Mongo::DB)</a><br />
+    <a href="classes/Mongo/Collection.html#M000175">create_index (Mongo::Collection)</a><br />
+    <a href="classes/Mongo/DB.html#M000145">create_index (Mongo::DB)</a><br />
+    <a href="classes/Mongo/ObjectID.html#M000187">create_pk (Mongo::ObjectID)</a><br />
+    <a href="classes/Mongo/Connection.html#M000157">database_info (Mongo::Connection)</a><br />
+    <a href="classes/Mongo/Connection.html#M000158">database_names (Mongo::Connection)</a><br />
+    <a href="classes/Mongo/Connection.html#M000155">db (Mongo::Connection)</a><br />
+    <a href="classes/Mongo/DB.html#M000151">db_command (Mongo::DB)</a><br />
+    <a href="classes/XMLToRuby.html#M000007">dbref_to_ruby (XMLToRuby)</a><br />
+    <a href="classes/OrderedHash.html#M000057">delete (OrderedHash)</a><br />
+    <a href="classes/GridFS/GridStore.html#M000245">delete_chunks (GridFS::GridStore)</a><br />
+    <a href="classes/OrderedHash.html#M000058">delete_if (OrderedHash)</a><br />
+    <a href="classes/Mongo/DB.html#M000140">dereference (Mongo::DB)</a><br />
+    <a href="classes/BSON.html#M000017">deserialize (BSON)</a><br />
+    <a href="classes/BSON.html#M000016">deserialize (BSON)</a><br />
+    <a href="classes/BSON.html#M000025">deserialize_array_data (BSON)</a><br />
+    <a href="classes/BSON.html#M000031">deserialize_binary_data (BSON)</a><br />
+    <a href="classes/BSON.html#M000020">deserialize_boolean_data (BSON)</a><br />
+    <a href="classes/BSON.html#M000028">deserialize_code_w_scope_data (BSON)</a><br />
+    <a href="classes/BSON.html#M000045">deserialize_cstr (BSON)</a><br />
+    <a href="classes/BSON.html#M000019">deserialize_date_data (BSON)</a><br />
+    <a href="classes/BSON.html#M000030">deserialize_dbref_data (BSON)</a><br />
+    <a href="classes/BSON.html#M000021">deserialize_number_data (BSON)</a><br />
+    <a href="classes/BSON.html#M000022">deserialize_number_int_data (BSON)</a><br />
+    <a href="classes/BSON.html#M000023">deserialize_number_long_data (BSON)</a><br />
+    <a href="classes/BSON.html#M000024">deserialize_object_data (BSON)</a><br />
+    <a href="classes/BSON.html#M000029">deserialize_oid_data (BSON)</a><br />
+    <a href="classes/BSON.html#M000026">deserialize_regex_data (BSON)</a><br />
+    <a href="classes/BSON.html#M000027">deserialize_string_data (BSON)</a><br />
+    <a href="classes/XMLToRuby.html#M000004">doc_to_ruby (XMLToRuby)</a><br />
+    <a href="classes/Mongo/Collection.html#M000178">drop (Mongo::Collection)</a><br />
+    <a href="classes/Mongo/DB.html#M000128">drop_collection (Mongo::DB)</a><br />
+    <a href="classes/Mongo/Connection.html#M000159">drop_database (Mongo::Connection)</a><br />
+    <a href="classes/Mongo/Collection.html#M000176">drop_index (Mongo::Collection)</a><br />
+    <a href="classes/Mongo/DB.html#M000143">drop_index (Mongo::DB)</a><br />
+    <a href="classes/Mongo/Collection.html#M000177">drop_indexes (Mongo::Collection)</a><br />
+    <a href="classes/ByteBuffer.html#M000082">dump (ByteBuffer)</a><br />
+    <a href="classes/Mongo/Cursor.html#M000100">each (Mongo::Cursor)</a><br />
+    <a href="classes/GridFS/GridStore.html#M000227">each (GridFS::GridStore)</a><br />
+    <a href="classes/OrderedHash.html#M000052">each (OrderedHash)</a><br />
+    <a href="classes/GridFS/GridStore.html#M000229">each_byte (GridFS::GridStore)</a><br />
+    <a href="classes/GridFS/GridStore.html#M000228">each_line (GridFS::GridStore)</a><br />
+    <a href="classes/XMLToRuby.html#M000003">element_to_ruby (XMLToRuby)</a><br />
+    <a href="classes/GridFS/GridStore.html#M000237">eof (GridFS::GridStore)</a><br />
+    <a href="classes/GridFS/Chunk.html#M000203">eof? (GridFS::Chunk)</a><br />
+    <a href="classes/GridFS/GridStore.html#M000238">eof? (GridFS::GridStore)</a><br />
+    <a href="classes/Mongo/ObjectID.html#M000189">eql? (Mongo::ObjectID)</a><br />
+    <a href="classes/Mongo/DB.html#M000129">error (Mongo::DB)</a><br />
+    <a href="classes/Mongo/DB.html#M000131">error? (Mongo::DB)</a><br />
+    <a href="classes/Mongo/DB.html#M000141">eval (Mongo::DB)</a><br />
+    <a href="classes/GridFS/GridStore.html#M000211">exist? (GridFS::GridStore)</a><br />
+    <a href="classes/Mongo/Cursor.html#M000102">explain (Mongo::Cursor)</a><br />
+    <a href="classes/Mongo/Collection.html#M000167">find (Mongo::Collection)</a><br />
+    <a href="classes/Mongo/Collection.html#M000168">find_one (Mongo::Collection)</a><br />
+    <a href="classes/GridFS/GridStore.html#M000236">flush (GridFS::GridStore)</a><br />
+    <a href="classes/Mongo/ObjectID.html#M000192">from_string (Mongo::ObjectID)</a><br />
+    <a href="classes/Mongo/ObjectID.html#M000193">from_string_legacy (Mongo::ObjectID)</a><br />
+    <a href="classes/Mongo/DB.html#M000153">full_collection_name (Mongo::DB)</a><br />
+    <a href="classes/ByteBuffer.html#M000075">get (ByteBuffer)</a><br />
+    <a href="classes/ByteBuffer.html#M000078">get_double (ByteBuffer)</a><br />
+    <a href="classes/ByteBuffer.html#M000076">get_int (ByteBuffer)</a><br />
+    <a href="classes/ByteBuffer.html#M000077">get_long (ByteBuffer)</a><br />
+    <a href="classes/GridFS/GridStore.html#M000221">getc (GridFS::GridStore)</a><br />
+    <a href="classes/GridFS/Chunk.html#M000207">getc (GridFS::Chunk)</a><br />
+    <a href="classes/GridFS/GridStore.html#M000222">gets (GridFS::GridStore)</a><br />
+    <a href="classes/Mongo/Collection.html#M000179">group (Mongo::Collection)</a><br />
+    <a href="classes/BSON.html#M000018">hex_dump (BSON)</a><br />
+    <a href="classes/Mongo/Collection.html#M000166">hint= (Mongo::Collection)</a><br />
+    <a href="classes/Mongo/DB.html#M000144">index_information (Mongo::DB)</a><br />
+    <a href="classes/Mongo/Collection.html#M000181">index_information (Mongo::Collection)</a><br />
+    <a href="classes/Mongo/Collection.html#M000170">insert (Mongo::Collection)</a><br />
+    <a href="classes/OrderedHash.html#M000056">inspect (OrderedHash)</a><br />
+    <a href="classes/Mongo/ObjectID.html#M000195">inspect (Mongo::ObjectID)</a><br />
+    <a href="classes/OrderedHash.html#M000050">keys (OrderedHash)</a><br />
+    <a href="classes/GridFS/GridStore.html#M000247">last_chunk_number (GridFS::GridStore)</a><br />
+    <a href="classes/Mongo/DB.html#M000130">last_status (Mongo::DB)</a><br />
+    <a href="classes/Mongo/ObjectID.html#M000197">legacy_string_convert (Mongo::ObjectID)</a><br />
+    <a href="classes/Mongo/ObjectID.html#M000186">legal? (Mongo::ObjectID)</a><br />
+    <a href="classes/GridFS/Chunk.html#M000205">length (GridFS::Chunk)</a><br />
+    <a href="classes/ByteBuffer.html#M000067">length (ByteBuffer)</a><br />
+    <a href="classes/Mongo/Cursor.html#M000098">limit (Mongo::Cursor)</a><br />
+    <a href="classes/GridFS/GridStore.html#M000214">list (GridFS::GridStore)</a><br />
+    <a href="classes/Mongo/Connection.html#M000156">logger (Mongo::Connection)</a><br />
+    <a href="classes/Mongo/DB.html#M000120">logout (Mongo::DB)</a><br />
+    <a href="classes/Mongo/DB.html#M000135">master (Mongo::DB)</a><br />
+    <a href="classes/Mongo/DB.html#M000134">master? (Mongo::DB)</a><br />
+    <a href="classes/OrderedHash.html#M000054">merge (OrderedHash)</a><br />
+    <a href="classes/OrderedHash.html#M000055">merge! (OrderedHash)</a><br />
+    <a href="classes/ByteBuffer.html#M000079">more? (ByteBuffer)</a><br />
+    <a href="classes/Mongo/Cursor.html#M000094">new (Mongo::Cursor)</a><br />
+    <a href="classes/BSON.html#M000011">new (BSON)</a><br />
+    <a href="classes/Mongo/Connection.html#M000154">new (Mongo::Connection)</a><br />
+    <a href="classes/GridFS/GridStore.html#M000217">new (GridFS::GridStore)</a><br />
+    <a href="classes/OrderedHash.html#M000049">new (OrderedHash)</a><br />
+    <a href="classes/Mongo/Collection.html#M000164">new (Mongo::Collection)</a><br />
+    <a href="classes/Mongo/DBRef.html#M000198">new (Mongo::DBRef)</a><br />
+    <a href="classes/Mongo/Binary.html#M000088">new (Mongo::Binary)</a><br />
+    <a href="classes/Mongo/Code.html#M000107">new (Mongo::Code)</a><br />
+    <a href="classes/Mongo/Admin.html#M000108">new (Mongo::Admin)</a><br />
+    <a href="classes/ByteBuffer.html#M000060">new (ByteBuffer)</a><br />
+    <a href="classes/Mongo/RegexpOfHolding.html#M000089">new (Mongo::RegexpOfHolding)</a><br />
+    <a href="classes/Mongo/ObjectID.html#M000188">new (Mongo::ObjectID)</a><br />
+    <a href="classes/Mongo/DB.html#M000117">new (Mongo::DB)</a><br />
+    <a href="classes/Mongo/ServerVersion.html#M000090">new (Mongo::ServerVersion)</a><br />
+    <a href="classes/GridFS/Chunk.html#M000200">new (GridFS::Chunk)</a><br />
+    <a href="classes/Mongo/Cursor.html#M000095">next_object (Mongo::Cursor)</a><br />
+    <a href="classes/Mongo/Collection.html#M000185">normalize_hint_fields (Mongo::Collection)</a><br />
+    <a href="classes/GridFS/GridStore.html#M000246">nth_chunk (GridFS::GridStore)</a><br />
+    <a href="classes/Mongo/DB.html#M000150">ok? (Mongo::DB)</a><br />
+    <a href="classes/GridFS/GridStore.html#M000212">open (GridFS::GridStore)</a><br />
+    <a href="classes/Mongo/Collection.html#M000182">options (Mongo::Collection)</a><br />
+    <a href="classes/ByteBuffer.html#M000061">order= (ByteBuffer)</a><br />
+    <a href="classes/Mongo/Connection.html#M000162">pair_val_to_connection (Mongo::Connection)</a><br />
+    <a href="classes/Mongo/DB.html#M000116">pk_factory= (Mongo::DB)</a><br />
+    <a href="classes/GridFS/Chunk.html#M000201">pos (GridFS::Chunk)</a><br />
+    <a href="classes/GridFS/Chunk.html#M000202">pos= (GridFS::Chunk)</a><br />
+    <a href="classes/ByteBuffer.html#M000063">position (ByteBuffer)</a><br />
+    <a href="classes/ByteBuffer.html#M000064">position= (ByteBuffer)</a><br />
+    <a href="classes/ByteBuffer.html#M000069">prepend! (ByteBuffer)</a><br />
+    <a href="classes/Mongo/DB.html#M000132">previous_error (Mongo::DB)</a><br />
+    <a href="classes/GridFS/GridStore.html#M000232">print (GridFS::GridStore)</a><br />
+    <a href="classes/Mongo/Admin.html#M000111">profiling_info (Mongo::Admin)</a><br />
+    <a href="classes/Mongo/Admin.html#M000109">profiling_level (Mongo::Admin)</a><br />
+    <a href="classes/Mongo/Admin.html#M000110">profiling_level= (Mongo::Admin)</a><br />
+    <a href="classes/ByteBuffer.html#M000070">put (ByteBuffer)</a><br />
+    <a href="classes/ByteBuffer.html#M000071">put_array (ByteBuffer)</a><br />
+    <a href="classes/ByteBuffer.html#M000074">put_double (ByteBuffer)</a><br />
+    <a href="classes/ByteBuffer.html#M000072">put_int (ByteBuffer)</a><br />
+    <a href="classes/ByteBuffer.html#M000073">put_long (ByteBuffer)</a><br />
+    <a href="classes/GridFS/Chunk.html#M000208">putc (GridFS::Chunk)</a><br />
+    <a href="classes/GridFS/GridStore.html#M000231">putc (GridFS::GridStore)</a><br />
+    <a href="classes/GridFS/GridStore.html#M000233">puts (GridFS::GridStore)</a><br />
+    <a href="classes/Mongo/DB.html#M000139">query (Mongo::DB)</a><br />
+    <a href="classes/Mongo/Cursor.html#M000106">query_options_hash (Mongo::Cursor)</a><br />
+    <a href="classes/Mongo/Cursor.html#M000105">query_opts (Mongo::Cursor)</a><br />
+    <a href="classes/GridFS/GridStore.html#M000213">read (GridFS::GridStore)</a><br />
+    <a href="classes/GridFS/GridStore.html#M000223">read (GridFS::GridStore)</a><br />
+    <a href="classes/GridFS/GridStore.html#M000224">readchar (GridFS::GridStore)</a><br />
+    <a href="classes/GridFS/GridStore.html#M000225">readline (GridFS::GridStore)</a><br />
+    <a href="classes/GridFS/GridStore.html#M000215">readlines (GridFS::GridStore)</a><br />
+    <a href="classes/GridFS/GridStore.html#M000226">readlines (GridFS::GridStore)</a><br />
+    <a href="classes/Mongo/DB.html#M000138">receive_full (Mongo::DB)</a><br />
+    <a href="classes/Mongo/DB.html#M000149">receive_message_with_operation (Mongo::DB)</a><br />
+    <a href="classes/XMLToRuby.html#M000006">regex_to_ruby (XMLToRuby)</a><br />
+    <a href="classes/Mongo/Collection.html#M000172">remove (Mongo::Collection)</a><br />
+    <a href="classes/Mongo/Collection.html#M000180">rename (Mongo::Collection)</a><br />
+    <a href="classes/Mongo/DB.html#M000142">rename_collection (Mongo::DB)</a><br />
+    <a href="classes/Mongo/DB.html#M000133">reset_error_history (Mongo::DB)</a><br />
+    <a href="classes/Object.html#M000001">returning (Object)</a><br />
+    <a href="classes/GridFS/GridStore.html#M000239">rewind (GridFS::GridStore)</a><br />
+    <a href="classes/ByteBuffer.html#M000062">rewind (ByteBuffer)</a><br />
+    <a href="classes/GridFS/Chunk.html#M000209">save (GridFS::Chunk)</a><br />
+    <a href="classes/Mongo/Collection.html#M000169">save (Mongo::Collection)</a><br />
+    <a href="classes/GridFS/GridStore.html#M000240">seek (GridFS::GridStore)</a><br />
+    <a href="classes/Mongo/DB.html#M000147">send_message_with_operation (Mongo::DB)</a><br />
+    <a href="classes/Mongo/DB.html#M000148">send_message_with_operation_without_synchronize (Mongo::DB)</a><br />
+    <a href="classes/Mongo/DB.html#M000146">send_to_db (Mongo::DB)</a><br />
+    <a href="classes/BSON.html#M000014">serialize (BSON)</a><br />
+    <a href="classes/BSON.html#M000013">serialize (BSON)</a><br />
+    <a href="classes/BSON.html#M000040">serialize_array_element (BSON)</a><br />
+    <a href="classes/BSON.html#M000035">serialize_binary_element (BSON)</a><br />
+    <a href="classes/BSON.html#M000036">serialize_boolean_element (BSON)</a><br />
+    <a href="classes/BSON.html#M000044">serialize_code_w_scope (BSON)</a><br />
+    <a href="classes/BSON.html#M000010">serialize_cstr (BSON)</a><br />
+    <a href="classes/BSON.html#M000037">serialize_date_element (BSON)</a><br />
+    <a href="classes/BSON.html#M000034">serialize_dbref_element (BSON)</a><br />
+    <a href="classes/BSON.html#M000032">serialize_eoo_element (BSON)</a><br />
+    <a href="classes/BSON.html#M000015">serialize_key_value (BSON)</a><br />
+    <a href="classes/BSON.html#M000033">serialize_null_element (BSON)</a><br />
+    <a href="classes/BSON.html#M000038">serialize_number_element (BSON)</a><br />
+    <a href="classes/BSON.html#M000039">serialize_object_element (BSON)</a><br />
+    <a href="classes/BSON.html#M000042">serialize_oid_element (BSON)</a><br />
+    <a href="classes/BSON.html#M000041">serialize_regex_element (BSON)</a><br />
+    <a href="classes/BSON.html#M000043">serialize_string_element (BSON)</a><br />
+    <a href="classes/Mongo/Connection.html#M000160">server_info (Mongo::Connection)</a><br />
+    <a href="classes/Mongo/Connection.html#M000161">server_version (Mongo::Connection)</a><br />
+    <a href="classes/Mongo/Connection.html#M000163">single_db_command (Mongo::Connection)</a><br />
+    <a href="classes/Mongo/Collection.html#M000184">size (Mongo::Collection)</a><br />
+    <a href="classes/GridFS/Chunk.html#M000204">size (GridFS::Chunk)</a><br />
+    <a href="classes/ByteBuffer.html#M000066">size (ByteBuffer)</a><br />
+    <a href="classes/Mongo/Cursor.html#M000099">skip (Mongo::Cursor)</a><br />
+    <a href="classes/Mongo/DB.html#M000114">slave_ok? (Mongo::DB)</a><br />
+    <a href="classes/Mongo/Cursor.html#M000097">sort (Mongo::Cursor)</a><br />
+    <a href="classes/Mongo/Conversions.html#M000086">sort_value (Mongo::Conversions)</a><br />
+    <a href="classes/Mongo/DB.html#M000113">strict? (Mongo::DB)</a><br />
+    <a href="classes/Mongo/Conversions.html#M000084">string_as_sort_parameters (Mongo::Conversions)</a><br />
+    <a href="classes/Mongo/Conversions.html#M000085">symbol_as_sort_parameters (Mongo::Conversions)</a><br />
+    <a href="classes/GridFS/GridStore.html#M000241">tell (GridFS::GridStore)</a><br />
+    <a href="classes/Mongo/ServerVersion.html#M000092">to_a (Mongo::ServerVersion)</a><br />
+    <a href="classes/Mongo/Cursor.html#M000101">to_a (Mongo::Cursor)</a><br />
+    <a href="classes/ByteBuffer.html#M000080">to_a (ByteBuffer)</a><br />
+    <a href="classes/BSON.html#M000012">to_a (BSON)</a><br />
+    <a href="classes/Mongo/ObjectID.html#M000191">to_a (Mongo::ObjectID)</a><br />
+    <a href="classes/GridFS/Chunk.html#M000210">to_mongo_object (GridFS::Chunk)</a><br />
+    <a href="classes/GridFS/GridStore.html#M000244">to_mongo_object (GridFS::GridStore)</a><br />
+    <a href="classes/Mongo/ObjectID.html#M000194">to_s (Mongo::ObjectID)</a><br />
+    <a href="classes/ByteBuffer.html#M000081">to_s (ByteBuffer)</a><br />
+    <a href="classes/Mongo/DBRef.html#M000199">to_s (Mongo::DBRef)</a><br />
+    <a href="classes/Mongo/ServerVersion.html#M000093">to_s (Mongo::ServerVersion)</a><br />
+    <a href="classes/Mongo/ObjectID.html#M000196">to_s_legacy (Mongo::ObjectID)</a><br />
+    <a href="classes/BSON.html#M000008">to_utf8 (BSON)</a><br />
+    <a href="classes/BSON.html#M000009">to_utf8 (BSON)</a><br />
+    <a href="classes/GridFS/Chunk.html#M000206">truncate (GridFS::Chunk)</a><br />
+    <a href="classes/GridFS/GridStore.html#M000230">ungetc (GridFS::GridStore)</a><br />
+    <a href="classes/GridFS/GridStore.html#M000216">unlink (GridFS::GridStore)</a><br />
+    <a href="classes/Mongo/Collection.html#M000174">update (Mongo::Collection)</a><br />
+    <a href="classes/Mongo/Admin.html#M000112">validate_collection (Mongo::Admin)</a><br />
+    <a href="classes/OrderedHash.html#M000053">values (OrderedHash)</a><br />
+    <a href="classes/Mongo/Conversions.html#M000087">warn_if_deprecated (Mongo::Conversions)</a><br />
+    <a href="classes/GridFS/GridStore.html#M000235">write (GridFS::GridStore)</a><br />
+    <a href="classes/XMLToRuby.html#M000002">xml_to_ruby (XMLToRuby)</a><br />
+  </div>
+</div>
+</body>
+</html>

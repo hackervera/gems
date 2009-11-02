@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: OAuth::RequestProxy::MockRequest#normalized_uri
+is_singleton: false
+name: normalized_uri
+params: ()
+visibility: public

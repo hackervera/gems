@@ -1,0 +1,24 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: OptionKeys
+  value: "[:fields, :select, :skip, :offset, :limit, :sort, :order]"
+full_name: MongoMapper::FinderOptions
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: criteria
+- !ruby/object:RI::MethodSummary 
+  name: options
+- !ruby/object:RI::MethodSummary 
+  name: to_a
+name: FinderOptions
+superclass: Object

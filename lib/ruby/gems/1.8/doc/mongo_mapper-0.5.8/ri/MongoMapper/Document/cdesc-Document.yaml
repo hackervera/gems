@@ -1,0 +1,31 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: descendants
+- !ruby/object:RI::MethodSummary 
+  name: included
+- !ruby/object:RI::MethodSummary 
+  name: per_page
+comment: 
+constants: []
+
+full_name: MongoMapper::Document
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: EmbeddedDocument
+- !ruby/object:RI::IncludedModule 
+  name: InstanceMethods
+- !ruby/object:RI::IncludedModule 
+  name: Observing
+- !ruby/object:RI::IncludedModule 
+  name: Callbacks
+- !ruby/object:RI::IncludedModule 
+  name: Dirty
+- !ruby/object:RI::IncludedModule 
+  name: RailsCompatibility::Document
+instance_methods: []
+
+name: Document
+superclass: 

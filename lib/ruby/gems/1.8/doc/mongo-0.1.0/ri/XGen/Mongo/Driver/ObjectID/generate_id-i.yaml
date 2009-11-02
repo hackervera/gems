@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: (Would normally be private, but isn't so we can test it.)
+full_name: XGen::Mongo::Driver::ObjectID#generate_id
+is_singleton: false
+name: generate_id
+params: (t=nil)
+visibility: public

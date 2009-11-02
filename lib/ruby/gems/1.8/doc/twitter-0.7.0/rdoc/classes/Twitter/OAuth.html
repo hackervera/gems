@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Twitter::OAuth</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Twitter::OAuth</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/twitter/oauth_rb.html">
+                lib/twitter/oauth.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000149">access_token</a>&nbsp;&nbsp;
+      <a href="#M000150">authorize_from_access</a>&nbsp;&nbsp;
+      <a href="#M000148">authorize_from_request</a>&nbsp;&nbsp;
+      <a href="#M000145">consumer</a>&nbsp;&nbsp;
+      <a href="#M000144">new</a>&nbsp;&nbsp;
+      <a href="#M000147">request_token</a>&nbsp;&nbsp;
+      <a href="#M000146">set_callback_url</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">consumer_options</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">csecret</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ctoken</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000144" class="method-detail">
+        <a name="M000144"></a>
+
+        <div class="method-heading">
+          <a href="OAuth.src/M000144.html" target="Code" class="method-signature"
+            onclick="popupCode('OAuth.src/M000144.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(ctoken, csecret, options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Options
+</p>
+<pre>
+  :sign_in =&gt; true to just sign in with twitter instead of doing oauth authorization
+              (http://apiwiki.twitter.com/Sign-in-with-Twitter)
+</pre>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000149" class="method-detail">
+        <a name="M000149"></a>
+
+        <div class="method-heading">
+          <a href="OAuth.src/M000149.html" target="Code" class="method-signature"
+            onclick="popupCode('OAuth.src/M000149.html');return false;">
+          <span class="method-name">access_token</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000150" class="method-detail">
+        <a name="M000150"></a>
+
+        <div class="method-heading">
+          <a href="OAuth.src/M000150.html" target="Code" class="method-signature"
+            onclick="popupCode('OAuth.src/M000150.html');return false;">
+          <span class="method-name">authorize_from_access</span><span class="method-args">(atoken, asecret)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000148" class="method-detail">
+        <a name="M000148"></a>
+
+        <div class="method-heading">
+          <a href="OAuth.src/M000148.html" target="Code" class="method-signature"
+            onclick="popupCode('OAuth.src/M000148.html');return false;">
+          <span class="method-name">authorize_from_request</span><span class="method-args">(rtoken, rsecret, verifier_or_pin)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+For web apps use params[:oauth_verifier], for desktop apps, use the
+verifier is the pin that twitter gives users.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000145" class="method-detail">
+        <a name="M000145"></a>
+
+        <div class="method-heading">
+          <a href="OAuth.src/M000145.html" target="Code" class="method-signature"
+            onclick="popupCode('OAuth.src/M000145.html');return false;">
+          <span class="method-name">consumer</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000147" class="method-detail">
+        <a name="M000147"></a>
+
+        <div class="method-heading">
+          <a href="OAuth.src/M000147.html" target="Code" class="method-signature"
+            onclick="popupCode('OAuth.src/M000147.html');return false;">
+          <span class="method-name">request_token</span><span class="method-args">(options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Note: If using oauth with a web app, be sure to provide :oauth_callback.
+Options:
+</p>
+<pre>
+  :oauth_callback =&gt; String, url that twitter should redirect to
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000146" class="method-detail">
+        <a name="M000146"></a>
+
+        <div class="method-heading">
+          <a href="OAuth.src/M000146.html" target="Code" class="method-signature"
+            onclick="popupCode('OAuth.src/M000146.html');return false;">
+          <span class="method-name">set_callback_url</span><span class="method-args">(url)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

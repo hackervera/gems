@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Skips the first <tt>number_to_skip</tt> results of this cursor. Returns the current number_to_skip if no parameter is given.
+- !ruby/struct:SM::Flow::P 
+  body: Raises InvalidOperation if this cursor has already been used.
+- !ruby/struct:SM::Flow::P 
+  body: This method overrides any skip specified in the Collection#find method, and only the last skip applied has an effect.
+full_name: Mongo::Cursor#skip
+is_singleton: false
+name: skip
+params: (number_to_skip=nil)
+visibility: public

@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Removes (&quot;deletes&quot;) one or many documents from the collection. Note that this will bypass any <tt>destroy</tt> hooks defined by your class.
+- !ruby/struct:SM::Flow::P 
+  body: "@param [Array] ids the ID or IDs of the records you wish to delete"
+full_name: MongoMapper::Document::ClassMethods#delete
+is_singleton: false
+name: delete
+params: (*ids)
+visibility: public

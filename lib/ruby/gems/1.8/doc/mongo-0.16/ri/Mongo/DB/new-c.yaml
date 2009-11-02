@@ -1,0 +1,46 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Instances of DB are normally obtained by calling Mongo#db.
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "db_name :"
+    body: The database name
+  - !ruby/struct:SM::Flow::LI 
+    label: "nodes :"
+    body: An array of [host, port] pairs. See Connection#new, which offers a more flexible way of defining nodes.
+  - !ruby/struct:SM::Flow::LI 
+    label: "options :"
+    body: A hash of options.
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: "Options:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: ":strict :"
+    body: "If true, collections must exist to be accessed and must not exist to be created. See #collection and #create_collection."
+  - !ruby/struct:SM::Flow::LI 
+    label: ":pk :"
+    body: "A primary key factory object that must respond to :create_pk, which should take a hash and return a hash which merges the original hash with any primary key fields the factory wishes to inject. (NOTE: if the object already has a primary key, the factory should not inject a new key; this means that the object is being used in a repsert but it already exists.) The idea here is that when ever a record is inserted, the :pk object's <tt>create_pk</tt> method will be called and the new hash returned will be inserted."
+  - !ruby/struct:SM::Flow::LI 
+    label: ":slave_ok :"
+    body: Only used if <tt>nodes</tt> contains only one host/port. If false, when connecting to that host/port we check to see if the server is the master. If it is not, an error is thrown.
+  - !ruby/struct:SM::Flow::LI 
+    label: ":auto_reconnect :"
+    body: If the connection gets closed (for example, we have a server pair and saw the &quot;not master&quot; error, which closes the connection), then automatically try to reconnect to the master or to the single server we have been given. Defaults to <tt>false</tt>.
+  - !ruby/struct:SM::Flow::LI 
+    label: ":logger :"
+    body: Optional Logger instance to which driver usage information will be logged.
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: When a DB object first connects to a pair, it will find the master instance and connect to that one. On socket error or if we recieve a &quot;not master&quot; error, we again find the master of the pair.
+full_name: Mongo::DB::new
+is_singleton: true
+name: new
+params: (db_name, nodes, options={})
+visibility: public

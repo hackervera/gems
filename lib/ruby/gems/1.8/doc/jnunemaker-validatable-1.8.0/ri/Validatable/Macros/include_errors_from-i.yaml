@@ -1,0 +1,20 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Validates the specified attributes.
+- !ruby/struct:SM::Flow::VERB 
+  body: "  class Person\n    include Validatable\n    validates_presence_of :name\n    attr_accessor :name\n  end\n\n  class PersonPresenter\n    include Validatable\n    include_errors_from :person, :map =&gt; { :name =&gt; :namen }, :if =&gt; lambda { not person.nil? }\n    attr_accessor :person\n\n    def initialize(person)\n      @person = person\n    end\n  end\n\n  presenter = PersonPresenter.new(Person.new)\n  presenter.valid? #=&gt; false\n  presenter.errors.on(:namen) #=&gt; &quot;can't be blank&quot;\n"
+- !ruby/struct:SM::Flow::P 
+  body: The person attribute will be validated. If person is invalid the errors will be added to the PersonPresenter errors collection.
+- !ruby/struct:SM::Flow::P 
+  body: "Configuration options:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "    * map - A hash that maps attributes of the child to attributes of the parent.\n    * if - A block that when executed must return true of the validation will not occur.\n"
+full_name: Validatable::Macros#include_errors_from
+is_singleton: false
+name: include_errors_from
+params: " include_errors_from(attribute_to_validate, options = {})\n"
+visibility: public

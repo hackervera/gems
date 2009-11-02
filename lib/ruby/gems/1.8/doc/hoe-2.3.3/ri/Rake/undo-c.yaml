@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Removes the last action added to a task. Use this when two libraries define the same task and you only want one of the actions.
+- !ruby/struct:SM::Flow::VERB 
+  body: "  require 'hoe'\n  require 'tasks/rails'\n  Rake.undo(&quot;test&quot;) # rolls out rails' test task\n"
+full_name: Rake::undo
+is_singleton: true
+name: undo
+params: (*names)
+visibility: public

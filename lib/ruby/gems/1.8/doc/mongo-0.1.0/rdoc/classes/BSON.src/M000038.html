@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>serialize_string_element (BSON)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/mongo/util/bson.rb, line 364</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">serialize_string_element</span>(<span class="ruby-identifier">buf</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">val</span>, <span class="ruby-identifier">type</span>)
+    <span class="ruby-identifier">buf</span>.<span class="ruby-identifier">put</span>(<span class="ruby-identifier">type</span>)
+    <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">serialize_cstr</span>(<span class="ruby-identifier">buf</span>, <span class="ruby-identifier">key</span>)
+
+    <span class="ruby-comment cmt"># Make a hole for the length</span>
+    <span class="ruby-identifier">len_pos</span> = <span class="ruby-identifier">buf</span>.<span class="ruby-identifier">position</span>
+    <span class="ruby-identifier">buf</span>.<span class="ruby-identifier">put_int</span>(<span class="ruby-value">0</span>)
+
+    <span class="ruby-comment cmt"># Save the string</span>
+    <span class="ruby-identifier">start_pos</span> = <span class="ruby-identifier">buf</span>.<span class="ruby-identifier">position</span>
+    <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">serialize_cstr</span>(<span class="ruby-identifier">buf</span>, <span class="ruby-identifier">val</span>)
+    <span class="ruby-identifier">end_pos</span> = <span class="ruby-identifier">buf</span>.<span class="ruby-identifier">position</span>
+
+    <span class="ruby-comment cmt"># Put the string size in front</span>
+    <span class="ruby-identifier">buf</span>.<span class="ruby-identifier">put_int</span>(<span class="ruby-identifier">end_pos</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">start_pos</span>, <span class="ruby-identifier">len_pos</span>)
+
+    <span class="ruby-comment cmt"># Go back to where we were</span>
+    <span class="ruby-identifier">buf</span>.<span class="ruby-identifier">position</span> = <span class="ruby-identifier">end_pos</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

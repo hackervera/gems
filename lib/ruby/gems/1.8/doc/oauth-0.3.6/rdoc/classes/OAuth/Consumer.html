@@ -1,0 +1,692 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: OAuth::Consumer</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">OAuth::Consumer</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/oauth/consumer_rb.html">
+                lib/oauth/consumer.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000130">access_token_path</a>&nbsp;&nbsp;
+      <a href="#M000135">access_token_url</a>&nbsp;&nbsp;
+      <a href="#M000136">access_token_url?</a>&nbsp;&nbsp;
+      <a href="#M000129">authorize_path</a>&nbsp;&nbsp;
+      <a href="#M000133">authorize_url</a>&nbsp;&nbsp;
+      <a href="#M000134">authorize_url?</a>&nbsp;&nbsp;
+      <a href="#M000138">create_http</a>&nbsp;&nbsp;
+      <a href="#M000139">create_http_request</a>&nbsp;&nbsp;
+      <a href="#M000122">create_signed_request</a>&nbsp;&nbsp;
+      <a href="#M000119">get_access_token</a>&nbsp;&nbsp;
+      <a href="#M000120">get_request_token</a>&nbsp;&nbsp;
+      <a href="#M000117">http</a>&nbsp;&nbsp;
+      <a href="#M000116">http_method</a>&nbsp;&nbsp;
+      <a href="#M000140">marshal_dump</a>&nbsp;&nbsp;
+      <a href="#M000115">new</a>&nbsp;&nbsp;
+      <a href="#M000137">proxy</a>&nbsp;&nbsp;
+      <a href="#M000121">request</a>&nbsp;&nbsp;
+      <a href="#M000128">request_token_path</a>&nbsp;&nbsp;
+      <a href="#M000131">request_token_url</a>&nbsp;&nbsp;
+      <a href="#M000132">request_token_url?</a>&nbsp;&nbsp;
+      <a href="#M000127">scheme</a>&nbsp;&nbsp;
+      <a href="#M000124">sign!</a>&nbsp;&nbsp;
+      <a href="#M000125">signature_base_string</a>&nbsp;&nbsp;
+      <a href="#M000126">site</a>&nbsp;&nbsp;
+      <a href="#M000123">token_request</a>&nbsp;&nbsp;
+      <a href="#M000118">uri</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">CA_FILES</td>
+          <td>=</td>
+          <td class="context-item-value">%w(/etc/ssl/certs/ca-certificates.crt /usr/share/curl/curl-ca-bundle.crt)</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+determine the certificate authority path to verify SSL certs
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">CA_FILE</td>
+          <td>=</td>
+          <td class="context-item-value">ca_file</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">CA_FILE</td>
+          <td>=</td>
+          <td class="context-item-value">nil unless defined?(CA_FILE)</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">http</td>
+          <td class="context-item-value">&nbsp;[W]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">key</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">options</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">secret</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">site</td>
+          <td class="context-item-value">&nbsp;[W]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000115" class="method-detail">
+        <a name="M000115"></a>
+
+        <div class="method-heading">
+          <a href="Consumer.src/M000115.html" target="Code" class="method-signature"
+            onclick="popupCode('Consumer.src/M000115.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(consumer_key, consumer_secret, options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Create a <a href="Consumer.html#M000115">new</a> consumer instance by
+passing it a configuration hash:
+</p>
+<pre>
+  @consumer = OAuth::Consumer.new(key, secret, {
+    :site               =&gt; &quot;http://term.ie&quot;,
+    :scheme             =&gt; :header,
+    :http_method        =&gt; :post,
+    :request_token_path =&gt; &quot;/oauth/example/request_token.php&quot;,
+    :access_token_path  =&gt; &quot;/oauth/example/access_token.php&quot;,
+    :authorize_path     =&gt; &quot;/oauth/example/authorize.php&quot;
+   })
+</pre>
+<p>
+Start the process by requesting a token
+</p>
+<pre>
+  @request_token = @consumer.get_request_token
+  session[:request_token] = @request_token
+  redirect_to @request_token.authorize_url
+</pre>
+<p>
+When user returns create an access_token
+</p>
+<pre>
+  @access_token = @request_token.get_access_token
+  @photos=@access_token.get('/photos.xml')
+</pre>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000130" class="method-detail">
+        <a name="M000130"></a>
+
+        <div class="method-heading">
+          <a href="Consumer.src/M000130.html" target="Code" class="method-signature"
+            onclick="popupCode('Consumer.src/M000130.html');return false;">
+          <span class="method-name">access_token_path</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000135" class="method-detail">
+        <a name="M000135"></a>
+
+        <div class="method-heading">
+          <a href="Consumer.src/M000135.html" target="Code" class="method-signature"
+            onclick="popupCode('Consumer.src/M000135.html');return false;">
+          <span class="method-name">access_token_url</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000136" class="method-detail">
+        <a name="M000136"></a>
+
+        <div class="method-heading">
+          <a href="Consumer.src/M000136.html" target="Code" class="method-signature"
+            onclick="popupCode('Consumer.src/M000136.html');return false;">
+          <span class="method-name">access_token_url?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000129" class="method-detail">
+        <a name="M000129"></a>
+
+        <div class="method-heading">
+          <a href="Consumer.src/M000129.html" target="Code" class="method-signature"
+            onclick="popupCode('Consumer.src/M000129.html');return false;">
+          <span class="method-name">authorize_path</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000133" class="method-detail">
+        <a name="M000133"></a>
+
+        <div class="method-heading">
+          <a href="Consumer.src/M000133.html" target="Code" class="method-signature"
+            onclick="popupCode('Consumer.src/M000133.html');return false;">
+          <span class="method-name">authorize_url</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000134" class="method-detail">
+        <a name="M000134"></a>
+
+        <div class="method-heading">
+          <a href="Consumer.src/M000134.html" target="Code" class="method-signature"
+            onclick="popupCode('Consumer.src/M000134.html');return false;">
+          <span class="method-name">authorize_url?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000122" class="method-detail">
+        <a name="M000122"></a>
+
+        <div class="method-heading">
+          <a href="Consumer.src/M000122.html" target="Code" class="method-signature"
+            onclick="popupCode('Consumer.src/M000122.html');return false;">
+          <span class="method-name">create_signed_request</span><span class="method-args">(http_method, path, token = nil, request_options = {}, *arguments)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Creates and signs an <a href="Consumer.html#M000117">http</a> <a
+href="Consumer.html#M000121">request</a>. It&#8216;s recommended to use the
+<a href="Token.html">Token</a> classes to set this up correctly
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000119" class="method-detail">
+        <a name="M000119"></a>
+
+        <div class="method-heading">
+          <a href="Consumer.src/M000119.html" target="Code" class="method-signature"
+            onclick="popupCode('Consumer.src/M000119.html');return false;">
+          <span class="method-name">get_access_token</span><span class="method-args">(request_token, request_options = {}, *arguments)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000120" class="method-detail">
+        <a name="M000120"></a>
+
+        <div class="method-heading">
+          <a href="Consumer.src/M000120.html" target="Code" class="method-signature"
+            onclick="popupCode('Consumer.src/M000120.html');return false;">
+          <span class="method-name">get_request_token</span><span class="method-args">(request_options = {}, *arguments)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Makes a <a href="Consumer.html#M000121">request</a> to the service for a <a
+href="Consumer.html#M000115">new</a> <a
+href="RequestToken.html">OAuth::RequestToken</a>
+</p>
+<pre>
+ @request_token = @consumer.get_request_token
+</pre>
+<p>
+To include OAuth parameters:
+</p>
+<pre>
+ @request_token = @consumer.get_request_token      #    :oauth_callback =&gt; &quot;http://example.com/cb&quot;
+</pre>
+<p>
+To include application-specific parameters:
+</p>
+<pre>
+ @request_token = @consumer.get_request_token({}, :foo =&gt; &quot;bar&quot;)
+</pre>
+<p>
+TODO oauth_callback should be a mandatory parameter
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000117" class="method-detail">
+        <a name="M000117"></a>
+
+        <div class="method-heading">
+          <a href="Consumer.src/M000117.html" target="Code" class="method-signature"
+            onclick="popupCode('Consumer.src/M000117.html');return false;">
+          <span class="method-name">http</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+The HTTP object for the <a href="Consumer.html#M000126">site</a>. The HTTP
+Object is what you get when you do Net::HTTP.new
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000116" class="method-detail">
+        <a name="M000116"></a>
+
+        <div class="method-heading">
+          <a href="Consumer.src/M000116.html" target="Code" class="method-signature"
+            onclick="popupCode('Consumer.src/M000116.html');return false;">
+          <span class="method-name">http_method</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+The default <a href="Consumer.html#M000117">http</a> method
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000137" class="method-detail">
+        <a name="M000137"></a>
+
+        <div class="method-heading">
+          <a href="Consumer.src/M000137.html" target="Code" class="method-signature"
+            onclick="popupCode('Consumer.src/M000137.html');return false;">
+          <span class="method-name">proxy</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000121" class="method-detail">
+        <a name="M000121"></a>
+
+        <div class="method-heading">
+          <a href="Consumer.src/M000121.html" target="Code" class="method-signature"
+            onclick="popupCode('Consumer.src/M000121.html');return false;">
+          <span class="method-name">request</span><span class="method-args">(http_method, path, token = nil, request_options = {}, *arguments)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Creates, signs and performs an <a href="Consumer.html#M000117">http</a> <a
+href="Consumer.html#M000121">request</a>. It&#8216;s recommended to use the
+<a href="Token.html">OAuth::Token</a> classes to set this up correctly.
+request_options take precedence over consumer-wide options when signing
+</p>
+<pre>
+  a request.
+</pre>
+<p>
+arguments are POST and PUT bodies (a Hash, string-encoded parameters, or
+</p>
+<pre>
+  absent), followed by additional HTTP headers.
+
+  @consumer.request(:get,  '/people', @token, { :scheme =&gt; :query_string })
+  @consumer.request(:post, '/people', @token, {}, @person.to_xml, { 'Content-Type' =&gt; 'application/xml' })
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000128" class="method-detail">
+        <a name="M000128"></a>
+
+        <div class="method-heading">
+          <a href="Consumer.src/M000128.html" target="Code" class="method-signature"
+            onclick="popupCode('Consumer.src/M000128.html');return false;">
+          <span class="method-name">request_token_path</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000131" class="method-detail">
+        <a name="M000131"></a>
+
+        <div class="method-heading">
+          <a href="Consumer.src/M000131.html" target="Code" class="method-signature"
+            onclick="popupCode('Consumer.src/M000131.html');return false;">
+          <span class="method-name">request_token_url</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+TODO this is ugly, rewrite
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000132" class="method-detail">
+        <a name="M000132"></a>
+
+        <div class="method-heading">
+          <a href="Consumer.src/M000132.html" target="Code" class="method-signature"
+            onclick="popupCode('Consumer.src/M000132.html');return false;">
+          <span class="method-name">request_token_url?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000127" class="method-detail">
+        <a name="M000127"></a>
+
+        <div class="method-heading">
+          <a href="Consumer.src/M000127.html" target="Code" class="method-signature"
+            onclick="popupCode('Consumer.src/M000127.html');return false;">
+          <span class="method-name">scheme</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000124" class="method-detail">
+        <a name="M000124"></a>
+
+        <div class="method-heading">
+          <a href="Consumer.src/M000124.html" target="Code" class="method-signature"
+            onclick="popupCode('Consumer.src/M000124.html');return false;">
+          <span class="method-name">sign!</span><span class="method-args">(request, token = nil, request_options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Sign the Request object. Use this if you have an externally generated <a
+href="Consumer.html#M000117">http</a> <a
+href="Consumer.html#M000121">request</a> object you want to sign.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000125" class="method-detail">
+        <a name="M000125"></a>
+
+        <div class="method-heading">
+          <a href="Consumer.src/M000125.html" target="Code" class="method-signature"
+            onclick="popupCode('Consumer.src/M000125.html');return false;">
+          <span class="method-name">signature_base_string</span><span class="method-args">(request, token = nil, request_options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Return the <a href="Consumer.html#M000125">signature_base_string</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000126" class="method-detail">
+        <a name="M000126"></a>
+
+        <div class="method-heading">
+          <a href="Consumer.src/M000126.html" target="Code" class="method-signature"
+            onclick="popupCode('Consumer.src/M000126.html');return false;">
+          <span class="method-name">site</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000123" class="method-detail">
+        <a name="M000123"></a>
+
+        <div class="method-heading">
+          <a href="Consumer.src/M000123.html" target="Code" class="method-signature"
+            onclick="popupCode('Consumer.src/M000123.html');return false;">
+          <span class="method-name">token_request</span><span class="method-args">(http_method, path, token = nil, request_options = {}, *arguments)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Creates a <a href="Consumer.html#M000121">request</a> and parses the result
+as url_encoded. This is used internally for the <a
+href="RequestToken.html">RequestToken</a> and <a
+href="AccessToken.html">AccessToken</a> requests.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000118" class="method-detail">
+        <a name="M000118"></a>
+
+        <div class="method-heading">
+          <a href="Consumer.src/M000118.html" target="Code" class="method-signature"
+            onclick="popupCode('Consumer.src/M000118.html');return false;">
+          <span class="method-name">uri</span><span class="method-args">(custom_uri = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Contains the root URI for this <a href="Consumer.html#M000126">site</a>
+</p>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Protected Instance methods</h3>
+
+      <div id="method-M000138" class="method-detail">
+        <a name="M000138"></a>
+
+        <div class="method-heading">
+          <a href="Consumer.src/M000138.html" target="Code" class="method-signature"
+            onclick="popupCode('Consumer.src/M000138.html');return false;">
+          <span class="method-name">create_http</span><span class="method-args">(_url = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Instantiates the <a href="Consumer.html#M000117">http</a> object
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000139" class="method-detail">
+        <a name="M000139"></a>
+
+        <div class="method-heading">
+          <a href="Consumer.src/M000139.html" target="Code" class="method-signature"
+            onclick="popupCode('Consumer.src/M000139.html');return false;">
+          <span class="method-name">create_http_request</span><span class="method-args">(http_method, path, *arguments)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+create the <a href="Consumer.html#M000117">http</a> <a
+href="Consumer.html#M000121">request</a> object for a given <a
+href="Consumer.html#M000116">http_method</a> and path
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000140" class="method-detail">
+        <a name="M000140"></a>
+
+        <div class="method-heading">
+          <a href="Consumer.src/M000140.html" target="Code" class="method-signature"
+            onclick="popupCode('Consumer.src/M000140.html');return false;">
+          <span class="method-name">marshal_dump</span><span class="method-args">(*args)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Unset cached <a href="Consumer.html#M000117">http</a> instance because it
+cannot be marshalled when it has already been used and use_ssl is set to
+true
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

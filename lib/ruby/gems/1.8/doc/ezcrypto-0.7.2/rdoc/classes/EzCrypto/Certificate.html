@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: EzCrypto::Certificate</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">EzCrypto::Certificate</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/ezsig_rb.html">
+                lib/ezsig.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                <a href="Verifier.html">
+                Verifier
+               </a>
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+<a href="Certificate.html">Certificate</a> provides functionality to make
+it easy to extract information from a <a
+href="Certificate.html">Certificate</a>. This also provides all the same
+functionality as a <a href="Verifier.html">Verifier</a>.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000059">cert</a>&nbsp;&nbsp;
+      <a href="#M000053">cert?</a>&nbsp;&nbsp;
+      <a href="#M000055">cert_digest</a>&nbsp;&nbsp;
+      <a href="#M000063">extensions</a>&nbsp;&nbsp;
+      <a href="#M000057">issuer</a>&nbsp;&nbsp;
+      <a href="#M000064">method_missing</a>&nbsp;&nbsp;
+      <a href="#M000052">new</a>&nbsp;&nbsp;
+      <a href="#M000061">not_after</a>&nbsp;&nbsp;
+      <a href="#M000060">not_before</a>&nbsp;&nbsp;
+      <a href="#M000054">register_with_pkyp</a>&nbsp;&nbsp;
+      <a href="#M000058">serial</a>&nbsp;&nbsp;
+      <a href="#M000056">subject</a>&nbsp;&nbsp;
+      <a href="#M000062">valid?</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000052" class="method-detail">
+        <a name="M000052"></a>
+
+        <div class="method-heading">
+          <a href="Certificate.src/M000052.html" target="Code" class="method-signature"
+            onclick="popupCode('Certificate.src/M000052.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(cert)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Intialize with a OpenSSL <a href="Certificate.html#M000059">cert</a>
+object.
+</p>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000059" class="method-detail">
+        <a name="M000059"></a>
+
+        <div class="method-heading">
+          <a href="Certificate.src/M000059.html" target="Code" class="method-signature"
+            onclick="popupCode('Certificate.src/M000059.html');return false;">
+          <span class="method-name">cert</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the OpenSSL <a href="Certificate.html">Certificate</a> object
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000053" class="method-detail">
+        <a name="M000053"></a>
+
+        <div class="method-heading">
+          <a href="Certificate.src/M000053.html" target="Code" class="method-signature"
+            onclick="popupCode('Certificate.src/M000053.html');return false;">
+          <span class="method-name">cert?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns true
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000055" class="method-detail">
+        <a name="M000055"></a>
+
+        <div class="method-heading">
+          <a href="Certificate.src/M000055.html" target="Code" class="method-signature"
+            onclick="popupCode('Certificate.src/M000055.html');return false;">
+          <span class="method-name">cert_digest</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the SHA1 hex digest of a the DER encoded certificate. This is
+useful as a unique identifier.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000063" class="method-detail">
+        <a name="M000063"></a>
+
+        <div class="method-heading">
+          <a href="Certificate.src/M000063.html" target="Code" class="method-signature"
+            onclick="popupCode('Certificate.src/M000063.html');return false;">
+          <span class="method-name">extensions</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the hash of <a href="Certificate.html#M000063">extensions</a>
+available in the certificate. These are not always present.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000057" class="method-detail">
+        <a name="M000057"></a>
+
+        <div class="method-heading">
+          <a href="Certificate.src/M000057.html" target="Code" class="method-signature"
+            onclick="popupCode('Certificate.src/M000057.html');return false;">
+          <span class="method-name">issuer</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns a <a href="Name.html">Name</a> object containt the <a
+href="Certificate.html#M000057">issuer</a> of the certificate.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000064" class="method-detail">
+        <a name="M000064"></a>
+
+        <div class="method-heading">
+          <a href="Certificate.src/M000064.html" target="Code" class="method-signature"
+            onclick="popupCode('Certificate.src/M000064.html');return false;">
+          <span class="method-name">method_missing</span><span class="method-args">(method)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Any methods defined in <a href="Name.html">Name</a> can be used here. This
+means you can do cert.email rather than cert.subject.email.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000061" class="method-detail">
+        <a name="M000061"></a>
+
+        <div class="method-heading">
+          <a href="Certificate.src/M000061.html" target="Code" class="method-signature"
+            onclick="popupCode('Certificate.src/M000061.html');return false;">
+          <span class="method-name">not_after</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the certificates valid not after date.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000060" class="method-detail">
+        <a name="M000060"></a>
+
+        <div class="method-heading">
+          <a href="Certificate.src/M000060.html" target="Code" class="method-signature"
+            onclick="popupCode('Certificate.src/M000060.html');return false;">
+          <span class="method-name">not_before</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the certificates valid not before date.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000054" class="method-detail">
+        <a name="M000054"></a>
+
+        <div class="method-heading">
+          <a href="Certificate.src/M000054.html" target="Code" class="method-signature"
+            onclick="popupCode('Certificate.src/M000054.html');return false;">
+          <span class="method-name">register_with_pkyp</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Register the certificate at PKYP
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000058" class="method-detail">
+        <a name="M000058"></a>
+
+        <div class="method-heading">
+          <a href="Certificate.src/M000058.html" target="Code" class="method-signature"
+            onclick="popupCode('Certificate.src/M000058.html');return false;">
+          <span class="method-name">serial</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the issuers <a href="Certificate.html#M000058">serial</a> number
+for this certificate
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000056" class="method-detail">
+        <a name="M000056"></a>
+
+        <div class="method-heading">
+          <a href="Certificate.src/M000056.html" target="Code" class="method-signature"
+            onclick="popupCode('Certificate.src/M000056.html');return false;">
+          <span class="method-name">subject</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns a <a href="Name.html">Name</a> object containt the <a
+href="Certificate.html#M000056">subject</a> of the certificate. The <a
+href="Certificate.html#M000056">subject</a> in X509 speak is the details of
+the certificate owner.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000062" class="method-detail">
+        <a name="M000062"></a>
+
+        <div class="method-heading">
+          <a href="Certificate.src/M000062.html" target="Code" class="method-signature"
+            onclick="popupCode('Certificate.src/M000062.html');return false;">
+          <span class="method-name">valid?</span><span class="method-args">(time=Time.now.utc)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Is this certificate valid at this point in time. Note this only checks if
+it is valid with respect to time. It is important to realize that it does
+not check with any CRL or OCSP services to see if the certificate was
+revoked.
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Any methods defined in Name can be used here. This means you can do cert.email rather than cert.subject.email.
+full_name: EzCrypto::Certificate#method_missing
+is_singleton: false
+name: method_missing
+params: (method)
+visibility: public

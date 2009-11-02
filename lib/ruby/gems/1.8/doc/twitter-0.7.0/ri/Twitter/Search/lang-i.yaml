@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "lang must be ISO 639-1 code ie: en, fr, de, ja, etc."
+- !ruby/struct:SM::Flow::P 
+  body: when I tried en it limited my results a lot and took out several tweets that were english so i'd avoid this unless you really want it
+full_name: Twitter::Search#lang
+is_singleton: false
+name: lang
+params: (lang)
+visibility: public

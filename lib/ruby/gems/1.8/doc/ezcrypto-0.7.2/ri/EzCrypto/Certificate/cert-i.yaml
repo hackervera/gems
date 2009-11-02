@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Returns the OpenSSL Certificate object
+full_name: EzCrypto::Certificate#cert
+is_singleton: false
+name: cert
+params: ()
+visibility: public

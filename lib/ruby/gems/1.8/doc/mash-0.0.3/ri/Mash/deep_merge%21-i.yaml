@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Alias for #deep_update"
+full_name: Mash#deep_merge!
+is_singleton: false
+name: deep_merge!
+params: (other_hash)
+visibility: public

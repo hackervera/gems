@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Evaluate a JavaScript expression on MongoDB. <tt>code</tt> should be a string or Code instance containing a JavaScript expression. Additional arguments will be passed to that expression when it is run on the server.
+full_name: Mongo::DB#eval
+is_singleton: false
+name: eval
+params: (code, *args)
+visibility: public

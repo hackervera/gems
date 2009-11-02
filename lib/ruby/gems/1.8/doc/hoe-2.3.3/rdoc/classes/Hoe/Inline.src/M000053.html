@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>define_inline_tasks (Hoe::Inline)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/hoe/inline.rb, line 24</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">define_inline_tasks</span>
+    <span class="ruby-identifier">extra_deps</span>  <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'RubyInline'</span>
+    <span class="ruby-identifier">clean_globs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-value str">&quot;~/.ruby_inline&quot;</span>)
+    <span class="ruby-identifier">task</span> <span class="ruby-identifier">:test</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:clean</span>
+
+    <span class="ruby-keyword kw">if</span> <span class="ruby-constant">ENV</span>[<span class="ruby-value str">'INLINE'</span>] <span class="ruby-keyword kw">then</span>
+      <span class="ruby-identifier">s</span>.<span class="ruby-identifier">platform</span> = <span class="ruby-constant">ENV</span>[<span class="ruby-value str">'FORCE_PLATFORM'</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Platform</span><span class="ruby-operator">::</span><span class="ruby-constant">CURRENT</span>
+
+      <span class="ruby-comment cmt"># Try collecting Inline extensions for +name+</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">defined?</span>(<span class="ruby-constant">Inline</span>) <span class="ruby-keyword kw">then</span>
+        <span class="ruby-identifier">directory</span> <span class="ruby-value str">'lib/inline'</span>
+
+        <span class="ruby-identifier">dlext</span> = <span class="ruby-constant">Config</span><span class="ruby-operator">::</span><span class="ruby-constant">CONFIG</span>[<span class="ruby-value str">'DLEXT'</span>]
+
+        <span class="ruby-constant">Inline</span>.<span class="ruby-identifier">registered_inline_classes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">cls</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">name</span> = <span class="ruby-identifier">cls</span>.<span class="ruby-identifier">name</span> <span class="ruby-comment cmt"># TODO: what about X::Y::Z?</span>
+          <span class="ruby-comment cmt"># name of the extension is CamelCase</span>
+          <span class="ruby-identifier">alternate_name</span> = <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">name</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/[A-Z]/</span> <span class="ruby-keyword kw">then</span>
+                             <span class="ruby-identifier">name</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/([A-Z])/</span>, <span class="ruby-value str">'_\1'</span>).<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp re">/^_/</span>, <span class="ruby-value str">''</span>)
+                           <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">name</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/_/</span> <span class="ruby-keyword kw">then</span>
+                             <span class="ruby-identifier">name</span>.<span class="ruby-identifier">capitalize</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/_([a-z])/</span>) { <span class="ruby-identifier">$1</span>.<span class="ruby-identifier">upcase</span> }
+                           <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">extensions</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">chdir</span>(<span class="ruby-constant">Inline</span><span class="ruby-operator">::</span><span class="ruby-identifier">directory</span>) {
+            <span class="ruby-constant">Dir</span>[<span class="ruby-node">&quot;Inline_{#{name},#{alternate_name}}_*.#{dlext}&quot;</span>]
+          }
+
+          <span class="ruby-identifier">extensions</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ext</span><span class="ruby-operator">|</span>
+            <span class="ruby-comment cmt"># add the inlined extension to the spec files</span>
+            <span class="ruby-identifier">s</span>.<span class="ruby-identifier">files</span> <span class="ruby-operator">+=</span> [<span class="ruby-node">&quot;lib/inline/#{ext}&quot;</span>]
+
+            <span class="ruby-comment cmt"># include the file in the tasks</span>
+            <span class="ruby-identifier">file</span> <span class="ruby-node">&quot;lib/inline/#{ext}&quot;</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">&quot;lib/inline&quot;</span>] <span class="ruby-keyword kw">do</span>
+              <span class="ruby-identifier">cp</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">Inline</span><span class="ruby-operator">::</span><span class="ruby-identifier">directory</span>, <span class="ruby-identifier">ext</span>), <span class="ruby-value str">&quot;lib/inline&quot;</span>
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

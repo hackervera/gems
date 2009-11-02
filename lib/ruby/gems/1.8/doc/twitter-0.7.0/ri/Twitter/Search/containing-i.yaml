@@ -1,0 +1,11 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: contains
+block_params: 
+comment: 
+full_name: Twitter::Search#containing
+is_singleton: false
+name: containing
+params: (word)
+visibility: public

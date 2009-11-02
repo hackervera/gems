@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Returns true if either the EzCrypto::Certificate or OpenSSL::X509::Cert object is verified using issuer certificates in the trust store.
+full_name: EzCrypto::TrustStore#verify
+is_singleton: false
+name: verify
+params: (cert)
+visibility: public

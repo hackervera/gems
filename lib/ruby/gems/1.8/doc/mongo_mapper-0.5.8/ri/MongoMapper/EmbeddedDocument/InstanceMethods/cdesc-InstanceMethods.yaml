@@ -1,0 +1,49 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: MongoMapper::EmbeddedDocument::InstanceMethods
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: ==
+- !ruby/object:RI::MethodSummary 
+  name: "[]"
+- !ruby/object:RI::MethodSummary 
+  name: "[]="
+- !ruby/object:RI::MethodSummary 
+  name: attributes
+- !ruby/object:RI::MethodSummary 
+  name: attributes=
+- !ruby/object:RI::MethodSummary 
+  name: clone
+- !ruby/object:RI::MethodSummary 
+  name: id
+- !ruby/object:RI::MethodSummary 
+  name: id=
+- !ruby/object:RI::MethodSummary 
+  name: inspect
+- !ruby/object:RI::MethodSummary 
+  name: logger
+- !ruby/object:RI::MethodSummary 
+  name: new?
+- !ruby/object:RI::MethodSummary 
+  name: save
+- !ruby/object:RI::MethodSummary 
+  name: save!
+- !ruby/object:RI::MethodSummary 
+  name: to_mongo
+- !ruby/object:RI::MethodSummary 
+  name: to_param
+- !ruby/object:RI::MethodSummary 
+  name: update_attributes
+- !ruby/object:RI::MethodSummary 
+  name: using_custom_id?
+name: InstanceMethods
+superclass: 

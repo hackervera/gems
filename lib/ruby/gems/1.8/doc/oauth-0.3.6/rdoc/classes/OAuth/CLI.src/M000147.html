@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>option_parser (OAuth::CLI)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/oauth/cli.rb, line 190</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">option_parser</span>(<span class="ruby-identifier">arguments</span> = <span class="ruby-value str">&quot;&quot;</span>)
+      <span class="ruby-comment cmt"># TODO add realm parameter</span>
+      <span class="ruby-comment cmt"># TODO add user-agent parameter</span>
+      <span class="ruby-identifier">option_parser</span> = <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">opts</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">banner</span> = <span class="ruby-node">&quot;Usage: #{$0} [options] &lt;command&gt;&quot;</span>
+
+        <span class="ruby-comment cmt"># defaults</span>
+        <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:oauth_nonce</span>] = <span class="ruby-constant">OAuth</span><span class="ruby-operator">::</span><span class="ruby-constant">Helper</span>.<span class="ruby-identifier">generate_key</span>
+        <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:oauth_signature_method</span>] = <span class="ruby-value str">&quot;HMAC-SHA1&quot;</span>
+        <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:oauth_timestamp</span>] = <span class="ruby-constant">OAuth</span><span class="ruby-operator">::</span><span class="ruby-constant">Helper</span>.<span class="ruby-identifier">generate_timestamp</span>
+        <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:oauth_version</span>] = <span class="ruby-value str">&quot;1.0&quot;</span>
+        <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:method</span>] = <span class="ruby-identifier">:post</span>
+        <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:params</span>] = []
+        <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:scheme</span>] = <span class="ruby-identifier">:header</span>
+        <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:version</span>] = <span class="ruby-value str">&quot;1.0&quot;</span>
+
+        <span class="ruby-comment cmt">## Common Options</span>
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;-B&quot;</span>, <span class="ruby-value str">&quot;--body&quot;</span>, <span class="ruby-value str">&quot;Use the request body for OAuth parameters.&quot;</span>) <span class="ruby-keyword kw">do</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:scheme</span>] = <span class="ruby-identifier">:body</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;--consumer-key KEY&quot;</span>, <span class="ruby-value str">&quot;Specifies the consumer key to use.&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:oauth_consumer_key</span>] = <span class="ruby-identifier">v</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;--consumer-secret SECRET&quot;</span>, <span class="ruby-value str">&quot;Specifies the consumer secret to use.&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:oauth_consumer_secret</span>] = <span class="ruby-identifier">v</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;-H&quot;</span>, <span class="ruby-value str">&quot;--header&quot;</span>, <span class="ruby-value str">&quot;Use the 'Authorization' header for OAuth parameters (default).&quot;</span>) <span class="ruby-keyword kw">do</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:scheme</span>] = <span class="ruby-identifier">:header</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;-Q&quot;</span>, <span class="ruby-value str">&quot;--query-string&quot;</span>, <span class="ruby-value str">&quot;Use the query string for OAuth parameters.&quot;</span>) <span class="ruby-keyword kw">do</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:scheme</span>] = <span class="ruby-identifier">:query_string</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;-O&quot;</span>, <span class="ruby-value str">&quot;--options FILE&quot;</span>, <span class="ruby-value str">&quot;Read options from a file&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">arguments</span>.<span class="ruby-identifier">unshift</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">open</span>(<span class="ruby-identifier">v</span>).<span class="ruby-identifier">readlines</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">l</span><span class="ruby-operator">|</span> <span class="ruby-identifier">l</span>.<span class="ruby-identifier">chomp</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">&quot; &quot;</span>) }.<span class="ruby-identifier">flatten</span>)
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-comment cmt">## Options for signing and making requests</span>
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">separator</span>(<span class="ruby-value str">&quot;\n  options for signing and querying&quot;</span>)
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;--method METHOD&quot;</span>, <span class="ruby-value str">&quot;Specifies the method (e.g. GET) to use when signing.&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:method</span>] = <span class="ruby-identifier">v</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;--nonce NONCE&quot;</span>, <span class="ruby-value str">&quot;Specifies the none to use.&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:oauth_nonce</span>] = <span class="ruby-identifier">v</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;--parameters PARAMS&quot;</span>, <span class="ruby-value str">&quot;Specifies the parameters to use when signing.&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:params</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">v</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;--signature-method METHOD&quot;</span>, <span class="ruby-value str">&quot;Specifies the signature method to use; defaults to HMAC-SHA1.&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:oauth_signature_method</span>] = <span class="ruby-identifier">v</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;--secret SECRET&quot;</span>, <span class="ruby-value str">&quot;Specifies the token secret to use.&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:oauth_token_secret</span>] = <span class="ruby-identifier">v</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;--timestamp TIMESTAMP&quot;</span>, <span class="ruby-value str">&quot;Specifies the timestamp to use.&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:oauth_timestamp</span>] = <span class="ruby-identifier">v</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;--token TOKEN&quot;</span>, <span class="ruby-value str">&quot;Specifies the token to use.&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:oauth_token</span>] = <span class="ruby-identifier">v</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;--realm REALM&quot;</span>, <span class="ruby-value str">&quot;Specifies the realm to use.&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:realm</span>] = <span class="ruby-identifier">v</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;--uri URI&quot;</span>, <span class="ruby-value str">&quot;Specifies the URI to use when signing.&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:uri</span>] = <span class="ruby-identifier">v</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-identifier">:OPTIONAL</span>, <span class="ruby-value str">&quot;--version VERSION&quot;</span>, <span class="ruby-value str">&quot;Specifies the OAuth version to use.&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">v</span>
+            <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:oauth_version</span>] = <span class="ruby-identifier">v</span>
+          <span class="ruby-keyword kw">else</span>
+            <span class="ruby-ivar">@command</span> = <span class="ruby-value str">&quot;version&quot;</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;--no-version&quot;</span>, <span class="ruby-value str">&quot;Omit oauth_version.&quot;</span>) <span class="ruby-keyword kw">do</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:oauth_version</span>] = <span class="ruby-keyword kw">nil</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;--xmpp&quot;</span>, <span class="ruby-value str">&quot;Generate XMPP stanzas.&quot;</span>) <span class="ruby-keyword kw">do</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:xmpp</span>] = <span class="ruby-keyword kw">true</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:method</span>] <span class="ruby-operator">||=</span> <span class="ruby-value str">&quot;iq&quot;</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;-v&quot;</span>, <span class="ruby-value str">&quot;--verbose&quot;</span>, <span class="ruby-value str">&quot;Be verbose.&quot;</span>) <span class="ruby-keyword kw">do</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:verbose</span>] = <span class="ruby-keyword kw">true</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-comment cmt">## Options for authorization</span>
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">separator</span>(<span class="ruby-value str">&quot;\n  options for authorization&quot;</span>)
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;--access-token-url URL&quot;</span>, <span class="ruby-value str">&quot;Specifies the access token URL.&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:access_token_url</span>] = <span class="ruby-identifier">v</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;--authorize-url URL&quot;</span>, <span class="ruby-value str">&quot;Specifies the authorization URL.&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:authorize_url</span>] = <span class="ruby-identifier">v</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;--callback-url URL&quot;</span>, <span class="ruby-value str">&quot;Specifies a callback URL.&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:oauth_callback</span>] = <span class="ruby-identifier">v</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;--request-token-url URL&quot;</span>, <span class="ruby-value str">&quot;Specifies the request token URL.&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:request_token_url</span>] = <span class="ruby-identifier">v</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;--scope SCOPE&quot;</span>, <span class="ruby-value str">&quot;Specifies the scope (Google-specific).&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:scope</span>] = <span class="ruby-identifier">v</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

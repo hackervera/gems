@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: (*block_args)
+comment: 
+full_name: MongoMapper::Associations::Proxy#method_missing
+is_singleton: false
+name: method_missing
+params: (method, *args) {|*block_args| ...}
+visibility: protected

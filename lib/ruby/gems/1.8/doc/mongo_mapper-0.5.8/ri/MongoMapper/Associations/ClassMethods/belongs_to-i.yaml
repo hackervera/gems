@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: MongoMapper::Associations::ClassMethods#belongs_to
+is_singleton: false
+name: belongs_to
+params: (association_id, options={})
+visibility: public

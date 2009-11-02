@@ -1,0 +1,24 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: available_methods
+- !ruby/object:RI::MethodSummary 
+  name: build
+- !ruby/object:RI::MethodSummary 
+  name: sign
+- !ruby/object:RI::MethodSummary 
+  name: signature_base_string
+- !ruby/object:RI::MethodSummary 
+  name: verify
+comment: 
+constants: []
+
+full_name: OAuth::Signature
+includes: []
+
+instance_methods: []
+
+name: Signature
+superclass: 

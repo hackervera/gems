@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: OAuth::Consumer#get_access_token
+is_singleton: false
+name: get_access_token
+params: (request_token, request_options = {}, *arguments)
+visibility: public

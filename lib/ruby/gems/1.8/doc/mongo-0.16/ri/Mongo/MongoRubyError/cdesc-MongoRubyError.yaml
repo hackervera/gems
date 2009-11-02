@@ -1,0 +1,17 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Generic Mongo Ruby Driver exception class.
+constants: []
+
+full_name: Mongo::MongoRubyError
+includes: []
+
+instance_methods: []
+
+name: MongoRubyError
+superclass: StandardError

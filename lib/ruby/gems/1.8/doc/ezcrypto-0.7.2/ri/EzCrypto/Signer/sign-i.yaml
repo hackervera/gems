@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: signs data using the private key and the corresponding digest function. SHA1 for RSA and DSS1 for DSA. 99% of signing use these parameters. Email a request or send me a patch if you have other requirements.
+full_name: EzCrypto::Signer#sign
+is_singleton: false
+name: sign
+params: (data)
+visibility: public

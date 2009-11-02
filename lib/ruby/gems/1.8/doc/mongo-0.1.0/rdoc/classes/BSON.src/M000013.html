@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>deserialize (BSON)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/mongo/util/bson.rb, line 119</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">deserialize</span>(<span class="ruby-identifier">buf</span>=<span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">parent</span>=<span class="ruby-keyword kw">nil</span>)
+    <span class="ruby-comment cmt"># If buf is nil, use @buf, assumed to contain already-serialized BSON.</span>
+    <span class="ruby-comment cmt"># This is only true during testing.</span>
+    <span class="ruby-ivar">@buf</span> = <span class="ruby-constant">ByteBuffer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">buf</span>.<span class="ruby-identifier">to_a</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">buf</span>
+    <span class="ruby-ivar">@buf</span>.<span class="ruby-identifier">rewind</span>
+    <span class="ruby-ivar">@buf</span>.<span class="ruby-identifier">get_int</span>                <span class="ruby-comment cmt"># eat message size</span>
+    <span class="ruby-identifier">doc</span> = <span class="ruby-constant">OrderedHash</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-keyword kw">while</span> <span class="ruby-ivar">@buf</span>.<span class="ruby-identifier">more?</span>
+      <span class="ruby-identifier">type</span> = <span class="ruby-ivar">@buf</span>.<span class="ruby-identifier">get</span>
+      <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">type</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">STRING</span>, <span class="ruby-constant">CODE</span>
+        <span class="ruby-identifier">key</span> = <span class="ruby-identifier">deserialize_cstr</span>(<span class="ruby-ivar">@buf</span>)
+        <span class="ruby-identifier">doc</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">deserialize_string_data</span>(<span class="ruby-ivar">@buf</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">SYMBOL</span>
+        <span class="ruby-identifier">key</span> = <span class="ruby-identifier">deserialize_cstr</span>(<span class="ruby-ivar">@buf</span>)
+        <span class="ruby-identifier">doc</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">deserialize_string_data</span>(<span class="ruby-ivar">@buf</span>).<span class="ruby-identifier">intern</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">NUMBER</span>
+        <span class="ruby-identifier">key</span> = <span class="ruby-identifier">deserialize_cstr</span>(<span class="ruby-ivar">@buf</span>)
+        <span class="ruby-identifier">doc</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">deserialize_number_data</span>(<span class="ruby-ivar">@buf</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">NUMBER_INT</span>
+        <span class="ruby-identifier">key</span> = <span class="ruby-identifier">deserialize_cstr</span>(<span class="ruby-ivar">@buf</span>)
+        <span class="ruby-identifier">doc</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">deserialize_number_int_data</span>(<span class="ruby-ivar">@buf</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">OID</span>
+        <span class="ruby-identifier">key</span> = <span class="ruby-identifier">deserialize_cstr</span>(<span class="ruby-ivar">@buf</span>)
+        <span class="ruby-identifier">doc</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">deserialize_oid_data</span>(<span class="ruby-ivar">@buf</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">ARRAY</span>
+        <span class="ruby-identifier">key</span> = <span class="ruby-identifier">deserialize_cstr</span>(<span class="ruby-ivar">@buf</span>)
+        <span class="ruby-identifier">doc</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">deserialize_array_data</span>(<span class="ruby-ivar">@buf</span>, <span class="ruby-identifier">doc</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">REGEX</span>
+        <span class="ruby-identifier">key</span> = <span class="ruby-identifier">deserialize_cstr</span>(<span class="ruby-ivar">@buf</span>)
+        <span class="ruby-identifier">doc</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">deserialize_regex_data</span>(<span class="ruby-ivar">@buf</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">OBJECT</span>
+        <span class="ruby-identifier">key</span> = <span class="ruby-identifier">deserialize_cstr</span>(<span class="ruby-ivar">@buf</span>)
+        <span class="ruby-identifier">doc</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">deserialize_object_data</span>(<span class="ruby-ivar">@buf</span>, <span class="ruby-identifier">doc</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">BOOLEAN</span>
+        <span class="ruby-identifier">key</span> = <span class="ruby-identifier">deserialize_cstr</span>(<span class="ruby-ivar">@buf</span>)
+        <span class="ruby-identifier">doc</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">deserialize_boolean_data</span>(<span class="ruby-ivar">@buf</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">DATE</span>
+        <span class="ruby-identifier">key</span> = <span class="ruby-identifier">deserialize_cstr</span>(<span class="ruby-ivar">@buf</span>)
+        <span class="ruby-identifier">doc</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">deserialize_date_data</span>(<span class="ruby-ivar">@buf</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">NULL</span>
+        <span class="ruby-identifier">key</span> = <span class="ruby-identifier">deserialize_cstr</span>(<span class="ruby-ivar">@buf</span>)
+        <span class="ruby-identifier">doc</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-keyword kw">nil</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">UNDEFINED</span>
+        <span class="ruby-identifier">key</span> = <span class="ruby-identifier">deserialize_cstr</span>(<span class="ruby-ivar">@buf</span>)
+        <span class="ruby-identifier">doc</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-constant">XGen</span><span class="ruby-operator">::</span><span class="ruby-constant">Mongo</span><span class="ruby-operator">::</span><span class="ruby-constant">Driver</span><span class="ruby-operator">::</span><span class="ruby-constant">Undefined</span>.<span class="ruby-identifier">new</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">REF</span>
+        <span class="ruby-identifier">key</span> = <span class="ruby-identifier">deserialize_cstr</span>(<span class="ruby-ivar">@buf</span>)
+        <span class="ruby-identifier">doc</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">deserialize_dbref_data</span>(<span class="ruby-ivar">@buf</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">parent</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">BINARY</span>
+        <span class="ruby-identifier">key</span> = <span class="ruby-identifier">deserialize_cstr</span>(<span class="ruby-ivar">@buf</span>)
+        <span class="ruby-identifier">doc</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">deserialize_binary_data</span>(<span class="ruby-ivar">@buf</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">CODE_W_SCOPE</span>
+        <span class="ruby-comment cmt"># TODO</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;unimplemented type #{type}&quot;</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">EOO</span>
+        <span class="ruby-keyword kw">break</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Unknown type #{type}, key = #{key}&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-ivar">@buf</span>.<span class="ruby-identifier">rewind</span>
+    <span class="ruby-identifier">doc</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

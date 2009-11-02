@@ -1,0 +1,26 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Borrowed from Merb's Mash object.
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Parameters
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "key<Object>:"
+    body: The default value for the mash. Defaults to nil.
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Alternatives
+- !ruby/struct:SM::Flow::P 
+  body: If key is a Symbol and it is a key in the mash, then the default value will be set to the value matching the key.
+full_name: Mash#default
+is_singleton: false
+name: default
+params: (key = nil)
+visibility: public

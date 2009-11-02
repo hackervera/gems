@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Twitter::status
+is_singleton: true
+name: status
+params: (id)
+visibility: public

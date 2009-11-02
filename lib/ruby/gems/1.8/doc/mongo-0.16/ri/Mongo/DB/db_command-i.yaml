@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: DB commands need to be ordered, so selector must be an OrderedHash (or a Hash with only one element). What DB commands really need is that the &quot;command&quot; key be first.
+full_name: Mongo::DB#db_command
+is_singleton: false
+name: db_command
+params: (selector, use_admin_db=false)
+visibility: public

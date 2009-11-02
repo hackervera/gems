@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Return <tt>true</tt> if there are more records to retrieve. We do not check @num_to_return; #each is responsible for doing that."
+full_name: XGen::Mongo::Driver::Cursor#more?
+is_singleton: false
+name: more?
+params: ()
+visibility: public

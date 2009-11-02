@@ -1,0 +1,18 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Creates, signs and performs an http request. It's recommended to use the OAuth::Token classes to set this up correctly. request_options take precedence over consumer-wide options when signing
+- !ruby/struct:SM::Flow::VERB 
+  body: "  a request.\n"
+- !ruby/struct:SM::Flow::P 
+  body: arguments are POST and PUT bodies (a Hash, string-encoded parameters, or
+- !ruby/struct:SM::Flow::VERB 
+  body: "  absent), followed by additional HTTP headers.\n\n  @consumer.request(:get,  '/people', @token, { :scheme =&gt; :query_string })\n  @consumer.request(:post, '/people', @token, {}, @person.to_xml, { 'Content-Type' =&gt; 'application/xml' })\n"
+full_name: OAuth::Consumer#request
+is_singleton: false
+name: request
+params: (http_method, path, token = nil, request_options = {}, *arguments)
+visibility: public

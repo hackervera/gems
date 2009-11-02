@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Returns collection used for storing chunks. Depends on value of @root.
+full_name: GridFS::GridStore#chunk_collection
+is_singleton: false
+name: chunk_collection
+params: ()
+visibility: public

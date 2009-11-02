@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Array#flatten has problems with recursive arrays. Going one level deeper solves the majority of the problems.
+full_name: MongoMapper::Associations::Proxy#flatten_deeper
+is_singleton: false
+name: flatten_deeper
+params: (array)
+visibility: protected

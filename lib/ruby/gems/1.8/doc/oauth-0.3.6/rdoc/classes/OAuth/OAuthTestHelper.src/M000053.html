@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>mock_incoming_request_with_query (OAuth::OAuthTestHelper)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/oauth/oauth_test_helper.rb, line 6</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">mock_incoming_request_with_query</span>(<span class="ruby-identifier">request</span>)
+      <span class="ruby-identifier">incoming</span> = <span class="ruby-constant">ActionController</span><span class="ruby-operator">::</span><span class="ruby-constant">TestRequest</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">request</span>.<span class="ruby-identifier">to_hash</span>)
+      <span class="ruby-identifier">incoming</span>.<span class="ruby-identifier">request_uri</span> = <span class="ruby-identifier">request</span>.<span class="ruby-identifier">path</span>
+      <span class="ruby-identifier">incoming</span>.<span class="ruby-identifier">host</span> = <span class="ruby-identifier">request</span>.<span class="ruby-identifier">uri</span>.<span class="ruby-identifier">host</span>
+      <span class="ruby-identifier">incoming</span>.<span class="ruby-identifier">env</span>[<span class="ruby-value str">&quot;SERVER_PORT&quot;</span>] = <span class="ruby-identifier">request</span>.<span class="ruby-identifier">uri</span>.<span class="ruby-identifier">port</span>
+      <span class="ruby-identifier">incoming</span>.<span class="ruby-identifier">env</span>[<span class="ruby-value str">'REQUEST_METHOD'</span>] = <span class="ruby-identifier">request</span>.<span class="ruby-identifier">http_method</span>
+      <span class="ruby-identifier">incoming</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

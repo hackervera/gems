@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "@return [Hash] Mongo compatible criteria options"
+- !ruby/struct:SM::Flow::P 
+  body: "@see FinderOptions#to_mongo_criteria"
+full_name: MongoMapper::FinderOptions#criteria
+is_singleton: false
+name: criteria
+params: ()
+visibility: public

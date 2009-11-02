@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>prepare_parameters (OAuth::CLI)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/oauth/cli.rb, line 323</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">prepare_parameters</span>
+      <span class="ruby-identifier">escaped_pairs</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:params</span>].<span class="ruby-identifier">collect</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">pair</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">pair</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/:/</span>
+          <span class="ruby-constant">Hash</span>[<span class="ruby-operator">*</span><span class="ruby-identifier">pair</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">&quot;:&quot;</span>, <span class="ruby-value">2</span>)].<span class="ruby-identifier">collect</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>,<span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+            [<span class="ruby-constant">CGI</span>.<span class="ruby-identifier">escape</span>(<span class="ruby-identifier">k</span>.<span class="ruby-identifier">strip</span>), <span class="ruby-constant">CGI</span>.<span class="ruby-identifier">escape</span>(<span class="ruby-identifier">v</span>.<span class="ruby-identifier">strip</span>)] <span class="ruby-operator">*</span> <span class="ruby-value str">&quot;=&quot;</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-identifier">pair</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">querystring</span> = <span class="ruby-identifier">escaped_pairs</span> <span class="ruby-operator">*</span> <span class="ruby-value str">&quot;&amp;&quot;</span>
+      <span class="ruby-identifier">cli_params</span> = <span class="ruby-constant">CGI</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">querystring</span>)
+
+      {
+        <span class="ruby-value str">&quot;oauth_consumer_key&quot;</span>     =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:oauth_consumer_key</span>],
+        <span class="ruby-value str">&quot;oauth_nonce&quot;</span>            =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:oauth_nonce</span>],
+        <span class="ruby-value str">&quot;oauth_timestamp&quot;</span>        =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:oauth_timestamp</span>],
+        <span class="ruby-value str">&quot;oauth_token&quot;</span>            =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:oauth_token</span>],
+        <span class="ruby-value str">&quot;oauth_signature_method&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:oauth_signature_method</span>],
+        <span class="ruby-value str">&quot;oauth_version&quot;</span>          =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:oauth_version</span>]
+      }.<span class="ruby-identifier">reject</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>,<span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">v</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;&quot;</span> }.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">cli_params</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

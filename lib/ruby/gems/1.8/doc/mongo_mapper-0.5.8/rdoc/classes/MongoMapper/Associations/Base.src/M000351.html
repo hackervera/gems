@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>proxy_class (MongoMapper::Associations::Base)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/mongo_mapper/associations/base.rb, line 74</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">proxy_class</span>
+        <span class="ruby-ivar">@proxy_class</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">begin</span>
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">many?</span>
+            <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">klass</span>.<span class="ruby-identifier">embeddable?</span>
+              <span class="ruby-identifier">polymorphic?</span> <span class="ruby-value">? </span><span class="ruby-constant">ManyEmbeddedPolymorphicProxy</span> <span class="ruby-operator">:</span> <span class="ruby-constant">ManyEmbeddedProxy</span>
+            <span class="ruby-keyword kw">else</span>
+              <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">polymorphic?</span>
+                <span class="ruby-constant">ManyPolymorphicProxy</span>
+              <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">as?</span>
+                <span class="ruby-constant">ManyDocumentsAsProxy</span>
+              <span class="ruby-keyword kw">else</span>
+                <span class="ruby-constant">ManyProxy</span>
+              <span class="ruby-keyword kw">end</span>
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">else</span>
+            <span class="ruby-identifier">polymorphic?</span> <span class="ruby-value">? </span><span class="ruby-constant">BelongsToPolymorphicProxy</span> <span class="ruby-operator">:</span> <span class="ruby-constant">BelongsToProxy</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span> <span class="ruby-comment cmt"># end begin</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

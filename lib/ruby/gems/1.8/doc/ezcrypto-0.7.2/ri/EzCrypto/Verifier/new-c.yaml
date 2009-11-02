@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Initializes a Verifier using a OpenSSL public key object.
+full_name: EzCrypto::Verifier::new
+is_singleton: true
+name: new
+params: (pub)
+visibility: public

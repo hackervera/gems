@@ -1,0 +1,52 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: from_string
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Implementation of the Babble OID. Object ids are not required by Mongo, but they make certain operations more efficient.
+- !ruby/struct:SM::Flow::P 
+  body: The driver does not automatically assign ids to records that are inserted. (An upcoming feature will allow you to give an id &quot;factory&quot; to a database and/or a collection.)
+- !ruby/struct:SM::Flow::VERB 
+  body: "  12 bytes\n  ---\n   0 time\n   1\n   2\n   3\n   4 machine\n   5\n   6\n   7 pid\n   8\n   9 inc\n  10\n  11\n"
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: MACHINE
+  value: ( val = rand(0x1000000);
+- !ruby/object:RI::Constant 
+  comment: 
+  name: PID
+  value: ( val = rand(0x10000);
+- !ruby/object:RI::Constant 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The string representation of an OID is different than its internal and BSON byte representations. The BYTE_ORDER here maps internal/BSON byte position (the index in BYTE_ORDER) to the position of the two hex characters representing that byte in the string representation. For example, the 0th BSON byte corresponds to the (0-based) 7th pair of hex chars in the string.
+  name: BYTE_ORDER
+  value: "[7, 6, 5, 4, 3, 2, 1, 0, 11, 10, 9, 8]"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: LOCK
+  value: Object.new
+full_name: XGen::Mongo::Driver::ObjectID
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: ==
+- !ruby/object:RI::MethodSummary 
+  name: eql?
+- !ruby/object:RI::MethodSummary 
+  name: generate_id
+- !ruby/object:RI::MethodSummary 
+  name: index_for_time
+- !ruby/object:RI::MethodSummary 
+  name: to_a
+- !ruby/object:RI::MethodSummary 
+  name: to_s
+name: ObjectID
+superclass: Object

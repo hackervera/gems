@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Switches our socket to the master database. If we are already the master, no change is made.
+full_name: XGen::Mongo::Driver::DB#switch_to_master
+is_singleton: false
+name: switch_to_master
+params: ()
+visibility: public

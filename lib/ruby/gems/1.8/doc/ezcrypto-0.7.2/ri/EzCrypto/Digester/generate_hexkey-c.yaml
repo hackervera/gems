@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: ""
+full_name: EzCrypto::Digester::generate_hexkey
+is_singleton: true
+name: generate_hexkey
+params: (size=40)
+visibility: public

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: XGen::Mongo::Driver::DB#admin
+is_singleton: false
+name: admin
+params: ()
+visibility: public

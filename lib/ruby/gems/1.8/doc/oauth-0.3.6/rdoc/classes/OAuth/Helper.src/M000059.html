@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>parse_header (OAuth::Helper)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/oauth/helper.rb, line 56</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parse_header</span>(<span class="ruby-identifier">header</span>)
+      <span class="ruby-comment cmt"># decompose</span>
+      <span class="ruby-identifier">params</span> = <span class="ruby-identifier">header</span>[<span class="ruby-value">6</span>,<span class="ruby-identifier">header</span>.<span class="ruby-identifier">length</span>].<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">/[,=]/</span>)
+
+      <span class="ruby-comment cmt"># odd number of arguments - must be a malformed header.</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">OAuth</span><span class="ruby-operator">::</span><span class="ruby-constant">Problem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;Invalid authorization header&quot;</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">%</span> <span class="ruby-value">2</span> <span class="ruby-operator">!=</span> <span class="ruby-value">0</span>
+
+      <span class="ruby-identifier">params</span>.<span class="ruby-identifier">map!</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+        <span class="ruby-comment cmt"># strip and unescape</span>
+        <span class="ruby-identifier">val</span> = <span class="ruby-identifier">unescape</span>(<span class="ruby-identifier">v</span>.<span class="ruby-identifier">strip</span>)
+        <span class="ruby-comment cmt"># strip quotes</span>
+        <span class="ruby-identifier">val</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp re">/^\&quot;(.*)\&quot;$/</span>, <span class="ruby-value str">'\1'</span>)
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-comment cmt"># convert into a Hash</span>
+      <span class="ruby-constant">Hash</span>[<span class="ruby-operator">*</span><span class="ruby-identifier">params</span>.<span class="ruby-identifier">flatten</span>]
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

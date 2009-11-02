@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README_ACTIVE_CRYPTO</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>README_ACTIVE_CRYPTO</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>README_ACTIVE_CRYPTO
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Mon Nov 02 09:04:54 -0500 2009</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h1>ActiveCrypto - Easy to use Crypto for Ruby on Rails</h1>
+<p>
+ActiveCrypto is based on EzCrypto and provides application oriented crypto
+support for Ruby on Rails applications.
+</p>
+<h2>Features</h2>
+<ul>
+<li>Transparent encryption/decryption
+
+</li>
+<li>Ruby on Rails like domain language
+
+</li>
+</ul>
+<h2>Installation</h2>
+<p>
+Download it from here:
+</p>
+<p>
+<a
+href="http://rubyforge.org/frs/?group_id=755">rubyforge.org/frs/?group_id=755</a>
+</p>
+<p>
+or install it via Ruby Gems:
+</p>
+<pre>
+        gem install ezruby
+</pre>
+<h2>Simple examples</h2>
+<h4>A simple encrypted class</h4>
+<p>
+You specify in your class which fields are encrypted:
+</p>
+<pre>
+        class Document &lt; ActiveRecord::Base
+                encrypt :title,:body
+        end
+</pre>
+<p>
+Two encrypt it you need to enter a key. For ease of use there is a method
+called enter_password which sets the key based on a password of your
+choice.
+</p>
+<pre>
+        doc=Document.new
+        doc.enter_password &quot;This stuff is secret man!!!&quot;
+        doc.title=&quot;Plan to take over the world&quot;
+        doc.body=&quot;Write apps in Rails&quot;
+        doc.save
+</pre>
+<p>
+This needs to be done as well if you want to read your document:
+</p>
+<pre>
+        doc=Document.find 1
+        doc.enter_password &quot;This stuff is secret man!!!&quot;
+        puts doc.name
+</pre>
+<p>
+If you don&#8216;t remember to set a key it will through a MissingKeyError.
+</p>
+<h4>More realistic example with KeyHolder</h4>
+<p>
+It probably isn&#8216;t much use if each record needs its own key. The
+solution to this is the KeyHolder. A KeyHolder is an object that holds keys
+for use by other objects. A typical example would be a user.
+</p>
+<pre>
+        class User &lt; ActiveRecord::Base
+                has_many :documents
+                keyholder
+        end
+</pre>
+<p>
+We use standard ActiveRecord associations to associate the User with his
+documents. We also need to specify that he is a keyholder. We now modify
+our Document class as follows:
+</p>
+<pre>
+        class Document &lt; ActiveRecord::Base
+                belongs_to :user
+                encrypt :title,:body,:key=&gt;:user
+        end
+</pre>
+<p>
+We have the standard associations going on here, but we have also added the
+option :key=&gt;:user to the encrypt statement. Now we could do this:
+</p>
+<pre>
+        @user=User.new
+        @user.enter_password &quot;This stuff is secret man!!!&quot;
+        @user.save
+
+        @doc=Document.new
+        @doc.user=@user
+        @doc.title=&quot;Plan to take over the world&quot;
+        @doc.body=&quot;Write apps in Rails&quot;
+        @doc.save
+</pre>
+<p>
+You could also do ordinary rails like stuf such as:
+</p>
+<pre>
+        @user.documents.each do |doc|
+                puts doc.name
+        end
+</pre>
+<p>
+Decryption is done transparently.
+</p>
+<p>
+When doing this within a rails application, active_crypto automatically
+maintains a list of keys for each user session. Besides the 2 steps below
+you don&#8216;t need to do anything special within your controller.
+</p>
+<ol>
+<li>When a user logs on with a password enter his password like this:
+
+<pre>
+     @user.enter_password @params['password']
+</pre>
+</li>
+<li>When a user logs off call the following
+
+<pre>
+     clear_session_keys
+</pre>
+</li>
+</ol>
+<h2>Usage as a Rails plugin</h2>
+<p>
+Just unpack it into your $MY_RAILS_PROJECTS/vendor/plugins folder to use it
+as a self contained plugin. Otherwise you can install it as a gem using:
+</p>
+<pre>
+        $ gem install ezcrypto
+</pre>
+<p>
+Then make sure to require &quot;active_crypto.rb&quot; at the end of your
+environment.rb file.
+</p>
+<h2>Database Schema issues</h2>
+<p>
+ActiveCrypto doesn&#8216;t really care about the schema, but that said you
+do need a schema that will accept and not mangle it&#8216;s output. On
+MySQL I normally use TINYBLOB instead of VARCHAR and BLOB instead of TEXT.
+</p>
+<h2>License</h2>
+<p>
+EzCrypto and ActionCrypto is released under the MIT license.
+</p>
+<h2>Support</h2>
+<p>
+To contact the author, send mail to pelleb@gmail.com
+</p>
+<p>
+Also see my blogs at: <a
+href="http://stakeventures.com">stakeventures.com</a> and <a
+href="http://neubia.com">neubia.com</a>
+</p>
+<p>
+This project was based on code used in my projects WideWord where you can
+securely share documents and StakeItOut, where you can securely share web
+services with your partners. <a
+href="https://wideword.net">wideword.net</a> <a
+href="https://stakeitout.com">stakeitout.com</a>
+</p>
+<p>
+(C) 2005 Pelle Braendgaard
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

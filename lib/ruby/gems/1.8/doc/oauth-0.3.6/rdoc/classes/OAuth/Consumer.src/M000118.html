@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>uri (OAuth::Consumer)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/oauth/consumer.rb, line 95</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">uri</span>(<span class="ruby-identifier">custom_uri</span> = <span class="ruby-keyword kw">nil</span>)
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">custom_uri</span>
+        <span class="ruby-ivar">@uri</span>  = <span class="ruby-identifier">custom_uri</span>
+        <span class="ruby-ivar">@http</span> = <span class="ruby-identifier">create_http</span> <span class="ruby-comment cmt"># yike, oh well. less intrusive this way</span>
+      <span class="ruby-keyword kw">else</span>  <span class="ruby-comment cmt"># if no custom passed, we use existing, which, if unset, is set to site uri</span>
+        <span class="ruby-ivar">@uri</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">URI</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">site</span>)
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

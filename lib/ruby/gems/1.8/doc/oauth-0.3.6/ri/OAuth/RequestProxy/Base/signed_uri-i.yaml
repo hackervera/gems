@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: URI, including OAuth parameters
+full_name: OAuth::RequestProxy::Base#signed_uri
+is_singleton: false
+name: signed_uri
+params: (with_oauth = true)
+visibility: public

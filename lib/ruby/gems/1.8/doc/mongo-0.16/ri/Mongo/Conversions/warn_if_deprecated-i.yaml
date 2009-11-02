@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: This is the method to call when the client needs to be warned of deprecation in the way sorting parameters are supplied.
+full_name: Mongo::Conversions#warn_if_deprecated
+is_singleton: false
+name: warn_if_deprecated
+params: (value)
+visibility: public

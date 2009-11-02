@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>generate_id (XGen::Mongo::Driver::ObjectID)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/mongo/types/objectid.rb, line 98</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">generate_id</span>(<span class="ruby-identifier">t</span>=<span class="ruby-keyword kw">nil</span>)
+          <span class="ruby-identifier">t</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">to_i</span>
+          <span class="ruby-identifier">buf</span> = <span class="ruby-constant">ByteBuffer</span>.<span class="ruby-identifier">new</span>
+          <span class="ruby-identifier">buf</span>.<span class="ruby-identifier">put_int</span>(<span class="ruby-identifier">t</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xffffffff</span>)
+          <span class="ruby-identifier">buf</span>.<span class="ruby-identifier">put_array</span>(<span class="ruby-constant">MACHINE</span>)
+          <span class="ruby-identifier">buf</span>.<span class="ruby-identifier">put_array</span>(<span class="ruby-constant">PID</span>)
+          <span class="ruby-identifier">i</span> = <span class="ruby-identifier">index_for_time</span>(<span class="ruby-identifier">t</span>)
+          <span class="ruby-identifier">buf</span>.<span class="ruby-identifier">put</span>(<span class="ruby-identifier">i</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xff</span>)
+          <span class="ruby-identifier">buf</span>.<span class="ruby-identifier">put</span>((<span class="ruby-identifier">i</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">8</span>) <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xff</span>)
+          <span class="ruby-identifier">buf</span>.<span class="ruby-identifier">put</span>((<span class="ruby-identifier">i</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">16</span>) <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xff</span>)
+
+          <span class="ruby-identifier">buf</span>.<span class="ruby-identifier">rewind</span>
+          <span class="ruby-identifier">buf</span>.<span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">dup</span>
+        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: OAuth::Client::Helper#amend_user_agent_header
+is_singleton: false
+name: amend_user_agent_header
+params: (headers)
+visibility: public

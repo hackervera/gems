@@ -1,0 +1,71 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Signing plugin for hoe.
+- !ruby/struct:SM::Flow::H 
+  level: 3
+  text: "Tasks Provided:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "generate_key:"
+    body: Generate a key for signing your gems.
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 3
+  text: "Extra Configuration Options:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "signing_key_file:"
+    body: Signs your gems with this private key.
+  - !ruby/struct:SM::Flow::LI 
+    label: "signing_cert_file:"
+    body: Signs your gem with this certificate.
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 3
+  text: "Usage:"
+- !ruby/struct:SM::Flow::P 
+  body: "Run the 'generate_key' task. This will:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "1."
+    body: Configure your ~/.hoerc.
+  - !ruby/struct:SM::Flow::LI 
+    label: "2."
+    body: Generate a signing key and certificate.
+  - !ruby/struct:SM::Flow::LI 
+    label: "3."
+    body: Install the private key and public certificate files into ~/.gem.
+  - !ruby/struct:SM::Flow::LI 
+    label: "4."
+    body: Upload the certificate to RubyForge.
+  type: :NUMBER
+- !ruby/struct:SM::Flow::P 
+  body: Hoe will now generate signed gems when the package task is run. If you have multiple machines you build gems on, be sure to install your key and certificate on each machine.
+- !ruby/struct:SM::Flow::P 
+  body: Keep your private key secret! Keep your private key safe!
+- !ruby/struct:SM::Flow::P 
+  body: "To make sure your gems are signed run:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  rake package; tar tf pkg/yourproject-1.2.3.gem\n"
+- !ruby/struct:SM::Flow::P 
+  body: "If your gem is signed you will see:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  data.tar.gz\n  data.tar.gz.sig\n  metadata.gz\n  metadata.gz.sig\n"
+constants: []
+
+full_name: Hoe::Signing
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: define_signing_tasks
+name: Signing
+superclass: 

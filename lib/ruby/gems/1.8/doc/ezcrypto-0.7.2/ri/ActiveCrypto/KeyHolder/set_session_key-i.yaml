@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Sets a session key for the object. This should be a EzCrypto::Key instance.
+full_name: ActiveCrypto::KeyHolder#set_session_key
+is_singleton: false
+name: set_session_key
+params: (key)
+visibility: public

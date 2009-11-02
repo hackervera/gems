@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: OAuth::RequestProxy::Base#non_oauth_parameters
+is_singleton: false
+name: non_oauth_parameters
+params: ()
+visibility: public

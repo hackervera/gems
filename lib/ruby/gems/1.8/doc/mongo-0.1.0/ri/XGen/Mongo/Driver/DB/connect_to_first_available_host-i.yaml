@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: XGen::Mongo::Driver::DB#connect_to_first_available_host
+is_singleton: false
+name: connect_to_first_available_host
+params: ()
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Get a Encrypter object. You have to call #final on it by yourself!"
+full_name: EzCrypto::Key#encrypter
+is_singleton: false
+name: encrypter
+params: (target='')
+visibility: public

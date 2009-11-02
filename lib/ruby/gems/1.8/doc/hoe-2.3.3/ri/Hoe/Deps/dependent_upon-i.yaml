@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Return all the dependencies on the named rubygem.
+full_name: Hoe::Deps#dependent_upon
+is_singleton: false
+name: dependent_upon
+params: (name)
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Duplicates the current mash as a new mash.
+full_name: Mash#dup
+is_singleton: false
+name: dup
+params: ()
+visibility: public

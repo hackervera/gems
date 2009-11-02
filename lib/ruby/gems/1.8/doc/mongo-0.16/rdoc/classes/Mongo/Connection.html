@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Mongo::Connection</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Mongo::Connection</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/mongo/connection_rb.html">
+                lib/mongo/connection.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                <a href="../Object.html">
+                Object
+               </a>
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+A connection to MongoDB.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000157">database_info</a>&nbsp;&nbsp;
+      <a href="#M000158">database_names</a>&nbsp;&nbsp;
+      <a href="#M000155">db</a>&nbsp;&nbsp;
+      <a href="#M000159">drop_database</a>&nbsp;&nbsp;
+      <a href="#M000156">logger</a>&nbsp;&nbsp;
+      <a href="#M000154">new</a>&nbsp;&nbsp;
+      <a href="#M000162">pair_val_to_connection</a>&nbsp;&nbsp;
+      <a href="#M000160">server_info</a>&nbsp;&nbsp;
+      <a href="#M000161">server_version</a>&nbsp;&nbsp;
+      <a href="#M000163">single_db_command</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">DEFAULT_PORT</td>
+          <td>=</td>
+          <td class="context-item-value">27017</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000154" class="method-detail">
+        <a name="M000154"></a>
+
+        <div class="method-heading">
+          <a href="#M000154" class="method-signature">
+          <span class="method-name">new</span><span class="method-args">(pair_or_host=nil, port=nil, options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Create a Mongo database server instance. You specify either one or a pair
+of servers. If one, you also say if connecting to a slave is OK. In either
+case, the host default is &quot;localhost&quot; and port default is
+DEFAULT_PORT.
+</p>
+<p>
+If you specify a pair, pair_or_host is a hash with two keys :left and
+:right. Each key maps to either
+</p>
+<ul>
+<li>a server name, in which case port is DEFAULT_PORT
+
+</li>
+<li>a port number, in which case server is &quot;localhost&quot;
+
+</li>
+<li>an array containing a server name and a port number in that order
+
+</li>
+</ul>
+<p>
+<tt>options</tt> are passed on to each <a href="DB.html">DB</a> instance:
+</p>
+<table>
+<tr><td valign="top">:slave_ok :</td><td>Only used if one host is specified. If false, when connecting to that
+host/port a <a href="DB.html">DB</a> object will check to see if the server
+is the master. If it is not, an error is thrown.
+
+</td></tr>
+<tr><td valign="top">:auto_reconnect :</td><td>If a <a href="DB.html">DB</a> connection gets closed (for example, we have
+a server pair and saw the &quot;not master&quot; error, which closes the
+connection), then automatically try to reconnect to the master or to the
+single server we have been given. Defaults to <tt>false</tt>.
+
+</td></tr>
+<tr><td valign="top">:<a href="Connection.html#M000156">logger</a> :</td><td>Optional Logger instance to which driver usage information will be logged.
+
+</td></tr>
+</table>
+<p>
+Since that&#8216;s so confusing, here are a few examples:
+</p>
+<pre>
+ Connection.new                         # localhost, DEFAULT_PORT, !slave
+ Connection.new(&quot;localhost&quot;)            # localhost, DEFAULT_PORT, !slave
+ Connection.new(&quot;localhost&quot;, 3000)      # localhost, 3000, slave not ok
+ # localhost, 3000, slave ok
+ Connection.new(&quot;localhost&quot;, 3000, :slave_ok =&gt; true)
+ # localhost, DEFAULT_PORT, auto reconnect
+ Connection.new(nil, nil, :auto_reconnect =&gt; true)
+
+ # A pair of servers. DB will always talk to the master. On socket
+ # error or &quot;not master&quot; error, we will auto-reconnect to the
+ # current master.
+ Connection.new({:left  =&gt; [&quot;db1.example.com&quot;, 3000],
+            :right =&gt; &quot;db2.example.com&quot;}, # DEFAULT_PORT
+           nil, :auto_reconnect =&gt; true)
+
+ # Here, :right is localhost/DEFAULT_PORT. No auto-reconnect.
+ Connection.new({:left =&gt; [&quot;db1.example.com&quot;, 3000]})
+</pre>
+<p>
+When a <a href="DB.html">DB</a> object first connects to a pair, it will
+find the master instance and connect to that one.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000154-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000154-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/connection.rb, line 75</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">pair_or_host</span>=<span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">port</span>=<span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">options</span>={})
+      <span class="ruby-ivar">@pair</span> = <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">pair_or_host</span>
+               <span class="ruby-keyword kw">when</span> <span class="ruby-constant">String</span>
+                 [[<span class="ruby-identifier">pair_or_host</span>, <span class="ruby-identifier">port</span> <span class="ruby-value">? </span><span class="ruby-identifier">port</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">:</span> <span class="ruby-constant">DEFAULT_PORT</span>]]
+               <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Hash</span>
+                <span class="ruby-identifier">connections</span> = []
+                <span class="ruby-identifier">connections</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">pair_val_to_connection</span>(<span class="ruby-identifier">pair_or_host</span>[<span class="ruby-identifier">:left</span>])
+                <span class="ruby-identifier">connections</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">pair_val_to_connection</span>(<span class="ruby-identifier">pair_or_host</span>[<span class="ruby-identifier">:right</span>])
+                <span class="ruby-identifier">connections</span>
+               <span class="ruby-keyword kw">when</span> <span class="ruby-keyword kw">nil</span>
+                 [[<span class="ruby-value str">'localhost'</span>, <span class="ruby-constant">DEFAULT_PORT</span>]]
+               <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-ivar">@options</span> = <span class="ruby-identifier">options</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000157" class="method-detail">
+        <a name="M000157"></a>
+
+        <div class="method-heading">
+          <a href="#M000157" class="method-signature">
+          <span class="method-name">database_info</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns a hash containing database names as keys and disk space for each as
+values.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000157-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000157-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/connection.rb, line 104</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">database_info</span>
+      <span class="ruby-identifier">doc</span> = <span class="ruby-identifier">single_db_command</span>(<span class="ruby-value str">'admin'</span>, <span class="ruby-identifier">:listDatabases</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>)
+      <span class="ruby-identifier">h</span> = {}
+      <span class="ruby-identifier">doc</span>[<span class="ruby-value str">'databases'</span>].<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">db</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">h</span>[<span class="ruby-identifier">db</span>[<span class="ruby-value str">'name'</span>]] = <span class="ruby-identifier">db</span>[<span class="ruby-value str">'sizeOnDisk'</span>].<span class="ruby-identifier">to_i</span>
+      }
+      <span class="ruby-identifier">h</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000158" class="method-detail">
+        <a name="M000158"></a>
+
+        <div class="method-heading">
+          <a href="#M000158" class="method-signature">
+          <span class="method-name">database_names</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns an array of database names.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000158-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000158-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/connection.rb, line 114</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">database_names</span>
+      <span class="ruby-identifier">database_info</span>.<span class="ruby-identifier">keys</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000155" class="method-detail">
+        <a name="M000155"></a>
+
+        <div class="method-heading">
+          <a href="#M000155" class="method-signature">
+          <span class="method-name">db</span><span class="method-args">(db_name, options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Return the <a href="DB.html">Mongo::DB</a> named <tt>db_name</tt>. The
+slave_ok and auto_reconnect options passed in via <a
+href="Connection.html#M000154">new</a> may be overridden here. See <a
+href="DB.html#M000117">DB#new</a> for other options you can pass in.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000155-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000155-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/connection.rb, line 94</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">db</span>(<span class="ruby-identifier">db_name</span>, <span class="ruby-identifier">options</span>={})
+      <span class="ruby-constant">DB</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">db_name</span>, <span class="ruby-ivar">@pair</span>, <span class="ruby-ivar">@options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">options</span>))
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000159" class="method-detail">
+        <a name="M000159"></a>
+
+        <div class="method-heading">
+          <a href="#M000159" class="method-signature">
+          <span class="method-name">drop_database</span><span class="method-args">(name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Drops the database <tt>name</tt>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000159-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000159-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/connection.rb, line 119</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">drop_database</span>(<span class="ruby-identifier">name</span>)
+      <span class="ruby-identifier">single_db_command</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">:dropDatabase</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>)
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000156" class="method-detail">
+        <a name="M000156"></a>
+
+        <div class="method-heading">
+          <a href="#M000156" class="method-signature">
+          <span class="method-name">logger</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000156-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000156-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/connection.rb, line 98</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">logger</span>
+      <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:logger</span>]
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000160" class="method-detail">
+        <a name="M000160"></a>
+
+        <div class="method-heading">
+          <a href="#M000160" class="method-signature">
+          <span class="method-name">server_info</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Return the build information for the current connection.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000160-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000160-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/connection.rb, line 124</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">server_info</span>
+      <span class="ruby-identifier">db</span>(<span class="ruby-value str">&quot;admin&quot;</span>).<span class="ruby-identifier">db_command</span>(<span class="ruby-identifier">:buildinfo</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>)
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000161" class="method-detail">
+        <a name="M000161"></a>
+
+        <div class="method-heading">
+          <a href="#M000161" class="method-signature">
+          <span class="method-name">server_version</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the build version of the current server, using a <a
+href="ServerVersion.html">ServerVersion</a> object for comparability.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000161-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000161-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/connection.rb, line 130</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">server_version</span>
+      <span class="ruby-constant">ServerVersion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">server_info</span>[<span class="ruby-value str">&quot;version&quot;</span>])
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Protected Instance methods</h3>
+
+      <div id="method-M000162" class="method-detail">
+        <a name="M000162"></a>
+
+        <div class="method-heading">
+          <a href="#M000162" class="method-signature">
+          <span class="method-name">pair_val_to_connection</span><span class="method-args">(a)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Turns an array containing a host name string and a port number integer into
+a [host, port] pair array.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000162-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000162-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/connection.rb, line 138</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">pair_val_to_connection</span>(<span class="ruby-identifier">a</span>)
+      <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">a</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-keyword kw">nil</span>
+        [<span class="ruby-value str">'localhost'</span>, <span class="ruby-constant">DEFAULT_PORT</span>]
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">String</span>
+        [<span class="ruby-identifier">a</span>, <span class="ruby-constant">DEFAULT_PORT</span>]
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Integer</span>
+        [<span class="ruby-value str">'localhost'</span>, <span class="ruby-identifier">a</span>]
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Array</span>
+        <span class="ruby-identifier">a</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000163" class="method-detail">
+        <a name="M000163"></a>
+
+        <div class="method-heading">
+          <a href="#M000163" class="method-signature">
+          <span class="method-name">single_db_command</span><span class="method-args">(db_name, cmd)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Send cmd (a hash, possibly ordered) to the admin database and return the
+answer. Raises an error unless the return is &quot;ok&quot; (DB#ok? returns
+<tt>true</tt>).
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000163-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000163-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/connection.rb, line 154</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">single_db_command</span>(<span class="ruby-identifier">db_name</span>, <span class="ruby-identifier">cmd</span>)
+      <span class="ruby-identifier">db</span> = <span class="ruby-keyword kw">nil</span>
+      <span class="ruby-keyword kw">begin</span>
+        <span class="ruby-identifier">db</span> = <span class="ruby-identifier">db</span>(<span class="ruby-identifier">db_name</span>)
+        <span class="ruby-identifier">doc</span> = <span class="ruby-identifier">db</span>.<span class="ruby-identifier">db_command</span>(<span class="ruby-identifier">cmd</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;error retrieving database info: #{doc.inspect}&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">db</span>.<span class="ruby-identifier">ok?</span>(<span class="ruby-identifier">doc</span>)
+        <span class="ruby-identifier">doc</span>
+      <span class="ruby-keyword kw">ensure</span>
+        <span class="ruby-identifier">db</span>.<span class="ruby-identifier">close</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">db</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

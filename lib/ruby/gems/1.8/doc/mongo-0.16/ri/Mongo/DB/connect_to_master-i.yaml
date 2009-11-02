@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Mongo::DB#connect_to_master
+is_singleton: false
+name: connect_to_master
+params: ()
+visibility: public

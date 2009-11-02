@@ -1,0 +1,11 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: token
+block_params: 
+comment: 
+full_name: OAuth::RequestProxy::Base#oauth_token
+is_singleton: false
+name: oauth_token
+params: ()
+visibility: public

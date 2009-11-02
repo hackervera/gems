@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README.rdoc</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>README.rdoc</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>README.rdoc
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Mon Nov 02 09:04:54 -0500 2009</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h1>EzCrypto - Easy to use Crypto for Ruby</h1>
+<p>
+EzCrypto is an easy to use wrapper around the poorly documented OpenSSL
+ruby library.
+</p>
+<h2>Features</h2>
+<ul>
+<li>Defaults to AES 128 CBC
+
+</li>
+<li>Will use the systems OpenSSL library for transparent hardware crypto
+support
+
+</li>
+<li>Single class object oriented access to most commonly used features
+
+</li>
+<li>Ruby like
+
+</li>
+</ul>
+<h2>Installation</h2>
+<p>
+Download it from here:
+</p>
+<p>
+<a
+href="http://rubyforge.org/frs/?group_id=755">rubyforge.org/frs/?group_id=755</a>
+</p>
+<p>
+or install it via Ruby Gems:
+</p>
+<pre>
+        gem install ezcrypto
+</pre>
+<h2>Simple examples</h2>
+<h4>To encrypt:</h4>
+<p>
+Generate a key using a password and a salt. Use the keys encrypt method to
+encrypt a strings worth of data:
+</p>
+<pre>
+  @key=EzCrypto::Key.with_password &quot;password&quot;, &quot;system salt&quot;
+  @encrypted=@key.encrypt &quot;Top secret should not be revealed&quot;
+</pre>
+<h4>To decrypt:</h4>
+<p>
+Same procedure as encrypt. Generate a key using a password and a salt. Use
+the keys decrypt method to decrypt a strings worth of data:
+</p>
+<pre>
+  @key=EzCrypto::Key.with_password &quot;password&quot;, &quot;system salt&quot;
+  @key.decrypt @encrypted
+</pre>
+<h4>One liners:</h4>
+<p>
+These simple examples use one line each:
+</p>
+<pre>
+  @encrypted=EzCrypto::Key.encrypt_with_password &quot;password&quot;, @salt,&quot;Top secret should not be revealed&quot;
+
+  EzCrypto::Key.decrypt_with_password &quot;password&quot;, @salt,@encrypted
+</pre>
+<h2>Keys</h2>
+<p>
+The only class you need to know for most uses og EzCrypto is the Key class.
+You don&#8216;t need understand ciphers or the encryption life cycle.
+</p>
+<h4>Generating a random key</h4>
+<p>
+The most secure type of key is the randomly generated key:
+</p>
+<pre>
+  @key=EzCrypto::Key.generate
+</pre>
+<h4>Initializing a key with raw key data</h4>
+<p>
+If you already have a key from some other source, you simply have to call
+the constructor with the raw data:
+</p>
+<pre>
+  @key=EzCrypto::Key.new @binarykey
+</pre>
+<h4>Initializing a Key with a Base64 encoded key</h4>
+<p>
+As seen above you can create a key from a password. This should be used if
+you don&#8216;t want the key to be stored on disk for example:
+</p>
+<pre>
+  @key=EzCrypto::Key.with_password &quot;Secret password&quot;
+</pre>
+<h4>Initializing a Key with a Base64 encoded key</h4>
+<p>
+If you already have a key from some other source in the popular Base64
+encoded format, you use the decode class method:
+</p>
+<pre>
+  @key=EzCrypto::Key.decode @binarykey
+</pre>
+<h4>Exporting the key</h4>
+<p>
+To export or save a key use the encode method (or to_s) method for a Base64
+encoded key or raw as the raw binary data.
+</p>
+<pre>
+  puts @key.encode
+  puts @key.raw
+</pre>
+<p>
+The raw method could be used for storing in a database using a tinyblob
+column.
+</p>
+<h2>Encryption and Decryption</h2>
+<p>
+EzCrypto is optimized for simple encryption and decryption of strings.
+There are encrypt/decrypt pairs for normal binary use as well as for Base64
+encoded use.
+</p>
+<h4>Regular raw use</h4>
+<p>
+Assuming you have generated a key using one of the above methods:
+</p>
+<pre>
+  @encrypted=@key.encrypt(&quot;clear text&quot;)
+  @decrypted=@key.decrypt(@encrypted)
+  assert &quot;clear text&quot;, @decrypted
+</pre>
+<h4>Base64 encoded use</h4>
+<p>
+This uses the encrypt64 and decrypt64 methods. Otherwise it is all the
+same:
+</p>
+<pre>
+  @encrypted=@key.encrypt64(&quot;clear text&quot;)
+  @decrypted=@key.decrypt64(@encrypted)
+  assert &quot;clear text&quot;, @decrypted
+</pre>
+<h2>FAQ</h2>
+<h3>What algorithm does this use?</h3>
+<p>
+It uses as the default algorithm the AES 128 bit standard. This is a very
+fast and highly secure algorithm specified as the national standard in the
+US. For more information see:
+</p>
+<p>
+<a href="http://en.wikipedia.org/wiki/AES">en.wikipedia.org/wiki/AES</a>
+</p>
+<h3>Only 128 bits. Is that enough?</h3>
+<p>
+While it might sound like more would make it more secure, there is really
+no real security advantage for most commercial applications to use more
+than 128 bit AES.
+</p>
+<h3>What is Base64 encoding?</h3>
+<p>
+This is the most efficient and commonly used encoding scheme for binary
+data. This is used amongst other things for email attachments. It is also
+very common to use it for encrypted data.
+</p>
+<h3>What is a Salt?</h3>
+<p>
+A salt is just a piece of data we hash in with the password to create the
+key. If it is a server based application you could use store a salt within
+your source file. The salt must be the same for both encryption and
+decryption.
+</p>
+<h2>License</h2>
+<p>
+EzCrypto and ActionCrypto is released under the MIT license.
+</p>
+<h2>Support</h2>
+<p>
+To contact the author, send mail to pelle@stakeventures.com
+</p>
+<p>
+Also see my blogs at: <a
+href="http://stakeventures.com">stakeventures.com</a> and <a
+href="http://blog.extraeagle.com">blog.extraeagle.com</a>
+</p>
+<p>
+This project was based on code used in my projects Agree2, WideWord and
+WideBlog.
+</p>
+<p>
+Agree2 lets you create legal business agreements instantly.
+</p>
+<p>
+<a href="https://agree2.com">agree2.com</a>
+</p>
+<p>
+WideWord lets you collaboratively write and share documents that remain
+100% encrypted on the server. Only you have the keys:
+</p>
+<p>
+<a href="http://wideword.net">wideword.net</a>
+</p>
+<p>
+WideBlog is a secure private blogging system designed for private project
+blogs. It uses the same encryption technology as WideWord and is very easy
+to use:
+</p>
+<p>
+<a href="http://wideblog.net">wideblog.net</a>
+</p>
+<p>
+(C) 2005-2009 Pelle Braendgaard
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

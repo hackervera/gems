@@ -1,0 +1,119 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!--
+
+    Methods
+
+  -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Methods</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="rdoc-style.css" type="text/css" />
+  <base target="docwin" />
+</head>
+<body>
+<div id="index">
+  <h1 class="section-bar">Methods</h1>
+  <div id="index-entries">
+    <a href="classes/Twitter/OAuth.html#M000149">access_token (Twitter::OAuth)</a><br />
+    <a href="classes/Twitter/OAuth.html#M000150">authorize_from_access (Twitter::OAuth)</a><br />
+    <a href="classes/Twitter/OAuth.html#M000148">authorize_from_request (Twitter::OAuth)</a><br />
+    <a href="classes/Twitter/Base.html#M000181">block (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Search.html#M000141">clear (Twitter::Search)</a><br />
+    <a href="classes/Twitter/OAuth.html#M000145">consumer (Twitter::OAuth)</a><br />
+    <a href="classes/Twitter/Search.html#M000132">containing (Twitter::Search)</a><br />
+    <a href="classes/Twitter/Search.html#M000133">contains (Twitter::Search)</a><br />
+    <a href="classes/Twitter/Trends.html#M000122">current (Twitter::Trends)</a><br />
+    <a href="classes/Twitter/Trends.html#M000123">daily (Twitter::Trends)</a><br />
+    <a href="classes/Twitter/Request.html#M000206">delete (Twitter::Request)</a><br />
+    <a href="classes/Twitter/HTTPAuth.html#M000202">delete (Twitter::HTTPAuth)</a><br />
+    <a href="classes/Twitter/Base.html#M000164">direct_message_create (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Base.html#M000165">direct_message_destroy (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Base.html#M000162">direct_messages (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Base.html#M000163">direct_messages_sent (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Base.html#M000180">disable_notifications (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Search.html#M000143">each (Twitter::Search)</a><br />
+    <a href="classes/Twitter/Base.html#M000179">enable_notifications (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Base.html#M000177">favorite_create (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Base.html#M000178">favorite_destroy (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Base.html#M000176">favorites (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Search.html#M000142">fetch (Twitter::Search)</a><br />
+    <a href="classes/Twitter.html#M000117">firehose (Twitter)</a><br />
+    <a href="classes/Twitter/Base.html#M000170">follower_ids (Twitter::Base)</a><br />
+    <a href="classes/Twitter.html#M000121">follower_ids (Twitter)</a><br />
+    <a href="classes/Twitter/Base.html#M000160">followers (Twitter::Base)</a><br />
+    <a href="classes/Twitter.html#M000120">friend_ids (Twitter)</a><br />
+    <a href="classes/Twitter/Base.html#M000169">friend_ids (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Base.html#M000159">friends (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Base.html#M000153">friends_timeline (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Base.html#M000166">friendship_create (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Base.html#M000167">friendship_destroy (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Base.html#M000168">friendship_exists? (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Search.html#M000127">from (Twitter::Search)</a><br />
+    <a href="classes/Twitter/Search.html#M000139">geocode (Twitter::Search)</a><br />
+    <a href="classes/Twitter/HTTPAuth.html#M000199">get (Twitter::HTTPAuth)</a><br />
+    <a href="classes/Twitter/Request.html#M000203">get (Twitter::Request)</a><br />
+    <a href="classes/Twitter/Search.html#M000134">hashed (Twitter::Search)</a><br />
+    <a href="classes/Twitter/Base.html#M000183">help (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Base.html#M000194">is_list_member? (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Search.html#M000135">lang (Twitter::Search)</a><br />
+    <a href="classes/Twitter/Base.html#M000188">list (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Base.html#M000192">list_add_member (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Base.html#M000184">list_create (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Base.html#M000186">list_delete (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Base.html#M000191">list_members (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Base.html#M000193">list_remove_member (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Base.html#M000196">list_subscribe (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Base.html#M000195">list_subscribers (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Base.html#M000189">list_timeline (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Base.html#M000197">list_unsubscribe (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Base.html#M000185">list_update (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Base.html#M000187">lists (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Search.html#M000140">max (Twitter::Search)</a><br />
+    <a href="classes/Twitter/Base.html#M000190">memberships (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Search.html#M000125">new (Twitter::Search)</a><br />
+    <a href="classes/Twitter/HTTPAuth.html#M000198">new (Twitter::HTTPAuth)</a><br />
+    <a href="classes/Twitter/Base.html#M000152">new (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Request.html#M000207">new (Twitter::Request)</a><br />
+    <a href="classes/Twitter/TwitterError.html#M000151">new (Twitter::TwitterError)</a><br />
+    <a href="classes/Twitter/OAuth.html#M000144">new (Twitter::OAuth)</a><br />
+    <a href="classes/Twitter/Search.html#M000137">page (Twitter::Search)</a><br />
+    <a href="classes/Twitter/Search.html#M000136">per_page (Twitter::Search)</a><br />
+    <a href="classes/Twitter/Request.html#M000209">perform (Twitter::Request)</a><br />
+    <a href="classes/Twitter/Request.html#M000204">post (Twitter::Request)</a><br />
+    <a href="classes/Twitter/HTTPAuth.html#M000200">post (Twitter::HTTPAuth)</a><br />
+    <a href="classes/Twitter/HTTPAuth.html#M000201">put (Twitter::HTTPAuth)</a><br />
+    <a href="classes/Twitter/Request.html#M000205">put (Twitter::Request)</a><br />
+    <a href="classes/Twitter/Base.html#M000174">rate_limit_status (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Search.html#M000131">ref (Twitter::Search)</a><br />
+    <a href="classes/Twitter/Search.html#M000130">references (Twitter::Search)</a><br />
+    <a href="classes/Twitter/Search.html#M000129">referencing (Twitter::Search)</a><br />
+    <a href="classes/Twitter/Base.html#M000157">replies (Twitter::Base)</a><br />
+    <a href="classes/Twitter/OAuth.html#M000147">request_token (Twitter::OAuth)</a><br />
+    <a href="classes/Twitter/OAuth.html#M000146">set_callback_url (Twitter::OAuth)</a><br />
+    <a href="classes/Twitter/Search.html#M000138">since (Twitter::Search)</a><br />
+    <a href="classes/Twitter/Base.html#M000155">status (Twitter::Base)</a><br />
+    <a href="classes/Twitter.html#M000119">status (Twitter)</a><br />
+    <a href="classes/Twitter/Base.html#M000158">status_destroy (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Search.html#M000128">to (Twitter::Search)</a><br />
+    <a href="classes/Twitter/Base.html#M000182">unblock (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Base.html#M000156">update (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Base.html#M000172">update_delivery_device (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Base.html#M000175">update_profile (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Base.html#M000173">update_profile_colors (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Request.html#M000208">uri (Twitter::Request)</a><br />
+    <a href="classes/Twitter.html#M000118">user (Twitter)</a><br />
+    <a href="classes/Twitter/Base.html#M000161">user (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Search.html#M000126">user_agent (Twitter::Search)</a><br />
+    <a href="classes/Twitter/Base.html#M000154">user_timeline (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Base.html#M000171">verify_credentials (Twitter::Base)</a><br />
+    <a href="classes/Twitter/Trends.html#M000124">weekly (Twitter::Trends)</a><br />
+  </div>
+</div>
+</body>
+</html>

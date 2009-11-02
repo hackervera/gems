@@ -1,0 +1,81 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: options
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: request
+  rw: RW
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+- !ruby/object:RI::MethodSummary 
+  name: proxies
+comment: 
+constants: []
+
+full_name: OAuth::RequestProxy::Base
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: OAuth::Helper
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: consumer_key
+- !ruby/object:RI::MethodSummary 
+  name: header_params
+- !ruby/object:RI::MethodSummary 
+  name: non_oauth_parameters
+- !ruby/object:RI::MethodSummary 
+  name: nonce
+- !ruby/object:RI::MethodSummary 
+  name: normalized_parameters
+- !ruby/object:RI::MethodSummary 
+  name: normalized_uri
+- !ruby/object:RI::MethodSummary 
+  name: oauth_callback
+- !ruby/object:RI::MethodSummary 
+  name: oauth_consumer_key
+- !ruby/object:RI::MethodSummary 
+  name: oauth_header
+- !ruby/object:RI::MethodSummary 
+  name: oauth_nonce
+- !ruby/object:RI::MethodSummary 
+  name: oauth_parameters
+- !ruby/object:RI::MethodSummary 
+  name: oauth_signature
+- !ruby/object:RI::MethodSummary 
+  name: oauth_signature_method
+- !ruby/object:RI::MethodSummary 
+  name: oauth_timestamp
+- !ruby/object:RI::MethodSummary 
+  name: oauth_token
+- !ruby/object:RI::MethodSummary 
+  name: oauth_verifier
+- !ruby/object:RI::MethodSummary 
+  name: oauth_version
+- !ruby/object:RI::MethodSummary 
+  name: parameters
+- !ruby/object:RI::MethodSummary 
+  name: parameters_for_signature
+- !ruby/object:RI::MethodSummary 
+  name: sign
+- !ruby/object:RI::MethodSummary 
+  name: sign!
+- !ruby/object:RI::MethodSummary 
+  name: signature
+- !ruby/object:RI::MethodSummary 
+  name: signature_base_string
+- !ruby/object:RI::MethodSummary 
+  name: signature_method
+- !ruby/object:RI::MethodSummary 
+  name: signed?
+- !ruby/object:RI::MethodSummary 
+  name: signed_uri
+- !ruby/object:RI::MethodSummary 
+  name: timestamp
+- !ruby/object:RI::MethodSummary 
+  name: token
+name: Base
+superclass: Object

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Set database profiling level to :off, :slow_only, or :all.
+full_name: Mongo::Admin#profiling_level=
+is_singleton: false
+name: profiling_level=
+params: (level)
+visibility: public

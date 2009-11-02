@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Appends a second ByteBuffer object, <tt>buffer</tt>, to the current buffer.
+full_name: ByteBuffer#append!
+is_singleton: false
+name: append!
+params: (buffer)
+visibility: public

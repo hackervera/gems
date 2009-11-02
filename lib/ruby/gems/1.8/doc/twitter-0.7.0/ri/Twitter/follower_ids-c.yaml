@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Twitter::follower_ids
+is_singleton: true
+name: follower_ids
+params: (id)
+visibility: public

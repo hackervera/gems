@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Encrypt a file 'inplace' and add a suffix see #cipher_file. IMPORTANT: The inputfile will be deleted by default."
+full_name: EzCrypto::Key#encrypt_file
+is_singleton: false
+name: encrypt_file
+params: (src, tgt=nil, options = {} )
+visibility: public

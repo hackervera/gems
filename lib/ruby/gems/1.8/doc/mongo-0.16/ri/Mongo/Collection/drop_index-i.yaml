@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Drop index <tt>name</tt>.
+full_name: Mongo::Collection#drop_index
+is_singleton: false
+name: drop_index
+params: (name)
+visibility: public

@@ -1,0 +1,11 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: []
+
+full_name: EzCrypto::Digester::digest
+is_singleton: true
+name: digest
+params: (data,size=16)
+visibility: public

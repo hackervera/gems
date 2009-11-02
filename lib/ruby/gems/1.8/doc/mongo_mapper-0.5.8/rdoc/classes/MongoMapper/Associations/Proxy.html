@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: MongoMapper::Associations::Proxy</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">MongoMapper::Associations::Proxy</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/mongo_mapper/associations/proxy_rb.html">
+                lib/mongo_mapper/associations/proxy.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                BasicObject
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000337">find_target</a>&nbsp;&nbsp;
+      <a href="#M000338">flatten_deeper</a>&nbsp;&nbsp;
+      <a href="#M000333">inspect</a>&nbsp;&nbsp;
+      <a href="#M000336">load_target</a>&nbsp;&nbsp;
+      <a href="#M000335">method_missing</a>&nbsp;&nbsp;
+      <a href="#M000327">new</a>&nbsp;&nbsp;
+      <a href="#M000334">nil?</a>&nbsp;&nbsp;
+      <a href="#M000330">reload_target</a>&nbsp;&nbsp;
+      <a href="#M000332">replace</a>&nbsp;&nbsp;
+      <a href="#M000329">reset</a>&nbsp;&nbsp;
+      <a href="#M000328">respond_to?</a>&nbsp;&nbsp;
+      <a href="#M000331">send</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">association</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">owner</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000327" class="method-detail">
+        <a name="M000327"></a>
+
+        <div class="method-heading">
+          <a href="Proxy.src/M000327.html" target="Code" class="method-signature"
+            onclick="popupCode('Proxy.src/M000327.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(owner, association)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000333" class="method-detail">
+        <a name="M000333"></a>
+
+        <div class="method-heading">
+          <a href="Proxy.src/M000333.html" target="Code" class="method-signature"
+            onclick="popupCode('Proxy.src/M000333.html');return false;">
+          <span class="method-name">inspect</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000334" class="method-detail">
+        <a name="M000334"></a>
+
+        <div class="method-heading">
+          <a href="Proxy.src/M000334.html" target="Code" class="method-signature"
+            onclick="popupCode('Proxy.src/M000334.html');return false;">
+          <span class="method-name">nil?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000330" class="method-detail">
+        <a name="M000330"></a>
+
+        <div class="method-heading">
+          <a href="Proxy.src/M000330.html" target="Code" class="method-signature"
+            onclick="popupCode('Proxy.src/M000330.html');return false;">
+          <span class="method-name">reload_target</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000332" class="method-detail">
+        <a name="M000332"></a>
+
+        <div class="method-heading">
+          <a href="Proxy.src/M000332.html" target="Code" class="method-signature"
+            onclick="popupCode('Proxy.src/M000332.html');return false;">
+          <span class="method-name">replace</span><span class="method-args">(v)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000329" class="method-detail">
+        <a name="M000329"></a>
+
+        <div class="method-heading">
+          <a href="Proxy.src/M000329.html" target="Code" class="method-signature"
+            onclick="popupCode('Proxy.src/M000329.html');return false;">
+          <span class="method-name">reset</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000328" class="method-detail">
+        <a name="M000328"></a>
+
+        <div class="method-heading">
+          <a href="Proxy.src/M000328.html" target="Code" class="method-signature"
+            onclick="popupCode('Proxy.src/M000328.html');return false;">
+          <span class="method-name">respond_to?</span><span class="method-args">(*methods)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000331" class="method-detail">
+        <a name="M000331"></a>
+
+        <div class="method-heading">
+          <a href="Proxy.src/M000331.html" target="Code" class="method-signature"
+            onclick="popupCode('Proxy.src/M000331.html');return false;">
+          <span class="method-name">send</span><span class="method-args">(method, *args)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <h3 class="section-bar">Protected Instance methods</h3>
+
+      <div id="method-M000337" class="method-detail">
+        <a name="M000337"></a>
+
+        <div class="method-heading">
+          <a href="Proxy.src/M000337.html" target="Code" class="method-signature"
+            onclick="popupCode('Proxy.src/M000337.html');return false;">
+          <span class="method-name">find_target</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000338" class="method-detail">
+        <a name="M000338"></a>
+
+        <div class="method-heading">
+          <a href="Proxy.src/M000338.html" target="Code" class="method-signature"
+            onclick="popupCode('Proxy.src/M000338.html');return false;">
+          <span class="method-name">flatten_deeper</span><span class="method-args">(array)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Array#flatten has problems with recursive arrays. Going one level deeper
+solves the majority of the problems.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000336" class="method-detail">
+        <a name="M000336"></a>
+
+        <div class="method-heading">
+          <a href="Proxy.src/M000336.html" target="Code" class="method-signature"
+            onclick="popupCode('Proxy.src/M000336.html');return false;">
+          <span class="method-name">load_target</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000335" class="method-detail">
+        <a name="M000335"></a>
+
+        <div class="method-heading">
+          <a href="Proxy.src/M000335.html" target="Code" class="method-signature"
+            onclick="popupCode('Proxy.src/M000335.html');return false;">
+          <span class="method-name">method_missing</span><span class="method-args">(method, *args) {|*block_args| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

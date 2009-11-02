@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: This is the bang method reader, it will return a new Mash if there isn't a value already assigned to the key requested.
+full_name: Mash#initializing_reader
+is_singleton: false
+name: initializing_reader
+params: (key)
+visibility: public

@@ -1,0 +1,626 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README.rdoc</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>README.rdoc</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>README.rdoc
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Mon Nov 02 09:12:33 -0500 2009</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h1>Introduction</h1>
+<p>
+This is a Ruby driver for <a href="http://www.mongodb.org">MongoDB</a>.
+</p>
+<p>
+Here is a quick code sample. See the files in the &quot;examples&quot;
+subdirectory for many more.
+</p>
+<pre>
+  require 'mongo'
+
+  include Mongo
+
+  db = Connection.new('localhost').db('sample-db')
+  coll = db.collection('test')
+
+  coll.remove
+  3.times { |i| coll.insert({'a' =&gt; i+1}) }
+  puts &quot;There are #{coll.count()} records. Here they are:&quot;
+  coll.find().each { |doc| puts doc.inspect }
+</pre>
+<p>
+This driver also includes an implementation of a GridStore class, a Ruby
+interface to Mongo&#8216;s <a href="../classes/GridFS.html">GridFS</a>
+storage.
+</p>
+<h1>Installation</h1>
+<p>
+The driver&#8216;s gems are hosted on <a
+href="http://gemcutter.org">Gemcutter</a>. If you haven&#8216;t installed a
+gem from Gemcutter before you&#8216;ll need to set up Gemcutter first
+</p>
+<pre>
+  $ gem install gemcutter
+  $ gem tumble
+</pre>
+<p>
+If (or once) you have Gemcutter setup, install the &quot;mongo&quot; gem by
+typing
+</p>
+<pre>
+  $ gem install mongo
+</pre>
+<h3>From the GitHub source</h3>
+<p>
+The source code is available at <a
+href="http://github.com/mongodb/mongo-ruby-driver">github.com/mongodb/mongo-ruby-driver</a>.
+You can either clone the git repository or download a tarball or zip file.
+Once you have the source, you can use it from wherever you downloaded it or
+you can install it as a gem from the source by typing
+</p>
+<pre>
+  $ rake gem:install
+</pre>
+<h3>Optional C Extension</h3>
+<p>
+There is a separate gem containing optional C extensions that will increase
+the performance of the driver. To use the optional extensions just install
+the gem by typing
+</p>
+<pre>
+  $ gem install mongo_ext
+</pre>
+<p>
+To install from source type this instead
+</p>
+<pre>
+  $ rake gem:install_extensions
+</pre>
+<p>
+That&#8216;s all there is to it!
+</p>
+<h1>Examples</h1>
+<p>
+There are many examples in the &quot;examples&quot; subdirectory. Samples
+include using the driver and using the <a
+href="../classes/GridFS.html">GridFS</a> class GridStore. Mongo must be
+running for these examples to work, of course.
+</p>
+<p>
+Here&#8216;s how to start mongo and run the &quot;simple.rb&quot; example:
+</p>
+<pre>
+  $ cd path/to/mongo
+  $ ./mongod run
+  ... then in another window ...
+  $ cd path/to/mongo-ruby-driver
+  $ ruby examples/simple.rb
+</pre>
+<p>
+See also the test code, especially test/test_db_api.rb.
+</p>
+<h1>The Driver</h1>
+<p>
+Here is some simple example code:
+</p>
+<pre>
+  require 'rubygems'        # not required for Ruby 1.9
+  require 'mongo'
+
+  include Mongo
+  db = Connection.new.db('my-db-name')
+  things = db.collection('things')
+
+  things.remove
+  things.insert('a' =&gt; 42)
+  things.insert('a' =&gt; 99, 'b' =&gt; Time.now)
+  puts things.count                               # =&gt; 2
+  puts things.find('a' =&gt; 42).next_object.inspect # {&quot;a&quot;=&gt;42}
+</pre>
+<h1>GridStore</h1>
+<p>
+The GridStore class is a Ruby implementation of Mongo&#8216;s <a
+href="../classes/GridFS.html">GridFS</a> file storage system. An instance
+of GridStore is like an IO object. See the rdocs for details, and see
+examples/gridfs.rb for code that uses many of the GridStore features like
+metadata, content type, rewind/seek/tell, etc.
+</p>
+<p>
+Note that the GridStore class is not automatically required when you
+require &#8216;mongo&#8217;. You need to require
+&#8216;mongo/gridfs&#8217;.
+</p>
+<p>
+Example code:
+</p>
+<pre>
+  GridStore.open(database, 'filename', 'w') { |f|
+    f.puts &quot;Hello, world!&quot;
+  }
+  GridStore.open(database, 'filename, 'r') { |f|
+    puts f.read         # =&gt; Hello, world!\n
+  }
+  GridStore.open(database, 'filename', 'w+') { |f|
+    f.puts &quot;But wait, there's more!&quot;
+  }
+  GridStore.open(database, 'filename, 'r') { |f|
+    puts f.read         # =&gt; Hello, world!\nBut wait, there's more!\n
+  }
+</pre>
+<h1>Notes</h1>
+<h2>Thread Safety</h2>
+<p>
+mongo-ruby-driver is thread safe.
+</p>
+<h2>Using with Phusion Passenger</h2>
+<p>
+When passenger is in smart spawning mode you need to be sure that child
+processes forked by passenger will create a new connection to the database.
+activerecord-mongo-adapter handles this for you, so if you are using that
+you shouldn&#8216;t need to worry about it. Otherwise you&#8216;ll either
+need to use conservative <a
+href="http://www.modrails.org/documentation/Users%20guide.html#RailsSpawnMethod">spawning</a>
+or handle reconnecting when passenger forks a new process:
+</p>
+<pre>
+  if defined?(PhusionPassenger)
+    PhusionPassenger.on_event(:starting_worker_process) do |forked|
+      if forked
+        # Call db.connect_to_master to reconnect here
+      end
+    end
+  end
+</pre>
+<p>
+The above code should be put in _environment.rb_ or an initialization
+script.
+</p>
+<p>
+See this <a
+href="http://groups.google.com/group/mongodb-user/browse_thread/thread/f31e2d23de38136a">thread</a>
+for more details on this issue.
+</p>
+<h2>String Encoding</h2>
+<p>
+The <a href="../classes/BSON.html">BSON</a> (&quot;Binary JSON&quot;)
+format used to communicate with Mongo requires that strings be UTF-8 (<a
+href="http://en.wikipedia.org/wiki/UTF-8">en.wikipedia.org/wiki/UTF-8</a>).
+</p>
+<p>
+Ruby 1.9 has built-in character encoding support. All strings sent to Mongo
+and received from Mongo are converted to UTF-8 when necessary, and strings
+read from Mongo will have their character encodings set to UTF-8.
+</p>
+<p>
+When used with Ruby 1.8, the bytes in each string are written to and read
+from Mongo as-is. If the string is ASCII all is well, because ASCII is a
+subset of UTF-8. If the string is not ASCII then it may not be a
+well-formed UTF-8 string.
+</p>
+<h2>Primary Keys</h2>
+<p>
+The field _id is a primary key. It is treated specially by the database,
+and its use makes many operations more efficient. The value of an _id may
+be of any type. The database itself inserts an _id value if none is
+specified when a record is inserted.
+</p>
+<h3>Primary Key Factories</h3>
+<p>
+A primary key factory is a class you supply to a DB object that knows how
+to generate _id values. If you want to control _id values or even their
+types, using a PK factory lets you do so.
+</p>
+<p>
+You can tell the Ruby Mongo driver how to create primary keys by passing in
+the :pk option to the Connection#db method.
+</p>
+<pre>
+  include Mongo
+  db = Connection.new.db('dbname', :pk =&gt; MyPKFactory.new)
+</pre>
+<p>
+A primary key factory object must respond to :create_pk, which should take
+a hash and return a hash which merges the original hash with any primary
+key fields the factory wishes to inject. NOTE: if the object already has a
+primary key, the factory should not inject a new key; this means that the
+object is being used in a repsert but it already exists. The idea here is
+that whenever a record is inserted, the :pk object&#8216;s
+<tt>create_pk</tt> method will be called and the new hash returned will be
+inserted.
+</p>
+<p>
+Here is a sample primary key factory, taken from the tests:
+</p>
+<pre>
+  class TestPKFactory
+    def create_pk(row)
+      row['_id'] ||= Mongo::ObjectID.new
+      row
+    end
+  end
+</pre>
+<p>
+Here&#8216;s a slightly more sophisticated one that handles both symbol and
+string keys. This is the PKFactory that comes with the MongoRecord code (an
+ActiveRecord-like framework for non-Rails apps) and the AR Mongo adapter
+code (for Rails):
+</p>
+<pre>
+  class PKFactory
+    def create_pk(row)
+      return row if row[:_id]
+      row.delete(:_id)      # in case it exists but the value is nil
+      row['_id'] ||= Mongo::ObjectID.new
+      row
+    end
+  end
+</pre>
+<p>
+A database&#8216;s PK factory object may be set either when a DB object is
+created or immediately after you obtain it, but only once. The only reason
+it is changeable at all is so that libraries such as MongoRecord that use
+this driver can set the PK factory after obtaining the database but before
+using it for the first time.
+</p>
+<h2>The DB Class</h2>
+<h3>Primary Key factories</h3>
+<p>
+See the section on &quot;Primary Keys&quot; above.
+</p>
+<h3>Strict mode</h3>
+<p>
+Each database has an optional strict mode. If strict mode is on, then
+asking for a collection that does not exist will raise an error, as will
+asking to create a collection that already exists. Note that both these
+operations are completely harmless; strict mode is a programmer convenience
+only.
+</p>
+<p>
+To turn on strict mode, either pass in :strict =&gt; true when obtaining a
+DB object or call the :strict= method:
+</p>
+<pre>
+  db = Connection.new.db('dbname', :strict =&gt; true)
+  # I'm feeling lax
+  db.strict = false
+  # No, I'm not!
+  db.strict = true
+</pre>
+<p>
+The method DB#strict? returns the current value of that flag.
+</p>
+<h2>Cursors</h2>
+<p>
+Random cursor fun facts:
+</p>
+<ul>
+<li>Cursors are enumerable.
+
+</li>
+<li>The query doesn&#8216;t get run until you actually attempt to retrieve data
+from a cursor.
+
+</li>
+<li>Cursors have a to_a method.
+
+</li>
+</ul>
+<h1>Testing</h1>
+<p>
+If you have the source code, you can run the tests.
+</p>
+<pre>
+  $ rake test
+</pre>
+<p>
+The tests now require shoulda and mocha. You can install these gems as
+follows:
+</p>
+<pre>
+  $ gem install shoulda
+  $ gem install mocha
+</pre>
+<p>
+The tests assume that the Mongo database is running on the default port.
+You can override the default host (localhost) and port
+(Connection::DEFAULT_PORT) by using the environment variables
+MONGO_RUBY_DRIVER_HOST and MONGO_RUBY_DRIVER_PORT.
+</p>
+<p>
+The project mongo-qa (<a
+href="http://github.com/mongodb/mongo-qa">github.com/mongodb/mongo-qa</a>)
+contains many more Mongo driver tests that are language independent. To run
+thoses tests as part of the &quot;rake test&quot; task, download the code
+&quot;next to&quot; this directory. So, after installing the mongo-qa code
+you would have these two directories next to each other:
+</p>
+<pre>
+  $ ls
+  mongo-qa
+  mongo-ruby-driver
+  $ rake test
+</pre>
+<p>
+The tests run just fine if the mongo-qa directory is not there.
+</p>
+<p>
+Additionally, the script bin/validate is used by the mongo-qa
+project&#8216;s validator script.
+</p>
+<h1>Documentation</h1>
+<p>
+This documentation is available online at <a
+href="http://api.mongodb.org/ruby">api.mongodb.org/ruby</a>. You can
+generate the documentation if you have the source by typing
+</p>
+<pre>
+  $ rake rdoc
+</pre>
+<p>
+Then open the file html/index.html.
+</p>
+<h1>Release Notes</h1>
+<p>
+See the git log comments.
+</p>
+<h1>Credits</h1>
+<p>
+Adrian Madrid, aemadrid@gmail.com
+</p>
+<ul>
+<li>bin/mongo_console
+
+</li>
+<li>examples/benchmarks.rb
+
+</li>
+<li>examples/irb.rb
+
+</li>
+<li>Modifications to examples/simple.rb
+
+</li>
+<li>Found plenty of bugs and missing features.
+
+</li>
+<li>Ruby 1.9 support.
+
+</li>
+<li>Gem support.
+
+</li>
+<li>Many other code suggestions and improvements.
+
+</li>
+</ul>
+<p>
+Aman Gupta, aman@tmm1.net
+</p>
+<ul>
+<li>Collection#save
+
+</li>
+</ul>
+<p>
+Jon Crosby, jon@joncrosby.me
+</p>
+<ul>
+<li>Some code clean-up
+
+</li>
+</ul>
+<p>
+John Nunemaker, <a href="http://railstips.org">railstips.org</a>
+</p>
+<ul>
+<li>Collection#create_index takes symbols as well as strings
+
+</li>
+<li>Fix for Collection#save
+
+</li>
+<li>Add logger convenience methods to connection and database
+
+</li>
+</ul>
+<p>
+David James, djames@sunlightfoundation.com
+</p>
+<ul>
+<li>Fix dates to return as UTC
+
+</li>
+</ul>
+<p>
+Paul Dlug, paul.dlug@gmail.com
+</p>
+<ul>
+<li>Generate _id on the client side if not provided
+
+</li>
+<li>Collection#insert and Collection#save return _id
+
+</li>
+</ul>
+<p>
+Durran Jordan, durran@gmail.com
+</p>
+<ul>
+<li>DB#collections
+
+</li>
+<li>Support for specifying sort order as array of [key, direction] pairs
+
+</li>
+</ul>
+<p>
+Cyril Mougel, cyril.mougel@gmail.com
+</p>
+<ul>
+<li>Initial logging support
+
+</li>
+<li>Test case
+
+</li>
+</ul>
+<p>
+Jack Chen, chendo on github
+</p>
+<ul>
+<li>Test case + fix for deserializing pre-epoch Time instances
+
+</li>
+</ul>
+<p>
+Kyle Banker, banker on github
+</p>
+<ul>
+<li>limit and skip methods for Cursor instances
+
+</li>
+</ul>
+<p>
+Michael Bernstein, mrb on github
+</p>
+<ul>
+<li>sort method for Cursor instances
+
+</li>
+</ul>
+<p>
+Paulo Ahahgon, pahagon on github
+</p>
+<ul>
+<li>removed hard limit
+
+</li>
+</ul>
+<p>
+Les Hill, leshill on github
+</p>
+<ul>
+<li><a href="../classes/OrderedHash.html#M000052">OrderedHash#each</a> returns
+self
+
+</li>
+</ul>
+<p>
+Sean Cribbs, seancribbs on github
+</p>
+<ul>
+<li>Modify standard_benchmark to allow profiling
+
+</li>
+</ul>
+<h1>License</h1>
+<pre>
+ Copyright 2008-2009 10gen Inc.
+
+   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+</pre>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>encrypt (ActiveCrypto::ClassMethods)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/active_crypto.rb, line 52</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">encrypt</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">attributes</span>)        
+        <span class="ruby-identifier">include</span> <span class="ruby-constant">ActiveCrypto</span><span class="ruby-operator">::</span><span class="ruby-constant">Encrypted</span>
+        <span class="ruby-identifier">before_save</span> <span class="ruby-identifier">:encrypt_attributes</span>
+        <span class="ruby-identifier">after_save</span> <span class="ruby-identifier">:decrypt_attributes</span>
+        <span class="ruby-identifier">options</span>=<span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">pop</span> <span class="ruby-operator">:</span> {}
+        <span class="ruby-identifier">keyholder</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:key</span>]
+                                <span class="ruby-identifier">module_eval</span> <span class="ruby-value str">&quot;def session_key\n(send :\#{options[:key]} ).send :session_key\nend\n@@external_key=true\n&quot;</span>                              
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">base64_encode</span> = (<span class="ruby-identifier">options</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:base64</span>])
+        <span class="ruby-identifier">module_eval</span> <span class="ruby-value str">&quot;def self.ezcrypto_base64?\n\#{base64_encode.to_s}\nend\n&quot;</span>
+        
+        <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">encrypted_attributes</span>=<span class="ruby-identifier">attributes</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

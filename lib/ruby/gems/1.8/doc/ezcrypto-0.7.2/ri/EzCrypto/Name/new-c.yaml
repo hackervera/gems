@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Initializes the Name object with the underlying OpenSSL Name object. You generally do not need to use this. Rather use the Certificates subject or issuer methods.
+full_name: EzCrypto::Name::new
+is_singleton: true
+name: new
+params: (name)
+visibility: public

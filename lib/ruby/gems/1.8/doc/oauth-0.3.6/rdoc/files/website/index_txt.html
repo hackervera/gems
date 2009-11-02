@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: index.txt</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>index.txt</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>website/index.txt
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Mon Nov 02 09:04:07 -0500 2009</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+h1. Ruby OAuth GEM
+</p>
+<p>
+h2. What
+</p>
+<p>
+This is a RubyGem for implementing both OAuth clients and servers in Ruby
+applications.
+</p>
+<p>
+See the &quot;OAuth specs&quot;:<a
+href="http://oauth.net/core/1.0">oauth.net/core/1.0</a>/
+</p>
+<p>
+h2. Installing
+</p>
+<p>
+&lt;pre syntax=&quot;ruby&quot;&gt;sudo gem install oauth&lt;/pre&gt;
+</p>
+<p>
+You can also install it from the &quot;oauth rubyforge project&quot;:<a
+href="http://rubyforge.org/projects/oauth">rubyforge.org/projects/oauth</a>/.
+</p>
+<p>
+The source code is now hosted on the &quot;OAuth GitHub Project&quot;:<a
+href="http://github.com/pelle/oauth/tree/master">github.com/pelle/oauth/tree/master</a>
+</p>
+<p>
+h2. The basics
+</p>
+<p>
+This is a ruby library which is intended to be used in creating Ruby
+Consumer and Service Provider applications. It is NOT a Rails plugin, but
+could easily be used for the foundation for such a Rails plugin.
+</p>
+<p>
+As a matter of fact it has been pulled out from an &quot;OAuth Rails
+Plugin&quot;:<a
+href="http://code.google.com/p/oauth-plugin">code.google.com/p/oauth-plugin</a>/
+which now requires this GEM.
+</p>
+<p>
+h2. Demonstration of usage
+</p>
+<p>
+Create a new consumer instance by passing it a configuration hash:
+</p>
+<p>
+&lt;pre&gt;&lt;code&gt;@consumer=OAuth::Consumer.new(
+&quot;key&quot;,&quot;secret&quot;, {
+</p>
+<pre>
+    :site=&gt;&quot;https://agree2&quot;
+    })&lt;/code&gt;&lt;/pre&gt;
+</pre>
+<p>
+Start the process by requesting a token
+</p>
+<p>
+&lt;pre&gt;<tt>@request_token=@consumer.get_request_token
+session[:request_token]=@request_token redirect_to
+@request_token.authorize_url</tt>&lt;/pre&gt;
+</p>
+<p>
+When user returns create an access_token
+</p>
+<p>
+&lt;pre&gt;<tt>@access_token=@request_token.get_access_token
+@photos=@access_token.get(&#8217;/photos.xml&#8217;)</tt>&lt;/pre&gt;
+</p>
+<p>
+For more detailed instructions I have written this &quot;OAuth Client
+Tutorial&quot;:<a
+href="http://stakeventures.com/articles/2008/02/23/developing-oauth-clients-in-ruby">stakeventures.com/articles/2008/02/23/developing-oauth-clients-in-ruby</a>
+and &quot;How to turn your rails site into an OAuth Provider &quot;:<a
+href="http://stakeventures.com/articles/2007/11/26/how-to-turn-your-rails-site-into-an-oauth-provider">stakeventures.com/articles/2007/11/26/how-to-turn-your-rails-site-into-an-oauth-provider</a>.
+</p>
+<p>
+Finally be sure to check out the &quot;OAuth RDoc Manual&quot;:<a
+href="http://oauth.rubyforge.org/rdoc">oauth.rubyforge.org/rdoc</a>/.
+</p>
+<p>
+h2. Documentation Wiki
+</p>
+<p>
+There is some documentation on the Google Code project for the &quot;OAuth
+Rails Plugin&quot;:<a
+href="http://code.google.com/p/oauth-plugin">code.google.com/p/oauth-plugin</a>/
+:
+</p>
+<ul>
+<li>&quot;RequestToken&quot;:<a
+href="http://code.google.com/p/oauth-plugin/wiki/RequestToken">code.google.com/p/oauth-plugin/wiki/RequestToken</a>
+
+</li>
+<li>&quot;AccessToken&quot;:<a
+href="http://code.google.com/p/oauth-plugin/wiki/AccessToken">code.google.com/p/oauth-plugin/wiki/AccessToken</a>
+
+</li>
+</ul>
+<p>
+h2. Forum
+</p>
+<p>
+&quot;<a
+href="http://groups.google.com/group/oauth-ruby":http://groups.google.com/group/oauth-ruby">groups.google.com/group/oauth-ruby":http://groups.google.com/group/oauth-ruby</a>
+</p>
+<p>
+h2. How to submit patches
+</p>
+<p>
+Read the &quot;8 steps for fixing other people&#8216;s code&quot;:<a
+href="http://drnicwilliams.com/2007/06/01/8-steps-for-fixing-other-peoples-code">drnicwilliams.com/2007/06/01/8-steps-for-fixing-other-peoples-code</a>/.
+</p>
+<p>
+The source code is now hosted on the &quot;OAuth GitHub Project&quot;:<a
+href="http://github.com/pelle/oauth/tree/master">github.com/pelle/oauth/tree/master</a>
+</p>
+<p>
+To submit a patch, please fork the oauth project and create a patch with
+tests. Once you&#8216;re happy with it send a pull request and post a
+message to the google group.
+</p>
+<p>
+h2. License
+</p>
+<p>
+This code is free to use under the terms of the MIT license.
+</p>
+<p>
+h2. Contact
+</p>
+<p>
+Comments are welcome. Send an email to &quot;Pelle Braendgaard&quot;:<a
+href="mailto:pelleb@gmail.com">pelleb@gmail.com</a> email via the
+&quot;OAuth Ruby mailing list&quot;:<a
+href="http://groups.google.com/group/oauth-ruby">groups.google.com/group/oauth-ruby</a>
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

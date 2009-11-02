@@ -1,0 +1,15 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: ou
+- !ruby/object:RI::AliasName 
+  name: organisational_unit
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The Organizational Unit
+full_name: EzCrypto::Name#organizational_unit
+is_singleton: false
+name: organizational_unit
+params: ()
+visibility: public

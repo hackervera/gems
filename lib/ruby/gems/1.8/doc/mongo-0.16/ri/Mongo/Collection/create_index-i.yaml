@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Create a new index. <tt>field_or_spec</tt> should be either a single field name or a Array of [field name, direction] pairs. Directions should be specified as Mongo::ASCENDING or Mongo::DESCENDING. <tt>unique</tt> is an optional boolean indicating whether this index should enforce a uniqueness constraint.
+full_name: Mongo::Collection#create_index
+is_singleton: false
+name: create_index
+params: (field_or_spec, unique=false)
+visibility: public

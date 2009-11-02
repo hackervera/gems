@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Return a hash containing options that apply to this collection. 'create' will be the collection name. For the other possible keys and values, see DB#create_collection.
+full_name: XGen::Mongo::Driver::Collection#options
+is_singleton: false
+name: options
+params: ()
+visibility: public

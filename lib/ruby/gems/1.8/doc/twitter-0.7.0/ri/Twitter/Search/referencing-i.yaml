@@ -1,0 +1,13 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: references
+- !ruby/object:RI::AliasName 
+  name: ref
+block_params: 
+comment: 
+full_name: Twitter::Search#referencing
+is_singleton: false
+name: referencing
+params: (user)
+visibility: public

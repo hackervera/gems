@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: OAuth::CLI#extract_command_and_parse_options
+is_singleton: false
+name: extract_command_and_parse_options
+params: (arguments)
+visibility: protected

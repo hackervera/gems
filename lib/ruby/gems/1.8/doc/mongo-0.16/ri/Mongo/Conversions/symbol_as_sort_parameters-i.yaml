@@ -1,0 +1,18 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Converts the supplied <tt>Symbol</tt> to a <tt>Hash</tt> to pass to mongo as a sorting parameter with ascending order.
+- !ruby/struct:SM::Flow::P 
+  body: "Example:"
+- !ruby/struct:SM::Flow::P 
+  body: "*DEPRECATED"
+- !ruby/struct:SM::Flow::P 
+  body: <tt>symbol_as_sort_parameters(:field)</tt> =&gt; <tt>{ &quot;field&quot; =&gt; 1 }</tt>
+full_name: Mongo::Conversions#symbol_as_sort_parameters
+is_singleton: false
+name: symbol_as_sort_parameters
+params: (value)
+visibility: public

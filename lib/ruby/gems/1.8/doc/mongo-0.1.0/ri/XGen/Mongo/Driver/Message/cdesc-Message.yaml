@@ -1,0 +1,35 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: buf
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: HEADER_SIZE
+  value: "16"
+full_name: XGen::Mongo::Driver::Message
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: dump
+- !ruby/object:RI::MethodSummary 
+  name: to_a
+- !ruby/object:RI::MethodSummary 
+  name: update_message_length
+- !ruby/object:RI::MethodSummary 
+  name: write_doc
+- !ruby/object:RI::MethodSummary 
+  name: write_int
+- !ruby/object:RI::MethodSummary 
+  name: write_long
+- !ruby/object:RI::MethodSummary 
+  name: write_string
+name: Message
+superclass: Object

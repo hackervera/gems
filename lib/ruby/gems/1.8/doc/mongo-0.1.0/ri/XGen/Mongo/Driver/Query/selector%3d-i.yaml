@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Set query selector hash. If sel is a string, it will be used as a $where clause. (See Mongo docs for details.)
+full_name: XGen::Mongo::Driver::Query#selector=
+is_singleton: false
+name: selector=
+params: (sel)
+visibility: public

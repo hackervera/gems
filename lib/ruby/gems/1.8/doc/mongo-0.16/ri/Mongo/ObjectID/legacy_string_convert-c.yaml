@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Convert a string representation of an ObjectID using the legacy byte ordering to the proper byte ordering. This method may eventually be removed. If you are not sure that you need this method it is probably unnecessary.
+full_name: Mongo::ObjectID::legacy_string_convert
+is_singleton: true
+name: legacy_string_convert
+params: (str)
+visibility: public

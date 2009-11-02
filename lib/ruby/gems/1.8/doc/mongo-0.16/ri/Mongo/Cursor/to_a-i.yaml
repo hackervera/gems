@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Return all of the documents in this cursor as an array of hashes.
+- !ruby/struct:SM::Flow::P 
+  body: Raises InvalidOperation if this cursor has already been used (including any previous calls to this method).
+- !ruby/struct:SM::Flow::P 
+  body: Use of this method is discouraged - iterating over a cursor is much more efficient in most cases.
+full_name: Mongo::Cursor#to_a
+is_singleton: false
+name: to_a
+params: ()
+visibility: public

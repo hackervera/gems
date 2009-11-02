@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Parse an Authorization / WWW-Authenticate header into a hash. Takes care of unescaping and removing surrounding quotes. Raises a OAuth::Problem if the header is not parsable into a valid hash. Does not validate the keys or values.
+- !ruby/struct:SM::Flow::VERB 
+  body: "  hash = parse_header(headers['Authorization'] || headers['WWW-Authenticate'])\n  hash['oauth_timestamp']\n    #=&gt;&quot;1234567890&quot;\n"
+full_name: OAuth::Helper#parse_header
+is_singleton: false
+name: parse_header
+params: (header)
+visibility: public

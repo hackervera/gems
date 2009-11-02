@@ -1,0 +1,30 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "@overload create(doc_attributes)"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  Create a single new document\n  @param [Hash] doc_attributes key/value pairs to create a new\n    document\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@overload create(docs_attributes)"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  Create many new documents\n  @param [Array&lt;Hash&gt;] provide many Hashes of key/value pairs to create\n    multiple documents\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@example Creating a single document"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  MyModel.create({ :foo =&gt; &quot;bar&quot; })\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@example Creating multiple documents"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  MyModel.create([{ :foo =&gt; &quot;bar&quot; }, { :foo =&gt; &quot;baz&quot; })\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@return [Boolean] when a document is successfully created, <tt>true</tt> will"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  be returned. If a document fails to create, <tt>false</tt> will be returned.\n"
+full_name: MongoMapper::Document::ClassMethods#create
+is_singleton: false
+name: create
+params: (*docs)
+visibility: public

@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Various handy Digest methods.
+- !ruby/struct:SM::Flow::P 
+  body: Warning! The interface may change.
+full_name: EzCrypto::Digester::get_key
+is_singleton: true
+name: get_key
+params: (password,salt,size)
+visibility: public

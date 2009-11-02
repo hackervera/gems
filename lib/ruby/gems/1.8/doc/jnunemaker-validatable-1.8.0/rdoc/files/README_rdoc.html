@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README.rdoc</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>README.rdoc</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>README.rdoc
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Mon Nov 02 09:12:33 -0500 2009</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h1><a href="../classes/Validatable.html">Validatable</a></h1>
+<p>
+<a href="../classes/Validatable.html">Validatable</a> is a library for
+adding validations.
+</p>
+<p>
+Created by Jay Fields, updated by John Nunemaker
+</p>
+<h2>Installation</h2>
+<pre>
+ $ gem install jnunemaker-validatable -s http://gemcutter.org
+</pre>
+<h2>License</h2>
+<p>
+You may use, copy and redistribute this library under the same terms as
+Ruby itself (see <a
+href="http://www.ruby-lang.org/en/LICENSE.txt">www.ruby-lang.org/en/LICENSE.txt</a>).
+</p>
+<h2>Examples</h2>
+<p>
+Validation of an entire hierarchy of objects with errors aggregated at the
+root object.
+</p>
+<pre>
+        class Person
+          include Validatable
+          validates_presence_of :name
+          attr_accessor :name
+        end
+
+        class PersonPresenter
+          include Validatable
+          include_validations_for :person
+          attr_accessor :person
+
+          def initialize(person)
+            @person = person
+          end
+        end
+
+        presenter = PersonPresenter.new(Person.new)
+        presenter.valid? #=&gt; false
+        presenter.errors.on(:name) #=&gt; &quot;can't be blank&quot;
+</pre>
+<p>
+Validations that turn off after X times of failed attempts.
+</p>
+<pre>
+        class Person
+          include Validatable
+          validates_presence_of :name, :times =&gt; 1
+          attr_accessor :name
+        end
+
+        person = Person.new
+        person.valid? #=&gt; false
+        person.valid? #=&gt; true
+</pre>
+<p>
+Validations can be given levels. If a validation fails on a level the
+validations for subsequent levels will not be executed.
+</p>
+<pre>
+        class Person
+          include Validatable
+          validates_presence_of :name, :level =&gt; 1, :message =&gt; &quot;name message&quot;
+          validates_presence_of :address, :level =&gt; 2
+          attr_accessor :name, :address
+        end
+
+        person = Person.new
+        person.valid? #=&gt; false
+        person.errors.on(:name) #=&gt; &quot;name message&quot;
+        person.errors.on(:address) #=&gt; nil
+</pre>
+<p>
+Validations can also be given groups. Groups can be used to validate an
+object when it can be valid in various states. For example a mortgage
+application may be valid for saving (saving a partial application), but
+that same mortgage application would not be valid for underwriting. In our
+example a application can be saved as long as a Social Security Number is
+present; however, an application can not be underwritten unless the name
+attribute contains a value.
+</p>
+<pre>
+  class MortgageApplication
+    include Validatable
+    validates_presence_of :ssn, :groups =&gt; [:saving, :underwriting]
+    validates_presence_of :name, :groups =&gt; :underwriting
+    attr_accessor :name, :ssn
+  end
+
+  application = MortgageApplication.new
+  application.ssn = 377990118
+  application.valid_for_saving? #=&gt; true
+  application.valid_for_underwriting? #=&gt; false
+</pre>
+<p>
+As you can see, you can use an array if the validation needs to be part of
+various groups. However, if the validation only applies to one group you
+can simply use a symbol for the group name.
+</p>
+<p>
+Similar to Rails, <a href="../classes/Validatable.html">Validatable</a>
+also supports conditional validation.
+</p>
+<pre>
+        class Person
+          include Validatable
+          attr_accessor :name
+          validates_format_of :name, :with =&gt; /.+/, :if =&gt; Proc.new { !name.nil? }
+        end
+        Person.new.valid? #=&gt; true
+</pre>
+<p>
+<a href="../classes/Validatable.html">Validatable</a> also exposes an
+after_validate hook method.
+</p>
+<pre>
+        class Person
+          include Validatable
+          validates_presence_of :name
+          attr_accessor :name
+        end
+
+        class ValidatesPresenceOf
+          after_validate do |result, instance, attribute|
+                        instance.errors.add(&quot;#{attribute} can't be blank&quot;) unless result
+                end
+        end
+
+        person = Person.new
+        person.valid? #=&gt; false
+        person.errors.on(:name) #=&gt; &quot;name can't be blank&quot;
+</pre>
+<p>
+The after_validate hook yields the result of the validation being run, the
+instance the validation was run on, and the attribute that was validated
+</p>
+<p>
+In the above example the attribute &quot;name&quot; is appended to the
+message.
+</p>
+<p>
+See the tests for more examples
+</p>
+<h2>Contributors</h2>
+<p>
+Rick Bradley, Anonymous Z, Jason Miller, Ali Aghareza, Xavier Shay, Dan
+Manges, Karthik Krishnan and Venkat, Clint Bishop, Chris Didyk, Yi Wen
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Abstract Wrapper around OpenSSL's Cipher object. Extended by Encrypter and Decrypter.
+- !ruby/struct:SM::Flow::P 
+  body: You probably should be using the Key class instead.
+- !ruby/struct:SM::Flow::P 
+  body: Warning! The interface may change.
+constants: []
+
+full_name: EzCrypto::CipherWrapper
+includes: []
+
+instance_methods: []
+
+name: CipherWrapper
+superclass: Object

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>read_response_header (XGen::Mongo::Driver::Cursor)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/mongo/cursor.rb, line 165</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">read_response_header</span>
+          <span class="ruby-identifier">header_buf</span> = <span class="ruby-constant">ByteBuffer</span>.<span class="ruby-identifier">new</span>
+          <span class="ruby-identifier">header_buf</span>.<span class="ruby-identifier">put_array</span>(<span class="ruby-ivar">@db</span>.<span class="ruby-identifier">socket</span>.<span class="ruby-identifier">recv</span>(<span class="ruby-constant">RESPONSE_HEADER_SIZE</span>).<span class="ruby-identifier">unpack</span>(<span class="ruby-value str">&quot;C*&quot;</span>))
+          <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Short read for DB response header; expected #{RESPONSE_HEADER_SIZE} bytes, saw #{header_buf.length}&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">header_buf</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-constant">RESPONSE_HEADER_SIZE</span>
+          <span class="ruby-identifier">header_buf</span>.<span class="ruby-identifier">rewind</span>
+          <span class="ruby-ivar">@result_flags</span> = <span class="ruby-identifier">header_buf</span>.<span class="ruby-identifier">get_int</span>
+          <span class="ruby-ivar">@cursor_id</span> = <span class="ruby-identifier">header_buf</span>.<span class="ruby-identifier">get_long</span>
+          <span class="ruby-ivar">@starting_from</span> = <span class="ruby-identifier">header_buf</span>.<span class="ruby-identifier">get_int</span>
+          <span class="ruby-ivar">@n_returned</span> = <span class="ruby-identifier">header_buf</span>.<span class="ruby-identifier">get_int</span>
+          <span class="ruby-ivar">@n_remaining</span> = <span class="ruby-ivar">@n_returned</span>
+        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

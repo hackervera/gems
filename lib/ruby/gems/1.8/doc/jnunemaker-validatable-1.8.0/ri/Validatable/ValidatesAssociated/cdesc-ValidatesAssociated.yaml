@@ -1,0 +1,15 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: Validatable::ValidatesAssociated
+includes: []
+
+instance_methods: []
+
+name: ValidatesAssociated
+superclass: ValidationBase

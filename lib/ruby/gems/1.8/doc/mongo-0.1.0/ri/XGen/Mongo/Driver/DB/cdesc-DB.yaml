@@ -1,0 +1,127 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Host to which we are currently connected.
+  name: host
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The name of the database.
+  name: name
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: An array of [host, port] pairs.
+  name: nodes
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Port to which we are currently connected.
+  name: port
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The database's socket. For internal (and Cursor) use only.
+  name: socket
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Strict mode enforces collection existence checks. When <tt>true</tt>, asking for a collection that does not exist or trying to create a collection that already exists raises an error.
+  - !ruby/struct:SM::Flow::P 
+    body: Strict mode is off (<tt>false</tt>) by default. Its value can be changed at any time.
+  name: strict
+  rw: W
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: A Mongo database.
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SYSTEM_NAMESPACE_COLLECTION
+  value: "\"system.namespaces\""
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SYSTEM_INDEX_COLLECTION
+  value: "\"system.indexes\""
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SYSTEM_PROFILE_COLLECTION
+  value: "\"system.profile\""
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SYSTEM_COMMAND_COLLECTION
+  value: "\"$cmd\""
+full_name: XGen::Mongo::Driver::DB
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: admin
+- !ruby/object:RI::MethodSummary 
+  name: close
+- !ruby/object:RI::MethodSummary 
+  name: collection
+- !ruby/object:RI::MethodSummary 
+  name: collection_names
+- !ruby/object:RI::MethodSummary 
+  name: collections_info
+- !ruby/object:RI::MethodSummary 
+  name: connect_to_first_available_host
+- !ruby/object:RI::MethodSummary 
+  name: connected?
+- !ruby/object:RI::MethodSummary 
+  name: count
+- !ruby/object:RI::MethodSummary 
+  name: create_collection
+- !ruby/object:RI::MethodSummary 
+  name: create_index
+- !ruby/object:RI::MethodSummary 
+  name: db_command
+- !ruby/object:RI::MethodSummary 
+  name: drop_collection
+- !ruby/object:RI::MethodSummary 
+  name: drop_index
+- !ruby/object:RI::MethodSummary 
+  name: full_coll_name
+- !ruby/object:RI::MethodSummary 
+  name: index_information
+- !ruby/object:RI::MethodSummary 
+  name: insert_into_db
+- !ruby/object:RI::MethodSummary 
+  name: master
+- !ruby/object:RI::MethodSummary 
+  name: master?
+- !ruby/object:RI::MethodSummary 
+  name: modify_in_db
+- !ruby/object:RI::MethodSummary 
+  name: ok?
+- !ruby/object:RI::MethodSummary 
+  name: query
+- !ruby/object:RI::MethodSummary 
+  name: remove_from_db
+- !ruby/object:RI::MethodSummary 
+  name: replace_in_db
+- !ruby/object:RI::MethodSummary 
+  name: repsert_in_db
+- !ruby/object:RI::MethodSummary 
+  name: send_message
+- !ruby/object:RI::MethodSummary 
+  name: send_query_message
+- !ruby/object:RI::MethodSummary 
+  name: send_to_db
+- !ruby/object:RI::MethodSummary 
+  name: strict?
+- !ruby/object:RI::MethodSummary 
+  name: switch_to_master
+name: DB
+superclass: Object

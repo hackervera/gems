@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Decrypts a Base64 formatted string
+full_name: EzCrypto::Key#decrypt64
+is_singleton: false
+name: decrypt64
+params: (data)
+visibility: public

@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: CHANGELOG</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>CHANGELOG</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>CHANGELOG
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Mon Nov 02 09:04:54 -0500 2009</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+0.7.2 March, 2009 support for base64 encrypted attributes in ActiveCrypto
+(Micah Wedemeyer)
+</p>
+<p>
+0.7 September 12th, 2006 PKYP services support
+</p>
+<p>
+Marking the release of <a href="http://pkyp.org">pkyp.org</a> a new no
+nonsense Public Key directory, this allows you register your public keys
+and certificates on a public server. If you have web applications with
+certificates or public keys you can point your users at <a
+href="http://pkyp.org/{key.digest">pkyp.org/{key.digest</a>} for more info
+about a certificate.
+</p>
+<p>
+Register a public key or certificate at PKYP with the new method
+register_with_pkyp like this:
+</p>
+<pre>
+    signer=EzCrypto::Signer.generate
+    signer.verifier.register_with_pkyp
+</pre>
+<p>
+If you have the public key or certificate digest you can fetch the full
+public key or certificate like this:
+</p>
+<pre>
+    verifier=EzCrypto::Verifier.from_pkyp &quot;e93e18114cbefaaa89fda908b09df63d3662879a&quot;
+    verifier.verify sig, request_text
+</pre>
+<p>
+This allows a simpler way of transfering certificates. The idea of
+including certificates with every request is not really necessary in an
+online world. For example you could pass the digest in a HTTP header for a
+REST web services request.
+</p>
+<p>
+0.6.2 August 15th, 2006 Trust something release
+</p>
+<p>
+Now comes complete with a fairly trusted list of root certs as extracted
+from Apple&#8216;s keystore. With the addition of CACerts and GoDaddy SSL
+Certs (Buy from <a href="http://widecert.net">widecert.net</a>). If you
+feel any important ones are missing let me know.
+</p>
+<p>
+You can create a trust store from this with TrustStore.default_trusted.
+Note many of these CA&#8216;s are useless and you shouldn&#8216;t really
+trust them, but this makes it easy to emulate the browsers support.
+</p>
+<p>
+0.6.1 August 14th, 2006 Subject!=Issuer bug fix
+</p>
+<p>
+I discovered a not so little bug in the certificate handling. The issuer
+method of the Certificate mistakenly returned the subject.
+</p>
+<p>
+0.6 August 10th, 2006 Certified PKI release
+</p>
+<p>
+Finally I have had a good reason <a
+href="http://www.tractis.com">www.tractis.com</a> to add Digital Signature
+support to EzCrypto. We have support for RSA and DSA private and public
+keys as well as basic X509 certificate support. All in typical EzCrypto
+simple Ruby like methods.
+</p>
+<p>
+KNOWN PROBLEM. The DSA Signer.public_key method has some sort of problem
+but will be fixed for 0.6.1.
+</p>
+<p>
+0.5 July 19th, 2006 Good citizen release
+</p>
+<p>
+I have cleaned up the ActiveCrypto namespaces. It now does not use
+ActiveRecord::Crypto, but ActiveCrypto::*, if you have called stuff
+directly please update your code.
+</p>
+<p>
+The reason for this is to really be a good citizen in the world of rails
+and not unnecessarily pollute the ActiveRecord name space.
+</p>
+<p>
+I have also created much more thorough unit tests and refactored some
+things that did not work in version 0.4 that the world thankfully did not
+see.
+</p>
+<p>
+0.4 Flawed internal release
+</p>
+<p>
+0.3 February 25th, 2006 new encrypted file support by Dirk
+(dirk.barnikel@gmx.de) Thanks Dirk.
+</p>
+<ul>
+<li>Added test case for the file-related stuff. file-stuff seems to work fine
+
+</li>
+<li>Replaced hard coded IO buffersize (512) with class attribute Key#block_size
+and default value.
+
+</li>
+<li>Modification to create {De,En}crypters only via the factory methods
+Key#{de,en}crypter.
+
+</li>
+<li>Added Key#{de,en}crypt_file methods that take a file and de- or encrypts
+it.
+
+</li>
+<li>The methods are implemented to call the cipher with small chunks of data
+(512 bytes) to keep memory usage low.
+
+</li>
+<li>By default, the original file is first overwritten and then removed.
+
+</li>
+<li>This overwrite is not really safe but should make it harder to restore the
+data of the removed file from the filesystem.
+
+</li>
+<li>Added Key#{store,load} methods that read and write Key data to/from files.
+
+</li>
+<li>Added Key#safe_{create,delete,read} methods to encapsulate the handling of
+files inside EzCrypto.
+
+</li>
+</ul>
+<p>
+0.2.2 January 4th, 2006 Bug fixes and unit tests for active_crypto
+</p>
+<p>
+There were some serious problems with ActiveCrypto&#8216;s support for
+having keys in associated classes. I also added unit tests to
+active_crypto. The support code was brutaly stolen from Rick Olson&#8216;s
+acts_as_paranoid library. Unfortunately I disabled the schema stuff for
+now, but will add it in the next release, which hopefully is soon.
+</p>
+<p>
+0.2.1 November 2nd, 2005 New method in KeyHolder
+</p>
+<p>
+Added set_encoded_key(enc) to KeyHolder for setting a key with the Base64
+encoded keyvalue.
+</p>
+<p>
+0.2 October 30th, 2005 Ruby on Rails integration
+</p>
+<p>
+As promised I have now included my first version of ActiveCrypto the crypto
+layer for ActiveRecord and Ruby on Rails.
+</p>
+<p>
+0.1.1 August 27, 2005 Minor fixes
+</p>
+<p>
+Thanks to Jason Vasquez mugatu at mugfu dot com for noticing that Key#to_s
+called the nonexistent encoded method.
+</p>
+<p>
+I also made a few slight changes to the documentation.
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

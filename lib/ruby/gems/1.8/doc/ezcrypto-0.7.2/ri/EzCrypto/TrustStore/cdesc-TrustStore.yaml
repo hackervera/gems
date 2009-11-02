@@ -1,0 +1,31 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: default_trusted
+- !ruby/object:RI::MethodSummary 
+  name: load_from_file
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Wraps around the OpenSSL trust store. This allows you to decide which certificates you trust.
+- !ruby/struct:SM::Flow::P 
+  body: You can either point it at a path which contains a OpenSSL trust store (see OpenSSL for more) or build it up manually.
+- !ruby/struct:SM::Flow::P 
+  body: For a certificate to verify you need the issuer and the issuers issuers certs added to the Trust store.
+- !ruby/struct:SM::Flow::P 
+  body: "NOTE: Currently this does not support CRL's or OCSP. We may add support for this later."
+constants: []
+
+full_name: EzCrypto::TrustStore
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: add
+- !ruby/object:RI::MethodSummary 
+  name: verify
+name: TrustStore
+superclass: Object

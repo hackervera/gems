@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: MongoMapper::Associations::ManyDocumentsProxy</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">MongoMapper::Associations::ManyDocumentsProxy</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/mongo_mapper/associations/many_documents_proxy_rb.html">
+                lib/mongo_mapper/associations/many_documents_proxy.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                <a href="Proxy.html">
+                Proxy
+               </a>
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000311">&lt;&lt;</a>&nbsp;&nbsp;
+      <a href="#M000306">all</a>&nbsp;&nbsp;
+      <a href="#M000325">apply_scope</a>&nbsp;&nbsp;
+      <a href="#M000314">build</a>&nbsp;&nbsp;
+      <a href="#M000313">concat</a>&nbsp;&nbsp;
+      <a href="#M000309">count</a>&nbsp;&nbsp;
+      <a href="#M000315">create</a>&nbsp;&nbsp;
+      <a href="#M000316">create!</a>&nbsp;&nbsp;
+      <a href="#M000318">delete_all</a>&nbsp;&nbsp;
+      <a href="#M000317">destroy_all</a>&nbsp;&nbsp;
+      <a href="#M000324">ensure_owner_saved</a>&nbsp;&nbsp;
+      <a href="#M000304">find</a>&nbsp;&nbsp;
+      <a href="#M000323">find_target</a>&nbsp;&nbsp;
+      <a href="#M000307">first</a>&nbsp;&nbsp;
+      <a href="#M000326">foreign_key</a>&nbsp;&nbsp;
+      <a href="#M000308">last</a>&nbsp;&nbsp;
+      <a href="#M000320">method_missing</a>&nbsp;&nbsp;
+      <a href="#M000319">nullify</a>&nbsp;&nbsp;
+      <a href="#M000305">paginate</a>&nbsp;&nbsp;
+      <a href="#M000312">push</a>&nbsp;&nbsp;
+      <a href="#M000310">replace</a>&nbsp;&nbsp;
+      <a href="#M000321">scoped_conditions</a>&nbsp;&nbsp;
+      <a href="#M000322">scoped_options</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+        <span class="include-name"><a href="../Finders.html">::MongoMapper::Finders</a></span>
+      </div>
+    </div>
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000311" class="method-detail">
+        <a name="M000311"></a>
+
+        <div class="method-heading">
+          <a href="ManyDocumentsProxy.src/M000311.html" target="Code" class="method-signature"
+            onclick="popupCode('ManyDocumentsProxy.src/M000311.html');return false;">
+          <span class="method-name">&lt;&lt;</span><span class="method-args">(*docs)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000306" class="method-detail">
+        <a name="M000306"></a>
+
+        <div class="method-heading">
+          <a href="ManyDocumentsProxy.src/M000306.html" target="Code" class="method-signature"
+            onclick="popupCode('ManyDocumentsProxy.src/M000306.html');return false;">
+          <span class="method-name">all</span><span class="method-args">(options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000314" class="method-detail">
+        <a name="M000314"></a>
+
+        <div class="method-heading">
+          <a href="ManyDocumentsProxy.src/M000314.html" target="Code" class="method-signature"
+            onclick="popupCode('ManyDocumentsProxy.src/M000314.html');return false;">
+          <span class="method-name">build</span><span class="method-args">(attrs={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000313" class="method-detail">
+        <a name="M000313"></a>
+
+        <div class="method-heading">
+          <span class="method-name">concat</span><span class="method-args">(*docs)</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for #&lt;&lt;
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000309" class="method-detail">
+        <a name="M000309"></a>
+
+        <div class="method-heading">
+          <a href="ManyDocumentsProxy.src/M000309.html" target="Code" class="method-signature"
+            onclick="popupCode('ManyDocumentsProxy.src/M000309.html');return false;">
+          <span class="method-name">count</span><span class="method-args">(options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000315" class="method-detail">
+        <a name="M000315"></a>
+
+        <div class="method-heading">
+          <a href="ManyDocumentsProxy.src/M000315.html" target="Code" class="method-signature"
+            onclick="popupCode('ManyDocumentsProxy.src/M000315.html');return false;">
+          <span class="method-name">create</span><span class="method-args">(attrs={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000316" class="method-detail">
+        <a name="M000316"></a>
+
+        <div class="method-heading">
+          <a href="ManyDocumentsProxy.src/M000316.html" target="Code" class="method-signature"
+            onclick="popupCode('ManyDocumentsProxy.src/M000316.html');return false;">
+          <span class="method-name">create!</span><span class="method-args">(attrs={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000318" class="method-detail">
+        <a name="M000318"></a>
+
+        <div class="method-heading">
+          <a href="ManyDocumentsProxy.src/M000318.html" target="Code" class="method-signature"
+            onclick="popupCode('ManyDocumentsProxy.src/M000318.html');return false;">
+          <span class="method-name">delete_all</span><span class="method-args">(options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000317" class="method-detail">
+        <a name="M000317"></a>
+
+        <div class="method-heading">
+          <a href="ManyDocumentsProxy.src/M000317.html" target="Code" class="method-signature"
+            onclick="popupCode('ManyDocumentsProxy.src/M000317.html');return false;">
+          <span class="method-name">destroy_all</span><span class="method-args">(options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000304" class="method-detail">
+        <a name="M000304"></a>
+
+        <div class="method-heading">
+          <a href="ManyDocumentsProxy.src/M000304.html" target="Code" class="method-signature"
+            onclick="popupCode('ManyDocumentsProxy.src/M000304.html');return false;">
+          <span class="method-name">find</span><span class="method-args">(*args)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000307" class="method-detail">
+        <a name="M000307"></a>
+
+        <div class="method-heading">
+          <a href="ManyDocumentsProxy.src/M000307.html" target="Code" class="method-signature"
+            onclick="popupCode('ManyDocumentsProxy.src/M000307.html');return false;">
+          <span class="method-name">first</span><span class="method-args">(options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000308" class="method-detail">
+        <a name="M000308"></a>
+
+        <div class="method-heading">
+          <a href="ManyDocumentsProxy.src/M000308.html" target="Code" class="method-signature"
+            onclick="popupCode('ManyDocumentsProxy.src/M000308.html');return false;">
+          <span class="method-name">last</span><span class="method-args">(options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000320" class="method-detail">
+        <a name="M000320"></a>
+
+        <div class="method-heading">
+          <a href="ManyDocumentsProxy.src/M000320.html" target="Code" class="method-signature"
+            onclick="popupCode('ManyDocumentsProxy.src/M000320.html');return false;">
+          <span class="method-name">method_missing</span><span class="method-args">(method, *args)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000319" class="method-detail">
+        <a name="M000319"></a>
+
+        <div class="method-heading">
+          <a href="ManyDocumentsProxy.src/M000319.html" target="Code" class="method-signature"
+            onclick="popupCode('ManyDocumentsProxy.src/M000319.html');return false;">
+          <span class="method-name">nullify</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000305" class="method-detail">
+        <a name="M000305"></a>
+
+        <div class="method-heading">
+          <a href="ManyDocumentsProxy.src/M000305.html" target="Code" class="method-signature"
+            onclick="popupCode('ManyDocumentsProxy.src/M000305.html');return false;">
+          <span class="method-name">paginate</span><span class="method-args">(options)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000312" class="method-detail">
+        <a name="M000312"></a>
+
+        <div class="method-heading">
+          <span class="method-name">push</span><span class="method-args">(*docs)</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for #&lt;&lt;
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000310" class="method-detail">
+        <a name="M000310"></a>
+
+        <div class="method-heading">
+          <a href="ManyDocumentsProxy.src/M000310.html" target="Code" class="method-signature"
+            onclick="popupCode('ManyDocumentsProxy.src/M000310.html');return false;">
+          <span class="method-name">replace</span><span class="method-args">(docs)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <h3 class="section-bar">Protected Instance methods</h3>
+
+      <div id="method-M000325" class="method-detail">
+        <a name="M000325"></a>
+
+        <div class="method-heading">
+          <a href="ManyDocumentsProxy.src/M000325.html" target="Code" class="method-signature"
+            onclick="popupCode('ManyDocumentsProxy.src/M000325.html');return false;">
+          <span class="method-name">apply_scope</span><span class="method-args">(doc)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000324" class="method-detail">
+        <a name="M000324"></a>
+
+        <div class="method-heading">
+          <a href="ManyDocumentsProxy.src/M000324.html" target="Code" class="method-signature"
+            onclick="popupCode('ManyDocumentsProxy.src/M000324.html');return false;">
+          <span class="method-name">ensure_owner_saved</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000323" class="method-detail">
+        <a name="M000323"></a>
+
+        <div class="method-heading">
+          <a href="ManyDocumentsProxy.src/M000323.html" target="Code" class="method-signature"
+            onclick="popupCode('ManyDocumentsProxy.src/M000323.html');return false;">
+          <span class="method-name">find_target</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000326" class="method-detail">
+        <a name="M000326"></a>
+
+        <div class="method-heading">
+          <a href="ManyDocumentsProxy.src/M000326.html" target="Code" class="method-signature"
+            onclick="popupCode('ManyDocumentsProxy.src/M000326.html');return false;">
+          <span class="method-name">foreign_key</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000321" class="method-detail">
+        <a name="M000321"></a>
+
+        <div class="method-heading">
+          <a href="ManyDocumentsProxy.src/M000321.html" target="Code" class="method-signature"
+            onclick="popupCode('ManyDocumentsProxy.src/M000321.html');return false;">
+          <span class="method-name">scoped_conditions</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000322" class="method-detail">
+        <a name="M000322"></a>
+
+        <div class="method-heading">
+          <a href="ManyDocumentsProxy.src/M000322.html" target="Code" class="method-signature"
+            onclick="popupCode('ManyDocumentsProxy.src/M000322.html');return false;">
+          <span class="method-name">scoped_options</span><span class="method-args">(options)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

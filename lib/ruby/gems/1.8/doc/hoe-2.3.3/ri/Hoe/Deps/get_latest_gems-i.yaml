@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Return the latest rubygems.
+full_name: Hoe::Deps#get_latest_gems
+is_singleton: false
+name: get_latest_gems
+params: ()
+visibility: public

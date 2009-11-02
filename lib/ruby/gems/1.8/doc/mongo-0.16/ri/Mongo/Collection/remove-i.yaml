@@ -1,0 +1,20 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Remove all records from this collection. If <tt>selector</tt> is specified, only matching documents will be removed.
+- !ruby/struct:SM::Flow::P 
+  body: "Remove all records from the collection:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  @collection.remove\n  @collection.remove({})\n"
+- !ruby/struct:SM::Flow::P 
+  body: "Remove only records that have expired:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  @collection.remove({:expire =&gt; {'$lte' =&gt; Time.now}})\n"
+full_name: Mongo::Collection#remove
+is_singleton: false
+name: remove
+params: (selector={})
+visibility: public

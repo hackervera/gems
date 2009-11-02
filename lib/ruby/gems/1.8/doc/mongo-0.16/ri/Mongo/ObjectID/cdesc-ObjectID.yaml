@@ -1,0 +1,48 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: create_pk
+- !ruby/object:RI::MethodSummary 
+  name: from_string
+- !ruby/object:RI::MethodSummary 
+  name: from_string_legacy
+- !ruby/object:RI::MethodSummary 
+  name: legacy_string_convert
+- !ruby/object:RI::MethodSummary 
+  name: legal?
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Representation of an ObjectId for Mongo.
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: This is the legacy byte ordering for Babble. Versions of the Ruby driver prior to 0.14 used this byte ordering when converting ObjectID instances to and from strings. If you have string representations of ObjectIDs using the legacy byte ordering make sure to use the to_s_legacy and from_string_legacy methods, or convert your strings with ObjectID#legacy_string_convert
+  name: BYTE_ORDER
+  value: "[7, 6, 5, 4, 3, 2, 1, 0, 11, 10, 9, 8]"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: LOCK
+  value: Object.new
+full_name: Mongo::ObjectID
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: ==
+- !ruby/object:RI::MethodSummary 
+  name: eql?
+- !ruby/object:RI::MethodSummary 
+  name: inspect
+- !ruby/object:RI::MethodSummary 
+  name: to_a
+- !ruby/object:RI::MethodSummary 
+  name: to_s
+- !ruby/object:RI::MethodSummary 
+  name: to_s_legacy
+name: ObjectID
+superclass: Object

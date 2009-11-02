@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: MongoMapper::Associations::ManyEmbeddedPolymorphicProxy#polymorphic_class
+is_singleton: false
+name: polymorphic_class
+params: (doc)
+visibility: protected

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Get a string representation of this ObjectID using the legacy byte ordering. This method may eventually be removed. If you are not sure that you need this method you should be using the regular to_s.
+full_name: Mongo::ObjectID#to_s_legacy
+is_singleton: false
+name: to_s_legacy
+params: ()
+visibility: public

@@ -1,0 +1,97 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: algorithm
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: raw
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: block_size
+- !ruby/object:RI::MethodSummary 
+  name: block_size=
+- !ruby/object:RI::MethodSummary 
+  name: calculate_key_size
+- !ruby/object:RI::MethodSummary 
+  name: decode
+- !ruby/object:RI::MethodSummary 
+  name: decrypt_with_password
+- !ruby/object:RI::MethodSummary 
+  name: encrypt_with_password
+- !ruby/object:RI::MethodSummary 
+  name: generate
+- !ruby/object:RI::MethodSummary 
+  name: load
+- !ruby/object:RI::MethodSummary 
+  name: new
+- !ruby/object:RI::MethodSummary 
+  name: with_password
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The Key is the only class you need to understand for simple use.
+- !ruby/struct:SM::Flow::H 
+  level: 3
+  text: Algorithms
+- !ruby/struct:SM::Flow::P 
+  body: The crypto algorithms default to aes-128-cbc however on any of the class methods you can change it to one of the standard openssl cipher names using the optional <tt>:algorithm=&gt;alg name</tt> parameter.
+- !ruby/struct:SM::Flow::P 
+  body: Eg.
+- !ruby/struct:SM::Flow::VERB 
+  body: "    Key.new @raw, :algorithm=&gt;&quot;des&quot;\n    Key.generate :algorithm=&gt;&quot;blowfish&quot;\n    Key.with_password @pwd,@salt,:algorithm=&gt;&quot;aes256&quot;\n"
+- !ruby/struct:SM::Flow::H 
+  level: 2
+  text: License
+- !ruby/struct:SM::Flow::P 
+  body: ActiveCrypto and EzCrypto are released under the MIT license.
+- !ruby/struct:SM::Flow::H 
+  level: 2
+  text: Support
+- !ruby/struct:SM::Flow::P 
+  body: To contact the author, send mail to pelleb@gmail.com
+- !ruby/struct:SM::Flow::P 
+  body: "Also see my blogs at: http://stakeventures.com and http://neubia.com"
+- !ruby/struct:SM::Flow::P 
+  body: This project was based on code used in my project StakeItOut, where you can securely share web services with your partners. https://stakeitout.com
+- !ruby/struct:SM::Flow::P 
+  body: (C) 2005 Pelle Braendgaard
+constants: []
+
+full_name: EzCrypto::Key
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: decrypt
+- !ruby/object:RI::MethodSummary 
+  name: decrypt64
+- !ruby/object:RI::MethodSummary 
+  name: decrypt_file
+- !ruby/object:RI::MethodSummary 
+  name: decrypter
+- !ruby/object:RI::MethodSummary 
+  name: encode
+- !ruby/object:RI::MethodSummary 
+  name: encrypt
+- !ruby/object:RI::MethodSummary 
+  name: encrypt64
+- !ruby/object:RI::MethodSummary 
+  name: encrypt_file
+- !ruby/object:RI::MethodSummary 
+  name: encrypter
+- !ruby/object:RI::MethodSummary 
+  name: marshal_dump
+- !ruby/object:RI::MethodSummary 
+  name: marshal_load
+- !ruby/object:RI::MethodSummary 
+  name: on_decrypter
+- !ruby/object:RI::MethodSummary 
+  name: on_encrypter
+- !ruby/object:RI::MethodSummary 
+  name: store
+- !ruby/object:RI::MethodSummary 
+  name: to_s
+name: Key
+superclass: Object

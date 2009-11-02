@@ -1,0 +1,34 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Optional: flay threshold to determine threshold failure. [default: 1200-100]"
+  name: flay_threshold
+  rw: RW
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Flay plugin for hoe.
+- !ruby/struct:SM::Flow::H 
+  level: 3
+  text: "Tasks Provided:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "flay:"
+    body: Analyze for code duplication.
+  type: :NOTE
+constants: []
+
+full_name: Hoe::Flay
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: define_flay_tasks
+- !ruby/object:RI::MethodSummary 
+  name: initialize_flay
+name: Flay
+superclass: 

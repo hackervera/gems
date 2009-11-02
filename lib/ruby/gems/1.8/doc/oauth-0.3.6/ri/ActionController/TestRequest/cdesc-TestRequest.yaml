@@ -1,0 +1,27 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: use_oauth=
+- !ruby/object:RI::MethodSummary 
+  name: use_oauth?
+comment: 
+constants: []
+
+full_name: ActionController::TestRequest
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: apply_oauth!
+- !ruby/object:RI::MethodSummary 
+  name: configure_oauth
+- !ruby/object:RI::MethodSummary 
+  name: set_oauth_header
+- !ruby/object:RI::MethodSummary 
+  name: set_oauth_parameters
+- !ruby/object:RI::MethodSummary 
+  name: set_oauth_query_string
+name: TestRequest
+superclass: Object

@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "One or more of the following must be present:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  profile_background_color, profile_text_color, profile_link_color,\n  profile_sidebar_fill_color, profile_sidebar_border_color\n"
+full_name: Twitter::Base#update_profile_colors
+is_singleton: false
+name: update_profile_colors
+params: (colors={})
+visibility: public

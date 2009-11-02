@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Sign the Request object. Use this if you have an externally generated http request object you want to sign.
+full_name: OAuth::Consumer#sign!
+is_singleton: false
+name: sign!
+params: (request, token = nil, request_options = {})
+visibility: public

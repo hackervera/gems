@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Only executes a specified validation. The argument should follow a pattern based on the key of the validation.
+- !ruby/struct:SM::Flow::VERB 
+  body: "  Examples:\n    * validates_presence_of :name can be run with obj.validate_only(&quot;presence_of/name&quot;)\n    * validates_presence_of :birthday, :key =&gt; &quot;a key&quot; can be run with obj.validate_only(&quot;presence_of/a key&quot;)\n"
+full_name: Validatable#validate_only
+is_singleton: false
+name: validate_only
+params: " validate_only(key)\n"
+visibility: public

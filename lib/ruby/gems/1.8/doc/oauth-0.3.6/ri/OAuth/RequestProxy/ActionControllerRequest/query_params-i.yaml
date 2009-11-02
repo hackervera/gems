@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: OAuth::RequestProxy::ActionControllerRequest#query_params
+is_singleton: false
+name: query_params
+params: ()
+visibility: protected

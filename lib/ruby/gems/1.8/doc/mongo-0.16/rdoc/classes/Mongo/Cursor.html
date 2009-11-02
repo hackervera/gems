@@ -1,0 +1,721 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Mongo::Cursor</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Mongo::Cursor</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/mongo/cursor_rb.html">
+                lib/mongo/cursor.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                <a href="../Object.html">
+                Object
+               </a>
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+A cursor over query results. Returned objects are hashes.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000103">close</a>&nbsp;&nbsp;
+      <a href="#M000104">closed?</a>&nbsp;&nbsp;
+      <a href="#M000096">count</a>&nbsp;&nbsp;
+      <a href="#M000100">each</a>&nbsp;&nbsp;
+      <a href="#M000102">explain</a>&nbsp;&nbsp;
+      <a href="#M000098">limit</a>&nbsp;&nbsp;
+      <a href="#M000094">new</a>&nbsp;&nbsp;
+      <a href="#M000095">next_object</a>&nbsp;&nbsp;
+      <a href="#M000106">query_options_hash</a>&nbsp;&nbsp;
+      <a href="#M000105">query_opts</a>&nbsp;&nbsp;
+      <a href="#M000099">skip</a>&nbsp;&nbsp;
+      <a href="#M000097">sort</a>&nbsp;&nbsp;
+      <a href="#M000101">to_a</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+        <span class="include-name"><a href="Conversions.html">Mongo::Conversions</a></span>
+        <span class="include-name">Enumerable</span>
+      </div>
+    </div>
+
+    <div id="section">
+
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">RESPONSE_HEADER_SIZE</td>
+          <td>=</td>
+          <td class="context-item-value">20</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">admin</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">collection</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">fields</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">full_collection_name</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">hint</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">order</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">selector</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">snapshot</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">timeout</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000094" class="method-detail">
+        <a name="M000094"></a>
+
+        <div class="method-heading">
+          <a href="#M000094" class="method-signature">
+          <span class="method-name">new</span><span class="method-args">(collection, options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Create a <a href="Cursor.html#M000094">new</a> cursor.
+</p>
+<p>
+Should not be called directly by application developers.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000094-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000094-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/cursor.rb, line 35</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">collection</span>, <span class="ruby-identifier">options</span>={})
+      <span class="ruby-ivar">@db</span>         = <span class="ruby-identifier">collection</span>.<span class="ruby-identifier">db</span>
+      <span class="ruby-ivar">@collection</span> = <span class="ruby-identifier">collection</span>
+
+      <span class="ruby-ivar">@selector</span>   = <span class="ruby-identifier">convert_selector_for_query</span>(<span class="ruby-identifier">options</span>[<span class="ruby-identifier">:selector</span>])
+      <span class="ruby-ivar">@fields</span>     = <span class="ruby-identifier">convert_fields_for_query</span>(<span class="ruby-identifier">options</span>[<span class="ruby-identifier">:fields</span>])
+      <span class="ruby-ivar">@admin</span>      = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:admin</span>]    <span class="ruby-operator">||</span> <span class="ruby-keyword kw">false</span>
+      <span class="ruby-ivar">@skip</span>       = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:skip</span>]     <span class="ruby-operator">||</span> <span class="ruby-value">0</span>
+      <span class="ruby-ivar">@limit</span>      = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:limit</span>]    <span class="ruby-operator">||</span> <span class="ruby-value">0</span>
+      <span class="ruby-ivar">@order</span>      = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:order</span>]
+      <span class="ruby-ivar">@hint</span>       = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:hint</span>]
+      <span class="ruby-ivar">@snapshot</span>   = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:snapshot</span>]
+      <span class="ruby-ivar">@timeout</span>    = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:timeout</span>]  <span class="ruby-operator">||</span> <span class="ruby-keyword kw">false</span>
+      <span class="ruby-ivar">@explain</span>    = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:explain</span>]
+
+      <span class="ruby-ivar">@full_collection_name</span>   = <span class="ruby-node">&quot;#{@collection.db.name}.#{@collection.name}&quot;</span>
+      <span class="ruby-ivar">@cache</span> = []
+      <span class="ruby-ivar">@closed</span> = <span class="ruby-keyword kw">false</span>
+      <span class="ruby-ivar">@query_run</span> = <span class="ruby-keyword kw">false</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000103" class="method-detail">
+        <a name="M000103"></a>
+
+        <div class="method-heading">
+          <a href="#M000103" class="method-signature">
+          <span class="method-name">close</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Close the cursor.
+</p>
+<p>
+Note: if a cursor is read until exhausted (read until
+Mongo::Constants::OP_QUERY or Mongo::Constants::OP_GETMORE returns zero for
+the cursor id), there is no need to <a href="Cursor.html#M000103">close</a>
+it by calling this method.
+</p>
+<p>
+<a href="Collection.html#M000167">Collection#find</a> takes an optional
+block argument which can be used to ensure that your cursors get closed.
+See the documentation for <a
+href="Collection.html#M000167">Collection#find</a> for details.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000103-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000103-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/cursor.rb, line 196</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">close</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@cursor_id</span>
+        <span class="ruby-identifier">message</span> = <span class="ruby-constant">ByteBuffer</span>.<span class="ruby-identifier">new</span>
+        <span class="ruby-identifier">message</span>.<span class="ruby-identifier">put_int</span>(<span class="ruby-value">0</span>)
+        <span class="ruby-identifier">message</span>.<span class="ruby-identifier">put_int</span>(<span class="ruby-value">1</span>)
+        <span class="ruby-identifier">message</span>.<span class="ruby-identifier">put_long</span>(<span class="ruby-ivar">@cursor_id</span>)
+        <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">send_message_with_operation</span>(<span class="ruby-constant">Mongo</span><span class="ruby-operator">::</span><span class="ruby-constant">Constants</span><span class="ruby-operator">::</span><span class="ruby-constant">OP_KILL_CURSORS</span>, <span class="ruby-identifier">message</span>)
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-ivar">@cursor_id</span> = <span class="ruby-value">0</span>
+      <span class="ruby-ivar">@closed</span>    = <span class="ruby-keyword kw">true</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000104" class="method-detail">
+        <a name="M000104"></a>
+
+        <div class="method-heading">
+          <a href="#M000104" class="method-signature">
+          <span class="method-name">closed?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns true if this cursor is closed, false otherwise.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000104-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000104-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/cursor.rb, line 209</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">closed?</span>; <span class="ruby-ivar">@closed</span>; <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000096" class="method-detail">
+        <a name="M000096"></a>
+
+        <div class="method-heading">
+          <a href="#M000096" class="method-signature">
+          <span class="method-name">count</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the size of the results set for this query.
+</p>
+<p>
+Returns the number of objects in the results set for this query. Does not
+take <a href="Cursor.html#M000098">limit</a> and <a
+href="Cursor.html#M000099">skip</a> into account. Raises <a
+href="OperationFailure.html">OperationFailure</a> on a database error.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000096-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000096-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/cursor.rb, line 82</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">count</span>
+      <span class="ruby-identifier">command</span> = <span class="ruby-constant">OrderedHash</span>[<span class="ruby-value str">&quot;count&quot;</span>,  <span class="ruby-ivar">@collection</span>.<span class="ruby-identifier">name</span>,
+                            <span class="ruby-value str">&quot;query&quot;</span>,  <span class="ruby-ivar">@selector</span>,
+                            <span class="ruby-value str">&quot;fields&quot;</span>, <span class="ruby-ivar">@fields</span>]
+      <span class="ruby-identifier">response</span> = <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">db_command</span>(<span class="ruby-identifier">command</span>)
+      <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">response</span>[<span class="ruby-value str">'n'</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">response</span>[<span class="ruby-value str">'ok'</span>] <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+      <span class="ruby-keyword kw">return</span> <span class="ruby-value">0</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">response</span>[<span class="ruby-value str">'errmsg'</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;ns missing&quot;</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">OperationFailure</span>, <span class="ruby-node">&quot;Count failed: #{response['errmsg']}&quot;</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000100" class="method-detail">
+        <a name="M000100"></a>
+
+        <div class="method-heading">
+          <a href="#M000100" class="method-signature">
+          <span class="method-name">each</span><span class="method-args">() {|next_object()| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Iterate over <a href="Cursor.html#M000100">each</a> document in this
+cursor, yielding it to the given block.
+</p>
+<p>
+Iterating over an entire cursor will <a
+href="Cursor.html#M000103">close</a> it.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000100-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000100-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/cursor.rb, line 152</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">each</span>
+      <span class="ruby-identifier">num_returned</span> = <span class="ruby-value">0</span>
+      <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">more?</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-ivar">@limit</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">num_returned</span> <span class="ruby-operator">&lt;</span> <span class="ruby-ivar">@limit</span>)
+        <span class="ruby-keyword kw">yield</span> <span class="ruby-identifier">next_object</span>()
+        <span class="ruby-identifier">num_returned</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000102" class="method-detail">
+        <a name="M000102"></a>
+
+        <div class="method-heading">
+          <a href="#M000102" class="method-signature">
+          <span class="method-name">explain</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns an <a href="Cursor.html#M000102">explain</a> plan record for this
+cursor.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000102-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000102-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/cursor.rb, line 179</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">explain</span>
+      <span class="ruby-identifier">c</span> = <span class="ruby-constant">Cursor</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@collection</span>, <span class="ruby-identifier">query_options_hash</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">:limit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-operator">-</span><span class="ruby-ivar">@limit</span>.<span class="ruby-identifier">abs</span>, <span class="ruby-identifier">:explain</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>))
+      <span class="ruby-identifier">explanation</span> = <span class="ruby-identifier">c</span>.<span class="ruby-identifier">next_object</span>
+      <span class="ruby-identifier">c</span>.<span class="ruby-identifier">close</span>
+
+      <span class="ruby-identifier">explanation</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000098" class="method-detail">
+        <a name="M000098"></a>
+
+        <div class="method-heading">
+          <a href="#M000098" class="method-signature">
+          <span class="method-name">limit</span><span class="method-args">(number_to_return=nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Limits the number of results to be returned by this cursor. Returns the
+current number_to_return if no parameter is given.
+</p>
+<p>
+Raises <a href="InvalidOperation.html">InvalidOperation</a> if this cursor
+has already been used.
+</p>
+<p>
+This method overrides any <a href="Cursor.html#M000098">limit</a> specified
+in the <a href="Collection.html#M000167">Collection#find</a> method, and
+only the last <a href="Cursor.html#M000098">limit</a> applied has an
+effect.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000098-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000098-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/cursor.rb, line 123</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">limit</span>(<span class="ruby-identifier">number_to_return</span>=<span class="ruby-keyword kw">nil</span>)
+      <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@limit</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">number_to_return</span>
+      <span class="ruby-identifier">check_modifiable</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">&quot;limit requires an integer&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">number_to_return</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Integer</span>
+
+      <span class="ruby-ivar">@limit</span> = <span class="ruby-identifier">number_to_return</span>
+      <span class="ruby-keyword kw">self</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000095" class="method-detail">
+        <a name="M000095"></a>
+
+        <div class="method-heading">
+          <a href="#M000095" class="method-signature">
+          <span class="method-name">next_object</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Return the next object or nil if there are no more. Raises an error if
+necessary.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000095-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000095-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/cursor.rb, line 58</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">next_object</span>
+      <span class="ruby-identifier">refill_via_get_more</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">num_remaining</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">o</span> = <span class="ruby-ivar">@cache</span>.<span class="ruby-identifier">shift</span>
+
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">o</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">o</span>[<span class="ruby-value str">'$err'</span>]
+        <span class="ruby-identifier">err</span> = <span class="ruby-identifier">o</span>[<span class="ruby-value str">'$err'</span>]
+
+        <span class="ruby-comment cmt"># If the server has stopped being the master (e.g., it's one of a</span>
+        <span class="ruby-comment cmt"># pair but it has died or something like that) then we close that</span>
+        <span class="ruby-comment cmt"># connection. If the db has auto connect option and a pair of</span>
+        <span class="ruby-comment cmt"># servers, next request will re-open on master server.</span>
+        <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">close</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">err</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;not master&quot;</span>
+
+        <span class="ruby-identifier">raise</span> <span class="ruby-identifier">err</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">o</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000106" class="method-detail">
+        <a name="M000106"></a>
+
+        <div class="method-heading">
+          <a href="#M000106" class="method-signature">
+          <span class="method-name">query_options_hash</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the query options set on this <a href="Cursor.html">Cursor</a>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000106-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000106-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/cursor.rb, line 220</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">query_options_hash</span>
+      { <span class="ruby-identifier">:selector</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@selector</span>,
+        <span class="ruby-identifier">:fields</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@fields</span>,   
+        <span class="ruby-identifier">:admin</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@admin</span>,   
+        <span class="ruby-identifier">:skip</span>     =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@skip_num</span>, 
+        <span class="ruby-identifier">:limit</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@limit_num</span>, 
+        <span class="ruby-identifier">:order</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@order</span>,   
+        <span class="ruby-identifier">:hint</span>     =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@hint</span>,   
+        <span class="ruby-identifier">:snapshot</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@snapshot</span>, 
+        <span class="ruby-identifier">:timeout</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@timeout</span> }
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000105" class="method-detail">
+        <a name="M000105"></a>
+
+        <div class="method-heading">
+          <a href="#M000105" class="method-signature">
+          <span class="method-name">query_opts</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns an integer indicating which query options have been selected. See
+<a
+href="http://www.mongodb.org/display/DOCS/Mongo+Wire+Protocol#MongoWireProtocol-Mongo::Constants::OPQUERY">www.mongodb.org/display/DOCS/Mongo+Wire+Protocol#MongoWireProtocol-Mongo::Constants::OPQUERY</a>
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000105-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000105-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/cursor.rb, line 213</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">query_opts</span>
+      <span class="ruby-identifier">timeout</span>  = <span class="ruby-ivar">@timeout</span> <span class="ruby-operator">?</span> <span class="ruby-value">0</span> <span class="ruby-operator">:</span> <span class="ruby-constant">Mongo</span><span class="ruby-operator">::</span><span class="ruby-constant">Constants</span><span class="ruby-operator">::</span><span class="ruby-constant">OP_QUERY_NO_CURSOR_TIMEOUT</span>
+      <span class="ruby-identifier">slave_ok</span> = <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">slave_ok?</span> <span class="ruby-value">? </span><span class="ruby-constant">Mongo</span><span class="ruby-operator">::</span><span class="ruby-constant">Constants</span><span class="ruby-operator">::</span><span class="ruby-constant">OP_QUERY_SLAVE_OK</span> <span class="ruby-operator">:</span> <span class="ruby-value">0</span> 
+      <span class="ruby-identifier">slave_ok</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">timeout</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000099" class="method-detail">
+        <a name="M000099"></a>
+
+        <div class="method-heading">
+          <a href="#M000099" class="method-signature">
+          <span class="method-name">skip</span><span class="method-args">(number_to_skip=nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Skips the first <tt>number_to_skip</tt> results of this cursor. Returns the
+current number_to_skip if no parameter is given.
+</p>
+<p>
+Raises <a href="InvalidOperation.html">InvalidOperation</a> if this cursor
+has already been used.
+</p>
+<p>
+This method overrides any <a href="Cursor.html#M000099">skip</a> specified
+in the <a href="Collection.html#M000167">Collection#find</a> method, and
+only the last <a href="Cursor.html#M000099">skip</a> applied has an effect.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000099-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000099-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/cursor.rb, line 139</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">skip</span>(<span class="ruby-identifier">number_to_skip</span>=<span class="ruby-keyword kw">nil</span>)
+      <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@skip</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">number_to_skip</span>
+      <span class="ruby-identifier">check_modifiable</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">&quot;skip requires an integer&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">number_to_skip</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Integer</span>
+
+      <span class="ruby-ivar">@skip</span> = <span class="ruby-identifier">number_to_skip</span>
+      <span class="ruby-keyword kw">self</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000097" class="method-detail">
+        <a name="M000097"></a>
+
+        <div class="method-heading">
+          <a href="#M000097" class="method-signature">
+          <span class="method-name">sort</span><span class="method-args">(key_or_list, direction=nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Sort this cursor&#8216;s result
+</p>
+<p>
+Takes either a single key and a direction, or an array of [key, direction]
+pairs. Directions should be specified as Mongo::ASCENDING or
+Mongo::DESCENDING (or :ascending or :descending) (or :asc or :desc).
+</p>
+<p>
+Raises <a href="InvalidOperation.html">InvalidOperation</a> if this cursor
+has already been used. Raises <a
+href="InvalidSortValueError.html">InvalidSortValueError</a> if specified
+order is invalid.
+</p>
+<p>
+This method overrides any <a href="Cursor.html#M000097">sort</a> order
+specified in the <a href="Collection.html#M000167">Collection#find</a>
+method, and only the last <a href="Cursor.html#M000097">sort</a> applied
+has an effect
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000097-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000097-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/cursor.rb, line 103</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">sort</span>(<span class="ruby-identifier">key_or_list</span>, <span class="ruby-identifier">direction</span>=<span class="ruby-keyword kw">nil</span>)
+      <span class="ruby-identifier">check_modifiable</span>
+
+      <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">direction</span>.<span class="ruby-identifier">nil?</span>
+        <span class="ruby-identifier">order</span> = [[<span class="ruby-identifier">key_or_list</span>, <span class="ruby-identifier">direction</span>]]
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">order</span> = <span class="ruby-identifier">key_or_list</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-ivar">@order</span> = <span class="ruby-identifier">order</span>
+      <span class="ruby-keyword kw">self</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000101" class="method-detail">
+        <a name="M000101"></a>
+
+        <div class="method-heading">
+          <a href="#M000101" class="method-signature">
+          <span class="method-name">to_a</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Return all of the documents in this cursor as an array of hashes.
+</p>
+<p>
+Raises <a href="InvalidOperation.html">InvalidOperation</a> if this cursor
+has already been used (including any previous calls to this method).
+</p>
+<p>
+Use of this method is discouraged - iterating over a cursor is much more
+efficient in most cases.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000101-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000101-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/cursor.rb, line 167</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_a</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">InvalidOperation</span>, <span class="ruby-value str">&quot;can't call Cursor#to_a on a used cursor&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@query_run</span>
+      <span class="ruby-identifier">rows</span> = []
+      <span class="ruby-identifier">num_returned</span> = <span class="ruby-value">0</span>
+      <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">more?</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-ivar">@limit</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">num_returned</span> <span class="ruby-operator">&lt;</span> <span class="ruby-ivar">@limit</span>)
+        <span class="ruby-identifier">rows</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">next_object</span>()
+        <span class="ruby-identifier">num_returned</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">rows</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

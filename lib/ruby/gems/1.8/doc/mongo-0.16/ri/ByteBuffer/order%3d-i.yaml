@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: <tt>endianness</tt> should be :little_endian or :big_endian. Default is :little_endian
+full_name: ByteBuffer#order=
+is_singleton: false
+name: order=
+params: (endianness)
+visibility: public

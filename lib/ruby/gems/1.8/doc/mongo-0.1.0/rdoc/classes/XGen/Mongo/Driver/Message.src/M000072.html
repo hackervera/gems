@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (XGen::Mongo::Driver::Message)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/mongo/message/message.rb, line 16</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">op</span>)
+          <span class="ruby-ivar">@op</span> = <span class="ruby-identifier">op</span>
+          <span class="ruby-ivar">@message_length</span> = <span class="ruby-constant">HEADER_SIZE</span>
+          <span class="ruby-ivar">@data_length</span> = <span class="ruby-value">0</span>
+          <span class="ruby-ivar">@request_id</span> = (<span class="ruby-ivar">@@class_req_id</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>)
+          <span class="ruby-ivar">@response_id</span> = <span class="ruby-value">0</span>
+          <span class="ruby-ivar">@buf</span> = <span class="ruby-constant">ByteBuffer</span>.<span class="ruby-identifier">new</span>
+          
+          <span class="ruby-ivar">@buf</span>.<span class="ruby-identifier">put_int</span>(<span class="ruby-value">16</span>)      <span class="ruby-comment cmt"># holder for length</span>
+          <span class="ruby-ivar">@buf</span>.<span class="ruby-identifier">put_int</span>(<span class="ruby-ivar">@request_id</span>)
+          <span class="ruby-ivar">@buf</span>.<span class="ruby-identifier">put_int</span>(<span class="ruby-value">0</span>)       <span class="ruby-comment cmt"># response_to</span>
+          <span class="ruby-ivar">@buf</span>.<span class="ruby-identifier">put_int</span>(<span class="ruby-identifier">op</span>)
+        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

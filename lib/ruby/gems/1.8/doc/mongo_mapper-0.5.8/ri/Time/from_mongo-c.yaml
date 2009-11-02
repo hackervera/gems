@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Time::from_mongo
+is_singleton: true
+name: from_mongo
+params: (value)
+visibility: public

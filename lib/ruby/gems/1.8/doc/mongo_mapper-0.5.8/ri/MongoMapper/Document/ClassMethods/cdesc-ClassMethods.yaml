@@ -1,0 +1,66 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: MongoMapper::Document::ClassMethods
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: all
+- !ruby/object:RI::MethodSummary 
+  name: collection
+- !ruby/object:RI::MethodSummary 
+  name: collection_name
+- !ruby/object:RI::MethodSummary 
+  name: connection
+- !ruby/object:RI::MethodSummary 
+  name: count
+- !ruby/object:RI::MethodSummary 
+  name: create
+- !ruby/object:RI::MethodSummary 
+  name: create!
+- !ruby/object:RI::MethodSummary 
+  name: database
+- !ruby/object:RI::MethodSummary 
+  name: delete
+- !ruby/object:RI::MethodSummary 
+  name: delete_all
+- !ruby/object:RI::MethodSummary 
+  name: destroy
+- !ruby/object:RI::MethodSummary 
+  name: destroy_all
+- !ruby/object:RI::MethodSummary 
+  name: ensure_index
+- !ruby/object:RI::MethodSummary 
+  name: exists?
+- !ruby/object:RI::MethodSummary 
+  name: find
+- !ruby/object:RI::MethodSummary 
+  name: find_by_id
+- !ruby/object:RI::MethodSummary 
+  name: first
+- !ruby/object:RI::MethodSummary 
+  name: key
+- !ruby/object:RI::MethodSummary 
+  name: last
+- !ruby/object:RI::MethodSummary 
+  name: method_missing
+- !ruby/object:RI::MethodSummary 
+  name: paginate
+- !ruby/object:RI::MethodSummary 
+  name: set_collection_name
+- !ruby/object:RI::MethodSummary 
+  name: single_collection_inherited?
+- !ruby/object:RI::MethodSummary 
+  name: single_collection_inherited_superclass?
+- !ruby/object:RI::MethodSummary 
+  name: timestamps!
+- !ruby/object:RI::MethodSummary 
+  name: update
+name: ClassMethods
+superclass: 

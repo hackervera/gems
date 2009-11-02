@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Decodes a PEM encoded Certificate or Public Key from a file and returns a Verifier object.
+full_name: EzCrypto::Verifier::from_file
+is_singleton: true
+name: from_file
+params: (filename)
+visibility: public

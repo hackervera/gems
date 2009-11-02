@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "db_name :"
+    body: The database name
+  - !ruby/struct:SM::Flow::LI 
+    label: "nodes :"
+    body: An array of [host, port] pairs.
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: When a DB object first connects, it tries the first node. If that fails, it keeps trying to connect to the remaining nodes until it sucessfully connects.
+full_name: XGen::Mongo::Driver::DB::new
+is_singleton: true
+name: new
+params: (db_name, nodes)
+visibility: public

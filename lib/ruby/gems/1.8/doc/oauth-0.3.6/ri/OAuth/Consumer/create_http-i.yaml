@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Instantiates the http object
+full_name: OAuth::Consumer#create_http
+is_singleton: false
+name: create_http
+params: (_url = nil)
+visibility: protected

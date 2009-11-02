@@ -1,0 +1,49 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Deps plugin for hoe.
+- !ruby/struct:SM::Flow::H 
+  level: 3
+  text: "Tasks Provided:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "check_extra_deps:"
+    body: Install missing dependencies.
+  - !ruby/struct:SM::Flow::LI 
+    label: "deps:email:"
+    body: Print a contact list for gems dependent on this gem
+  - !ruby/struct:SM::Flow::LI 
+    label: "deps:fetch:"
+    body: Fetch all the dependent gems of this gem into tarballs
+  - !ruby/struct:SM::Flow::LI 
+    label: "deps:list:"
+    body: List all the dependent gems of this gem
+  type: :NOTE
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The main rubygems repository.
+  name: GEMURL
+  value: URI.parse 'http://gems.rubyforge.org'
+full_name: Hoe::Deps
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: define_deps_tasks
+- !ruby/object:RI::MethodSummary 
+  name: dependent_upon
+- !ruby/object:RI::MethodSummary 
+  name: get_gems_by_name
+- !ruby/object:RI::MethodSummary 
+  name: get_latest_gems
+- !ruby/object:RI::MethodSummary 
+  name: get_source_index
+name: Deps
+superclass: 

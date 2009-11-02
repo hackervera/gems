@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: GridFS::GridStore::exist?
+is_singleton: true
+name: exist?
+params: (db, name, root_collection=DEFAULT_ROOT_COLLECTION)
+visibility: public

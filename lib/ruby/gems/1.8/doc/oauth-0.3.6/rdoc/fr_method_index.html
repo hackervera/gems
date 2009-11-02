@@ -1,0 +1,197 @@
+
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!--
+
+    Methods
+
+  -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Methods</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="rdoc-style.css" type="text/css" />
+  <base target="docwin" />
+</head>
+<body>
+<div id="index">
+  <h1 class="section-bar">Methods</h1>
+  <div id="index-entries">
+    <a href="classes/OAuth/Signature/Base.html#M000049">== (OAuth::Signature::Base)</a><br />
+    <a href="classes/OAuth/Signature/PLAINTEXT.html#M000041">== (OAuth::Signature::PLAINTEXT)</a><br />
+    <a href="classes/OAuth/Signature/RSA/SHA1.html#M000038">== (OAuth::Signature::RSA::SHA1)</a><br />
+    <a href="classes/OAuth/Server.html#M000179">access_token_path (OAuth::Server)</a><br />
+    <a href="classes/OAuth/Consumer.html#M000130">access_token_path (OAuth::Consumer)</a><br />
+    <a href="classes/OAuth/Server.html#M000180">access_token_url (OAuth::Server)</a><br />
+    <a href="classes/OAuth/Consumer.html#M000135">access_token_url (OAuth::Consumer)</a><br />
+    <a href="classes/OAuth/Consumer.html#M000136">access_token_url? (OAuth::Consumer)</a><br />
+    <a href="classes/OAuth/Client/Helper.html#M000029">amend_user_agent_header (OAuth::Client::Helper)</a><br />
+    <a href="classes/ActionController/TestRequest.html#M000018">apply_oauth! (ActionController::TestRequest)</a><br />
+    <a href="classes/OAuth/Consumer.html#M000129">authorize_path (OAuth::Consumer)</a><br />
+    <a href="classes/OAuth/Server.html#M000177">authorize_path (OAuth::Server)</a><br />
+    <a href="classes/OAuth/Server.html#M000178">authorize_url (OAuth::Server)</a><br />
+    <a href="classes/OAuth/Consumer.html#M000133">authorize_url (OAuth::Consumer)</a><br />
+    <a href="classes/OAuth/RequestToken.html#M000160">authorize_url (OAuth::RequestToken)</a><br />
+    <a href="classes/OAuth/Consumer.html#M000134">authorize_url? (OAuth::Consumer)</a><br />
+    <a href="classes/OAuth/Signature.html#M000033">available_methods (OAuth::Signature)</a><br />
+    <a href="classes/OAuth/Signature.html#M000034">build (OAuth::Signature)</a><br />
+    <a href="classes/OAuth/RequestToken.html#M000163">build_authorize_url (OAuth::RequestToken)</a><br />
+    <a href="classes/OAuth/RequestToken.html#M000161">callback_confirmed? (OAuth::RequestToken)</a><br />
+    <a href="classes/ActionController/TestRequest.html#M000017">configure_oauth (ActionController::TestRequest)</a><br />
+    <a href="classes/OAuth/RequestProxy/Base.html#M000086">consumer_key (OAuth::RequestProxy::Base)</a><br />
+    <a href="classes/OAuth/Server.html#M000174">create_consumer (OAuth::Server)</a><br />
+    <a href="classes/OAuth/Consumer.html#M000138">create_http (OAuth::Consumer)</a><br />
+    <a href="classes/OAuth/Consumer.html#M000139">create_http_request (OAuth::Consumer)</a><br />
+    <a href="classes/OAuth/Consumer.html#M000122">create_signed_request (OAuth::Consumer)</a><br />
+    <a href="classes/OAuth/AccessToken.html#M000159">delete (OAuth::AccessToken)</a><br />
+    <a href="classes/OAuth/Signature/Base.html#M000046">digest_class (OAuth::Signature::Base)</a><br />
+    <a href="classes/OAuth/Helper.html#M000055">escape (OAuth::Helper)</a><br />
+    <a href="classes/OAuth/CLI.html#M000143">execute (OAuth::CLI)</a><br />
+    <a href="classes/OAuth/CLI.html#M000145">execute (OAuth::CLI)</a><br />
+    <a href="classes/OAuth/CLI.html#M000146">extract_command_and_parse_options (OAuth::CLI)</a><br />
+    <a href="classes/OAuth/ConsumerToken.html#M000167">from_hash (OAuth::ConsumerToken)</a><br />
+    <a href="classes/OAuth/Server.html#M000173">generate_consumer_credentials (OAuth::Server)</a><br />
+    <a href="classes/OAuth/Server.html#M000172">generate_credentials (OAuth::Server)</a><br />
+    <a href="classes/OAuth/Helper.html#M000056">generate_key (OAuth::Helper)</a><br />
+    <a href="classes/OAuth/Helper.html#M000057">generate_nonce (OAuth::Helper)</a><br />
+    <a href="classes/OAuth/AccessToken.html#M000155">get (OAuth::AccessToken)</a><br />
+    <a href="classes/OAuth/RequestToken.html#M000162">get_access_token (OAuth::RequestToken)</a><br />
+    <a href="classes/OAuth/Consumer.html#M000119">get_access_token (OAuth::Consumer)</a><br />
+    <a href="classes/OAuth/Consumer.html#M000120">get_request_token (OAuth::Consumer)</a><br />
+    <a href="classes/OAuth/AccessToken.html#M000156">head (OAuth::AccessToken)</a><br />
+    <a href="classes/OAuth/Client/Helper.html#M000030">header (OAuth::Client::Helper)</a><br />
+    <a href="classes/OAuth/RequestProxy/Base.html#M000104">header_params (OAuth::RequestProxy::Base)</a><br />
+    <a href="classes/OAuth/Consumer.html#M000117">http (OAuth::Consumer)</a><br />
+    <a href="classes/OAuth/Consumer.html#M000116">http_method (OAuth::Consumer)</a><br />
+    <a href="classes/OAuth/Signature/Base.html#M000045">implements (OAuth::Signature::Base)</a><br />
+    <a href="classes/OAuth/Consumer.html#M000140">marshal_dump (OAuth::Consumer)</a><br />
+    <a href="classes/OAuth/RequestProxy/JabberRequest.html#M000072">method (OAuth::RequestProxy::JabberRequest)</a><br />
+    <a href="classes/OAuth/RequestProxy/Net/HTTP/HTTPRequest.html#M000062">method (OAuth::RequestProxy::Net::HTTP::HTTPRequest)</a><br />
+    <a href="classes/OAuth/RequestProxy/MockRequest.html#M000106">method (OAuth::RequestProxy::MockRequest)</a><br />
+    <a href="classes/OAuth/RequestProxy/RackRequest.html#M000065">method (OAuth::RequestProxy::RackRequest)</a><br />
+    <a href="classes/OAuth/RequestProxy/ActionControllerRequest.html#M000109">method (OAuth::RequestProxy::ActionControllerRequest)</a><br />
+    <a href="classes/OAuth/OAuthTestHelper.html#M000054">mock_incoming_request_with_authorize_header (OAuth::OAuthTestHelper)</a><br />
+    <a href="classes/OAuth/OAuthTestHelper.html#M000053">mock_incoming_request_with_query (OAuth::OAuthTestHelper)</a><br />
+    <a href="classes/OAuth/Server.html#M000171">new (OAuth::Server)</a><br />
+    <a href="classes/OAuth/Client/Helper.html#M000022">new (OAuth::Client::Helper)</a><br />
+    <a href="classes/OAuth/Problem.html#M000141">new (OAuth::Problem)</a><br />
+    <a href="classes/OAuth/Unauthorized.html#M000181">new (OAuth::Unauthorized)</a><br />
+    <a href="classes/OAuth/CLI.html#M000144">new (OAuth::CLI)</a><br />
+    <a href="classes/OAuth/ConsumerToken.html#M000168">new (OAuth::ConsumerToken)</a><br />
+    <a href="classes/OAuth/Signature/Base.html#M000047">new (OAuth::Signature::Base)</a><br />
+    <a href="classes/OAuth/Consumer.html#M000115">new (OAuth::Consumer)</a><br />
+    <a href="classes/OAuth/Token.html#M000165">new (OAuth::Token)</a><br />
+    <a href="classes/OAuth/ServerToken.html#M000164">new (OAuth::ServerToken)</a><br />
+    <a href="classes/OAuth/RequestProxy/Base.html#M000076">new (OAuth::RequestProxy::Base)</a><br />
+    <a href="classes/OAuth/RequestProxy/Base.html#M000095">non_oauth_parameters (OAuth::RequestProxy::Base)</a><br />
+    <a href="classes/OAuth/Client/Helper.html#M000024">nonce (OAuth::Client::Helper)</a><br />
+    <a href="classes/OAuth/RequestProxy/Base.html#M000088">nonce (OAuth::RequestProxy::Base)</a><br />
+    <a href="classes/OAuth/Helper.html#M000058">normalize (OAuth::Helper)</a><br />
+    <a href="classes/OAuth/RequestProxy/Base.html#M000097">normalized_parameters (OAuth::RequestProxy::Base)</a><br />
+    <a href="classes/OAuth/RequestProxy/Base.html#M000096">normalized_uri (OAuth::RequestProxy::Base)</a><br />
+    <a href="classes/OAuth/RequestProxy/MockRequest.html#M000107">normalized_uri (OAuth::RequestProxy::MockRequest)</a><br />
+    <a href="classes/OAuth/RequestProxy/JabberRequest.html#M000074">normalized_uri (OAuth::RequestProxy::JabberRequest)</a><br />
+    <a href="classes/Net/HTTPRequest.html#M000183">oauth! (Net::HTTPRequest)</a><br />
+    <a href="classes/OAuth/RequestProxy/Base.html#M000077">oauth_callback (OAuth::RequestProxy::Base)</a><br />
+    <a href="classes/OAuth/RequestProxy/Base.html#M000078">oauth_consumer_key (OAuth::RequestProxy::Base)</a><br />
+    <a href="classes/OAuth/RequestProxy/Base.html#M000103">oauth_header (OAuth::RequestProxy::Base)</a><br />
+    <a href="classes/OAuth/RequestProxy/Base.html#M000079">oauth_nonce (OAuth::RequestProxy::Base)</a><br />
+    <a href="classes/OAuth/RequestProxy/Base.html#M000094">oauth_parameters (OAuth::RequestProxy::Base)</a><br />
+    <a href="classes/OAuth/Client/Helper.html#M000026">oauth_parameters (OAuth::Client::Helper)</a><br />
+    <a href="classes/OAuth/RequestProxy/Base.html#M000080">oauth_signature (OAuth::RequestProxy::Base)</a><br />
+    <a href="classes/OAuth/RequestProxy/Base.html#M000081">oauth_signature_method (OAuth::RequestProxy::Base)</a><br />
+    <a href="classes/OAuth/RequestProxy/Base.html#M000082">oauth_timestamp (OAuth::RequestProxy::Base)</a><br />
+    <a href="classes/OAuth/RequestProxy/Base.html#M000083">oauth_token (OAuth::RequestProxy::Base)</a><br />
+    <a href="classes/OAuth/RequestProxy/Base.html#M000084">oauth_verifier (OAuth::RequestProxy::Base)</a><br />
+    <a href="classes/OAuth/RequestProxy/Base.html#M000085">oauth_version (OAuth::RequestProxy::Base)</a><br />
+    <a href="classes/OAuth/CLI.html#M000147">option_parser (OAuth::CLI)</a><br />
+    <a href="classes/OAuth/Client/Helper.html#M000023">options (OAuth::Client::Helper)</a><br />
+    <a href="classes/OAuth/RequestProxy/Base.html#M000092">parameters (OAuth::RequestProxy::Base)</a><br />
+    <a href="classes/OAuth/RequestProxy/Net/HTTP/HTTPRequest.html#M000064">parameters (OAuth::RequestProxy::Net::HTTP::HTTPRequest)</a><br />
+    <a href="classes/OAuth/Client/Helper.html#M000031">parameters (OAuth::Client::Helper)</a><br />
+    <a href="classes/OAuth/RequestProxy/RackRequest.html#M000067">parameters (OAuth::RequestProxy::RackRequest)</a><br />
+    <a href="classes/OAuth/RequestProxy/ActionControllerRequest.html#M000111">parameters (OAuth::RequestProxy::ActionControllerRequest)</a><br />
+    <a href="classes/OAuth/RequestProxy/JabberRequest.html#M000071">parameters (OAuth::RequestProxy::JabberRequest)</a><br />
+    <a href="classes/OAuth/RequestProxy/MockRequest.html#M000105">parameters (OAuth::RequestProxy::MockRequest)</a><br />
+    <a href="classes/OAuth/RequestProxy/Base.html#M000093">parameters_for_signature (OAuth::RequestProxy::Base)</a><br />
+    <a href="classes/OAuth/RequestProxy/ActionControllerRequest.html#M000112">parameters_for_signature (OAuth::RequestProxy::ActionControllerRequest)</a><br />
+    <a href="classes/OAuth/Client/Helper.html#M000032">parameters_with_oauth (OAuth::Client::Helper)</a><br />
+    <a href="classes/OAuth/Helper.html#M000059">parse_header (OAuth::Helper)</a><br />
+    <a href="classes/OAuth/CLI.html#M000148">parse_options (OAuth::CLI)</a><br />
+    <a href="classes/OAuth/AccessToken.html#M000157">post (OAuth::AccessToken)</a><br />
+    <a href="classes/OAuth/CLI.html#M000149">prepare_parameters (OAuth::CLI)</a><br />
+    <a href="classes/ActionController/Base.html#M000014">process_with_oauth (ActionController::Base)</a><br />
+    <a href="classes/OAuth/RequestProxy/Base.html#M000075">proxies (OAuth::RequestProxy::Base)</a><br />
+    <a href="classes/OAuth/RequestProxy.html#M000061">proxy (OAuth::RequestProxy)</a><br />
+    <a href="classes/OAuth/Consumer.html#M000137">proxy (OAuth::Consumer)</a><br />
+    <a href="classes/OAuth/Signature/RSA/SHA1.html#M000039">public_key (OAuth::Signature::RSA::SHA1)</a><br />
+    <a href="classes/OAuth/AccessToken.html#M000158">put (OAuth::AccessToken)</a><br />
+    <a href="classes/OAuth/RequestProxy/ActionControllerRequest.html#M000113">query_params (OAuth::RequestProxy::ActionControllerRequest)</a><br />
+    <a href="classes/OAuth/RequestProxy/RackRequest.html#M000069">query_params (OAuth::RequestProxy::RackRequest)</a><br />
+    <a href="classes/OAuth/ConsumerToken.html#M000169">request (OAuth::ConsumerToken)</a><br />
+    <a href="classes/OAuth/Consumer.html#M000121">request (OAuth::Consumer)</a><br />
+    <a href="classes/OAuth/AccessToken.html#M000154">request (OAuth::AccessToken)</a><br />
+    <a href="classes/OAuth/RequestProxy/RackRequest.html#M000070">request_params (OAuth::RequestProxy::RackRequest)</a><br />
+    <a href="classes/OAuth/RequestProxy/ActionControllerRequest.html#M000114">request_params (OAuth::RequestProxy::ActionControllerRequest)</a><br />
+    <a href="classes/OAuth/Consumer.html#M000128">request_token_path (OAuth::Consumer)</a><br />
+    <a href="classes/OAuth/Server.html#M000175">request_token_path (OAuth::Server)</a><br />
+    <a href="classes/OAuth/Consumer.html#M000131">request_token_url (OAuth::Consumer)</a><br />
+    <a href="classes/OAuth/Server.html#M000176">request_token_url (OAuth::Server)</a><br />
+    <a href="classes/OAuth/Consumer.html#M000132">request_token_url? (OAuth::Consumer)</a><br />
+    <a href="classes/OAuth/Consumer.html#M000127">scheme (OAuth::Consumer)</a><br />
+    <a href="classes/OAuth/Signature/PLAINTEXT.html#M000043">secret (OAuth::Signature::PLAINTEXT)</a><br />
+    <a href="classes/ActionController/TestRequest.html#M000019">set_oauth_header (ActionController::TestRequest)</a><br />
+    <a href="classes/ActionController/TestRequest.html#M000020">set_oauth_parameters (ActionController::TestRequest)</a><br />
+    <a href="classes/ActionController/TestRequest.html#M000021">set_oauth_query_string (ActionController::TestRequest)</a><br />
+    <a href="classes/OAuth/Signature.html#M000035">sign (OAuth::Signature)</a><br />
+    <a href="classes/OAuth/RequestProxy/Base.html#M000098">sign (OAuth::RequestProxy::Base)</a><br />
+    <a href="classes/OAuth/ConsumerToken.html#M000170">sign! (OAuth::ConsumerToken)</a><br />
+    <a href="classes/OAuth/Consumer.html#M000124">sign! (OAuth::Consumer)</a><br />
+    <a href="classes/OAuth/RequestProxy/Base.html#M000099">sign! (OAuth::RequestProxy::Base)</a><br />
+    <a href="classes/OAuth/Signature/Base.html#M000048">signature (OAuth::Signature::Base)</a><br />
+    <a href="classes/OAuth/Client/Helper.html#M000027">signature (OAuth::Client::Helper)</a><br />
+    <a href="classes/OAuth/RequestProxy/RackRequest.html#M000068">signature (OAuth::RequestProxy::RackRequest)</a><br />
+    <a href="classes/OAuth/Signature/PLAINTEXT.html#M000040">signature (OAuth::Signature::PLAINTEXT)</a><br />
+    <a href="classes/OAuth/RequestProxy/Base.html#M000090">signature (OAuth::RequestProxy::Base)</a><br />
+    <a href="classes/OAuth/Signature/PLAINTEXT.html#M000042">signature_base_string (OAuth::Signature::PLAINTEXT)</a><br />
+    <a href="classes/OAuth/Signature.html#M000037">signature_base_string (OAuth::Signature)</a><br />
+    <a href="classes/OAuth/Signature/SHA1.html#M000044">signature_base_string (OAuth::Signature::SHA1)</a><br />
+    <a href="classes/OAuth/Client/Helper.html#M000028">signature_base_string (OAuth::Client::Helper)</a><br />
+    <a href="classes/OAuth/RequestProxy/Base.html#M000100">signature_base_string (OAuth::RequestProxy::Base)</a><br />
+    <a href="classes/OAuth/Consumer.html#M000125">signature_base_string (OAuth::Consumer)</a><br />
+    <a href="classes/OAuth/Signature/Base.html#M000051">signature_base_string (OAuth::Signature::Base)</a><br />
+    <a href="classes/OAuth/Signature/MD5.html#M000052">signature_base_string (OAuth::Signature::MD5)</a><br />
+    <a href="classes/Net/HTTPRequest.html#M000184">signature_base_string (Net::HTTPRequest)</a><br />
+    <a href="classes/OAuth/RequestProxy/Base.html#M000091">signature_method (OAuth::RequestProxy::Base)</a><br />
+    <a href="classes/OAuth/RequestProxy/Base.html#M000101">signed? (OAuth::RequestProxy::Base)</a><br />
+    <a href="classes/OAuth/RequestProxy/Base.html#M000102">signed_uri (OAuth::RequestProxy::Base)</a><br />
+    <a href="classes/OAuth/Consumer.html#M000126">site (OAuth::Consumer)</a><br />
+    <a href="classes/OAuth/CLI.html#M000150">sufficient_options? (OAuth::CLI)</a><br />
+    <a href="classes/OAuth/RequestProxy/Base.html#M000089">timestamp (OAuth::RequestProxy::Base)</a><br />
+    <a href="classes/OAuth/Client/Helper.html#M000025">timestamp (OAuth::Client::Helper)</a><br />
+    <a href="classes/OAuth/Token.html#M000166">to_query (OAuth::Token)</a><br />
+    <a href="classes/OAuth/Problem.html#M000142">to_s (OAuth::Problem)</a><br />
+    <a href="classes/OAuth/Unauthorized.html#M000182">to_s (OAuth::Unauthorized)</a><br />
+    <a href="classes/OAuth/RequestProxy/Base.html#M000087">token (OAuth::RequestProxy::Base)</a><br />
+    <a href="classes/OAuth/Consumer.html#M000123">token_request (OAuth::Consumer)</a><br />
+    <a href="classes/OAuth/Helper.html#M000060">unescape (OAuth::Helper)</a><br />
+    <a href="classes/OAuth/Consumer.html#M000118">uri (OAuth::Consumer)</a><br />
+    <a href="classes/OAuth/RequestProxy/JabberRequest.html#M000073">uri (OAuth::RequestProxy::JabberRequest)</a><br />
+    <a href="classes/OAuth/RequestProxy/RackRequest.html#M000066">uri (OAuth::RequestProxy::RackRequest)</a><br />
+    <a href="classes/OAuth/RequestProxy/Net/HTTP/HTTPRequest.html#M000063">uri (OAuth::RequestProxy::Net::HTTP::HTTPRequest)</a><br />
+    <a href="classes/OAuth/RequestProxy/ActionControllerRequest.html#M000110">uri (OAuth::RequestProxy::ActionControllerRequest)</a><br />
+    <a href="classes/OAuth/RequestProxy/MockRequest.html#M000108">uri (OAuth::RequestProxy::MockRequest)</a><br />
+    <a href="classes/OAuth/CLI.html#M000151">usage (OAuth::CLI)</a><br />
+    <a href="classes/ActionController/TestRequest.html#M000015">use_oauth= (ActionController::TestRequest)</a><br />
+    <a href="classes/ActionController/TestRequest.html#M000016">use_oauth? (ActionController::TestRequest)</a><br />
+    <a href="classes/OAuth/CLI.html#M000152">valid_command? (OAuth::CLI)</a><br />
+    <a href="classes/OAuth/CLI.html#M000153">verbose? (OAuth::CLI)</a><br />
+    <a href="classes/OAuth/Signature/Base.html#M000050">verify (OAuth::Signature::Base)</a><br />
+    <a href="classes/OAuth/Signature.html#M000036">verify (OAuth::Signature)</a><br />
+  </div>
+</div>
+</body>
+</html>

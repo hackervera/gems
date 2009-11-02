@@ -1,0 +1,20 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: OAuth::RequestProxy::Net::HTTP::HTTPRequest
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: method
+- !ruby/object:RI::MethodSummary 
+  name: parameters
+- !ruby/object:RI::MethodSummary 
+  name: uri
+name: HTTPRequest
+superclass: OAuth::RequestProxy::Base

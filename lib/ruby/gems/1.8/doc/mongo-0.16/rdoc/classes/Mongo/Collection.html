@@ -1,0 +1,1143 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Mongo::Collection</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Mongo::Collection</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/mongo/collection_rb.html">
+                lib/mongo/collection.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                <a href="../Object.html">
+                Object
+               </a>
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+A named collection of records in a database.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000171">&lt;&lt;</a>&nbsp;&nbsp;
+      <a href="#M000165">[]</a>&nbsp;&nbsp;
+      <a href="#M000173">clear</a>&nbsp;&nbsp;
+      <a href="#M000183">count</a>&nbsp;&nbsp;
+      <a href="#M000175">create_index</a>&nbsp;&nbsp;
+      <a href="#M000178">drop</a>&nbsp;&nbsp;
+      <a href="#M000176">drop_index</a>&nbsp;&nbsp;
+      <a href="#M000177">drop_indexes</a>&nbsp;&nbsp;
+      <a href="#M000167">find</a>&nbsp;&nbsp;
+      <a href="#M000168">find_one</a>&nbsp;&nbsp;
+      <a href="#M000179">group</a>&nbsp;&nbsp;
+      <a href="#M000166">hint=</a>&nbsp;&nbsp;
+      <a href="#M000181">index_information</a>&nbsp;&nbsp;
+      <a href="#M000170">insert</a>&nbsp;&nbsp;
+      <a href="#M000164">new</a>&nbsp;&nbsp;
+      <a href="#M000185">normalize_hint_fields</a>&nbsp;&nbsp;
+      <a href="#M000182">options</a>&nbsp;&nbsp;
+      <a href="#M000172">remove</a>&nbsp;&nbsp;
+      <a href="#M000180">rename</a>&nbsp;&nbsp;
+      <a href="#M000169">save</a>&nbsp;&nbsp;
+      <a href="#M000184">size</a>&nbsp;&nbsp;
+      <a href="#M000174">update</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">db</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">hint</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">name</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">pk_factory</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000164" class="method-detail">
+        <a name="M000164"></a>
+
+        <div class="method-heading">
+          <a href="#M000164" class="method-signature">
+          <span class="method-name">new</span><span class="method-args">(db, name, pk_factory=nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000164-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000164-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/collection.rb, line 24</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">db</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">pk_factory</span>=<span class="ruby-keyword kw">nil</span>)
+      <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">name</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Symbol</span>, <span class="ruby-constant">String</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-value str">&quot;new_name must be a string or symbol&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">name</span> = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>
+
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">include?</span> <span class="ruby-value str">&quot;..&quot;</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">InvalidName</span>, <span class="ruby-value str">&quot;collection names cannot be empty&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">include?</span> <span class="ruby-value str">&quot;$&quot;</span> <span class="ruby-keyword kw">and</span> <span class="ruby-keyword kw">not</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp re">/^\$cmd/</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">InvalidName</span>, <span class="ruby-value str">&quot;collection names must not contain '$'&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp re">/^\./</span>) <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp re">/\.$/</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">InvalidName</span>, <span class="ruby-value str">&quot;collection names must not start or end with '.'&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-ivar">@db</span>, <span class="ruby-ivar">@name</span>  = <span class="ruby-identifier">db</span>, <span class="ruby-identifier">name</span>
+      <span class="ruby-ivar">@pk_factory</span> = <span class="ruby-identifier">pk_factory</span> <span class="ruby-operator">||</span> <span class="ruby-constant">ObjectID</span>
+      <span class="ruby-ivar">@hint</span> = <span class="ruby-keyword kw">nil</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000171" class="method-detail">
+        <a name="M000171"></a>
+
+        <div class="method-heading">
+          <span class="method-name">&lt;&lt;</span><span class="method-args">(doc_or_docs, options={})</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="Collection.html#M000170">insert</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000165" class="method-detail">
+        <a name="M000165"></a>
+
+        <div class="method-heading">
+          <a href="#M000165" class="method-signature">
+          <span class="method-name">[]</span><span class="method-args">(name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get a sub-collection of this collection by name.
+</p>
+<p>
+Raises <a href="InvalidName.html">InvalidName</a> if an invalid collection
+name is used.
+</p>
+<table>
+<tr><td valign="top">:name :</td><td>the name of the collection to get
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000165-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000165-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/collection.rb, line 53</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-operator">[]</span>(<span class="ruby-identifier">name</span>)
+      <span class="ruby-identifier">name</span> = <span class="ruby-node">&quot;#{self.name}.#{name}&quot;</span>
+      <span class="ruby-keyword kw">return</span> <span class="ruby-constant">Collection</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">db</span>, <span class="ruby-identifier">name</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">db</span>.<span class="ruby-identifier">strict?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">db</span>.<span class="ruby-identifier">collection_names</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">name</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Collection #{name} doesn't exist. Currently in strict mode.&quot;</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000173" class="method-detail">
+        <a name="M000173"></a>
+
+        <div class="method-heading">
+          <a href="#M000173" class="method-signature">
+          <span class="method-name">clear</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Remove all records. DEPRECATED: please use <a
+href="Collection.html#M000172">Collection#remove</a> instead.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000173-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000173-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/collection.rb, line 236</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">clear</span>
+      <span class="ruby-identifier">warn</span> <span class="ruby-value str">&quot;Collection#clear is deprecated. Please use Collection#remove instead.&quot;</span>
+      <span class="ruby-identifier">remove</span>({})
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000183" class="method-detail">
+        <a name="M000183"></a>
+
+        <div class="method-heading">
+          <a href="#M000183" class="method-signature">
+          <span class="method-name">count</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the number of documents in this collection.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000183-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000183-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/collection.rb, line 432</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">count</span>()
+      <span class="ruby-identifier">find</span>().<span class="ruby-identifier">count</span>()
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000175" class="method-detail">
+        <a name="M000175"></a>
+
+        <div class="method-heading">
+          <a href="#M000175" class="method-signature">
+          <span class="method-name">create_index</span><span class="method-args">(field_or_spec, unique=false)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Create a <a href="Collection.html#M000164">new</a> index.
+<tt>field_or_spec</tt> should be either a single field name or a Array of
+[field name, direction] pairs. Directions should be specified as
+Mongo::ASCENDING or Mongo::DESCENDING. <tt>unique</tt> is an optional
+boolean indicating whether this index should enforce a uniqueness
+constraint.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000175-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000175-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/collection.rb, line 274</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create_index</span>(<span class="ruby-identifier">field_or_spec</span>, <span class="ruby-identifier">unique</span>=<span class="ruby-keyword kw">false</span>)
+      <span class="ruby-identifier">field_h</span> = <span class="ruby-constant">OrderedHash</span>.<span class="ruby-identifier">new</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">field_or_spec</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">field_or_spec</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Symbol</span>)
+        <span class="ruby-identifier">field_h</span>[<span class="ruby-identifier">field_or_spec</span>.<span class="ruby-identifier">to_s</span>] = <span class="ruby-value">1</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">field_or_spec</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">field_h</span>[<span class="ruby-identifier">f</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">to_s</span>] = <span class="ruby-identifier">f</span>[<span class="ruby-value">1</span>] }
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">name</span> = <span class="ruby-identifier">generate_index_names</span>(<span class="ruby-identifier">field_h</span>)
+      <span class="ruby-identifier">sel</span>  = {
+        <span class="ruby-identifier">:name</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">name</span>,
+        <span class="ruby-identifier">:ns</span>     =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{@db.name}.#{@name}&quot;</span>,
+        <span class="ruby-identifier">:key</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">field_h</span>,
+        <span class="ruby-identifier">:unique</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">unique</span> }
+      <span class="ruby-identifier">insert_documents</span>([<span class="ruby-identifier">sel</span>], <span class="ruby-constant">Mongo</span><span class="ruby-operator">::</span><span class="ruby-constant">DB</span><span class="ruby-operator">::</span><span class="ruby-constant">SYSTEM_INDEX_COLLECTION</span>, <span class="ruby-keyword kw">false</span>)
+      <span class="ruby-identifier">name</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000178" class="method-detail">
+        <a name="M000178"></a>
+
+        <div class="method-heading">
+          <a href="#M000178" class="method-signature">
+          <span class="method-name">drop</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Drop the entire collection. USE WITH CAUTION.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000178-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000178-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/collection.rb, line 303</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">drop</span>
+      <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">drop_collection</span>(<span class="ruby-ivar">@name</span>)
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000176" class="method-detail">
+        <a name="M000176"></a>
+
+        <div class="method-heading">
+          <a href="#M000176" class="method-signature">
+          <span class="method-name">drop_index</span><span class="method-args">(name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Drop index <tt>name</tt>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000176-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000176-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/collection.rb, line 292</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">drop_index</span>(<span class="ruby-identifier">name</span>)
+      <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">drop_index</span>(<span class="ruby-ivar">@name</span>, <span class="ruby-identifier">name</span>)
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000177" class="method-detail">
+        <a name="M000177"></a>
+
+        <div class="method-heading">
+          <a href="#M000177" class="method-signature">
+          <span class="method-name">drop_indexes</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Drop all indexes.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000177-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000177-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/collection.rb, line 297</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">drop_indexes</span>
+      <span class="ruby-comment cmt"># just need to call drop indexes with no args; will drop them all</span>
+      <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">drop_index</span>(<span class="ruby-ivar">@name</span>, <span class="ruby-value str">'*'</span>)
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000167" class="method-detail">
+        <a name="M000167"></a>
+
+        <div class="method-heading">
+          <a href="#M000167" class="method-signature">
+          <span class="method-name">find</span><span class="method-args">(selector={}, options={}) {|cursor| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Query the database.
+</p>
+<p>
+The <tt>selector</tt> argument is a prototype document that all results
+must match. For example:
+</p>
+<p>
+collection.find({&quot;hello&quot; =&gt; &quot;world&quot;})
+</p>
+<p>
+only matches documents that have a key &quot;hello&quot; with value
+&quot;world&quot;. Matches can have other keys *in addition* to
+&quot;hello&quot;.
+</p>
+<p>
+If given an optional block <tt><a
+href="Collection.html#M000167">find</a></tt> will yield a <a
+href="Cursor.html">Cursor</a> to that block, close the cursor, and then
+return nil. This guarantees that partially evaluated cursors will be
+closed. If given no block <tt><a
+href="Collection.html#M000167">find</a></tt> returns a cursor.
+</p>
+<table>
+<tr><td valign="top">:selector :</td><td>A document (hash) specifying elements which must be present for a document
+to be included in the result set.
+
+</td></tr>
+</table>
+<p>
+Options:
+</p>
+<table>
+<tr><td valign="top">:fields :</td><td>Array of field names that should be returned in the result set
+(&quot;_id&quot; will always be included). By limiting results to a certain
+subset of fields you can cut down on network traffic and decoding time.
+
+</td></tr>
+<tr><td valign="top">:skip :</td><td>Number of documents to omit (from the start of the result set) when
+returning the results
+
+</td></tr>
+<tr><td valign="top">:limit :</td><td>Maximum number of records to return
+
+</td></tr>
+<tr><td valign="top">:sort :</td><td>An array of [key, direction] pairs to sort by. Direction should be
+specified as Mongo::ASCENDING (or :ascending / :asc) or Mongo::DESCENDING
+(or :descending / :desc)
+
+</td></tr>
+<tr><td valign="top">:hint :</td><td>See hint. This option overrides the collection-wide value.
+
+</td></tr>
+<tr><td valign="top">:snapshot :</td><td>If true, snapshot mode will be used for this query. Snapshot mode assures
+no duplicates are returned, or objects missed, which were preset at both
+the start and end of the query&#8216;s execution. For details see <a
+href="http://www.mongodb.org/display/DOCS/How+to+do+Snapshotting+in+the+Mongo+Database">www.mongodb.org/display/DOCS/How+to+do+Snapshotting+in+the+Mongo+Database</a>
+
+</td></tr>
+<tr><td valign="top">:timeout :</td><td>When <tt>true</tt> (default), the returned cursor will be subject to the
+normal cursor timeout behavior of the mongod process. When <tt>false</tt>,
+the returned cursor will never timeout. Note that disabling timeout will
+only work when <a href="Collection.html#M000167">find</a> is invoked with a
+block. This is to prevent any inadvertant failure to close the cursor, as
+the cursor is explicitly closed when block code finishes.
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000167-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000167-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/collection.rb, line 109</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">find</span>(<span class="ruby-identifier">selector</span>={}, <span class="ruby-identifier">options</span>={})
+      <span class="ruby-identifier">fields</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:fields</span>)
+      <span class="ruby-identifier">fields</span> = [<span class="ruby-value str">&quot;_id&quot;</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">fields</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">fields</span>.<span class="ruby-identifier">empty?</span>
+      <span class="ruby-identifier">skip</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:offset</span>) <span class="ruby-operator">||</span> <span class="ruby-keyword kw">nil</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">skip</span>.<span class="ruby-identifier">nil?</span>
+        <span class="ruby-identifier">warn</span> <span class="ruby-value str">&quot;the :offset option to find is deprecated and will be removed. please use :skip instead&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">skip</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:skip</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">skip</span> <span class="ruby-operator">||</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">limit</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:limit</span>) <span class="ruby-operator">||</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">sort</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:sort</span>)
+      <span class="ruby-identifier">hint</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:hint</span>)
+      <span class="ruby-identifier">snapshot</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:snapshot</span>)
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:timeout</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword kw">false</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">block_given?</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">&quot;Timeout can be set to false only when #find is invoked with a block.&quot;</span> 
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">timeout</span> = <span class="ruby-identifier">block_given?</span> <span class="ruby-value">? </span>(<span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:timeout</span>) <span class="ruby-operator">||</span> <span class="ruby-keyword kw">true</span>) <span class="ruby-operator">:</span> <span class="ruby-keyword kw">true</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">hint</span>
+        <span class="ruby-identifier">hint</span> = <span class="ruby-identifier">normalize_hint_fields</span>(<span class="ruby-identifier">hint</span>)
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">hint</span> = <span class="ruby-ivar">@hint</span>        <span class="ruby-comment cmt"># assumed to be normalized already</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">RuntimeError</span>, <span class="ruby-node">&quot;Unknown options [#{options.inspect}]&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">empty?</span>
+
+      <span class="ruby-identifier">cursor</span> = <span class="ruby-constant">Cursor</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">:selector</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">selector</span>, <span class="ruby-identifier">:fields</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">fields</span>, <span class="ruby-identifier">:skip</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">skip</span>, <span class="ruby-identifier">:limit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">limit</span>, 
+                          <span class="ruby-identifier">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">sort</span>, <span class="ruby-identifier">:hint</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">hint</span>, <span class="ruby-identifier">:snapshot</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">snapshot</span>, <span class="ruby-identifier">:timeout</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">timeout</span>)
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block_given?</span>
+        <span class="ruby-keyword kw">yield</span> <span class="ruby-identifier">cursor</span>
+        <span class="ruby-identifier">cursor</span>.<span class="ruby-identifier">close</span>()
+        <span class="ruby-keyword kw">nil</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">cursor</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000168" class="method-detail">
+        <a name="M000168"></a>
+
+        <div class="method-heading">
+          <a href="#M000168" class="method-signature">
+          <span class="method-name">find_one</span><span class="method-args">(spec_or_object_id=nil, options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get a single object from the database.
+</p>
+<p>
+Raises TypeError if the argument is of an improper type. Returns a single
+document (hash), or nil if no result is found.
+</p>
+<table>
+<tr><td valign="top">:spec_or_object_id :</td><td>a hash specifying elements which must be
+
+</td></tr>
+</table>
+<pre>
+  present for a document to be included in the result set OR an
+  instance of ObjectID to be used as the value for an _id query.
+  if nil an empty spec, {}, will be used.
+</pre>
+<table>
+<tr><td valign="top">:<a href="Collection.html#M000182">options</a> :</td><td><a href="Collection.html#M000182">options</a>, as passed to <a
+href="Collection.html#M000167">Collection#find</a>
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000168-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000168-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/collection.rb, line 153</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">find_one</span>(<span class="ruby-identifier">spec_or_object_id</span>=<span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">options</span>={})
+      <span class="ruby-identifier">spec</span> = <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">spec_or_object_id</span>
+             <span class="ruby-keyword kw">when</span> <span class="ruby-keyword kw">nil</span>
+               {}
+             <span class="ruby-keyword kw">when</span> <span class="ruby-constant">ObjectID</span>
+               {<span class="ruby-identifier">:_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">spec_or_object_id</span>}
+             <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Hash</span>
+               <span class="ruby-identifier">spec_or_object_id</span>
+             <span class="ruby-keyword kw">else</span>
+               <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-value str">&quot;spec_or_object_id must be an instance of ObjectID or Hash, or nil&quot;</span>
+             <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">find</span>(<span class="ruby-identifier">spec</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">:limit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">-1</span>)).<span class="ruby-identifier">next_object</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000179" class="method-detail">
+        <a name="M000179"></a>
+
+        <div class="method-heading">
+          <a href="#M000179" class="method-signature">
+          <span class="method-name">group</span><span class="method-args">(keys, condition, initial, reduce, command=false)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Perform a query similar to an SQL <a
+href="Collection.html#M000179">group</a> by operation.
+</p>
+<p>
+Returns an array of grouped items.
+</p>
+<table>
+<tr><td valign="top">:keys :</td><td>Array of fields to <a href="Collection.html#M000179">group</a> by
+
+</td></tr>
+<tr><td valign="top">:condition :</td><td>specification of rows to be considered (as a &#8216;<a
+href="Collection.html#M000167">find</a>&#8217; query specification)
+
+</td></tr>
+<tr><td valign="top">:initial :</td><td>initial value of the aggregation counter object
+
+</td></tr>
+<tr><td valign="top">:reduce :</td><td>aggregation function as a JavaScript string
+
+</td></tr>
+<tr><td valign="top">:command :</td><td>if true, run the <a href="Collection.html#M000179">group</a> as a command
+instead of in an eval - it is likely that this option will eventually be
+deprecated and all groups will be run as commands
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000179-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000179-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/collection.rb, line 319</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">group</span>(<span class="ruby-identifier">keys</span>, <span class="ruby-identifier">condition</span>, <span class="ruby-identifier">initial</span>, <span class="ruby-identifier">reduce</span>, <span class="ruby-identifier">command</span>=<span class="ruby-keyword kw">false</span>)
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">command</span>
+        <span class="ruby-identifier">hash</span> = {}
+        <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">k</span>] = <span class="ruby-value">1</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">reduce</span>
+        <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Code</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-identifier">reduce</span> = <span class="ruby-constant">Code</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">reduce</span>)
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">db_command</span>({<span class="ruby-value str">&quot;group&quot;</span> =<span class="ruby-operator">&gt;</span>
+                                  {
+                                    <span class="ruby-value str">&quot;ns&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@name</span>,
+                                    <span class="ruby-value str">&quot;$reduce&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">reduce</span>,
+                                    <span class="ruby-value str">&quot;key&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">hash</span>,
+                                    <span class="ruby-value str">&quot;cond&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">condition</span>,
+                                    <span class="ruby-value str">&quot;initial&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">initial</span>}})
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">result</span>[<span class="ruby-value str">&quot;ok&quot;</span>] <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+          <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">result</span>[<span class="ruby-value str">&quot;retval&quot;</span>]
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">OperationFailure</span>, <span class="ruby-node">&quot;group command failed: #{result['errmsg']}&quot;</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">reduce</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Code</span>
+        <span class="ruby-identifier">scope</span> = <span class="ruby-identifier">reduce</span>.<span class="ruby-identifier">scope</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">scope</span> = {}
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">scope</span>.<span class="ruby-identifier">merge!</span>({
+                     <span class="ruby-value str">&quot;ns&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@name</span>,
+                     <span class="ruby-value str">&quot;keys&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">keys</span>,
+                     <span class="ruby-value str">&quot;condition&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">condition</span>,
+                     <span class="ruby-value str">&quot;initial&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">initial</span> })
+
+      <span class="ruby-identifier">group_function</span> = <span class="ruby-value str">&quot;function () {\n    var c = db[ns].find(condition);\n    var map = new Map();\n    var reduce_function = \#{reduce};\n    while (c.hasNext()) {\n        var obj = c.next();\n\n        var key = {};\n        for (var i = 0; i &lt; keys.length; i++) {\n            var k = keys[i];\n            key[k] = obj[k];\n        }\n\n        var aggObj = map.get(key);\n        if (aggObj == null) {\n            var newObj = Object.extend({}, key);\n            aggObj = Object.extend(newObj, initial);\n            map.put(key, aggObj);\n        }\n        reduce_function(obj, aggObj);\n    }\n    return {\&quot;result\&quot;: map.values()};\n}\n&quot;</span>
+      <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">eval</span>(<span class="ruby-constant">Code</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">group_function</span>, <span class="ruby-identifier">scope</span>))[<span class="ruby-value str">&quot;result&quot;</span>]
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000166" class="method-detail">
+        <a name="M000166"></a>
+
+        <div class="method-heading">
+          <a href="#M000166" class="method-signature">
+          <span class="method-name">hint=</span><span class="method-args">(hint)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Set hint fields to use and return <tt>self</tt>. hint may be a single field
+name, array of field names, or a hash (preferably an <a
+href="../OrderedHash.html">OrderedHash</a>). May be <tt>nil</tt>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000166-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000166-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/collection.rb, line 62</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">hint=</span>(<span class="ruby-identifier">hint</span>)
+      <span class="ruby-ivar">@hint</span> = <span class="ruby-identifier">normalize_hint_fields</span>(<span class="ruby-identifier">hint</span>)
+      <span class="ruby-keyword kw">self</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000181" class="method-detail">
+        <a name="M000181"></a>
+
+        <div class="method-heading">
+          <a href="#M000181" class="method-signature">
+          <span class="method-name">index_information</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get information on the indexes for the collection <tt>collection_name</tt>.
+Returns a hash where the keys are index names (as returned by <a
+href="Collection.html#M000175">Collection#create_index</a> and the values
+are lists of [key, direction] pairs specifying the index (as passed to <a
+href="Collection.html#M000175">Collection#create_index</a>).
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000181-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000181-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/collection.rb, line 420</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">index_information</span>
+      <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">index_information</span>(<span class="ruby-ivar">@name</span>)
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000170" class="method-detail">
+        <a name="M000170"></a>
+
+        <div class="method-heading">
+          <a href="#M000170" class="method-signature">
+          <span class="method-name">insert</span><span class="method-args">(doc_or_docs, options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Insert a document(s) into this collection.
+</p>
+<p>
+&quot;&lt;&lt;&quot; is aliased to this method. Returns the _id of the
+inserted document or a list of _ids of the inserted documents. The
+object(s) may have been modified by the database&#8216;s PK factory, if it
+has one.
+</p>
+<table>
+<tr><td valign="top">:doc_or_docs :</td><td>a document (as a hash) or Array of documents to be
+
+</td></tr>
+</table>
+<pre>
+  inserted
+</pre>
+<p>
+Options:
+</p>
+<table>
+<tr><td valign="top">:safe :</td><td>if true, check that the <a href="Collection.html#M000170">insert</a>
+succeeded. <a href="OperationFailure.html">OperationFailure</a>
+
+</td></tr>
+</table>
+<pre>
+  will be raised on an error. Checking for safety requires an extra
+  round-trip to the database
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000170-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000170-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/collection.rb, line 202</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">insert</span>(<span class="ruby-identifier">doc_or_docs</span>, <span class="ruby-identifier">options</span>={})
+      <span class="ruby-identifier">doc_or_docs</span> = [<span class="ruby-identifier">doc_or_docs</span>] <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">doc_or_docs</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>)
+      <span class="ruby-identifier">doc_or_docs</span>.<span class="ruby-identifier">collect!</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">doc</span><span class="ruby-operator">|</span> <span class="ruby-ivar">@pk_factory</span>.<span class="ruby-identifier">create_pk</span>(<span class="ruby-identifier">doc</span>) }
+      <span class="ruby-identifier">result</span> = <span class="ruby-identifier">insert_documents</span>(<span class="ruby-identifier">doc_or_docs</span>)
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:safe</span>)
+        <span class="ruby-identifier">error</span> = <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">error</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">error</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">OperationFailure</span>, <span class="ruby-identifier">error</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">result</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">result</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">first</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000182" class="method-detail">
+        <a name="M000182"></a>
+
+        <div class="method-heading">
+          <a href="#M000182" class="method-signature">
+          <span class="method-name">options</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Return a hash containing <a href="Collection.html#M000182">options</a> that
+apply to this collection. &#8216;create&#8217; will be the collection name.
+For the other possible keys and values, see <a
+href="DB.html#M000124">DB#create_collection</a>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000182-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000182-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/collection.rb, line 427</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">options</span>
+      <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">collections_info</span>(<span class="ruby-ivar">@name</span>).<span class="ruby-identifier">next_object</span>()[<span class="ruby-value str">'options'</span>]
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000172" class="method-detail">
+        <a name="M000172"></a>
+
+        <div class="method-heading">
+          <a href="#M000172" class="method-signature">
+          <span class="method-name">remove</span><span class="method-args">(selector={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Remove all records from this collection. If <tt>selector</tt> is specified,
+only matching documents will be removed.
+</p>
+<p>
+Remove all records from the collection:
+</p>
+<pre>
+  @collection.remove
+  @collection.remove({})
+</pre>
+<p>
+Remove only records that have expired:
+</p>
+<pre>
+  @collection.remove({:expire =&gt; {'$lte' =&gt; Time.now}})
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000172-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000172-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/collection.rb, line 225</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">remove</span>(<span class="ruby-identifier">selector</span>={})
+      <span class="ruby-identifier">message</span> = <span class="ruby-constant">ByteBuffer</span>.<span class="ruby-identifier">new</span>
+      <span class="ruby-identifier">message</span>.<span class="ruby-identifier">put_int</span>(<span class="ruby-value">0</span>)
+      <span class="ruby-constant">BSON</span>.<span class="ruby-identifier">serialize_cstr</span>(<span class="ruby-identifier">message</span>, <span class="ruby-node">&quot;#{@db.name}.#{@name}&quot;</span>)
+      <span class="ruby-identifier">message</span>.<span class="ruby-identifier">put_int</span>(<span class="ruby-value">0</span>)
+      <span class="ruby-identifier">message</span>.<span class="ruby-identifier">put_array</span>(<span class="ruby-constant">BSON</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">serialize</span>(<span class="ruby-identifier">selector</span>, <span class="ruby-keyword kw">false</span>).<span class="ruby-identifier">to_a</span>)
+      <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">send_message_with_operation</span>(<span class="ruby-constant">Mongo</span><span class="ruby-operator">::</span><span class="ruby-constant">Constants</span><span class="ruby-operator">::</span><span class="ruby-constant">OP_DELETE</span>, <span class="ruby-identifier">message</span>)
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000180" class="method-detail">
+        <a name="M000180"></a>
+
+        <div class="method-heading">
+          <a href="#M000180" class="method-signature">
+          <span class="method-name">rename</span><span class="method-args">(new_name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Rename this collection.
+</p>
+<p>
+If operating in auth mode, client must be authorized as an admin to perform
+this operation. Raises <tt><a href="InvalidName.html">InvalidName</a></tt>
+if <tt>new_name</tt> is an invalid collection name.
+</p>
+<table>
+<tr><td valign="top">:new_name :</td><td><a href="Collection.html#M000164">new</a> name for this collection
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000180-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000180-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/collection.rb, line 394</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">rename</span>(<span class="ruby-identifier">new_name</span>)
+      <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">new_name</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Symbol</span>, <span class="ruby-constant">String</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-value str">&quot;new_name must be a string or symbol&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">new_name</span> = <span class="ruby-identifier">new_name</span>.<span class="ruby-identifier">to_s</span>
+
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">new_name</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">new_name</span>.<span class="ruby-identifier">include?</span> <span class="ruby-value str">&quot;..&quot;</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">InvalidName</span>, <span class="ruby-value str">&quot;collection names cannot be empty&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">new_name</span>.<span class="ruby-identifier">include?</span> <span class="ruby-value str">&quot;$&quot;</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">InvalidName</span>, <span class="ruby-value str">&quot;collection names must not contain '$'&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">new_name</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp re">/^\./</span>) <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">new_name</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp re">/\.$/</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">InvalidName</span>, <span class="ruby-value str">&quot;collection names must not start or end with '.'&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">rename_collection</span>(<span class="ruby-ivar">@name</span>, <span class="ruby-identifier">new_name</span>)
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000169" class="method-detail">
+        <a name="M000169"></a>
+
+        <div class="method-heading">
+          <a href="#M000169" class="method-signature">
+          <span class="method-name">save</span><span class="method-args">(to_save, options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Save a document in this collection.
+</p>
+<p>
+If <tt>to_save</tt> already has an &#8216;_id&#8217; then an <a
+href="Collection.html#M000174">update</a> (upsert) operation is performed
+and any existing document with that _id is overwritten. Otherwise an <a
+href="Collection.html#M000170">insert</a> operation is performed. Returns
+the _id of the saved document.
+</p>
+<table>
+<tr><td valign="top">:to_save :</td><td>the document (a hash) to be saved
+
+</td></tr>
+</table>
+<p>
+Options:
+</p>
+<table>
+<tr><td valign="top">:safe :</td><td>if true, check that the <a href="Collection.html#M000169">save</a>
+succeeded. <a href="OperationFailure.html">OperationFailure</a>
+
+</td></tr>
+</table>
+<pre>
+  will be raised on an error. Checking for safety requires an extra
+  round-trip to the database
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000169-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000169-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/collection.rb, line 180</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">save</span>(<span class="ruby-identifier">to_save</span>, <span class="ruby-identifier">options</span>={})
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">id</span> = <span class="ruby-identifier">to_save</span>[<span class="ruby-identifier">:_id</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">to_save</span>[<span class="ruby-value str">'_id'</span>]
+        <span class="ruby-identifier">update</span>({<span class="ruby-identifier">:_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">id</span>}, <span class="ruby-identifier">to_save</span>, <span class="ruby-identifier">:upsert</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>, <span class="ruby-identifier">:safe</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:safe</span>))
+        <span class="ruby-identifier">id</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">insert</span>(<span class="ruby-identifier">to_save</span>, <span class="ruby-identifier">:safe</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:safe</span>))
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000184" class="method-detail">
+        <a name="M000184"></a>
+
+        <div class="method-heading">
+          <span class="method-name">size</span><span class="method-args">()</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="Collection.html#M000183">count</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000174" class="method-detail">
+        <a name="M000174"></a>
+
+        <div class="method-heading">
+          <a href="#M000174" class="method-signature">
+          <span class="method-name">update</span><span class="method-args">(spec, document, options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Update a single document in this collection.
+</p>
+<table>
+<tr><td valign="top">:spec :</td><td>a hash specifying elements which must be present for
+
+</td></tr>
+</table>
+<pre>
+  a document to be updated
+</pre>
+<table>
+<tr><td valign="top">:document :</td><td>a hash specifying the fields to be changed in the
+
+</td></tr>
+</table>
+<pre>
+  selected document, or (in the case of an upsert) the document to
+  be inserted
+</pre>
+<p>
+Options:
+</p>
+<table>
+<tr><td valign="top">:upsert :</td><td>if true, perform an upsert operation
+
+</td></tr>
+<tr><td valign="top">:safe :</td><td>if true, check that the <a href="Collection.html#M000174">update</a>
+succeeded. <a href="OperationFailure.html">OperationFailure</a>
+
+</td></tr>
+</table>
+<pre>
+  will be raised on an error. Checking for safety requires an extra
+  round-trip to the database
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000174-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000174-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/collection.rb, line 254</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">update</span>(<span class="ruby-identifier">spec</span>, <span class="ruby-identifier">document</span>, <span class="ruby-identifier">options</span>={})
+      <span class="ruby-identifier">message</span> = <span class="ruby-constant">ByteBuffer</span>.<span class="ruby-identifier">new</span>
+      <span class="ruby-identifier">message</span>.<span class="ruby-identifier">put_int</span>(<span class="ruby-value">0</span>)
+      <span class="ruby-constant">BSON</span>.<span class="ruby-identifier">serialize_cstr</span>(<span class="ruby-identifier">message</span>, <span class="ruby-node">&quot;#{@db.name}.#{@name}&quot;</span>)
+      <span class="ruby-identifier">message</span>.<span class="ruby-identifier">put_int</span>(<span class="ruby-identifier">options</span>[<span class="ruby-identifier">:upsert</span>] <span class="ruby-operator">?</span> <span class="ruby-value">1</span> <span class="ruby-operator">:</span> <span class="ruby-value">0</span>) <span class="ruby-comment cmt"># 1 if a repsert operation (upsert)</span>
+      <span class="ruby-identifier">message</span>.<span class="ruby-identifier">put_array</span>(<span class="ruby-constant">BSON</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">serialize</span>(<span class="ruby-identifier">spec</span>, <span class="ruby-keyword kw">false</span>).<span class="ruby-identifier">to_a</span>)
+      <span class="ruby-identifier">message</span>.<span class="ruby-identifier">put_array</span>(<span class="ruby-constant">BSON</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">serialize</span>(<span class="ruby-identifier">document</span>, <span class="ruby-keyword kw">false</span>).<span class="ruby-identifier">to_a</span>)
+      <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">send_message_with_operation</span>(<span class="ruby-constant">Mongo</span><span class="ruby-operator">::</span><span class="ruby-constant">Constants</span><span class="ruby-operator">::</span><span class="ruby-constant">OP_UPDATE</span>, <span class="ruby-identifier">message</span>)
+
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:safe</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">error</span>=<span class="ruby-ivar">@db</span>.<span class="ruby-identifier">error</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">OperationFailure</span>, <span class="ruby-identifier">error</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Protected Instance methods</h3>
+
+      <div id="method-M000185" class="method-detail">
+        <a name="M000185"></a>
+
+        <div class="method-heading">
+          <a href="#M000185" class="method-signature">
+          <span class="method-name">normalize_hint_fields</span><span class="method-args">(hint)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000185-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000185-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/mongo/collection.rb, line 440</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">normalize_hint_fields</span>(<span class="ruby-identifier">hint</span>)
+      <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">hint</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">String</span>
+        {<span class="ruby-identifier">hint</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>}
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Hash</span>
+        <span class="ruby-identifier">hint</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-keyword kw">nil</span>
+        <span class="ruby-keyword kw">nil</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">h</span> = <span class="ruby-constant">OrderedHash</span>.<span class="ruby-identifier">new</span>
+        <span class="ruby-identifier">hint</span>.<span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span> <span class="ruby-identifier">h</span>[<span class="ruby-identifier">k</span>] = <span class="ruby-value">1</span> }
+        <span class="ruby-identifier">h</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

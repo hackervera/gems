@@ -1,0 +1,53 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: command
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: options
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: stdin
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: stdout
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: execute
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SUPPORTED_COMMANDS
+  value: "{       \"authorize\" => \"Obtain an access token and secret for a user\",       \"debug\"     => \"Verbosely generate an OAuth signature\",       \"query\"     => \"Query a protected resource\",       \"sign\"      => \"Generate an OAuth signature\",       \"version\"   => \"Display the current version of the library\""
+full_name: OAuth::CLI
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: execute
+- !ruby/object:RI::MethodSummary 
+  name: extract_command_and_parse_options
+- !ruby/object:RI::MethodSummary 
+  name: option_parser
+- !ruby/object:RI::MethodSummary 
+  name: parse_options
+- !ruby/object:RI::MethodSummary 
+  name: prepare_parameters
+- !ruby/object:RI::MethodSummary 
+  name: sufficient_options?
+- !ruby/object:RI::MethodSummary 
+  name: usage
+- !ruby/object:RI::MethodSummary 
+  name: valid_command?
+- !ruby/object:RI::MethodSummary 
+  name: verbose?
+name: CLI
+superclass: Object

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Given an algorithm this calculates the keysize. This is used by both the generate and with_password methods. This is not yet 100% complete.
+full_name: EzCrypto::Key::calculate_key_size
+is_singleton: true
+name: calculate_key_size
+params: (algorithm)
+visibility: public

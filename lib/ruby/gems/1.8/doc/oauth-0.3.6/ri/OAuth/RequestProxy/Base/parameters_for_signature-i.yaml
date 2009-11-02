@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: OAuth::RequestProxy::Base#parameters_for_signature
+is_singleton: false
+name: parameters_for_signature
+params: ()
+visibility: public

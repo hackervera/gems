@@ -1,0 +1,61 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: query
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: result
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: Twitter::Search
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: HTTParty
+- !ruby/object:RI::IncludedModule 
+  name: Enumerable
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: clear
+- !ruby/object:RI::MethodSummary 
+  name: containing
+- !ruby/object:RI::MethodSummary 
+  name: contains
+- !ruby/object:RI::MethodSummary 
+  name: each
+- !ruby/object:RI::MethodSummary 
+  name: fetch
+- !ruby/object:RI::MethodSummary 
+  name: from
+- !ruby/object:RI::MethodSummary 
+  name: geocode
+- !ruby/object:RI::MethodSummary 
+  name: hashed
+- !ruby/object:RI::MethodSummary 
+  name: lang
+- !ruby/object:RI::MethodSummary 
+  name: max
+- !ruby/object:RI::MethodSummary 
+  name: page
+- !ruby/object:RI::MethodSummary 
+  name: per_page
+- !ruby/object:RI::MethodSummary 
+  name: ref
+- !ruby/object:RI::MethodSummary 
+  name: references
+- !ruby/object:RI::MethodSummary 
+  name: referencing
+- !ruby/object:RI::MethodSummary 
+  name: since
+- !ruby/object:RI::MethodSummary 
+  name: to
+- !ruby/object:RI::MethodSummary 
+  name: user_agent
+name: Search
+superclass: Object

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Mongo::DB#slave_ok?
+is_singleton: false
+name: slave_ok?
+params: ()
+visibility: public

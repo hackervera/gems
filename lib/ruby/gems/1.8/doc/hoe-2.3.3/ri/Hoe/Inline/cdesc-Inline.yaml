@@ -1,0 +1,30 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Hoe allows bundling of pre-compiled extensions in the <tt>package</tt> task.
+- !ruby/struct:SM::Flow::P 
+  body: "To create a package for your current platform:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  rake package INLINE=1\n"
+- !ruby/struct:SM::Flow::P 
+  body: This will force Hoe analize your <tt>Inline</tt> already compiled extensions and include them in your gem.
+- !ruby/struct:SM::Flow::P 
+  body: "If somehow you need to force a specific platform:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  rake package INLINE=1 FORCE_PLATFORM=mswin32\n"
+- !ruby/struct:SM::Flow::P 
+  body: This will set the +Gem::Specification+ platform to the one indicated in <tt>FORCE_PLATFORM</tt> (instead of default Gem::Platform::CURRENT)
+constants: []
+
+full_name: Hoe::Inline
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: define_inline_tasks
+name: Inline
+superclass: 

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>get_request_token (OAuth::Consumer)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/oauth/consumer.rb, line 123</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_request_token</span>(<span class="ruby-identifier">request_options</span> = {}, <span class="ruby-operator">*</span><span class="ruby-identifier">arguments</span>)
+      <span class="ruby-comment cmt"># if oauth_callback wasn't provided, it is assumed that oauth_verifiers</span>
+      <span class="ruby-comment cmt"># will be exchanged out of band</span>
+      <span class="ruby-identifier">request_options</span>[<span class="ruby-identifier">:oauth_callback</span>] <span class="ruby-operator">||=</span> <span class="ruby-constant">OAuth</span><span class="ruby-operator">::</span><span class="ruby-constant">OUT_OF_BAND</span>
+
+      <span class="ruby-identifier">response</span> = <span class="ruby-identifier">token_request</span>(<span class="ruby-identifier">http_method</span>, (<span class="ruby-identifier">request_token_url?</span> <span class="ruby-value">? </span><span class="ruby-identifier">request_token_url</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">request_token_path</span>), <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">request_options</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">arguments</span>)
+      <span class="ruby-constant">OAuth</span><span class="ruby-operator">::</span><span class="ruby-constant">RequestToken</span>.<span class="ruby-identifier">from_hash</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">response</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Close the cursor.
+- !ruby/struct:SM::Flow::P 
+  body: "Note: if a cursor is read until exhausted (read until Mongo::Constants::OP_QUERY or Mongo::Constants::OP_GETMORE returns zero for the cursor id), there is no need to close it by calling this method."
+- !ruby/struct:SM::Flow::P 
+  body: Collection#find takes an optional block argument which can be used to ensure that your cursors get closed. See the documentation for Collection#find for details.
+full_name: Mongo::Cursor#close
+is_singleton: false
+name: close
+params: ()
+visibility: public

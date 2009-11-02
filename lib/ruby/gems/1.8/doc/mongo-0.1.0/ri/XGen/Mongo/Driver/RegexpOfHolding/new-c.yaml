@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: <tt>str</tt> and <tt>options</tt> are the same as Regexp. <tt>extra_options_str</tt> contains all the other flags that were in Mongo but we do not use or understand.
+full_name: XGen::Mongo::Driver::RegexpOfHolding::new
+is_singleton: true
+name: new
+params: (str, options, extra_options_str)
+visibility: public

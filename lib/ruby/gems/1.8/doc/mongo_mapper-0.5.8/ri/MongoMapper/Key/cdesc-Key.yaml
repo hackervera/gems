@@ -1,0 +1,40 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: default_value
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: name
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: options
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: type
+  rw: RW
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: MongoMapper::Key
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: ==
+- !ruby/object:RI::MethodSummary 
+  name: embeddable?
+- !ruby/object:RI::MethodSummary 
+  name: get
+- !ruby/object:RI::MethodSummary 
+  name: number?
+- !ruby/object:RI::MethodSummary 
+  name: set
+name: Key
+superclass: Object

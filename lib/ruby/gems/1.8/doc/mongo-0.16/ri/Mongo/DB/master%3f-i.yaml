@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Returns true if this database is a master (or is not paired with any other database), false if it is a slave.
+full_name: Mongo::DB#master?
+is_singleton: false
+name: master?
+params: ()
+visibility: public

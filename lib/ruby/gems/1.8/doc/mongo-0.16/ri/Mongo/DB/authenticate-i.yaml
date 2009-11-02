@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Returns true if <tt>username</tt> has <tt>password</tt> in <tt>SYSTEM_USER_COLLECTION</tt>. <tt>name</tt> is username, <tt>password</tt> is plaintext password.
+full_name: Mongo::DB#authenticate
+is_singleton: false
+name: authenticate
+params: (username, password)
+visibility: public

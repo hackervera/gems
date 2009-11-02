@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Returns the collection name, if not set, defaults to class name tableized
+- !ruby/struct:SM::Flow::P 
+  body: "@return [String] the collection name, if not set, defaults to class"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  name tableized\n"
+full_name: MongoMapper::Document::ClassMethods#collection_name
+is_singleton: false
+name: collection_name
+params: ()
+visibility: public

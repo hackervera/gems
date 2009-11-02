@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Turns an array containing a host name string and a port number integer into a [host, port] pair array.
+full_name: Mongo::Connection#pair_val_to_connection
+is_singleton: false
+name: pair_val_to_connection
+params: (a)
+visibility: protected

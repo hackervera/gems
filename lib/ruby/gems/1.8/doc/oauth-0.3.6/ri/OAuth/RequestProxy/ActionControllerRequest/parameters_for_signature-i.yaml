@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Override from OAuth::RequestProxy::Base to avoid roundtrip conversion to Hash or Array and thus preserve the original parameter names
+full_name: OAuth::RequestProxy::ActionControllerRequest#parameters_for_signature
+is_singleton: false
+name: parameters_for_signature
+params: ()
+visibility: public

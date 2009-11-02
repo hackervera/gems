@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: List the contains of all GridFS files stored in the given db and root collection.
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: ":db :"
+    body: the database to use
+  - !ruby/struct:SM::Flow::LI 
+    label: ":root_collection :"
+    body: the root collection to use
+  type: :NOTE
+full_name: GridFS::GridStore::list
+is_singleton: true
+name: list
+params: (db, root_collection=DEFAULT_ROOT_COLLECTION)
+visibility: public

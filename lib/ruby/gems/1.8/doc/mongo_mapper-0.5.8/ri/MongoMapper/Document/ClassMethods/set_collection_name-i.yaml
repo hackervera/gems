@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Changes the collection name from the default to whatever you want
+- !ruby/struct:SM::Flow::P 
+  body: "@param [#to_s] name the new collection name to use. Defaults to <tt>nil</tt>"
+full_name: MongoMapper::Document::ClassMethods#set_collection_name
+is_singleton: false
+name: set_collection_name
+params: (name=nil)
+visibility: public

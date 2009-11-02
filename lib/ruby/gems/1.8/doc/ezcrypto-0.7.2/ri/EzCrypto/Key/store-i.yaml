@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Save the key data into a file, try to do this in a secure manner. NOTE: YAML::store &amp; friends are not used to encance control over the generated file format."
+full_name: EzCrypto::Key#store
+is_singleton: false
+name: store
+params: (filename)
+visibility: public

@@ -1,0 +1,775 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: MongoMapper::Document::ClassMethods</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">MongoMapper::Document::ClassMethods</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/mongo_mapper/document_rb.html">
+                lib/mongo_mapper/document.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000437">all</a>&nbsp;&nbsp;
+      <a href="#M000452">collection</a>&nbsp;&nbsp;
+      <a href="#M000451">collection_name</a>&nbsp;&nbsp;
+      <a href="#M000448">connection</a>&nbsp;&nbsp;
+      <a href="#M000439">count</a>&nbsp;&nbsp;
+      <a href="#M000441">create</a>&nbsp;&nbsp;
+      <a href="#M000442">create!</a>&nbsp;&nbsp;
+      <a href="#M000449">database</a>&nbsp;&nbsp;
+      <a href="#M000444">delete</a>&nbsp;&nbsp;
+      <a href="#M000445">delete_all</a>&nbsp;&nbsp;
+      <a href="#M000446">destroy</a>&nbsp;&nbsp;
+      <a href="#M000447">destroy_all</a>&nbsp;&nbsp;
+      <a href="#M000432">ensure_index</a>&nbsp;&nbsp;
+      <a href="#M000440">exists?</a>&nbsp;&nbsp;
+      <a href="#M000433">find</a>&nbsp;&nbsp;
+      <a href="#M000438">find_by_id</a>&nbsp;&nbsp;
+      <a href="#M000435">first</a>&nbsp;&nbsp;
+      <a href="#M000431">key</a>&nbsp;&nbsp;
+      <a href="#M000436">last</a>&nbsp;&nbsp;
+      <a href="#M000456">method_missing</a>&nbsp;&nbsp;
+      <a href="#M000434">paginate</a>&nbsp;&nbsp;
+      <a href="#M000450">set_collection_name</a>&nbsp;&nbsp;
+      <a href="#M000454">single_collection_inherited?</a>&nbsp;&nbsp;
+      <a href="#M000455">single_collection_inherited_superclass?</a>&nbsp;&nbsp;
+      <a href="#M000453">timestamps!</a>&nbsp;&nbsp;
+      <a href="#M000443">update</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000437" class="method-detail">
+        <a name="M000437"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000437.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000437.html');return false;">
+          <span class="method-name">all</span><span class="method-args">(options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+@param [<a href="../../Hash.html">Hash</a>] options any conditions
+understood by
+</p>
+<pre>
+  FinderOptions.to_mongo_criteria
+</pre>
+<p>
+@return [<a href="../../Array.html">Array</a>] <a
+href="ClassMethods.html#M000437">all</a> documents in your <a
+href="ClassMethods.html#M000452">collection</a> that match the
+</p>
+<pre>
+  provided conditions
+</pre>
+<p>
+@see <a href="../FinderOptions.html">FinderOptions</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000452" class="method-detail">
+        <a name="M000452"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000452.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000452.html');return false;">
+          <span class="method-name">collection</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+@return the Mongo Ruby driver <tt><a
+href="ClassMethods.html#M000452">collection</a></tt> object
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000451" class="method-detail">
+        <a name="M000451"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000451.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000451.html');return false;">
+          <span class="method-name">collection_name</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the <a href="ClassMethods.html#M000452">collection</a> name, if not
+set, defaults to class name tableized
+</p>
+<p>
+@return [<a href="../../String.html">String</a>] the <a
+href="ClassMethods.html#M000452">collection</a> name, if not set, defaults
+to class
+</p>
+<pre>
+  name tableized
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000448" class="method-detail">
+        <a name="M000448"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000448.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000448.html');return false;">
+          <span class="method-name">connection</span><span class="method-args">(mongo_connection=nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+@overload <a href="ClassMethods.html#M000448">connection</a>()
+</p>
+<pre>
+  @return [Mongo::Connection] the connection used by your document class
+</pre>
+<p>
+@overload <a
+href="ClassMethods.html#M000448">connection</a>(mongo_connection)
+</p>
+<pre>
+  @param [Mongo::Connection] mongo_connection a new connection for your
+    document class to use
+  @return [Mongo::Connection] a new Mongo::Connection for yoru document
+    class
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000439" class="method-detail">
+        <a name="M000439"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000439.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000439.html');return false;">
+          <span class="method-name">count</span><span class="method-args">(options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000441" class="method-detail">
+        <a name="M000441"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000441.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000441.html');return false;">
+          <span class="method-name">create</span><span class="method-args">(*docs)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+@overload <a href="ClassMethods.html#M000441">create</a>(doc_attributes)
+</p>
+<pre>
+  Create a single new document
+  @param [Hash] doc_attributes key/value pairs to create a new
+    document
+</pre>
+<p>
+@overload <a href="ClassMethods.html#M000441">create</a>(docs_attributes)
+</p>
+<pre>
+  Create many new documents
+  @param [Array&lt;Hash&gt;] provide many Hashes of key/value pairs to create
+    multiple documents
+</pre>
+<p>
+@example Creating a single document
+</p>
+<pre>
+  MyModel.create({ :foo =&gt; &quot;bar&quot; })
+</pre>
+<p>
+@example Creating multiple documents
+</p>
+<pre>
+  MyModel.create([{ :foo =&gt; &quot;bar&quot; }, { :foo =&gt; &quot;baz&quot; })
+</pre>
+<p>
+@return [<a href="../../Boolean.html">Boolean</a>] when a document is
+successfully created, <tt>true</tt> will
+</p>
+<pre>
+  be returned. If a document fails to create, +false+ will be returned.
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000442" class="method-detail">
+        <a name="M000442"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000442.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000442.html');return false;">
+          <span class="method-name">create!</span><span class="method-args">(*docs)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+@see Document.create
+</p>
+<p>
+@raise [<a href="../DocumentNotValid.html">DocumentNotValid</a>] raised if
+a document fails to <a href="ClassMethods.html#M000441">create</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000449" class="method-detail">
+        <a name="M000449"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000449.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000449.html');return false;">
+          <span class="method-name">database</span><span class="method-args">(name=nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+@overload <a href="ClassMethods.html#M000449">database</a>()
+</p>
+<pre>
+  @return [Mongo] the database object used by your document class
+</pre>
+<p>
+@overload <a href="ClassMethods.html#M000449">database</a>(name)
+</p>
+<pre>
+  @param [String] name the name of an existing, or new, Mongo database
+  @return [Mongo] a Mongo database object for the specified database
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000444" class="method-detail">
+        <a name="M000444"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000444.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000444.html');return false;">
+          <span class="method-name">delete</span><span class="method-args">(*ids)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Removes (&quot;deletes&quot;) one or many documents from the <a
+href="ClassMethods.html#M000452">collection</a>. Note that this will bypass
+any <tt><a href="ClassMethods.html#M000446">destroy</a></tt> hooks defined
+by your class.
+</p>
+<p>
+@param [<a href="../../Array.html">Array</a>] ids the ID or IDs of the
+records you wish to <a href="ClassMethods.html#M000444">delete</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000445" class="method-detail">
+        <a name="M000445"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000445.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000445.html');return false;">
+          <span class="method-name">delete_all</span><span class="method-args">(options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000446" class="method-detail">
+        <a name="M000446"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000446.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000446.html');return false;">
+          <span class="method-name">destroy</span><span class="method-args">(*ids)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Iterates over each document found by the provided IDs and calls their
+<tt><a href="ClassMethods.html#M000446">destroy</a></tt> method. This has
+the advantage of processing your document&#8216;s <tt><a
+href="ClassMethods.html#M000446">destroy</a></tt> call-backs.
+</p>
+<p>
+@overload <a href="ClassMethods.html#M000446">destroy</a>(id)
+</p>
+<pre>
+  Destroy a single document by ID
+  @param id the ID of the document to destroy
+</pre>
+<p>
+@overload <a href="ClassMethods.html#M000446">destroy</a>(ids)
+</p>
+<pre>
+  Destroy many documents by their IDs
+  @param [Array] the IDs of each document you wish to destroy
+</pre>
+<p>
+@example Destroying a single document
+</p>
+<pre>
+  Person.destroy(&quot;34&quot;)
+</pre>
+<p>
+@example Destroying multiple documents
+</p>
+<pre>
+  Person.destroy(&quot;34&quot;, &quot;45&quot;, ..., &quot;54&quot;)
+
+  # OR...
+
+  Person.destroy([&quot;34&quot;, &quot;45&quot;, ..., &quot;54&quot;])
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000447" class="method-detail">
+        <a name="M000447"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000447.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000447.html');return false;">
+          <span class="method-name">destroy_all</span><span class="method-args">(options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000432" class="method-detail">
+        <a name="M000432"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000432.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000432.html');return false;">
+          <span class="method-name">ensure_index</span><span class="method-args">(name_or_array, options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000440" class="method-detail">
+        <a name="M000440"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000440.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000440.html');return false;">
+          <span class="method-name">exists?</span><span class="method-args">(options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000433" class="method-detail">
+        <a name="M000433"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000433.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000433.html');return false;">
+          <span class="method-name">find</span><span class="method-args">(*args)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+@overload <a href="ClassMethods.html#M000433">find</a>(:<a
+href="ClassMethods.html#M000435">first</a>, options)
+</p>
+<pre>
+  @see Document.first
+</pre>
+<p>
+@overload <a href="ClassMethods.html#M000433">find</a>(:<a
+href="ClassMethods.html#M000436">last</a>, options)
+</p>
+<pre>
+  @see Document.last
+</pre>
+<p>
+@overload <a href="ClassMethods.html#M000433">find</a>(:<a
+href="ClassMethods.html#M000437">all</a>, options)
+</p>
+<pre>
+  @see Document.all
+</pre>
+<p>
+@overload <a href="ClassMethods.html#M000433">find</a>(ids, options)
+</p>
+<p>
+@raise <a href="../DocumentNotFound.html">DocumentNotFound</a> raised when
+no ID or arguments are provided
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000438" class="method-detail">
+        <a name="M000438"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000438.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000438.html');return false;">
+          <span class="method-name">find_by_id</span><span class="method-args">(id)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000435" class="method-detail">
+        <a name="M000435"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000435.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000435.html');return false;">
+          <span class="method-name">first</span><span class="method-args">(options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+@param [<a href="../../Hash.html">Hash</a>] options any conditions
+understood by
+</p>
+<pre>
+  FinderOptions.to_mongo_criteria
+</pre>
+<p>
+@return the <a href="ClassMethods.html#M000435">first</a> document in the
+ordered <a href="ClassMethods.html#M000452">collection</a> as described by
+</p>
+<pre>
+  +options+
+</pre>
+<p>
+@see <a href="../FinderOptions.html">FinderOptions</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000431" class="method-detail">
+        <a name="M000431"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000431.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000431.html');return false;">
+          <span class="method-name">key</span><span class="method-args">(*args)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000436" class="method-detail">
+        <a name="M000436"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000436.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000436.html');return false;">
+          <span class="method-name">last</span><span class="method-args">(options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+@param [<a href="../../Hash.html">Hash</a>] options any conditions
+understood by
+</p>
+<pre>
+  FinderOptions.to_mongo_criteria
+</pre>
+<p>
+@option [<a href="../../String.html">String</a>] :order this
+<b>mandatory</b> option describes how to
+</p>
+<pre>
+  identify the ordering of the documents in your collection. Note that
+  the *last* document in this collection will be selected.
+</pre>
+<p>
+@return the <a href="ClassMethods.html#M000436">last</a> document in the
+ordered <a href="ClassMethods.html#M000452">collection</a> as described by
+</p>
+<pre>
+  +options+
+</pre>
+<p>
+@raise Exception when no <tt>:order</tt> option has been defined
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000434" class="method-detail">
+        <a name="M000434"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000434.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000434.html');return false;">
+          <span class="method-name">paginate</span><span class="method-args">(options)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000450" class="method-detail">
+        <a name="M000450"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000450.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000450.html');return false;">
+          <span class="method-name">set_collection_name</span><span class="method-args">(name=nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Changes the <a href="ClassMethods.html#M000452">collection</a> name from
+the default to whatever you want
+</p>
+<p>
+@param [to_s] name the new <a
+href="ClassMethods.html#M000452">collection</a> name to use. Defaults to
+<tt>nil</tt>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000454" class="method-detail">
+        <a name="M000454"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000454.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000454.html');return false;">
+          <span class="method-name">single_collection_inherited?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000455" class="method-detail">
+        <a name="M000455"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000455.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000455.html');return false;">
+          <span class="method-name">single_collection_inherited_superclass?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000453" class="method-detail">
+        <a name="M000453"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000453.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000453.html');return false;">
+          <span class="method-name">timestamps!</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Defines a <tt>created_at</tt> and <tt>updated_at</tt> attribute (with a
+<tt><a href="../../Time.html">Time</a></tt> value) on your document. These
+attributes are updated by an injected <tt>update_timestamps</tt>
+<tt>before_save</tt> hook.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000443" class="method-detail">
+        <a name="M000443"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000443.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000443.html');return false;">
+          <span class="method-name">update</span><span class="method-args">(*args)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+@overload <a href="ClassMethods.html#M000443">update</a>(id, attributes)
+</p>
+<pre>
+  Update a single document
+  @param id the ID of the document you wish to update
+  @param [Hash] attributes the key to update on the document with a new
+    value
+</pre>
+<p>
+@overload <a
+href="ClassMethods.html#M000443">update</a>(ids_and_attributes)
+</p>
+<pre>
+  Update multiple documents
+  @param [Hash] ids_and_attributes each key is the ID of some document
+    you wish to update. The value each key points toward are those
+    applied to the target document
+</pre>
+<p>
+@example Updating single document
+</p>
+<pre>
+  Person.update(1, {:foo =&gt; 'bar'})
+</pre>
+<p>
+@example Updating multiple documents at once:
+</p>
+<pre>
+  Person.update({'1' =&gt; {:foo =&gt; 'bar'}, '2' =&gt; {:baz =&gt; 'wick'}})
+</pre>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Protected Instance methods</h3>
+
+      <div id="method-M000456" class="method-detail">
+        <a name="M000456"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000456.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000456.html');return false;">
+          <span class="method-name">method_missing</span><span class="method-args">(method, *args)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Includes all the validations that are defined on the attribute.
+- !ruby/struct:SM::Flow::VERB 
+  body: "  class Person\n    include Validatable\n    validates_presence_of :name\n  end\n\n  class PersonPresenter\n    include Validatable\n    include_validataions_from :person\n    attr_accessor :person\n    def name\n      person.name\n    end\n\n    def initialize(person)\n      @person = person\n    end\n  end\n\n  presenter = PersonPresenter.new(Person.new)\n  presenter.valid? #=&gt; false\n  presenter.errors.on(:name) #=&gt; &quot;can't be blank&quot;\n"
+- !ruby/struct:SM::Flow::P 
+  body: The name attribute whose validations should be added.
+full_name: Validatable::Macros#include_validations_from
+is_singleton: false
+name: include_validations_from
+params: " include_validations_from(attribute)\n"
+visibility: public

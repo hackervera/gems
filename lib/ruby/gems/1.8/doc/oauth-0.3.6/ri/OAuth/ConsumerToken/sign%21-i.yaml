@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Sign a request generated elsewhere using Net:HTTP::Post.new or friends
+full_name: OAuth::ConsumerToken#sign!
+is_singleton: false
+name: sign!
+params: (request, options = {})
+visibility: public

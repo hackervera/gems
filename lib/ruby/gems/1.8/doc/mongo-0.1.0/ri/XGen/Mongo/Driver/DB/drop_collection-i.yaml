@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Drop collection <tt>name</tt>. Returns <tt>true</tt> on success or if the collection does not exist, <tt>false</tt> otherwise.
+full_name: XGen::Mongo::Driver::DB#drop_collection
+is_singleton: false
+name: drop_collection
+params: (name)
+visibility: public

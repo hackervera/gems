@@ -1,0 +1,26 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Create a collection. If <tt>strict</tt> is false, will return existing or new collection. If <tt>strict</tt> is true, will raise an error if collection <tt>name</tt> already exists.
+- !ruby/struct:SM::Flow::P 
+  body: "Options is an optional hash:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: ":capped :"
+    body: Boolean. If not specified, capped is <tt>false</tt>.
+  - !ruby/struct:SM::Flow::LI 
+    label: ":size :"
+    body: If <tt>capped</tt> is <tt>true</tt>, specifies the maximum number of bytes. If <tt>false</tt>, specifies the initial extent of the collection.
+  - !ruby/struct:SM::Flow::LI 
+    label: ":max :"
+    body: Max number of records in a capped collection. Optional.
+  type: :NOTE
+full_name: XGen::Mongo::Driver::DB#create_collection
+is_singleton: false
+name: create_collection
+params: (name, options={})
+visibility: public

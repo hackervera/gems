@@ -1,0 +1,22 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: OAuth::RequestProxy::JabberRequest
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: method
+- !ruby/object:RI::MethodSummary 
+  name: normalized_uri
+- !ruby/object:RI::MethodSummary 
+  name: parameters
+- !ruby/object:RI::MethodSummary 
+  name: uri
+name: JabberRequest
+superclass: OAuth::RequestProxy::Base

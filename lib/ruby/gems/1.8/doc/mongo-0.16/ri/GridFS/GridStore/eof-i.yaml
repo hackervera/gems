@@ -1,0 +1,13 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: eof?
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: +
+full_name: GridFS::GridStore#eof
+is_singleton: false
+name: eof
+params: ()
+visibility: public

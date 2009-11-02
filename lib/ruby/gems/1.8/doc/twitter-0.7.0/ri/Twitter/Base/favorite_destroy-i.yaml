@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Twitter::Base#favorite_destroy
+is_singleton: false
+name: favorite_destroy
+params: (id)
+visibility: public

@@ -1,0 +1,35 @@
+have_library: checking for fdatasync() in -lrt... -------------------- yes
+
+"gcc -o conftest -I. -I/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/1.8/x86_64-linux -I.    -g -Os -fno-strict-aliasing    conftest.c  -L. -L/opt/ruby-enterprise-1.8.7-2009.10/lib -Wl,-R/opt/ruby-enterprise-1.8.7-2009.10/lib -L.  -rdynamic -Wl,-export-dynamic     -lruby-static -lrt  -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function 't':
+conftest.c:3: error: 'fdatasync' undeclared (first use in this function)
+conftest.c:3: error: (Each undeclared identifier is reported only once
+conftest.c:3: error: for each function it appears in.)
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { void ((*volatile p)()); p = (void ((*)()))fdatasync; return 0; }
+/* end */
+
+"gcc -o conftest -I. -I/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/1.8/x86_64-linux -I.    -g -Os -fno-strict-aliasing    conftest.c  -L. -L/opt/ruby-enterprise-1.8.7-2009.10/lib -Wl,-R/opt/ruby-enterprise-1.8.7-2009.10/lib -L.  -rdynamic -Wl,-export-dynamic     -lruby-static -lrt  -lrt -ldl -lcrypt -lm   -lc"
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { fdatasync(); return 0; }
+/* end */
+
+--------------------
+
+have_header: checking for sqlite3.h... -------------------- no
+
+"gcc -E -I. -I/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/1.8/x86_64-linux -I.    -g -Os -fno-strict-aliasing     conftest.c -o conftest.i"
+conftest.c:1:21: error: sqlite3.h: No such file or directory
+checked program was:
+/* begin */
+1: #include <sqlite3.h>
+/* end */
+
+--------------------
+

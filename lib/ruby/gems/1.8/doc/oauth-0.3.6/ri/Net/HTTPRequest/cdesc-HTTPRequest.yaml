@@ -1,0 +1,22 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: oauth_helper
+  rw: R
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: Net::HTTPRequest
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: OAuth::Helper
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: oauth!
+- !ruby/object:RI::MethodSummary 
+  name: signature_base_string
+name: HTTPRequest
+superclass: Object

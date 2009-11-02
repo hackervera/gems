@@ -1,0 +1,41 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Update a single document in this collection.
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: ":spec :"
+    body: a hash specifying elements which must be present for
+  type: :NOTE
+- !ruby/struct:SM::Flow::VERB 
+  body: "  a document to be updated\n"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: ":document :"
+    body: a hash specifying the fields to be changed in the
+  type: :NOTE
+- !ruby/struct:SM::Flow::VERB 
+  body: "  selected document, or (in the case of an upsert) the document to\n  be inserted\n"
+- !ruby/struct:SM::Flow::P 
+  body: "Options:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: ":upsert :"
+    body: if true, perform an upsert operation
+  - !ruby/struct:SM::Flow::LI 
+    label: ":safe :"
+    body: if true, check that the update succeeded. OperationFailure
+  type: :NOTE
+- !ruby/struct:SM::Flow::VERB 
+  body: "  will be raised on an error. Checking for safety requires an extra\n  round-trip to the database\n"
+full_name: Mongo::Collection#update
+is_singleton: false
+name: update
+params: (spec, document, options={})
+visibility: public

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Twitter::Base#lists
+is_singleton: false
+name: lists
+params: (list_owner_username=nil)
+visibility: public

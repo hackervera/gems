@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Mongo::DB#send_message_with_operation_without_synchronize
+is_singleton: false
+name: send_message_with_operation_without_synchronize
+params: (operation, message)
+visibility: public

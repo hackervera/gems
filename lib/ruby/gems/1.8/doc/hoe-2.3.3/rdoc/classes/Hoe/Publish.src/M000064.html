@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>define_publish_tasks (Hoe::Publish)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/hoe/publish.rb, line 87</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">define_publish_tasks</span>
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">need_rdoc</span> <span class="ruby-keyword kw">then</span>
+      <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">RDocTask</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">:docs</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">rd</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">rd</span>.<span class="ruby-identifier">main</span> = <span class="ruby-identifier">readme_file</span>
+        <span class="ruby-identifier">rd</span>.<span class="ruby-identifier">options</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'-d'</span> <span class="ruby-keyword kw">if</span> (<span class="ruby-value">`which dot`</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/\/dot/</span>) <span class="ruby-keyword kw">unless</span>
+          <span class="ruby-constant">ENV</span>[<span class="ruby-value str">'NODOT'</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">Hoe</span><span class="ruby-operator">::</span><span class="ruby-constant">WINDOZE</span>
+        <span class="ruby-identifier">rd</span>.<span class="ruby-identifier">rdoc_dir</span> = <span class="ruby-value str">'doc'</span>
+
+        <span class="ruby-identifier">rd</span>.<span class="ruby-identifier">rdoc_files</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">require_paths</span>
+        <span class="ruby-identifier">rd</span>.<span class="ruby-identifier">rdoc_files</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">extra_rdoc_files</span>
+
+        <span class="ruby-identifier">title</span> = <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">rdoc_options</span>.<span class="ruby-identifier">grep</span>(<span class="ruby-regexp re">/^(-t|--title)=?$/</span>).<span class="ruby-identifier">first</span>
+
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">title</span> <span class="ruby-keyword kw">then</span>
+          <span class="ruby-identifier">rd</span>.<span class="ruby-identifier">options</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">title</span>
+
+          <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">title</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/=/</span> <span class="ruby-keyword kw">then</span> <span class="ruby-comment cmt"># for ['-t', 'title here']</span>
+            <span class="ruby-identifier">title_index</span> = <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">rdoc_options</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">title</span>)
+            <span class="ruby-identifier">rd</span>.<span class="ruby-identifier">options</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">rdoc_options</span>[<span class="ruby-identifier">title_index</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>]
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-identifier">title</span> = <span class="ruby-node">&quot;#{name}-#{version} Documentation&quot;</span>
+          <span class="ruby-identifier">title</span> = <span class="ruby-node">&quot;#{rubyforge_name}'s &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">title</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">rubyforge_name</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">name</span>
+          <span class="ruby-identifier">rd</span>.<span class="ruby-identifier">options</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'--title'</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">title</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">desc</span> <span class="ruby-value str">'Generate ri locally for testing.'</span>
+      <span class="ruby-identifier">task</span> <span class="ruby-identifier">:ridocs</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:clean</span> <span class="ruby-keyword kw">do</span>
+        <span class="ruby-identifier">sh</span> <span class="ruby-value str">%q{ rdoc --ri -o ri . }</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-identifier">desc</span> <span class="ruby-value str">'Publish RDoc to RubyForge.'</span>
+    <span class="ruby-identifier">task</span> <span class="ruby-identifier">:publish_docs</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-identifier">:clean</span>, <span class="ruby-identifier">:docs</span>] <span class="ruby-keyword kw">do</span>
+      <span class="ruby-identifier">config</span> = <span class="ruby-constant">YAML</span>.<span class="ruby-identifier">load</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-value str">&quot;~/.rubyforge/user-config.yml&quot;</span>)))
+      <span class="ruby-identifier">host</span> = <span class="ruby-node">&quot;#{config[&quot;username&quot;]}@rubyforge.org&quot;</span>
+
+      <span class="ruby-identifier">remote_dir</span> = <span class="ruby-node">&quot;/var/www/gforge-projects/#{rubyforge_name}/#{remote_rdoc_dir}&quot;</span>
+      <span class="ruby-identifier">local_dir</span> = <span class="ruby-identifier">local_rdoc_dir</span>
+
+      <span class="ruby-identifier">sh</span> <span class="ruby-node">%{rsync #{rsync_args} #{local_dir}/ #{host}:#{remote_dir}}</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-comment cmt"># no doco for this one</span>
+    <span class="ruby-identifier">task</span> <span class="ruby-identifier">:publish_on_announce</span> <span class="ruby-keyword kw">do</span>
+      <span class="ruby-identifier">with_config</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">config</span>, <span class="ruby-identifier">_</span><span class="ruby-operator">|</span>
+        <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>[<span class="ruby-value str">'publish_docs'</span>].<span class="ruby-identifier">invoke</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">config</span>[<span class="ruby-value str">&quot;publish_on_announce&quot;</span>]
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-identifier">desc</span> <span class="ruby-value str">'Generate email announcement file.'</span>
+    <span class="ruby-identifier">task</span> <span class="ruby-identifier">:debug_email</span> <span class="ruby-keyword kw">do</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-identifier">generate_email</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-identifier">desc</span> <span class="ruby-value str">'Post announcement to blog.'</span>
+    <span class="ruby-identifier">task</span> <span class="ruby-identifier">:post_blog</span> <span class="ruby-keyword kw">do</span>
+      <span class="ruby-identifier">require</span> <span class="ruby-value str">'xmlrpc/client'</span>
+
+      <span class="ruby-identifier">with_config</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">config</span>, <span class="ruby-identifier">path</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword kw">break</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">config</span>[<span class="ruby-value str">'blogs'</span>]
+
+        <span class="ruby-identifier">subject</span>, <span class="ruby-identifier">title</span>, <span class="ruby-identifier">body</span>, <span class="ruby-identifier">urls</span> = <span class="ruby-identifier">announcement</span>
+        <span class="ruby-identifier">body</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;\n\n#{urls}&quot;</span>
+
+        <span class="ruby-identifier">config</span>[<span class="ruby-value str">'blogs'</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">site</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">server</span> = <span class="ruby-constant">XMLRPC</span><span class="ruby-operator">::</span><span class="ruby-constant">Client</span>.<span class="ruby-identifier">new2</span>(<span class="ruby-identifier">site</span>[<span class="ruby-value str">'url'</span>])
+          <span class="ruby-identifier">content</span> = <span class="ruby-identifier">site</span>[<span class="ruby-value str">'extra_headers'</span>].<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">:title</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">title</span>,
+                                                <span class="ruby-identifier">:description</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">body</span>,
+                                                <span class="ruby-identifier">:categories</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">blog_categories</span>)
+
+          <span class="ruby-identifier">result</span> = <span class="ruby-identifier">server</span>.<span class="ruby-identifier">call</span>(<span class="ruby-value str">'metaWeblog.newPost'</span>,
+                               <span class="ruby-identifier">site</span>[<span class="ruby-value str">'blog_id'</span>],
+                               <span class="ruby-identifier">site</span>[<span class="ruby-value str">'user'</span>],
+                               <span class="ruby-identifier">site</span>[<span class="ruby-value str">'password'</span>],
+                               <span class="ruby-identifier">content</span>,
+                               <span class="ruby-keyword kw">true</span>)
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-identifier">desc</span> <span class="ruby-value str">'Post announcement to rubyforge.'</span>
+    <span class="ruby-identifier">task</span> <span class="ruby-identifier">:post_news</span> <span class="ruby-keyword kw">do</span>
+      <span class="ruby-identifier">require</span> <span class="ruby-value str">'rubyforge'</span>
+      <span class="ruby-identifier">subject</span>, <span class="ruby-identifier">title</span>, <span class="ruby-identifier">body</span>, <span class="ruby-identifier">urls</span> = <span class="ruby-identifier">announcement</span>
+
+      <span class="ruby-identifier">rf</span> = <span class="ruby-constant">RubyForge</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">configure</span>
+      <span class="ruby-identifier">rf</span>.<span class="ruby-identifier">login</span>
+      <span class="ruby-identifier">rf</span>.<span class="ruby-identifier">post_news</span>(<span class="ruby-identifier">rubyforge_name</span>, <span class="ruby-identifier">subject</span>, <span class="ruby-node">&quot;#{title}\n\n#{body}&quot;</span>)
+      <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;Posted to rubyforge&quot;</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-identifier">desc</span> <span class="ruby-value str">'Announce your release.'</span>
+    <span class="ruby-identifier">task</span> <span class="ruby-identifier">:announce</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-identifier">:post_news</span>, <span class="ruby-identifier">:post_blog</span>, <span class="ruby-identifier">:publish_on_announce</span> ]
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

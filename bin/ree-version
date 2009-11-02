@@ -1,0 +1,2 @@
+#!/bin/sh
+echo 'Ruby Enterprise Edition version 1.8.7-2009.10'

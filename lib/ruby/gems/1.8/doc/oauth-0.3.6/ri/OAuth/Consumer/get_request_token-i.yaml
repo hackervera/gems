@@ -1,0 +1,24 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Makes a request to the service for a new OAuth::RequestToken
+- !ruby/struct:SM::Flow::VERB 
+  body: " @request_token = @consumer.get_request_token\n"
+- !ruby/struct:SM::Flow::P 
+  body: "To include OAuth parameters:"
+- !ruby/struct:SM::Flow::VERB 
+  body: " @request_token = @consumer.get_request_token      #    :oauth_callback =&gt; &quot;http://example.com/cb&quot;\n"
+- !ruby/struct:SM::Flow::P 
+  body: "To include application-specific parameters:"
+- !ruby/struct:SM::Flow::VERB 
+  body: " @request_token = @consumer.get_request_token({}, :foo =&gt; &quot;bar&quot;)\n"
+- !ruby/struct:SM::Flow::P 
+  body: TODO oauth_callback should be a mandatory parameter
+full_name: OAuth::Consumer#get_request_token
+is_singleton: false
+name: get_request_token
+params: (request_options = {}, *arguments)
+visibility: public

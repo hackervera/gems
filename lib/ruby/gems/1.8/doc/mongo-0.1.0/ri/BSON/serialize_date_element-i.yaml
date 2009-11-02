@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: BSON#serialize_date_element
+is_singleton: false
+name: serialize_date_element
+params: (buf, key, val)
+visibility: public

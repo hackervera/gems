@@ -1,0 +1,24 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "@param [Hash] options any conditions understood by"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  FinderOptions.to_mongo_criteria\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@option [String] :order this <b>mandatory</b> option describes how to"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  identify the ordering of the documents in your collection. Note that\n  the <b>last</b> document in this collection will be selected.\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@return the last document in the ordered collection as described by"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  <tt>options</tt>\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@raise Exception when no <tt>:order</tt> option has been defined"
+full_name: MongoMapper::Document::ClassMethods#last
+is_singleton: false
+name: last
+params: (options={})
+visibility: public

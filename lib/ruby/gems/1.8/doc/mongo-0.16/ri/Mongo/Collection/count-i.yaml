@@ -1,0 +1,13 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: size
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Get the number of documents in this collection.
+full_name: Mongo::Collection#count
+is_singleton: false
+name: count
+params: ()
+visibility: public

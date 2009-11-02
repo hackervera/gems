@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: ActiveCrypto::AssociationKeyHolder#save_session_key
+is_singleton: false
+name: save_session_key
+params: ()
+visibility: public

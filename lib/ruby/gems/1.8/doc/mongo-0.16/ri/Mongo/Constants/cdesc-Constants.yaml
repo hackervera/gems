@@ -1,0 +1,54 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: OP_REPLY
+  value: "1"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: OP_MSG
+  value: "1000"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: OP_UPDATE
+  value: "2001"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: OP_INSERT
+  value: "2002"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: OP_QUERY
+  value: "2004"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: OP_GET_MORE
+  value: "2005"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: OP_DELETE
+  value: "2006"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: OP_KILL_CURSORS
+  value: "2007"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: OP_QUERY_SLAVE_OK
+  value: "4"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: OP_QUERY_NO_CURSOR_TIMEOUT
+  value: "16"
+full_name: Mongo::Constants
+includes: []
+
+instance_methods: []
+
+name: Constants
+superclass: 

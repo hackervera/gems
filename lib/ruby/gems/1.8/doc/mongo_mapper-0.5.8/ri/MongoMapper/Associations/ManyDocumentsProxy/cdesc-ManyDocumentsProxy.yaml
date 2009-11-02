@@ -1,0 +1,61 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: MongoMapper::Associations::ManyDocumentsProxy
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: "::MongoMapper::Finders"
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: "<<"
+- !ruby/object:RI::MethodSummary 
+  name: all
+- !ruby/object:RI::MethodSummary 
+  name: apply_scope
+- !ruby/object:RI::MethodSummary 
+  name: build
+- !ruby/object:RI::MethodSummary 
+  name: concat
+- !ruby/object:RI::MethodSummary 
+  name: count
+- !ruby/object:RI::MethodSummary 
+  name: create
+- !ruby/object:RI::MethodSummary 
+  name: create!
+- !ruby/object:RI::MethodSummary 
+  name: delete_all
+- !ruby/object:RI::MethodSummary 
+  name: destroy_all
+- !ruby/object:RI::MethodSummary 
+  name: ensure_owner_saved
+- !ruby/object:RI::MethodSummary 
+  name: find
+- !ruby/object:RI::MethodSummary 
+  name: find_target
+- !ruby/object:RI::MethodSummary 
+  name: first
+- !ruby/object:RI::MethodSummary 
+  name: foreign_key
+- !ruby/object:RI::MethodSummary 
+  name: last
+- !ruby/object:RI::MethodSummary 
+  name: method_missing
+- !ruby/object:RI::MethodSummary 
+  name: nullify
+- !ruby/object:RI::MethodSummary 
+  name: paginate
+- !ruby/object:RI::MethodSummary 
+  name: push
+- !ruby/object:RI::MethodSummary 
+  name: replace
+- !ruby/object:RI::MethodSummary 
+  name: scoped_conditions
+- !ruby/object:RI::MethodSummary 
+  name: scoped_options
+name: ManyDocumentsProxy
+superclass: Proxy

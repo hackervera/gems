@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "@see Document.create"
+- !ruby/struct:SM::Flow::P 
+  body: "@raise [DocumentNotValid] raised if a document fails to create"
+full_name: MongoMapper::Document::ClassMethods#create!
+is_singleton: false
+name: create!
+params: (*docs)
+visibility: public

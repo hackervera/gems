@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>serialize_dbref_element (BSON)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/mongo/util/bson.rb, line 277</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">serialize_dbref_element</span>(<span class="ruby-identifier">buf</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">val</span>)
+    <span class="ruby-identifier">buf</span>.<span class="ruby-identifier">put</span>(<span class="ruby-constant">REF</span>)
+    <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">serialize_cstr</span>(<span class="ruby-identifier">buf</span>, <span class="ruby-identifier">key</span>)
+    <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">serialize_cstr</span>(<span class="ruby-identifier">buf</span>, <span class="ruby-identifier">val</span>.<span class="ruby-identifier">namespace</span>)
+    <span class="ruby-identifier">buf</span>.<span class="ruby-identifier">put_array</span>(<span class="ruby-identifier">val</span>.<span class="ruby-identifier">object_id</span>.<span class="ruby-identifier">to_a</span>)
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

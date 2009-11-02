@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Escape <tt>value</tt> by URL encoding all non-reserved character.
+- !ruby/struct:SM::Flow::P 
+  body: "See Also: {OAuth core spec version 1.0, section 5.1}[http://oauth.net/core/1.0#rfc.section.5.1]"
+full_name: OAuth::Helper#escape
+is_singleton: false
+name: escape
+params: (value)
+visibility: public

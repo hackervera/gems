@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: If you pass in an existing hash, it will convert it to a Mash including recursively descending into arrays and hashes, converting them as well.
+full_name: Mash::new
+is_singleton: true
+name: new
+params: (source_hash = nil)
+visibility: public

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>define_deps_tasks (Hoe::Deps)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/hoe/deps.rb, line 22</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">define_deps_tasks</span>
+    <span class="ruby-identifier">namespace</span> <span class="ruby-identifier">:deps</span> <span class="ruby-keyword kw">do</span>
+      <span class="ruby-identifier">desc</span> <span class="ruby-value str">&quot;List all the dependent gems of this gem&quot;</span>
+      <span class="ruby-identifier">task</span> <span class="ruby-identifier">:list</span> <span class="ruby-keyword kw">do</span>
+        <span class="ruby-identifier">gems</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">get_gems_by_name</span>
+        <span class="ruby-identifier">gem</span>  = <span class="ruby-identifier">gems</span>[<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">name</span>]
+
+        <span class="ruby-identifier">abort</span> <span class="ruby-node">&quot;Couldn't find gem: #{self.name}&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">gem</span>
+
+        <span class="ruby-identifier">deps</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">dependent_upon</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">name</span>
+        <span class="ruby-identifier">max</span>  = <span class="ruby-identifier">deps</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">full_name</span>.<span class="ruby-identifier">size</span> }.<span class="ruby-identifier">max</span>
+
+        <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;  dependents:&quot;</span>
+        <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">deps</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-keyword kw">then</span>
+          <span class="ruby-identifier">deps</span>.<span class="ruby-identifier">sort_by</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">spec</span><span class="ruby-operator">|</span> <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">full_name</span> }.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">spec</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">vers</span> = <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">dependencies</span>.<span class="ruby-identifier">find</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">name</span> }.<span class="ruby-identifier">requirement_list</span>
+            <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;    %-*s - %s&quot;</span> <span class="ruby-operator">%</span> [<span class="ruby-identifier">max</span>, <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">full_name</span>, <span class="ruby-identifier">vers</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;, &quot;</span>)]
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;    none&quot;</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">desc</span> <span class="ruby-value str">&quot;Print a contact list for gems dependent on this gem&quot;</span>
+      <span class="ruby-identifier">task</span> <span class="ruby-identifier">:email</span> <span class="ruby-keyword kw">do</span>
+        <span class="ruby-identifier">gems</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">get_gems_by_name</span>
+        <span class="ruby-identifier">gem</span>  = <span class="ruby-identifier">gems</span>[<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">name</span>]
+
+        <span class="ruby-identifier">abort</span> <span class="ruby-node">&quot;Couldn't find gem: #{self.name}&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">gem</span>
+
+        <span class="ruby-identifier">deps</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">dependent_upon</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">name</span>
+
+        <span class="ruby-identifier">email</span> = <span class="ruby-identifier">deps</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">email</span> }.<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">uniq</span>
+        <span class="ruby-identifier">email</span> = <span class="ruby-identifier">email</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">/,\s*/</span>) }.<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">uniq</span>
+
+        <span class="ruby-identifier">email</span>.<span class="ruby-identifier">map!</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-comment cmt"># don't you people realize how easy this is?</span>
+          <span class="ruby-identifier">s</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/ at | _at_ |\s*(atmark|@nospam@|-at?-|@at?@|&lt;at?&gt;|\[at?\]|\(at?\))\s*/i</span>, <span class="ruby-value str">'@'</span>).<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/\s*(dot|\[d(ot)?\]|\.dot\.)\s*/i</span>, <span class="ruby-value str">'.'</span>).<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/\s+com$/</span>, <span class="ruby-value str">'.com'</span>)
+        }
+
+        <span class="ruby-identifier">bad</span>, <span class="ruby-identifier">good</span> = <span class="ruby-identifier">email</span>.<span class="ruby-identifier">partition</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> <span class="ruby-identifier">e</span> <span class="ruby-operator">!~</span> <span class="ruby-regexp re">/^[\w.+-]+\@[\w.+-]+$/</span> }
+
+        <span class="ruby-identifier">warn</span> <span class="ruby-node">&quot;Rejecting #{bad.size} email. I couldn't unmunge them.&quot;</span> <span class="ruby-keyword kw">unless</span>
+          <span class="ruby-identifier">bad</span>.<span class="ruby-identifier">empty?</span>
+
+        <span class="ruby-identifier">puts</span> <span class="ruby-identifier">good</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;, &quot;</span>)
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">desc</span> <span class="ruby-value str">&quot;Fetch all the dependent gems of this gem into tarballs&quot;</span>
+      <span class="ruby-identifier">task</span> <span class="ruby-identifier">:fetch</span> <span class="ruby-keyword kw">do</span>
+        <span class="ruby-identifier">gems</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">get_gems_by_name</span>
+        <span class="ruby-identifier">gem</span>  = <span class="ruby-identifier">gems</span>[<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">name</span>]
+        <span class="ruby-identifier">deps</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">dependent_upon</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">name</span>
+
+        <span class="ruby-identifier">mkdir</span> <span class="ruby-value str">&quot;deps&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span> <span class="ruby-value str">&quot;deps&quot;</span>
+        <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">chdir</span> <span class="ruby-value str">&quot;deps&quot;</span> <span class="ruby-keyword kw">do</span>
+          <span class="ruby-keyword kw">begin</span>
+            <span class="ruby-identifier">deps</span>.<span class="ruby-identifier">sort_by</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">spec</span><span class="ruby-operator">|</span> <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">full_name</span> }.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">spec</span><span class="ruby-operator">|</span>
+              <span class="ruby-identifier">full_name</span> = <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">full_name</span>
+              <span class="ruby-identifier">tgz_name</span>  = <span class="ruby-node">&quot;#{full_name}.tgz&quot;</span>
+              <span class="ruby-identifier">gem_name</span>  = <span class="ruby-node">&quot;#{full_name}.gem&quot;</span>
+
+              <span class="ruby-keyword kw">next</span> <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span> <span class="ruby-identifier">tgz_name</span>
+              <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_rf</span> [<span class="ruby-identifier">full_name</span>, <span class="ruby-identifier">gem_name</span>]
+
+              <span class="ruby-keyword kw">begin</span>
+                <span class="ruby-identifier">warn</span> <span class="ruby-node">&quot;downloading #{full_name}&quot;</span>
+                <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">RemoteFetcher</span>.<span class="ruby-identifier">fetcher</span>.<span class="ruby-identifier">download</span>(<span class="ruby-identifier">spec</span>, <span class="ruby-constant">GEMURL</span>, <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">pwd</span>)
+                <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mv</span> <span class="ruby-node">&quot;cache/#{gem_name}&quot;</span>, <span class="ruby-value str">'.'</span>
+              <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">RemoteFetcher</span><span class="ruby-operator">::</span><span class="ruby-constant">FetchError</span>
+                <span class="ruby-identifier">warn</span> <span class="ruby-value str">&quot;  failed&quot;</span>
+                <span class="ruby-keyword kw">next</span>
+              <span class="ruby-keyword kw">end</span>
+
+              <span class="ruby-identifier">warn</span> <span class="ruby-node">&quot;converting #{gem_name} to tarball&quot;</span>
+
+              <span class="ruby-identifier">system</span> <span class="ruby-node">&quot;gem unpack #{gem_name} 2&gt; /dev/null&quot;</span>
+              <span class="ruby-identifier">system</span> <span class="ruby-node">&quot;gem spec -l #{gem_name} &gt; #{full_name}/gemspec.rb&quot;</span>
+              <span class="ruby-identifier">system</span> <span class="ruby-node">&quot;tar zmcf #{tgz_name} #{full_name}&quot;</span>
+              <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_rf</span> [<span class="ruby-identifier">full_name</span>, <span class="ruby-identifier">gem_name</span>, <span class="ruby-value str">&quot;cache&quot;</span>]
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">ensure</span>
+            <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_rf</span> <span class="ruby-value str">&quot;cache&quot;</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-identifier">desc</span> <span class="ruby-value str">'Install missing dependencies.'</span>
+    <span class="ruby-identifier">task</span> <span class="ruby-identifier">:check_extra_deps</span> <span class="ruby-keyword kw">do</span>
+      <span class="ruby-comment cmt"># extra_deps = [[&quot;rubyforge&quot;, &quot;&gt;= 1.0.0&quot;], [&quot;rake&quot;, &quot;&gt;= 0.8.1&quot;]]</span>
+      (<span class="ruby-identifier">extra_deps</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">extra_dev_deps</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">dep</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword kw">begin</span>
+          <span class="ruby-identifier">gem</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">dep</span>)
+        <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">LoadError</span>
+          <span class="ruby-identifier">install_gem</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">dep</span>)
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

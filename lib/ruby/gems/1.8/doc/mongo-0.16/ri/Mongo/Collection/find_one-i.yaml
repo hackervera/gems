@@ -1,0 +1,28 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Get a single object from the database.
+- !ruby/struct:SM::Flow::P 
+  body: Raises TypeError if the argument is of an improper type. Returns a single document (hash), or nil if no result is found.
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: ":spec_or_object_id :"
+    body: a hash specifying elements which must be
+  type: :NOTE
+- !ruby/struct:SM::Flow::VERB 
+  body: "  present for a document to be included in the result set OR an\n  instance of ObjectID to be used as the value for an _id query.\n  if nil an empty spec, {}, will be used.\n"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: ":options :"
+    body: options, as passed to Collection#find
+  type: :NOTE
+full_name: Mongo::Collection#find_one
+is_singleton: false
+name: find_one
+params: (spec_or_object_id=nil, options={})
+visibility: public

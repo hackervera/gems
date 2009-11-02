@@ -1,0 +1,18 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "@overload database()"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  @return [Mongo] the database object used by your document class\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@overload database(name)"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  @param [String] name the name of an existing, or new, Mongo database\n  @return [Mongo] a Mongo database object for the specified database\n"
+full_name: MongoMapper::Document::ClassMethods#database
+is_singleton: false
+name: database
+params: (name=nil)
+visibility: public

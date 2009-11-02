@@ -1,0 +1,29 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Create a string suitable for signing for an HTTP request. This process involves parameter normalization as specified in the OAuth specification. The exact normalization also depends on the <tt>options[:scheme]</tt> being used so this must match what will be used for the request itself. The default scheme is <tt>header</tt>, in which the OAuth parameters as put into the <tt>Authorization</tt> header.
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: http - Configured Net::HTTP instance
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: consumer - OAuth::Consumer instance
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: token - OAuth::Token instance
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: options - Request-specific options (e.g. <tt>request_uri</tt>, <tt>consumer</tt>, <tt>token</tt>, <tt>scheme</tt>, <tt>signature_method</tt>, <tt>nonce</tt>, <tt>timestamp</tt>)
+  type: :BULLET
+- !ruby/struct:SM::Flow::P 
+  body: "See Also: {OAuth core spec version 1.0, section 9.1.1}[http://oauth.net/core/1.0#rfc.section.9.1.1]"
+full_name: Net::HTTPRequest#signature_base_string
+is_singleton: false
+name: signature_base_string
+params: (http, consumer = nil, token = nil, options = {})
+visibility: public

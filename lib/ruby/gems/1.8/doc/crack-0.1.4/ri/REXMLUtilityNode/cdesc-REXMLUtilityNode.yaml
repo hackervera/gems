@@ -1,0 +1,17 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: This is a slighly modified version of the XMLUtilityNode from http://merb.devjavu.com/projects/merb/ticket/95 (has.sox@gmail.com) It's mainly just adding vowels, as I ht cd wth n vwls :) This represents the hard part of the work, all I did was change the underlying parser.
+constants: []
+
+full_name: REXMLUtilityNode
+includes: []
+
+instance_methods: []
+
+name: REXMLUtilityNode
+superclass: Object

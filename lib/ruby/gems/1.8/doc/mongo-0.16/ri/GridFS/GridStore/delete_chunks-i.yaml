@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: GridFS::GridStore#delete_chunks
+is_singleton: false
+name: delete_chunks
+params: ()
+visibility: protected

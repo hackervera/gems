@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Twitter::Base#disable_notifications
+is_singleton: false
+name: disable_notifications
+params: (id)
+visibility: public

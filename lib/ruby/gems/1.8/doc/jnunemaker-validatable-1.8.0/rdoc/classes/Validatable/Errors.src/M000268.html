@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>full_messages (Validatable::Errors)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/validatable/errors.rb, line 69</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">full_messages</span>
+      <span class="ruby-identifier">full_messages</span> = []
+
+      <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">each_key</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">attribute</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">errors</span>[<span class="ruby-identifier">attribute</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">msg</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword kw">next</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">msg</span>.<span class="ruby-identifier">nil?</span>
+
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">attribute</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;base&quot;</span>
+            <span class="ruby-identifier">full_messages</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">msg</span>
+          <span class="ruby-keyword kw">else</span>
+            <span class="ruby-identifier">full_messages</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">humanize</span>(<span class="ruby-identifier">attribute</span>.<span class="ruby-identifier">to_s</span>) <span class="ruby-operator">+</span> <span class="ruby-value str">&quot; &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">msg</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">full_messages</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,46 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Create a Mongo database server instance. You specify either one or a pair of servers. If one, you also say if connecting to a slave is OK. In either case, the host default is &quot;localhost&quot; and port default is DEFAULT_PORT.
+- !ruby/struct:SM::Flow::P 
+  body: If you specify a pair, pair_or_host is a hash with two keys :left and :right. Each key maps to either
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: a server name, in which case port is DEFAULT_PORT
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: a port number, in which case server is &quot;localhost&quot;
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: an array containing a server name and a port number in that order
+  type: :BULLET
+- !ruby/struct:SM::Flow::P 
+  body: "<tt>options</tt> are passed on to each DB instance:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: ":slave_ok :"
+    body: Only used if one host is specified. If false, when connecting to that host/port a DB object will check to see if the server is the master. If it is not, an error is thrown.
+  - !ruby/struct:SM::Flow::LI 
+    label: ":auto_reconnect :"
+    body: If a DB connection gets closed (for example, we have a server pair and saw the &quot;not master&quot; error, which closes the connection), then automatically try to reconnect to the master or to the single server we have been given. Defaults to <tt>false</tt>.
+  - !ruby/struct:SM::Flow::LI 
+    label: ":logger :"
+    body: Optional Logger instance to which driver usage information will be logged.
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: "Since that's so confusing, here are a few examples:"
+- !ruby/struct:SM::Flow::VERB 
+  body: " Connection.new                         # localhost, DEFAULT_PORT, !slave\n Connection.new(&quot;localhost&quot;)            # localhost, DEFAULT_PORT, !slave\n Connection.new(&quot;localhost&quot;, 3000)      # localhost, 3000, slave not ok\n # localhost, 3000, slave ok\n Connection.new(&quot;localhost&quot;, 3000, :slave_ok =&gt; true)\n # localhost, DEFAULT_PORT, auto reconnect\n Connection.new(nil, nil, :auto_reconnect =&gt; true)\n\n # A pair of servers. DB will always talk to the master. On socket\n # error or &quot;not master&quot; error, we will auto-reconnect to the\n # current master.\n Connection.new({:left  =&gt; [&quot;db1.example.com&quot;, 3000],\n            :right =&gt; &quot;db2.example.com&quot;}, # DEFAULT_PORT\n           nil, :auto_reconnect =&gt; true)\n\n # Here, :right is localhost/DEFAULT_PORT. No auto-reconnect.\n Connection.new({:left =&gt; [&quot;db1.example.com&quot;, 3000]})\n"
+- !ruby/struct:SM::Flow::P 
+  body: When a DB object first connects to a pair, it will find the master instance and connect to that one.
+full_name: Mongo::Connection::new
+is_singleton: true
+name: new
+params: (pair_or_host=nil, port=nil, options={})
+visibility: public

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>&lt;&lt; (MongoMapper::Associations::ManyDocumentsProxy)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/mongo_mapper/associations/many_documents_proxy.rb, line 40</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-operator">&lt;&lt;</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">docs</span>)
+        <span class="ruby-identifier">ensure_owner_saved</span>
+        <span class="ruby-identifier">flatten_deeper</span>(<span class="ruby-identifier">docs</span>).<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">doc</span><span class="ruby-operator">|</span> <span class="ruby-identifier">apply_scope</span>(<span class="ruby-identifier">doc</span>).<span class="ruby-identifier">save</span> }
+        <span class="ruby-identifier">reset</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Define tasks for plugin.
+full_name: Hoe::Publish#define_publish_tasks
+is_singleton: false
+name: define_publish_tasks
+params: ()
+visibility: public

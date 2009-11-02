@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Returns a cursor over query result hashes. Each hash contains a 'name' string and optionally an 'options' hash. If <tt>coll_name</tt> is specified, an array of length 1 is returned.
+full_name: Mongo::DB#collections_info
+is_singleton: false
+name: collections_info
+params: (coll_name=nil)
+visibility: public

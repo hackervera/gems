@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>parameters_for_signature (OAuth::RequestProxy::ActionControllerRequest)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/oauth/request_proxy/action_controller_request.rb, line 31</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parameters_for_signature</span>
+      <span class="ruby-identifier">params</span> = []
+      <span class="ruby-identifier">params</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:parameters</span>].<span class="ruby-identifier">to_query</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:parameters</span>]
+
+      <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:clobber_request</span>]
+        <span class="ruby-identifier">params</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">header_params</span>.<span class="ruby-identifier">to_query</span>
+        <span class="ruby-identifier">params</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">query_string</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">query_string</span>.<span class="ruby-identifier">blank?</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">post?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">content_type</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Mime</span><span class="ruby-operator">::</span><span class="ruby-constant">Type</span>.<span class="ruby-identifier">lookup</span>(<span class="ruby-value str">&quot;application/x-www-form-urlencoded&quot;</span>)
+          <span class="ruby-identifier">params</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">raw_post</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">params</span>.
+        <span class="ruby-identifier">join</span>(<span class="ruby-value str">'&amp;'</span>).<span class="ruby-identifier">split</span>(<span class="ruby-value str">'&amp;'</span>).
+        <span class="ruby-identifier">reject</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">:blank?</span>).
+        <span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">'='</span>).<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">esc</span><span class="ruby-operator">|</span> <span class="ruby-constant">CGI</span>.<span class="ruby-identifier">unescape</span>(<span class="ruby-identifier">esc</span>)} }.
+        <span class="ruby-identifier">reject</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">kv</span><span class="ruby-operator">|</span> <span class="ruby-identifier">kv</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">'oauth_signature'</span>}
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

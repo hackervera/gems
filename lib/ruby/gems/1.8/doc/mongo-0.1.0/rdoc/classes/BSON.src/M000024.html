@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>deserialize_dbref_data (BSON)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/mongo/util/bson.rb, line 254</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">deserialize_dbref_data</span>(<span class="ruby-identifier">buf</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">parent</span>)
+    <span class="ruby-identifier">ns</span> = <span class="ruby-identifier">deserialize_cstr</span>(<span class="ruby-identifier">buf</span>)
+    <span class="ruby-identifier">oid</span> = <span class="ruby-identifier">deserialize_oid_data</span>(<span class="ruby-identifier">buf</span>)
+    <span class="ruby-constant">XGen</span><span class="ruby-operator">::</span><span class="ruby-constant">Mongo</span><span class="ruby-operator">::</span><span class="ruby-constant">Driver</span><span class="ruby-operator">::</span><span class="ruby-constant">DBRef</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">parent</span>, <span class="ruby-identifier">key</span>, <span class="ruby-ivar">@db</span>, <span class="ruby-identifier">ns</span>, <span class="ruby-identifier">oid</span>)
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

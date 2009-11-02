@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Creates a request and parses the result as url_encoded. This is used internally for the RequestToken and AccessToken requests.
+full_name: OAuth::Consumer#token_request
+is_singleton: false
+name: token_request
+params: (http_method, path, token = nil, request_options = {}, *arguments)
+visibility: public

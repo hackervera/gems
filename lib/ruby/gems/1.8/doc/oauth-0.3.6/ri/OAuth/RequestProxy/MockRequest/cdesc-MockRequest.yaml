@@ -1,0 +1,26 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "RequestProxy for Hashes to facilitate simpler signature creation. Usage:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  request = OAuth::RequestProxy.proxy      #      &quot;method&quot; =&gt; &quot;iq&quot;,\n     &quot;uri&quot;    =&gt; [from, to] * &quot;&amp;&quot;,\n     &quot;parameters&quot; =&gt; {\n       &quot;oauth_consumer_key&quot;     =&gt; oauth_consumer_key,\n       &quot;oauth_token&quot;            =&gt; oauth_token,\n       &quot;oauth_signature_method&quot; =&gt; &quot;HMAC-SHA1&quot;\n     }\n\n  signature = OAuth::Signature.sign      #     request,\n    :consumer_secret =&gt; oauth_consumer_secret,\n    :token_secret    =&gt; oauth_token_secret,\n"
+constants: []
+
+full_name: OAuth::RequestProxy::MockRequest
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: method
+- !ruby/object:RI::MethodSummary 
+  name: normalized_uri
+- !ruby/object:RI::MethodSummary 
+  name: parameters
+- !ruby/object:RI::MethodSummary 
+  name: uri
+name: MockRequest
+superclass: OAuth::RequestProxy::Base

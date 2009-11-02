@@ -1,0 +1,24 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The RequestToken is used for the initial Request. This is normally created by the Consumer object.
+constants: []
+
+full_name: OAuth::RequestToken
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: authorize_url
+- !ruby/object:RI::MethodSummary 
+  name: build_authorize_url
+- !ruby/object:RI::MethodSummary 
+  name: callback_confirmed?
+- !ruby/object:RI::MethodSummary 
+  name: get_access_token
+name: RequestToken
+superclass: ConsumerToken

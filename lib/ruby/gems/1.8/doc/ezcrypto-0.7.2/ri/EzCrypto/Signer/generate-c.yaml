@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Generate a new keypair. Defaults to 2048 bit RSA.
+full_name: EzCrypto::Signer::generate
+is_singleton: true
+name: generate
+params: (strength=2048,type=:rsa)
+visibility: public

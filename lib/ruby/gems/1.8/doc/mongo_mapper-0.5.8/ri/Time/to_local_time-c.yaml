@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: make sure we have a time and that it is local
+full_name: Time::to_local_time
+is_singleton: true
+name: to_local_time
+params: (value)
+visibility: public

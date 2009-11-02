@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Returns the session_key
+full_name: ActiveCrypto::KeyHolder#session_key
+is_singleton: false
+name: session_key
+params: ()
+visibility: public

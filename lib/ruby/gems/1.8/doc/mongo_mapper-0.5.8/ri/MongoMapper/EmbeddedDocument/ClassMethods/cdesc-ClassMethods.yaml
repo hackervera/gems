@@ -1,0 +1,32 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: MongoMapper::EmbeddedDocument::ClassMethods
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: embeddable?
+- !ruby/object:RI::MethodSummary 
+  name: from_mongo
+- !ruby/object:RI::MethodSummary 
+  name: inherited
+- !ruby/object:RI::MethodSummary 
+  name: key
+- !ruby/object:RI::MethodSummary 
+  name: keys
+- !ruby/object:RI::MethodSummary 
+  name: logger
+- !ruby/object:RI::MethodSummary 
+  name: parent_model
+- !ruby/object:RI::MethodSummary 
+  name: subclasses
+- !ruby/object:RI::MethodSummary 
+  name: to_mongo
+name: ClassMethods
+superclass: 

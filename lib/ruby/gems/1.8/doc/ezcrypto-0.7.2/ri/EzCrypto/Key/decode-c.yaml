@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Initialize the key with Base64 encoded key data.
+full_name: EzCrypto::Key::decode
+is_singleton: true
+name: decode
+params: (encoded,options = {})
+visibility: public

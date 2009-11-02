@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>define_spec (Hoe)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/hoe.rb, line 327</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">define_spec</span>
+    <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">spec</span> = <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Specification</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">dirs</span> = <span class="ruby-constant">Dir</span>[<span class="ruby-value str">'{lib,ext}'</span>]
+
+      <span class="ruby-identifier">s</span>.<span class="ruby-identifier">name</span>                 = <span class="ruby-identifier">name</span>
+      <span class="ruby-identifier">s</span>.<span class="ruby-identifier">version</span>              = <span class="ruby-identifier">version</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">version</span>
+      <span class="ruby-identifier">s</span>.<span class="ruby-identifier">summary</span>              = <span class="ruby-identifier">summary</span>
+      <span class="ruby-identifier">s</span>.<span class="ruby-identifier">email</span>                = <span class="ruby-identifier">email</span>
+      <span class="ruby-identifier">s</span>.<span class="ruby-identifier">homepage</span>             = <span class="ruby-constant">Array</span>(<span class="ruby-identifier">url</span>).<span class="ruby-identifier">first</span>
+      <span class="ruby-identifier">s</span>.<span class="ruby-identifier">rubyforge_project</span>    = <span class="ruby-identifier">rubyforge_name</span>
+      <span class="ruby-identifier">s</span>.<span class="ruby-identifier">description</span>          = <span class="ruby-identifier">description</span>
+      <span class="ruby-identifier">s</span>.<span class="ruby-identifier">files</span> = <span class="ruby-identifier">files</span>        = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read_utf</span>(<span class="ruby-value str">&quot;Manifest.txt&quot;</span>).<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">/\r?\n\r?/</span>)
+      <span class="ruby-identifier">s</span>.<span class="ruby-identifier">executables</span>          = <span class="ruby-identifier">s</span>.<span class="ruby-identifier">files</span>.<span class="ruby-identifier">grep</span>(<span class="ruby-regexp re">/^bin/</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">f</span>) }
+      <span class="ruby-identifier">s</span>.<span class="ruby-identifier">bindir</span>               = <span class="ruby-value str">&quot;bin&quot;</span>
+      <span class="ruby-identifier">s</span>.<span class="ruby-identifier">require_paths</span>        = <span class="ruby-identifier">dirs</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">dirs</span>.<span class="ruby-identifier">empty?</span>
+      <span class="ruby-identifier">s</span>.<span class="ruby-identifier">rdoc_options</span>         = [<span class="ruby-value str">'--main'</span>, <span class="ruby-identifier">readme_file</span>]
+      <span class="ruby-identifier">s</span>.<span class="ruby-identifier">has_rdoc</span>             = <span class="ruby-keyword kw">true</span>
+      <span class="ruby-identifier">s</span>.<span class="ruby-identifier">post_install_message</span> = <span class="ruby-identifier">post_install_message</span>
+      <span class="ruby-identifier">s</span>.<span class="ruby-identifier">test_files</span>           = <span class="ruby-constant">Dir</span>[<span class="ruby-operator">*</span><span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">test_globs</span>]
+
+      <span class="ruby-identifier">missing</span> <span class="ruby-value str">&quot;Manifest.txt&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">files</span>.<span class="ruby-identifier">empty?</span>
+
+      <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">author</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Array</span>
+        <span class="ruby-identifier">s</span>.<span class="ruby-identifier">authors</span> = <span class="ruby-identifier">author</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">s</span>.<span class="ruby-identifier">author</span>  = <span class="ruby-identifier">author</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">extra_deps</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">dep</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">s</span>.<span class="ruby-identifier">add_dependency</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">dep</span>)
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">extra_dev_deps</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">dep</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">s</span>.<span class="ruby-identifier">add_development_dependency</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">dep</span>)
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">s</span>.<span class="ruby-identifier">extra_rdoc_files</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">files</span>.<span class="ruby-identifier">grep</span>(<span class="ruby-regexp re">/txt$/</span>)
+      <span class="ruby-identifier">s</span>.<span class="ruby-identifier">extra_rdoc_files</span>.<span class="ruby-identifier">reject!</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">f</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">%r%^(test|spec|vendor|template|data|tmp)/%</span> }
+      <span class="ruby-identifier">s</span>.<span class="ruby-identifier">extra_rdoc_files</span> <span class="ruby-operator">+=</span> <span class="ruby-ivar">@extra_rdoc_files</span>
+
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-keyword kw">unless</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">version</span> <span class="ruby-keyword kw">then</span>
+      <span class="ruby-identifier">version</span> = <span class="ruby-keyword kw">nil</span>
+
+      <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">files</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword kw">next</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span> <span class="ruby-identifier">file</span>
+        <span class="ruby-identifier">version</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">file</span>)[<span class="ruby-regexp re">/VERSION += +([\&quot;\'])([\d][\d\w\.]+)\1/</span>, <span class="ruby-value">2</span>]
+        <span class="ruby-keyword kw">break</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">version</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">version</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">version</span> = <span class="ruby-identifier">version</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">version</span>
+
+      <span class="ruby-keyword kw">unless</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">version</span> <span class="ruby-keyword kw">then</span>
+        <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">version</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">version</span> = <span class="ruby-value str">&quot;0.borked&quot;</span>
+        <span class="ruby-identifier">warn</span> <span class="ruby-value str">&quot;** Add 'VERSION = \&quot;x.y.z\&quot;' to your code,&quot;</span>
+        <span class="ruby-identifier">warn</span> <span class="ruby-value str">&quot;   add a version to your hoe spec,&quot;</span>
+        <span class="ruby-identifier">warn</span> <span class="ruby-value str">&quot;   or fix your Manifest.txt&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-comment cmt"># Do any extra stuff the user wants</span>
+    <span class="ruby-identifier">spec_extras</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">msg</span>, <span class="ruby-identifier">val</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">val</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Proc</span>
+        <span class="ruby-identifier">val</span>.<span class="ruby-identifier">call</span> <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">msg</span>)
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">send</span> <span class="ruby-node">&quot;#{msg}=&quot;</span>, <span class="ruby-identifier">val</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

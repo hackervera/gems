@@ -1,0 +1,13 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: "<<"
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Insert <tt>objects</tt>, which are hashes. &quot;&lt;&lt;&quot; is aliased to this method.
+full_name: XGen::Mongo::Driver::Collection#insert
+is_singleton: false
+name: insert
+params: (*objects)
+visibility: public

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>define_debug_tasks (Hoe::Debug)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/hoe/debug.rb, line 30</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">define_debug_tasks</span>
+    <span class="ruby-identifier">desc</span> <span class="ruby-value str">'Create a fresh ~/.hoerc file.'</span>
+    <span class="ruby-identifier">task</span> <span class="ruby-identifier">:config_hoe</span> <span class="ruby-keyword kw">do</span>
+      <span class="ruby-identifier">with_config</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">config</span>, <span class="ruby-identifier">path</span><span class="ruby-operator">|</span>
+        <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">path</span>, <span class="ruby-value str">&quot;w&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+          <span class="ruby-constant">YAML</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-constant">Hoe</span><span class="ruby-operator">::</span><span class="ruby-constant">DEFAULT_CONFIG</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">config</span>), <span class="ruby-identifier">f</span>)
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">editor</span> = <span class="ruby-constant">ENV</span>[<span class="ruby-value str">'EDITOR'</span>] <span class="ruby-operator">||</span> <span class="ruby-value str">'vi'</span>
+        <span class="ruby-identifier">system</span> <span class="ruby-node">&quot;#{editor} #{path}&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-constant">ENV</span>[<span class="ruby-value str">'SHOW_EDITOR'</span>] <span class="ruby-operator">!=</span> <span class="ruby-value str">'no'</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-identifier">desc</span> <span class="ruby-value str">'Verify the manifest.'</span>
+    <span class="ruby-identifier">task</span> <span class="ruby-identifier">:check_manifest</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:clean</span> <span class="ruby-keyword kw">do</span>
+      <span class="ruby-identifier">f</span> = <span class="ruby-value str">&quot;Manifest.tmp&quot;</span>
+      <span class="ruby-identifier">require</span> <span class="ruby-value str">'find'</span>
+      <span class="ruby-identifier">files</span> = []
+      <span class="ruby-identifier">with_config</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">config</span>, <span class="ruby-identifier">_</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">exclusions</span> = <span class="ruby-identifier">config</span>[<span class="ruby-value str">&quot;exclude&quot;</span>]
+        <span class="ruby-identifier">abort</span> <span class="ruby-value str">&quot;exclude entry missing from .hoerc. Aborting.&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">exclusions</span>.<span class="ruby-identifier">nil?</span>
+        <span class="ruby-constant">Find</span>.<span class="ruby-identifier">find</span> <span class="ruby-value str">'.'</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword kw">next</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">file?</span> <span class="ruby-identifier">path</span>
+          <span class="ruby-keyword kw">next</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">path</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">exclusions</span>
+          <span class="ruby-identifier">files</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">path</span>[<span class="ruby-value">2</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>]
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-identifier">files</span> = <span class="ruby-identifier">files</span>.<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">join</span> <span class="ruby-value str">&quot;\n&quot;</span>
+        <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span> <span class="ruby-identifier">f</span>, <span class="ruby-value str">'w'</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">fp</span><span class="ruby-operator">|</span> <span class="ruby-identifier">fp</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">files</span> <span class="ruby-keyword kw">end</span>
+        <span class="ruby-identifier">system</span> <span class="ruby-node">&quot;#{DIFF} -du Manifest.txt #{f}&quot;</span>
+        <span class="ruby-identifier">rm</span> <span class="ruby-identifier">f</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-identifier">desc</span> <span class="ruby-value str">'Show information about the gem.'</span>
+    <span class="ruby-identifier">task</span> <span class="ruby-identifier">:debug_gem</span> <span class="ruby-keyword kw">do</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">to_ruby</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

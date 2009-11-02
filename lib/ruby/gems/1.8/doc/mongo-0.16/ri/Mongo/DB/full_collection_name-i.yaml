@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Mongo::DB#full_collection_name
+is_singleton: false
+name: full_collection_name
+params: (collection_name)
+visibility: public

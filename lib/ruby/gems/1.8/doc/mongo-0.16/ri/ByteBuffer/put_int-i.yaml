@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: ByteBuffer#put_int
+is_singleton: false
+name: put_int
+params: (i, offset=nil)
+visibility: public

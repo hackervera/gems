@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: MongoMapper::DynamicFinder#found?
+is_singleton: false
+name: found?
+params: ()
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Initialize a Signer with a OpenSSL Private Key. You generally should not call new directly. Unless you are interfacing with your own underlying OpenSSL code.
+full_name: EzCrypto::Signer::new
+is_singleton: true
+name: new
+params: (priv,options = {})
+visibility: public

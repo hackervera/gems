@@ -1,0 +1,33 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Utility module to include when needing to convert certain types of objects to mongo-friendly parameters.
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ASCENDING
+  value: "[\"ascending\", \"asc\", \"1\"]"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: DESCENDING
+  value: "[\"descending\", \"desc\", \"-1\"]"
+full_name: Mongo::Conversions
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: array_as_sort_parameters
+- !ruby/object:RI::MethodSummary 
+  name: sort_value
+- !ruby/object:RI::MethodSummary 
+  name: string_as_sort_parameters
+- !ruby/object:RI::MethodSummary 
+  name: symbol_as_sort_parameters
+- !ruby/object:RI::MethodSummary 
+  name: warn_if_deprecated
+name: Conversions
+superclass: 

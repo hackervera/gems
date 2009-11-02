@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Options: id, user_id, screen_name"
+full_name: Twitter::Base#friend_ids
+is_singleton: false
+name: friend_ids
+params: (query={})
+visibility: public

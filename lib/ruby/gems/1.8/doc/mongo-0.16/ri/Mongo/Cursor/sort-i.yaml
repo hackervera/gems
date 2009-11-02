@@ -1,0 +1,18 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Sort this cursor's result
+- !ruby/struct:SM::Flow::P 
+  body: Takes either a single key and a direction, or an array of [key, direction] pairs. Directions should be specified as Mongo::ASCENDING or Mongo::DESCENDING (or :ascending or :descending) (or :asc or :desc).
+- !ruby/struct:SM::Flow::P 
+  body: Raises InvalidOperation if this cursor has already been used. Raises InvalidSortValueError if specified order is invalid.
+- !ruby/struct:SM::Flow::P 
+  body: This method overrides any sort order specified in the Collection#find method, and only the last sort applied has an effect
+full_name: Mongo::Cursor#sort
+is_singleton: false
+name: sort
+params: (key_or_list, direction=nil)
+visibility: public

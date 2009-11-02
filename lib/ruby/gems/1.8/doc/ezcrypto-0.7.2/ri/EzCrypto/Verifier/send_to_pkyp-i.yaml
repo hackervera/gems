@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: EzCrypto::Verifier#send_to_pkyp
+is_singleton: false
+name: send_to_pkyp
+params: (pem)
+visibility: protected

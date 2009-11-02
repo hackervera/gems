@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: OAuth::CLI#prepare_parameters
+is_singleton: false
+name: prepare_parameters
+params: ()
+visibility: protected

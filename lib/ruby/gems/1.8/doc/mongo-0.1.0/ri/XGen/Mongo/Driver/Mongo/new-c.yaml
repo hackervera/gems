@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Either nodes_or_host is a host name string and port is an optional port number that defaults to DEFAULT_PORT, or nodes_or_host is an array of arrays, where each is a host/port pair (or a host with no port). Finally, if nodes_or_host is nil then host is 'localhost' and port is DEFAULT_PORT. Since that's so confusing, here are a few examples:"
+- !ruby/struct:SM::Flow::VERB 
+  body: " Mongo.new                         # localhost, DEFAULT_PORT\n Mongo.new(&quot;localhost&quot;)            # localhost, DEFAULT_PORT\n Mongo.new(&quot;localhost&quot;, 3000)      # localhost, 3000\n Mongo.new([[&quot;localhost&quot;]])        # localhost, DEFAULT_PORT\n Mongo.new([[&quot;localhost&quot;, 3000]])  # localhost, 3000\n Mongo.new([[&quot;db1.example.com&quot;, 3000], [&quot;db2.example.com&quot;, 3000]]])\n"
+- !ruby/struct:SM::Flow::P 
+  body: When a DB object first connects, it tries nodes and stops at the first one it connects to.
+full_name: XGen::Mongo::Driver::Mongo::new
+is_singleton: true
+name: new
+params: (nodes_or_host=nil, port=nil)
+visibility: public

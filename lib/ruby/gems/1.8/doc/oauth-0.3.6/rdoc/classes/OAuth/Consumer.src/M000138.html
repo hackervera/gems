@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>create_http (OAuth::Consumer)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/oauth/consumer.rb, line 268</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create_http</span>(<span class="ruby-identifier">_url</span> = <span class="ruby-keyword kw">nil</span>)
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">_url</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">_url</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/^\//</span>
+        <span class="ruby-identifier">our_uri</span> = <span class="ruby-constant">URI</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">site</span>)
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">our_uri</span> = <span class="ruby-constant">URI</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">_url</span>)
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">proxy</span>.<span class="ruby-identifier">nil?</span>
+        <span class="ruby-identifier">http_object</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">our_uri</span>.<span class="ruby-identifier">host</span>, <span class="ruby-identifier">our_uri</span>.<span class="ruby-identifier">port</span>)
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">proxy_uri</span> = <span class="ruby-identifier">proxy</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">URI</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">proxy</span> <span class="ruby-operator">:</span> <span class="ruby-constant">URI</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">proxy</span>)
+        <span class="ruby-identifier">http_object</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">our_uri</span>.<span class="ruby-identifier">host</span>, <span class="ruby-identifier">our_uri</span>.<span class="ruby-identifier">port</span>, <span class="ruby-identifier">proxy_uri</span>.<span class="ruby-identifier">host</span>, <span class="ruby-identifier">proxy_uri</span>.<span class="ruby-identifier">port</span>, <span class="ruby-identifier">proxy_uri</span>.<span class="ruby-identifier">user</span>, <span class="ruby-identifier">proxy_uri</span>.<span class="ruby-identifier">password</span>)
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">http_object</span>.<span class="ruby-identifier">use_ssl</span> = (<span class="ruby-identifier">our_uri</span>.<span class="ruby-identifier">scheme</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'https'</span>)
+
+      <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:ca_file</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">CA_FILE</span>
+        <span class="ruby-identifier">http_object</span>.<span class="ruby-identifier">ca_file</span> = <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:ca_file</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">CA_FILE</span>
+        <span class="ruby-identifier">http_object</span>.<span class="ruby-identifier">verify_mode</span> = <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">SSL</span><span class="ruby-operator">::</span><span class="ruby-constant">VERIFY_PEER</span>
+        <span class="ruby-identifier">http_object</span>.<span class="ruby-identifier">verify_depth</span> = <span class="ruby-value">5</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">http_object</span>.<span class="ruby-identifier">verify_mode</span> = <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">SSL</span><span class="ruby-operator">::</span><span class="ruby-constant">VERIFY_NONE</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">http_object</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

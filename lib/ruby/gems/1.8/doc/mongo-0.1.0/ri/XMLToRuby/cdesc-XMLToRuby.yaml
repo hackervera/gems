@@ -1,0 +1,29 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Converts a .xson file (an XML file that describes a Mongo-type document) to an OrderedHash.
+constants: []
+
+full_name: XMLToRuby
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: XGen::Mongo::Driver
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: array_to_ruby
+- !ruby/object:RI::MethodSummary 
+  name: dbref_to_ruby
+- !ruby/object:RI::MethodSummary 
+  name: doc_to_ruby
+- !ruby/object:RI::MethodSummary 
+  name: element_to_ruby
+- !ruby/object:RI::MethodSummary 
+  name: regex_to_ruby
+- !ruby/object:RI::MethodSummary 
+  name: xml_to_ruby
+name: XMLToRuby
+superclass: Object

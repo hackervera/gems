@@ -1,0 +1,17 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Raised when configuration options cause connections, queries, etc., to fail.
+constants: []
+
+full_name: Mongo::ConfigurationError
+includes: []
+
+instance_methods: []
+
+name: ConfigurationError
+superclass: MongoRubyError

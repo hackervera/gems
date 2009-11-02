@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: MongoMapper::Document::ClassMethods#single_collection_inherited?
+is_singleton: false
+name: single_collection_inherited?
+params: ()
+visibility: public

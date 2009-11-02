@@ -1,0 +1,18 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Encapsulates the pattern of wanting to validate a password or email address field with a confirmation. Example:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  Class:\n    class PersonPresenter\n      include Validatable\n      validates_confirmation_of :user_name, :password\n      validates_confirmation_of :email_address, :message =&gt; &quot;should match confirmation&quot;\n    end\n\n  View:\n    &lt;%= password_field &quot;person&quot;, &quot;password&quot; %&gt;\n    &lt;%= password_field &quot;person&quot;, &quot;password_confirmation&quot; %&gt;\n"
+- !ruby/struct:SM::Flow::P 
+  body: "Configuration options:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "    * after_validate - A block that executes following the run of a validation\n    * case_sensitive - Whether or not to apply case-sensitivity on the comparison.  Defaults to true.\n    * message - The message to add to the errors collection when the validation fails\n    * times - The number of times the validation applies\n    * level - The level at which the validation should occur\n    * if - A block that when executed must return true of the validation will not occur\n    * group - The group that this validation belongs to.  A validation can belong to multiple groups\n"
+full_name: Validatable::Macros#validates_confirmation_of
+is_singleton: false
+name: validates_confirmation_of
+params: " validates_confirmation_of(*args)\n"
+visibility: public

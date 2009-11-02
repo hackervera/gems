@@ -1,0 +1,36 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: OAuth::Client::Helper
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: OAuth::Helper
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: amend_user_agent_header
+- !ruby/object:RI::MethodSummary 
+  name: header
+- !ruby/object:RI::MethodSummary 
+  name: nonce
+- !ruby/object:RI::MethodSummary 
+  name: oauth_parameters
+- !ruby/object:RI::MethodSummary 
+  name: options
+- !ruby/object:RI::MethodSummary 
+  name: parameters
+- !ruby/object:RI::MethodSummary 
+  name: parameters_with_oauth
+- !ruby/object:RI::MethodSummary 
+  name: signature
+- !ruby/object:RI::MethodSummary 
+  name: signature_base_string
+- !ruby/object:RI::MethodSummary 
+  name: timestamp
+name: Helper
+superclass: Object

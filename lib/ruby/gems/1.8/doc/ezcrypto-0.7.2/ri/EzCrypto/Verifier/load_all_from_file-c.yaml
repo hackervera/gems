@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Decodes all certificates or public keys in a file and returns an array.
+full_name: EzCrypto::Verifier::load_all_from_file
+is_singleton: true
+name: load_all_from_file
+params: (filename)
+visibility: public

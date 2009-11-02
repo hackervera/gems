@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: value
+comment: 
+full_name: Object#returning
+is_singleton: false
+name: returning
+params: (value) {|value| ...}
+visibility: public

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: BSON::serialize_cstr
+is_singleton: true
+name: serialize_cstr
+params: (buf, val)
+visibility: public

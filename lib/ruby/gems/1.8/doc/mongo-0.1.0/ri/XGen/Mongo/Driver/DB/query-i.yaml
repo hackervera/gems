@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Returns a Cursor over the query results.
+- !ruby/struct:SM::Flow::P 
+  body: "Note that the query gets sent lazily; the cursor calls #send_query_message when needed. If the caller never requests an object from the cursor, the query never gets sent."
+full_name: XGen::Mongo::Driver::DB#query
+is_singleton: false
+name: query
+params: (collection, query)
+visibility: public

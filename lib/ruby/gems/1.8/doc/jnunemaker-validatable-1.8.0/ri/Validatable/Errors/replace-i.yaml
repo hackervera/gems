@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: Replaces the errors value for the given <tt>attribute</tt>
+  type: :BULLET
+full_name: Validatable::Errors#replace
+is_singleton: false
+name: replace
+params: " replace(attribute)\n"
+visibility: public

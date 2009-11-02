@@ -1,0 +1,27 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: RCov plugin for hoe.
+- !ruby/struct:SM::Flow::H 
+  level: 3
+  text: "Tasks Provided:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "rcov:"
+    body: Analyze code coverage with tests
+  type: :NOTE
+constants: []
+
+full_name: Hoe::RCov
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: define_rcov_tasks
+name: RCov
+superclass: 

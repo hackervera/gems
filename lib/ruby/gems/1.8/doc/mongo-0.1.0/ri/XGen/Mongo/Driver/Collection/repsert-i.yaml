@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Update records that match <tt>selector</tt> by applying <tt>obj</tt> as an update. If no match, inserts (???).
+full_name: XGen::Mongo::Driver::Collection#repsert
+is_singleton: false
+name: repsert
+params: (selector, obj)
+visibility: public

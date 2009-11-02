@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: OAuth::Client::Helper#parameters_with_oauth
+is_singleton: false
+name: parameters_with_oauth
+params: ()
+visibility: public

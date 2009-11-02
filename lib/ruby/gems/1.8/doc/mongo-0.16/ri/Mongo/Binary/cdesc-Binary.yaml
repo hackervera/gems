@@ -1,0 +1,38 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: One of the SUBTYPE_* constants. Default is SUBTYPE_BYTES.
+  name: subtype
+  rw: RW
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: An array of binary bytes with a Mongo subtype value.
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SUBTYPE_BYTES
+  value: "0x02"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SUBTYPE_UUID
+  value: "0x03"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SUBTYPE_MD5
+  value: "0x05"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SUBTYPE_USER_DEFINED
+  value: "0x80"
+full_name: Mongo::Binary
+includes: []
+
+instance_methods: []
+
+name: Binary
+superclass: ByteBuffer

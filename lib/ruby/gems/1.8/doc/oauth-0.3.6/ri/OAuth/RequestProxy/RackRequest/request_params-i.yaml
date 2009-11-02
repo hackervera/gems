@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: OAuth::RequestProxy::RackRequest#request_params
+is_singleton: false
+name: request_params
+params: ()
+visibility: protected

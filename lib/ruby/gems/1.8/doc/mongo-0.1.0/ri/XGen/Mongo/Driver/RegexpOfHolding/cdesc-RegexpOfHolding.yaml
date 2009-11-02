@@ -1,0 +1,23 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: extra_options_str
+  rw: RW
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: A Regexp that can hold on to extra options and ignore them. Mongo regexes may contain option characters beyond 'i', 'm', and 'x'. (Note that Mongo only uses those three, but that regexes coming from other languages may store different option characters.)
+- !ruby/struct:SM::Flow::P 
+  body: Note that you do not have to use this class at all if you wish to store regular expressions in Mongo. The Mongo and Ruby regex option flags are the same. Storing regexes is discouraged, in any case.
+constants: []
+
+full_name: XGen::Mongo::Driver::RegexpOfHolding
+includes: []
+
+instance_methods: []
+
+name: RegexpOfHolding
+superclass: Regexp

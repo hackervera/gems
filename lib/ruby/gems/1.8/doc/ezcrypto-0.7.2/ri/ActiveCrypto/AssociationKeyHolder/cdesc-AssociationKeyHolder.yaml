@@ -1,0 +1,23 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: ActiveCrypto::AssociationKeyHolder
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: ActiveCrypto::KeyHolder
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: save_session_key
+- !ruby/object:RI::MethodSummary 
+  name: session_key
+- !ruby/object:RI::MethodSummary 
+  name: session_key_id
+- !ruby/object:RI::MethodSummary 
+  name: set_session_key
+name: AssociationKeyHolder
+superclass: 

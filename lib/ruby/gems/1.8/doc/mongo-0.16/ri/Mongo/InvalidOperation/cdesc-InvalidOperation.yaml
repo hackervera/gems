@@ -1,0 +1,17 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Raised when a client attempts to perform an invalid operation.
+constants: []
+
+full_name: Mongo::InvalidOperation
+includes: []
+
+instance_methods: []
+
+name: InvalidOperation
+superclass: RuntimeError

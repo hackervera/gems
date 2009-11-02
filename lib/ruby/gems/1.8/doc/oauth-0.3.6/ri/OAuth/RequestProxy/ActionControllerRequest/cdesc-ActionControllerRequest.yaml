@@ -1,0 +1,26 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: OAuth::RequestProxy::ActionControllerRequest
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: method
+- !ruby/object:RI::MethodSummary 
+  name: parameters
+- !ruby/object:RI::MethodSummary 
+  name: parameters_for_signature
+- !ruby/object:RI::MethodSummary 
+  name: query_params
+- !ruby/object:RI::MethodSummary 
+  name: request_params
+- !ruby/object:RI::MethodSummary 
+  name: uri
+name: ActionControllerRequest
+superclass: OAuth::RequestProxy::Base

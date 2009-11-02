@@ -1,0 +1,36 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: db
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: field_name
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: namespace
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: object_id
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: parent
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: XGen::Mongo::Driver::DBRef
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: to_s
+name: DBRef
+superclass: Object

@@ -1,0 +1,17 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: raised when key expected to exist but not found
+constants: []
+
+full_name: MongoMapper::KeyNotFound
+includes: []
+
+instance_methods: []
+
+name: KeyNotFound
+superclass: MongoMapperError

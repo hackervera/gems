@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>execute (OAuth::CLI)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/oauth/cli.rb, line 31</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">execute</span>(<span class="ruby-identifier">stdout</span>, <span class="ruby-identifier">stdin</span>, <span class="ruby-identifier">stderr</span>, <span class="ruby-identifier">arguments</span> = [])
+      <span class="ruby-ivar">@stdout</span> = <span class="ruby-identifier">stdout</span>
+      <span class="ruby-ivar">@stdin</span>  = <span class="ruby-identifier">stdin</span>
+      <span class="ruby-ivar">@stderr</span> = <span class="ruby-identifier">stderr</span>
+      <span class="ruby-identifier">extract_command_and_parse_options</span>(<span class="ruby-identifier">arguments</span>)
+
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">sufficient_options?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">valid_command?</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">command</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;debug&quot;</span>
+          <span class="ruby-ivar">@command</span> = <span class="ruby-value str">&quot;sign&quot;</span>
+          <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:verbose</span>] = <span class="ruby-keyword kw">true</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">command</span>
+        <span class="ruby-comment cmt"># TODO move command logic elsewhere</span>
+        <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;authorize&quot;</span>
+          <span class="ruby-keyword kw">begin</span>
+            <span class="ruby-identifier">consumer</span> = <span class="ruby-constant">OAuth</span><span class="ruby-operator">::</span><span class="ruby-constant">Consumer</span>.<span class="ruby-identifier">new</span> \
+              <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:oauth_consumer_key</span>],
+              <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:oauth_consumer_secret</span>],
+              <span class="ruby-identifier">:access_token_url</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:access_token_url</span>],
+              <span class="ruby-identifier">:authorize_url</span>     =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:authorize_url</span>],
+              <span class="ruby-identifier">:request_token_url</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:request_token_url</span>],
+              <span class="ruby-identifier">:scheme</span>            =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:scheme</span>],
+              <span class="ruby-identifier">:http_method</span>       =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:method</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">to_sym</span>
+
+            <span class="ruby-comment cmt"># parameters for OAuth 1.0a</span>
+            <span class="ruby-identifier">oauth_verifier</span> = <span class="ruby-keyword kw">nil</span>
+
+            <span class="ruby-comment cmt"># get a request token</span>
+            <span class="ruby-identifier">request_token</span> = <span class="ruby-identifier">consumer</span>.<span class="ruby-identifier">get_request_token</span>({ <span class="ruby-identifier">:oauth_callback</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:oauth_callback</span>] }, { <span class="ruby-value str">&quot;scope&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:scope</span>] })
+
+            <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">request_token</span>.<span class="ruby-identifier">callback_confirmed?</span>
+              <span class="ruby-identifier">stdout</span>.<span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;Server appears to support OAuth 1.0a; enabling support.&quot;</span>
+              <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:version</span>] = <span class="ruby-value str">&quot;1.0a&quot;</span>
+            <span class="ruby-keyword kw">end</span>
+
+            <span class="ruby-identifier">stdout</span>.<span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;Please visit this url to authorize:&quot;</span>
+            <span class="ruby-identifier">stdout</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">request_token</span>.<span class="ruby-identifier">authorize_url</span>
+
+            <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:version</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;1.0a&quot;</span>
+              <span class="ruby-identifier">stdout</span>.<span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;Please enter the verification code provided by the SP (oauth_verifier):&quot;</span>
+              <span class="ruby-identifier">oauth_verifier</span> = <span class="ruby-identifier">stdin</span>.<span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>
+            <span class="ruby-keyword kw">else</span>
+              <span class="ruby-identifier">stdout</span>.<span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;Press return to continue...&quot;</span>
+              <span class="ruby-identifier">stdin</span>.<span class="ruby-identifier">gets</span>
+            <span class="ruby-keyword kw">end</span>
+
+            <span class="ruby-keyword kw">begin</span>
+              <span class="ruby-comment cmt"># get an access token</span>
+              <span class="ruby-identifier">access_token</span> = <span class="ruby-identifier">request_token</span>.<span class="ruby-identifier">get_access_token</span>(<span class="ruby-identifier">:oauth_verifier</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">oauth_verifier</span>)
+
+              <span class="ruby-identifier">stdout</span>.<span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;Response:&quot;</span>
+              <span class="ruby-identifier">access_token</span>.<span class="ruby-identifier">params</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>,<span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">stdout</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;  #{k}: #{v}&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">k</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Symbol</span>)
+              <span class="ruby-keyword kw">end</span>
+            <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">OAuth</span><span class="ruby-operator">::</span><span class="ruby-constant">Unauthorized</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+              <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;A problem occurred while attempting to obtain an access token:&quot;</span>
+              <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">e</span>
+              <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">request</span>.<span class="ruby-identifier">body</span>
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">OAuth</span><span class="ruby-operator">::</span><span class="ruby-constant">Unauthorized</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+            <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;A problem occurred while attempting to authorize:&quot;</span>
+            <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">e</span>
+            <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">request</span>.<span class="ruby-identifier">body</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;query&quot;</span>
+          <span class="ruby-identifier">consumer</span> = <span class="ruby-constant">OAuth</span><span class="ruby-operator">::</span><span class="ruby-constant">Consumer</span>.<span class="ruby-identifier">new</span> \
+            <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:oauth_consumer_key</span>],
+            <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:oauth_consumer_secret</span>],
+            <span class="ruby-identifier">:scheme</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:scheme</span>]
+
+          <span class="ruby-identifier">access_token</span> = <span class="ruby-constant">OAuth</span><span class="ruby-operator">::</span><span class="ruby-constant">AccessToken</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">consumer</span>, <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:oauth_token</span>], <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:oauth_token_secret</span>])
+
+          <span class="ruby-comment cmt"># append params to the URL</span>
+          <span class="ruby-identifier">uri</span> = <span class="ruby-constant">URI</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">options</span>[<span class="ruby-identifier">:uri</span>])
+          <span class="ruby-identifier">params</span> = <span class="ruby-identifier">prepare_parameters</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>,<span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">v2</span><span class="ruby-operator">|</span> <span class="ruby-node">&quot;#{URI.encode(k)}=#{URI.encode(v2)}&quot;</span> } <span class="ruby-operator">*</span> <span class="ruby-value str">&quot;&amp;&quot;</span> }
+          <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">query</span> = [<span class="ruby-identifier">uri</span>.<span class="ruby-identifier">query</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">params</span>].<span class="ruby-identifier">reject</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">nil?</span> } <span class="ruby-operator">*</span> <span class="ruby-value str">&quot;&amp;&quot;</span>
+          <span class="ruby-identifier">p</span> <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">to_s</span>
+
+          <span class="ruby-identifier">response</span> = <span class="ruby-identifier">access_token</span>.<span class="ruby-identifier">request</span>(<span class="ruby-identifier">options</span>[<span class="ruby-identifier">:method</span>].<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">to_sym</span>, <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">to_s</span>)
+          <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{response.code} #{response.message}&quot;</span>
+          <span class="ruby-identifier">puts</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>
+        <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;sign&quot;</span>
+          <span class="ruby-identifier">parameters</span> = <span class="ruby-identifier">prepare_parameters</span>
+
+          <span class="ruby-identifier">request</span> = <span class="ruby-constant">OAuth</span><span class="ruby-operator">::</span><span class="ruby-constant">RequestProxy</span>.<span class="ruby-identifier">proxy</span> \
+             <span class="ruby-value str">&quot;method&quot;</span>     =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:method</span>],
+             <span class="ruby-value str">&quot;uri&quot;</span>        =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:uri</span>],
+             <span class="ruby-value str">&quot;parameters&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">parameters</span>
+
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">verbose?</span>
+            <span class="ruby-identifier">stdout</span>.<span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;OAuth parameters:&quot;</span>
+            <span class="ruby-identifier">request</span>.<span class="ruby-identifier">oauth_parameters</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>,<span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+              <span class="ruby-identifier">stdout</span>.<span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;  &quot;</span> <span class="ruby-operator">+</span> [<span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span>] <span class="ruby-operator">*</span> <span class="ruby-value str">&quot;: &quot;</span>
+            <span class="ruby-keyword kw">end</span>
+            <span class="ruby-identifier">stdout</span>.<span class="ruby-identifier">puts</span>
+
+            <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">non_oauth_parameters</span>.<span class="ruby-identifier">any?</span>
+              <span class="ruby-identifier">stdout</span>.<span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;Parameters:&quot;</span>
+              <span class="ruby-identifier">request</span>.<span class="ruby-identifier">non_oauth_parameters</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>,<span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">stdout</span>.<span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;  &quot;</span> <span class="ruby-operator">+</span> [<span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span>] <span class="ruby-operator">*</span> <span class="ruby-value str">&quot;: &quot;</span>
+              <span class="ruby-keyword kw">end</span>
+              <span class="ruby-identifier">stdout</span>.<span class="ruby-identifier">puts</span>
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-identifier">request</span>.<span class="ruby-identifier">sign!</span> \
+            <span class="ruby-identifier">:consumer_secret</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:oauth_consumer_secret</span>],
+            <span class="ruby-identifier">:token_secret</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:oauth_token_secret</span>]
+
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">verbose?</span>
+            <span class="ruby-identifier">stdout</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Method: #{request.method}&quot;</span>
+            <span class="ruby-identifier">stdout</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;URI: #{request.uri}&quot;</span>
+            <span class="ruby-identifier">stdout</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Normalized params: #{request.normalized_parameters}&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:xmpp</span>]
+            <span class="ruby-identifier">stdout</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Signature base string: #{request.signature_base_string}&quot;</span>
+
+            <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:xmpp</span>]
+              <span class="ruby-identifier">stdout</span>.<span class="ruby-identifier">puts</span>
+              <span class="ruby-identifier">stdout</span>.<span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;XMPP Stanza:&quot;</span>
+              <span class="ruby-identifier">stdout</span>.<span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;&lt;oauth xmlns='urn:xmpp:oauth:0'&gt;\n&lt;oauth_consumer_key&gt;\#{request.oauth_consumer_key}&lt;/oauth_consumer_key&gt;\n&lt;oauth_token&gt;\#{request.oauth_token}&lt;/oauth_token&gt;\n&lt;oauth_signature_method&gt;\#{request.oauth_signature_method}&lt;/oauth_signature_method&gt;\n&lt;oauth_signature&gt;\#{request.oauth_signature}&lt;/oauth_signature&gt;\n&lt;oauth_timestamp&gt;\#{request.oauth_timestamp}&lt;/oauth_timestamp&gt;\n&lt;oauth_nonce&gt;\#{request.oauth_nonce}&lt;/oauth_nonce&gt;\n&lt;oauth_version&gt;\#{request.oauth_version}&lt;/oauth_version&gt;\n&lt;/oauth&gt;\n&quot;</span>
+              <span class="ruby-identifier">stdout</span>.<span class="ruby-identifier">puts</span>
+              <span class="ruby-identifier">stdout</span>.<span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;Note: You may want to use bare JIDs in your URI.&quot;</span>
+              <span class="ruby-identifier">stdout</span>.<span class="ruby-identifier">puts</span>
+            <span class="ruby-keyword kw">else</span>
+              <span class="ruby-identifier">stdout</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;OAuth Request URI: #{request.signed_uri}&quot;</span>
+              <span class="ruby-identifier">stdout</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Request URI: #{request.signed_uri(false)}&quot;</span>
+              <span class="ruby-identifier">stdout</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Authorization header: #{request.oauth_header(:realm =&gt; options[:realm])}&quot;</span>
+            <span class="ruby-keyword kw">end</span>
+            <span class="ruby-identifier">stdout</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Signature:         #{request.oauth_signature}&quot;</span>
+            <span class="ruby-identifier">stdout</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Escaped signature: #{OAuth::Helper.escape(request.oauth_signature)}&quot;</span>
+          <span class="ruby-keyword kw">else</span>
+            <span class="ruby-identifier">stdout</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">oauth_signature</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;version&quot;</span>
+          <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;OAuth for Ruby #{OAuth::VERSION}&quot;</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">usage</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

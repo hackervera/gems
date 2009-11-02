@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: MongoMapper::Document::per_page
+is_singleton: true
+name: per_page
+params: ()
+visibility: public

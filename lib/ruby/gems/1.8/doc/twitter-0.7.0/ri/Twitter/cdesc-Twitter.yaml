@@ -1,0 +1,24 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: firehose
+- !ruby/object:RI::MethodSummary 
+  name: follower_ids
+- !ruby/object:RI::MethodSummary 
+  name: friend_ids
+- !ruby/object:RI::MethodSummary 
+  name: status
+- !ruby/object:RI::MethodSummary 
+  name: user
+comment: 
+constants: []
+
+full_name: Twitter
+includes: []
+
+instance_methods: []
+
+name: Twitter
+superclass: 

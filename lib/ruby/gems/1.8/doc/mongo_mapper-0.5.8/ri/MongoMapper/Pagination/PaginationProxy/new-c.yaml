@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: MongoMapper::Pagination::PaginationProxy::new
+is_singleton: true
+name: new
+params: (total_entries, current_page, per_page=nil)
+visibility: public

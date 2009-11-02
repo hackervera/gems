@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: XGen::Mongo::Driver::Message#write_int
+is_singleton: false
+name: write_int
+params: (i)
+visibility: public

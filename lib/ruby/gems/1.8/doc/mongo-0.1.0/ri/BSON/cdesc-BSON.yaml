@@ -1,0 +1,158 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+- !ruby/object:RI::MethodSummary 
+  name: serialize_cstr
+- !ruby/object:RI::MethodSummary 
+  name: to_utf8
+- !ruby/object:RI::MethodSummary 
+  name: to_utf8
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: A BSON seralizer/deserializer.
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: MINKEY
+  value: "-1"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: EOO
+  value: "0"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: NUMBER
+  value: "1"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STRING
+  value: "2"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: OBJECT
+  value: "3"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ARRAY
+  value: "4"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: BINARY
+  value: "5"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: UNDEFINED
+  value: "6"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: OID
+  value: "7"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: BOOLEAN
+  value: "8"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: DATE
+  value: "9"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: "NULL"
+  value: "10"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: REGEX
+  value: "11"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: REF
+  value: "12"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: CODE
+  value: "13"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SYMBOL
+  value: "14"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: CODE_W_SCOPE
+  value: "15"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: NUMBER_INT
+  value: "16"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: MAXKEY
+  value: "127"
+full_name: BSON
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: bson_type
+- !ruby/object:RI::MethodSummary 
+  name: deserialize
+- !ruby/object:RI::MethodSummary 
+  name: deserialize_array_data
+- !ruby/object:RI::MethodSummary 
+  name: deserialize_binary_data
+- !ruby/object:RI::MethodSummary 
+  name: deserialize_boolean_data
+- !ruby/object:RI::MethodSummary 
+  name: deserialize_cstr
+- !ruby/object:RI::MethodSummary 
+  name: deserialize_date_data
+- !ruby/object:RI::MethodSummary 
+  name: deserialize_dbref_data
+- !ruby/object:RI::MethodSummary 
+  name: deserialize_number_data
+- !ruby/object:RI::MethodSummary 
+  name: deserialize_number_int_data
+- !ruby/object:RI::MethodSummary 
+  name: deserialize_object_data
+- !ruby/object:RI::MethodSummary 
+  name: deserialize_oid_data
+- !ruby/object:RI::MethodSummary 
+  name: deserialize_regex_data
+- !ruby/object:RI::MethodSummary 
+  name: deserialize_string_data
+- !ruby/object:RI::MethodSummary 
+  name: hex_dump
+- !ruby/object:RI::MethodSummary 
+  name: serialize
+- !ruby/object:RI::MethodSummary 
+  name: serialize_array_element
+- !ruby/object:RI::MethodSummary 
+  name: serialize_binary_element
+- !ruby/object:RI::MethodSummary 
+  name: serialize_boolean_element
+- !ruby/object:RI::MethodSummary 
+  name: serialize_date_element
+- !ruby/object:RI::MethodSummary 
+  name: serialize_dbref_element
+- !ruby/object:RI::MethodSummary 
+  name: serialize_eoo_element
+- !ruby/object:RI::MethodSummary 
+  name: serialize_null_element
+- !ruby/object:RI::MethodSummary 
+  name: serialize_number_element
+- !ruby/object:RI::MethodSummary 
+  name: serialize_object_element
+- !ruby/object:RI::MethodSummary 
+  name: serialize_oid_element
+- !ruby/object:RI::MethodSummary 
+  name: serialize_regex_element
+- !ruby/object:RI::MethodSummary 
+  name: serialize_string_element
+- !ruby/object:RI::MethodSummary 
+  name: serialize_undefined_element
+- !ruby/object:RI::MethodSummary 
+  name: to_a
+name: BSON
+superclass: Object

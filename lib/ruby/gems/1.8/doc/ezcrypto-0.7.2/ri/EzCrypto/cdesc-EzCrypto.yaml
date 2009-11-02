@@ -1,0 +1,33 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: These modules provides a simple ruby like way to create and verify digital signatures.
+- !ruby/struct:SM::Flow::H 
+  level: 2
+  text: License
+- !ruby/struct:SM::Flow::P 
+  body: ActiveCrypto and EzCrypto are released under the MIT license.
+- !ruby/struct:SM::Flow::H 
+  level: 2
+  text: Support
+- !ruby/struct:SM::Flow::P 
+  body: To contact the author, send mail to pelleb@gmail.com
+- !ruby/struct:SM::Flow::P 
+  body: "Also see my blogs at: http://stakeventures.com and http://neubia.com"
+- !ruby/struct:SM::Flow::P 
+  body: This project was based on code used in my project StakeItOut, where you can securely share web services with your partners. https://stakeitout.com
+- !ruby/struct:SM::Flow::P 
+  body: (C) 2005 Pelle Braendgaard
+constants: []
+
+full_name: EzCrypto
+includes: []
+
+instance_methods: []
+
+name: EzCrypto
+superclass: 

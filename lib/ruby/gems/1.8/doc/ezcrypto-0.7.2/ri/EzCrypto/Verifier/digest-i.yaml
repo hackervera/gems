@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Returns the SHA1 hexdigest of the DER encoded public key. This can be used as a unique key identifier.
+full_name: EzCrypto::Verifier#digest
+is_singleton: false
+name: digest
+params: ()
+visibility: public

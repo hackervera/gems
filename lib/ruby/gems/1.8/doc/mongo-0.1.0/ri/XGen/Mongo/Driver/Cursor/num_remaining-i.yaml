@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: XGen::Mongo::Driver::Cursor#num_remaining
+is_singleton: false
+name: num_remaining
+params: ()
+visibility: protected

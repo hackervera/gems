@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Create a trust store of normally trusted root certificates as found in a browser. Extracted from Safari.
+full_name: EzCrypto::TrustStore::default_trusted
+is_singleton: true
+name: default_trusted
+params: ()
+visibility: public

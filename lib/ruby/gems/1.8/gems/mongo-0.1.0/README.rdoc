@@ -1,0 +1,162 @@
+= Introduction
+
+This is a Ruby driver for the 10gen Mongo DB. For more information about
+Mongo, see http://www.mongodb.org.
+
+Note: this driver is still alpha quality. The API will change, as *may* the
+data saved to the database (especially primary key values). Do *_not_* use
+this for any production data yet.
+
+Start by reading the XGen::Mongo::Driver::Mongo and XGen::Mongo::Driver::DB
+documentation, then move on to XGen::Mongo::Driver::Collection and
+XGen::Mongo::Driver::Cursor.
+
+A quick code sample:
+
+  require 'mongo'
+
+  include XGen::Mongo::Driver
+
+  db = Mongo.new('localhost').db('sample-db')
+  coll = db.collection('test')
+
+  coll.clear
+  3.times { |i| coll.insert({'a' => i+1}) }
+  puts "There are #{coll.count()} records. Here they are:"
+  coll.find().each { |doc| puts doc.inspect }
+
+= Installation
+
+Install the "mongo" gem by typing
+
+  $ sudo gem install mongo
+
+The source code is available at http://github.com/jimm/mongo-ruby-driver. You
+can either clone the git repository or download a tarball or zip file. Once
+you have the source, you can use it from wherever you downloaded it or you can
+install it as a gem from the source by typing
+
+  $ rake gem:install
+
+
+= Demo
+
+You can see and run the examples if you've downloaded the source. Mongo must
+be running, of course.
+
+  $ ruby examples/simple.rb
+
+See also the test code, especially tests/test_db_api.rb.
+
+
+= Notes
+
+== String Encoding
+
+The BSON ("Binary JSON") format used to communicate with Mongo requires that
+strings be UTF-8 (http://en.wikipedia.org/wiki/UTF-8).
+
+Ruby 1.9 has built-in character encoding support. All strings sent to Mongo
+and received from Mongo are converted to UTF-8 when necessary, and strings
+read from Mongo will have their character encodings set to UTF-8.
+
+When used with Ruby 1.8, the bytes in each string are written to and read from
+Mongo as-is. If the string is ASCII all is well, because ASCII is a subset of
+UTF-8. If the string is not ASCII then it may not be a well-formed UTF-8 string.
+
+= Testing
+
+If you have the source code, you can run the tests.
+
+  $ rake test
+
+The tests assume that the Mongo database is running on the default port.
+
+The project mongo-qa (http://github.com/mongodb/mongo-qa) contains many more
+Mongo driver tests that are language independent. To run thoses tests as part
+of the "rake test" task, run
+
+  $ rake mongo_qa
+  $ rake test
+
+The mongo_qa task uses the "git clone" command to make a copy of that project
+in a directory named mongo-qa. If the directory already exists, then the
+mongo_qa task uses "git pull" to updated the code that's there. The Ruby
+driver tests will then use some of the data files from that project when it
+runs BSON tests. You can delete this directory at any time if you don't want
+to run those tests any more.
+
+Additionally, the script bin/validate is used by the mongo-qa project's
+validator script.
+
+
+= Documentation
+
+This documentation is available online at http://mongo.rubyforge.org. You can
+generate the documentation if you have the source by typing
+
+  $ rake rdoc
+
+Then open the file html/index.html.
+
+
+= Release Notes
+
+See the git log comments.
+
+
+= To Do
+
+* Add group_by. Need to figure out how we are going to send functions. The
+  current thinking is that Mongo will allow a subset of JavaScript (which we
+  would have to send as a string), but this is still under discussion.
+
+* Tests for update and repsert.
+
+* Add a way to specify a collection of databases on startup (a simple array of
+  IP address/port numbers, perhaps, or a hash or something). The driver would
+  then find the master and, on each subsequent command, ask that machine if it
+  is the master before proceeding.
+
+* Introduce optional per-database and per-collection PKInjector.
+
+* More tests.
+
+== Optimizations
+
+* Only update message sizes once, not after every write of a value. This will
+  require an explicit call to update_message_length in each message subclass.
+
+* ensure_index commands should be cached to prevent excessive communication
+  with the database. (Or, the driver user should be informed that ensure_index
+  is not a lightweight operation for the particular driver.)
+
+
+= Credits
+
+Adrian Madrid, aemadrid@gmail.com
+* bin/mongo_console
+* examples/benchmarks.rb
+* examples/irb.rb
+* Modifications to examples/simple.rb
+* Found plenty of bugs and missing features.
+* Ruby 1.9 support.
+* Gem support.
+* Many other code suggestions and improvements.
+
+
+= License
+
+Copyright (C) 2008-2009 10gen Inc.
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU Affero General Public License, version 3, as published by
+the Free Software Foundation.
+
+This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more
+details.
+
+See http://www.gnu.org/licenses for a copy of the GNU Affero General Public
+License.

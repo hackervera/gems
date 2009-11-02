@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Change chunk size. Can only change if the file is opened for write and no data has yet been written.
+full_name: GridFS::GridStore#chunk_size=
+is_singleton: false
+name: chunk_size=
+params: (size)
+visibility: public

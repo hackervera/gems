@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Initialize the key with raw unencoded binary key data. This needs to be at least 16 bytes long for the default aes-128 algorithm.
+full_name: EzCrypto::Key::new
+is_singleton: true
+name: new
+params: (raw,options = {})
+visibility: public

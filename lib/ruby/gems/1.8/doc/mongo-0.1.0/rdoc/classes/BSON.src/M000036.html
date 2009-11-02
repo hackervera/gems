@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>serialize_regex_element (BSON)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/mongo/util/bson.rb, line 340</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">serialize_regex_element</span>(<span class="ruby-identifier">buf</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">val</span>)
+    <span class="ruby-identifier">buf</span>.<span class="ruby-identifier">put</span>(<span class="ruby-constant">REGEX</span>)
+    <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">serialize_cstr</span>(<span class="ruby-identifier">buf</span>, <span class="ruby-identifier">key</span>)
+
+    <span class="ruby-identifier">str</span> = <span class="ruby-identifier">val</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp re">/.*?:/</span>, <span class="ruby-value str">''</span>)[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">-2</span>] <span class="ruby-comment cmt"># Turn &quot;(?xxx:yyy)&quot; into &quot;yyy&quot;</span>
+    <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">serialize_cstr</span>(<span class="ruby-identifier">buf</span>, <span class="ruby-identifier">str</span>)
+
+    <span class="ruby-identifier">options</span> = <span class="ruby-identifier">val</span>.<span class="ruby-identifier">options</span>
+    <span class="ruby-identifier">options_str</span> = <span class="ruby-value str">''</span>
+    <span class="ruby-identifier">options_str</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'i'</span> <span class="ruby-keyword kw">if</span> ((<span class="ruby-identifier">options</span> <span class="ruby-operator">&amp;</span> <span class="ruby-constant">Regexp</span><span class="ruby-operator">::</span><span class="ruby-constant">IGNORECASE</span>) <span class="ruby-operator">!=</span> <span class="ruby-value">0</span>)
+    <span class="ruby-identifier">options_str</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'m'</span> <span class="ruby-keyword kw">if</span> ((<span class="ruby-identifier">options</span> <span class="ruby-operator">&amp;</span> <span class="ruby-constant">Regexp</span><span class="ruby-operator">::</span><span class="ruby-constant">MULTILINE</span>) <span class="ruby-operator">!=</span> <span class="ruby-value">0</span>)
+    <span class="ruby-identifier">options_str</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'x'</span> <span class="ruby-keyword kw">if</span> ((<span class="ruby-identifier">options</span> <span class="ruby-operator">&amp;</span> <span class="ruby-constant">Regexp</span><span class="ruby-operator">::</span><span class="ruby-constant">EXTENDED</span>) <span class="ruby-operator">!=</span> <span class="ruby-value">0</span>)
+    <span class="ruby-identifier">options_str</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">val</span>.<span class="ruby-identifier">extra_options_str</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">val</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:extra_options_str</span>)
+    <span class="ruby-comment cmt"># Must store option chars in alphabetical order</span>
+    <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">serialize_cstr</span>(<span class="ruby-identifier">buf</span>, <span class="ruby-identifier">options_str</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">//</span>).<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">uniq</span>.<span class="ruby-identifier">join</span>)
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

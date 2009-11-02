@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: GridFS::GridStore::unlink
+is_singleton: true
+name: unlink
+params: (db, *names)
+visibility: public
